@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: DisplayPlayersGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: DisplayPlayersGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b93eeeae2de876a46940a8f4832fccef
+  m_SerializeEntries:
+  - m_GUID: 5c66024027bc898419d3a1f412273f62
+    m_Address: Test Player 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Display Player
+    - Player Display
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6713cae6ce140034084a9820e92f23a5
+    m_Address: Test Player 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Display Player
+    - Player Display
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 724535ba53cf5f54b86bc49ea121eec6
+    m_Address: Test Player 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Display Player
+    - Player Display
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8946206b53783e14c84403b68d218358
+    m_Address: Horizon Ripoff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player Display
+    m_MainAsset: {fileID: 3085069532328046997, guid: 8946206b53783e14c84403b68d218358, type: 3}
+    m_TargetAsset: {fileID: 3085069532328046997, guid: 8946206b53783e14c84403b68d218358, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 76b958b98e2acfc449c511ae338f0466, type: 2}
+    - {fileID: 11400000, guid: 75380b72e441c014a974a48afeadf2dc, type: 2}
