@@ -29,6 +29,7 @@ public class JetPlayerController : PlayerController
     {
         base.UnPossess_F();
         PlayerCamera.OnUnPossess_F();
+        
     }
 }
 
@@ -61,7 +62,7 @@ public abstract class PlayerController : MonoBehaviour
         pawn.OnPossess_F(this);
 
         player_InputAction.Enable();
-        pawn.SetupInput_F(player_InputAction);
+        pawn.InputSetup_F(player_InputAction);
     }
 
     public virtual void UnPossess_F()
@@ -69,6 +70,7 @@ public abstract class PlayerController : MonoBehaviour
         if (!IsPossessed) return;
 
         player_InputAction.Disable();
+        PossessedPawn.InputDesetup_F(player_InputAction);
         PossessedPawn.OnUnPossess_F();
         m_PossessedPawn = null;
     }

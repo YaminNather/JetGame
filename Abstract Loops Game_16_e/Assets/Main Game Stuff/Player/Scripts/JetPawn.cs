@@ -48,7 +48,7 @@ public class JetPawn : Pawn
         playerHitboxGObj.SetActive(false);
     }
 
-    public override void SetupInput_F(Player_InputAction player_InputAction)
+    public override void InputSetup_F(Player_InputAction player_InputAction)
     {
 #if UNITY_EDITOR
         Cursor.lockState = CursorLockMode.Locked;
@@ -58,6 +58,17 @@ public class JetPawn : Pawn
         player_InputAction.Player.MoveWithMouse.performed += MoveWithMouse_IEF;
         player_InputAction.Player.Invincibility_Toggle.performed += InvincibilityToggle_IEF;
         //player_InputAction.Player.Move.canceled += MoveInput_EF;
+    }
+
+    public override void InputDesetup_F(Player_InputAction player_InputAction)
+    {
+#if UNITY_EDITOR
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+#endif
+        player_InputAction.Player.Move.performed -= MoveInput_IEF;
+        player_InputAction.Player.MoveWithMouse.performed -= MoveWithMouse_IEF;
+        player_InputAction.Player.Invincibility_Toggle.performed -= InvincibilityToggle_IEF;
     }
 
     private void MoveInput_IEF(InputAction.CallbackContext ctx)
@@ -173,7 +184,13 @@ public abstract class Pawn : MonoBehaviour
     /// Use to add input bindings to Pawn functions when being possessed so that Pawn can be controlled by player input.
     /// </summary>
     /// <param name="player_InputAction"></param>
-    public virtual void SetupInput_F(Player_InputAction player_InputAction) { }
+    public virtual void InputSetup_F(Player_InputAction player_InputAction) { }
+
+    /// <summary>
+    /// Use to remove input bindings to Pawn functions when being possessed so that Pawn is no longer controlled by player input.
+    /// </summary>
+    /// <param name="player_InputAction"></param>
+    public virtual void InputDesetup_F(Player_InputAction player_InputAction) { }
 
     /// <summary>
     /// Use to lower Pawn's health. When Pawn health reaches zero OnHealthZero_E event is called to notify subscribers that Pawn health is outu.
