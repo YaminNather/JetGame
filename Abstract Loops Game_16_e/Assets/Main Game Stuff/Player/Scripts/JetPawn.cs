@@ -85,7 +85,7 @@ public class JetPawn : Pawn
             return;
 
         Vector2 value = ctx.ReadValue<Vector2>();
-        float deltaMax = 40f;
+        float deltaMax = 30f;
         value.x = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(-deltaMax, deltaMax, value.x));
         value.y = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(-deltaMax, deltaMax, value.y));
 
@@ -156,6 +156,7 @@ public class JetPawn : Pawn
 
 public abstract class Pawn : MonoBehaviour
 {
+    #region Variables
     protected PlayerController m_PlayerController;
 
     public bool IsPossessed { get => m_PlayerController != null; }
@@ -164,6 +165,7 @@ public abstract class Pawn : MonoBehaviour
     public int Health { get => m_Health; }
     public System.Action HealthOnReachedZero_E;
     public System.Action OnDeath_E;
+    #endregion
 
     /// <summary>
     /// Executes when Pawn is being possessed by a PlayerController 
