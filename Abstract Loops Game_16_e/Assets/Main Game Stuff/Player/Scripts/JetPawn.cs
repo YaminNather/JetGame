@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -49,7 +50,12 @@ public class JetPawn : Pawn
 
     public override void SetupInput_F(Player_InputAction player_InputAction)
     {
+#if UNITY_EDITOR
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+#endif
         player_InputAction.Player.Move.performed += MoveInput_IEF;
+        player_InputAction.Player.MoveWithMouse.performed += MoveWithMouse_IEF;
         player_InputAction.Player.Invincibility_Toggle.performed += InvincibilityToggle_IEF;
         //player_InputAction.Player.Move.canceled += MoveInput_EF;
     }
@@ -60,6 +66,21 @@ public class JetPawn : Pawn
 
         m_MovementInput.x = value.x;
         m_MovementInput.y = value.y;
+    }
+
+    private void MoveWithMouse_IEF(InputAction.CallbackContext ctx)
+    {        
+        if (Mouse.current.leftButton.IsPressed() == false)
+            return;
+
+        Vector2 value = ctx.ReadValue<Vector2>();
+        float deltaMax = 40f;
+        value.x = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(-deltaMax, deltaMax, value.x));
+        value.y = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(-deltaMax, deltaMax, value.y));
+
+        m_MovementInput.x = value.x;
+        m_MovementInput.y = value.y;
+        Debug.Log($"<color=cyan>Mouse Delta = {value}</color>");
     }
 
     private void InvincibilityToggle_IEF(InputAction.CallbackContext ctx)

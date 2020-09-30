@@ -42,6 +42,14 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveWithMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""f3cd7639-edf2-4030-9cfc-8cfe4bddd761"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -165,6 +173,17 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
                     ""action"": ""Invincibility_Toggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a863e41-c171-4007-b24b-a86c0212a412"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""K&M"",
+                    ""action"": ""MoveWithMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -198,6 +217,7 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Invincibility_Toggle = m_Player.FindAction("Invincibility_Toggle", throwIfNotFound: true);
+        m_Player_MoveWithMouse = m_Player.FindAction("MoveWithMouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,12 +279,14 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Invincibility_Toggle;
+    private readonly InputAction m_Player_MoveWithMouse;
     public struct PlayerActions
     {
         private @Player_InputAction m_Wrapper;
         public PlayerActions(@Player_InputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Invincibility_Toggle => m_Wrapper.m_Player_Invincibility_Toggle;
+        public InputAction @MoveWithMouse => m_Wrapper.m_Player_MoveWithMouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -280,6 +302,9 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
                 @Invincibility_Toggle.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInvincibility_Toggle;
                 @Invincibility_Toggle.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInvincibility_Toggle;
                 @Invincibility_Toggle.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInvincibility_Toggle;
+                @MoveWithMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveWithMouse;
+                @MoveWithMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveWithMouse;
+                @MoveWithMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveWithMouse;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -290,6 +315,9 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
                 @Invincibility_Toggle.started += instance.OnInvincibility_Toggle;
                 @Invincibility_Toggle.performed += instance.OnInvincibility_Toggle;
                 @Invincibility_Toggle.canceled += instance.OnInvincibility_Toggle;
+                @MoveWithMouse.started += instance.OnMoveWithMouse;
+                @MoveWithMouse.performed += instance.OnMoveWithMouse;
+                @MoveWithMouse.canceled += instance.OnMoveWithMouse;
             }
         }
     }
@@ -316,5 +344,6 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInvincibility_Toggle(InputAction.CallbackContext context);
+        void OnMoveWithMouse(InputAction.CallbackContext context);
     }
 }
