@@ -15,7 +15,10 @@ public class JetPawn : Pawn
     private int m_PlayersLayerMask;
     private int m_BlocksLayerMask;
     private bool m_IsInvincible;
-    public bool IsInvincible { get => m_IsInvincible; set => m_IsInvincible = value; }    
+    public bool IsInvincible { get => m_IsInvincible; set => m_IsInvincible = value; }
+
+    private Material m_DefMat;
+    [SerializeField] private Material m_InvincibilityMat;
     #endregion
 
     private void Awake()
@@ -27,10 +30,36 @@ public class JetPawn : Pawn
         playerHitboxGObj.SetActive(false);
         HealthMaxOut_F();
         HealthOnReachedZero_E += Kill_EF;
+        SetupMaterialFields_F();
+    }
+
+    private void SetupMaterialFields_F()
+    {
+        m_DefMat = GetComponentInChildren<MeshRenderer>().sharedMaterial;
+        if (m_InvincibilityMat != null)
+        {
+            m_InvincibilityMat = Instantiate(m_InvincibilityMat);
+            m_InvincibilityMat.SetTexture("_WireframeTexture", m_DefMat.GetTexture("_WireframeTexture"));
+            m_InvincibilityMat.SetFloat("_EmissionStrength", m_DefMat.GetFloat("_EmissionStrength"));
+        }
     }
 
     public void Update()
     {
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if (m_IsInvincible == false)
+            {
+                Debug.Log("Called InvincibilityStart_F()");
+                InvincibilityStart_F();
+            }
+            else 
+            {
+                Debug.Log("Called InvincibilityStop_F()");
+                InvincibilityStop_F();
+            }
+        }
+
         Move_F(m_MovementInput);
     }
 
@@ -51,8 +80,8 @@ public class JetPawn : Pawn
     public override void InputSetup_F(Player_InputAction player_InputAction)
     {
 #if UNITY_EDITOR
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 #endif
         player_InputAction.Player.Move.performed += MoveInput_IEF;
         player_InputAction.Player.MoveWithMouse.performed += MoveWithMouse_IEF;
@@ -63,8 +92,8 @@ public class JetPawn : Pawn
     public override void InputDesetup_F(Player_InputAction player_InputAction)
     {
 #if UNITY_EDITOR
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
 #endif
         player_InputAction.Player.Move.performed -= MoveInput_IEF;
         player_InputAction.Player.MoveWithMouse.performed -= MoveWithMouse_IEF;
@@ -91,7 +120,6 @@ public class JetPawn : Pawn
 
         m_MovementInput.x = value.x;
         m_MovementInput.y = value.y;
-        Debug.Log($"<color=cyan>Mouse Delta = {value}</color>");
     }
 
     private void InvincibilityToggle_IEF(InputAction.CallbackContext ctx)
@@ -111,12 +139,33 @@ public class JetPawn : Pawn
     {
         Physics.IgnoreLayerCollision(m_PlayersLayerMask, m_BlocksLayerMask, true);
         m_IsInvincible = true;
+
+        MaterialSwitchToInvincibilityMat_F();
+    }
+    
+    private void MaterialSwitchToInvincibilityMat_F()
+    {
+        if (m_InvincibilityMat == null)
+            return;
+
+        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
+        mr.sharedMaterial = m_InvincibilityMat;
     }
 
     public void InvincibilityStop_F()
     {
         Physics.IgnoreLayerCollision(m_PlayersLayerMask, m_BlocksLayerMask, false);
         m_IsInvincible = false;
+        MaterialSwitchToDefaultMat_F();
+    }
+    
+    private void MaterialSwitchToDefaultMat_F()
+    {
+        if (m_InvincibilityMat == null)
+            return;
+
+        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
+        mr.material = m_DefMat;        
     }
 
     private void Kill_EF()

@@ -4856,6 +4856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf9b69b756d15a42b2d47190f2ed090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_InvincibilityMat: {fileID: 2100000, guid: 53766fac89be13d43a55ee96b19d9bb1, type: 2}
 --- !u!114 &-3528691908407670503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4883,12 +4884,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635930a327e797b4bb68edc2c1f8d580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accel: 90
-  Deccel: 20
-  VelocityMax: {x: 10, y: 10, z: 30}
-  MovementRadius: 3
-  RotationMaxX: 20
-  RotationMaxZ: 45
+  m_Accel: 90
+  m_Deccel: 20
+  m_VelocityMax: {x: 10, y: 10, z: 30}
+  m_MovementRadius: 3
+  m_RotationMaxX: 20
+  m_RotationMaxZ: 45
 --- !u!54 &3851083350224478505
 Rigidbody:
   m_ObjectHideFlags: 0
