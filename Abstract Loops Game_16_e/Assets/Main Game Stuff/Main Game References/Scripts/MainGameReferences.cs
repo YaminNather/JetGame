@@ -11,6 +11,7 @@ public class MainGameReferences : MonoBehaviour
     public MainGameMgr mainGameMgr;
     public JetPlayerController playerController;
     public JetPawn player;
+    public PlayerExplosionPSMgr playerExplosionPSMgr;
     public Image LoopTransition;
     public LoopsMgr loopsMgr;
     public LevelsMgr levelsMgr;

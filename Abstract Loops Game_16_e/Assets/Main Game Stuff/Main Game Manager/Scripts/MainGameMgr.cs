@@ -60,7 +60,14 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void OnPlayerDeath_EF()
     {
-        m_PlayerDeathCount++;        
+        m_PlayerDeathCount++;
+
+        StartCoroutine(OnPlayerDeath_IEF());
+    }
+
+    private IEnumerator OnPlayerDeath_IEF()
+    {
+        yield return new WaitForSeconds(2f);
         if (m_PlayerDeathCount == 1) TransitionToRevive_F();
         else if (m_PlayerDeathCount > 1) TransitionToScoreDisplay_F();
     }
