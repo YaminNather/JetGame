@@ -83,14 +83,15 @@ public class MainGameMgr : MonoBehaviour
             MainGameReferences mgr = MainGameReferences.s_Instance;
             Image LoopTransition = mgr.LoopTransition;
             LoopTransition.color = LoopTransition.color.With(a: val);
-        }, 1f, 1f).OnComplete(() =>
-        {
-            MainGameReferences mgr = MainGameReferences.s_Instance;
-            mgr.levelsMgr.LevelsDespawnAll_F();
-            ReviveMgr reviveMgr = mgr.reviveMgr;
-            reviveMgr.OnReviveEnd_E += OnReviveProcessEnd_EF;
-            reviveMgr.gameObject.SetActive(true);
-        });                
+        }, 1f, 1f)
+            .OnComplete(() =>
+            {
+                MainGameReferences mgr = MainGameReferences.s_Instance;
+                mgr.levelsMgr.LevelsDespawnAll_F();
+                ReviveMgr reviveMgr = mgr.reviveMgr;
+                reviveMgr.m_OnReviveEnd_E += OnReviveProcessEnd_EF;
+                reviveMgr.gameObject.SetActive(true);
+            });                
     }
 
     /// <summary>

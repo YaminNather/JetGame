@@ -1,29 +1,52 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReviveMgr : MonoBehaviour
 {
-    [SerializeField] private float ReviveTime = 2f;
-    private Coroutine ReviveTimer_Corout;
-    public System.Action<bool> OnReviveEnd_E;
+    #region Variables
+    [SerializeField] private int m_ReviveTime = 3;
+    [SerializeField] private Image m_FullPulse_Image;
+    [SerializeField] private Image m_NoPulse_Image;
+    [SerializeField] private GameObject m_ReviveBtnGObj;
+    private Sequence m_Pulse_Seq;
+    public System.Action<bool> m_OnReviveEnd_E;
+    #endregion
 
     private void OnEnable()
     {
-        ReviveTimer_Corout = MainGameReferences.s_Instance.mainGameMgr.StartCoroutine(ReviveTimer_IEF());
-    }
-
-    private IEnumerator ReviveTimer_IEF()
-    {
-        yield return new WaitForSeconds(ReviveTime);
-        OnReviveEnd_E?.Invoke(false);
-        gameObject.SetActive(false);
-    }
+        m_ReviveBtnGObj.SetActive(true);
+        m_FullPulse_Image.gameObject.SetActive(true);
+        m_NoPulse_Image.gameObject.SetActive(false);
+        m_Pulse_Seq = DOTween.Sequence();
+        m_FullPulse_Image.color = m_NoPulse_Image.color  = new Color(0f, 0f, 0f);        
+        for(int i = 0; i < m_ReviveTime; i++)
+        {
+            m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
+            m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
+        }
+        m_Pulse_Seq.AppendCallback(() =>
+        {
+            m_ReviveBtnGObj.SetActive(false);
+            m_FullPulse_Image.gameObject.SetActive(false);
+            m_NoPulse_Image.gameObject.SetActive(true);            
+        });
+        m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
+        m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
+        m_Pulse_Seq.AppendCallback(() =>
+        {
+            m_OnReviveEnd_E?.Invoke(false);
+            gameObject.SetActive(false);
+        });
+    } 
 
     public void Revive_BEF()
     {
-        StopCoroutine(ReviveTimer_Corout);
-        OnReviveEnd_E?.Invoke(true);
+        if (m_Pulse_Seq.IsActive())
+            m_Pulse_Seq.Kill();
+        m_OnReviveEnd_E?.Invoke(true);
         gameObject.SetActive(false);
     }
 }
