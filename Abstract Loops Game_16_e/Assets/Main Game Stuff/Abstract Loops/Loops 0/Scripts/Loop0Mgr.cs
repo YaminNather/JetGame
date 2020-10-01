@@ -2,36 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// This loop keeps rotating and changing the global hue.
+/// </summary>
 public class Loop0Mgr : LoopMgrBase
 {
     #region Variables
-    [SerializeField] private Material Skybox_Mat;
+    [SerializeField] private Material m_Skybox_Mat;
 
-    private Transform Loop;
-    private float Hue;
+    private Transform m_LoopPartsHolder;
+    private float m_Hue;
+
+    private Hitbox[] m_LoopEndHitboxes;
+    public Hitbox[] LoopEndHitboxes { get => m_LoopEndHitboxes; }
     #endregion
 
     protected override void Awake()
     {
         base.Awake();
-        Loop = transform.GetChild(0);
-                
+        m_LoopPartsHolder = transform.GetChild(0);
+
+        m_LoopEndHitboxes = GetComponentsInChildren<Hitbox>();
+        m_LoopEndHitboxes[0].ListenerAdd_F(LoopPart0EndHitboxOnEnter_EF);
+        m_LoopEndHitboxes[1].ListenerAdd_F(LoopPart1EndHitboxOnEnter_EF);
     }
 
     public override void OnSpawn_F()
     {
-        Hue = Random.Range(0f, 1f);
-        RenderSettings.skybox = Skybox_Mat;
+        m_Hue = Random.Range(0f, 1f);
+        RenderSettings.skybox = m_Skybox_Mat;
     }
 
     private void Update()
     {
-        Hue += 0.1f * Time.deltaTime;
-        if (Hue >= 1f) Hue = 0f;
+        m_Hue += 0.1f * Time.deltaTime;
+        if (m_Hue >= 1f) m_Hue = 0f;
+        MainGameReferences.s_Instance.colorMgr.Hue0 = m_Hue;
+        m_LoopPartsHolder.Rotate(0f, 0f, 90f * Time.deltaTime);
+    }    
+    
+    private void LoopPart0EndHitboxOnEnter_EF(Collider other)
+    {
+        if(other.TryGetComponent(out PlayerHitbox ph))
+        {
+            LoopPartMove_F(m_LoopEndHitboxes[0], m_LoopEndHitboxes[1]);
+        }
+    }
 
-        //Skybox_Mat.SetColor("_BaseColor", Color.HSVToRGB(Hue, 1f, 0.2f));
-        //Loop_Mat.SetColor("_BaseColor", Color.HSVToRGB(Hue, 1f, 1f));
-        MainGameReferences.s_Instance.colorMgr.Hue0 = Hue;
-        Loop.Rotate(0f, 0f, 90f * Time.deltaTime);
+    private void LoopPart1EndHitboxOnEnter_EF(Collider other)
+    {
+        if (other.TryGetComponent(out PlayerHitbox ph))
+        {
+            LoopPartMove_F(m_LoopEndHitboxes[1], m_LoopEndHitboxes[0]);
+        }
+    }
+
+    private void LoopPartMove_F(Hitbox loopPart0EndHitbox, Hitbox loopPart1EndHitbox)
+    {
+        loopPart0EndHitbox.transform.parent.position = loopPart1EndHitbox.transform.position;
     }
 }

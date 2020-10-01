@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class LoopEndHitbox : Hitbox
 {
-    private LoopMgrBase Loop;
+    #region Variables
+    private Loop0Mgr m_LoopMgr;
+
+    private int m_ID;
+    public int ID { get => m_ID; set => m_ID = value; }
+    #endregion
 
     protected override void Awake()
     {
         base.Awake();
 
-        Loop = GetComponentInParent<LoopMgrBase>();
-        if(Loop) ListenerAdd_F(LoopEndHitboxOnEnter_EF);
+        m_LoopMgr = GetComponentInParent<Loop0Mgr>();
+        ListenerAdd_F(LoopEndHitboxOnEnter_EF);
     }
 
     private void LoopEndHitboxOnEnter_EF(Collider other)
     {
         if(other.TryGetComponent(out PlayerHitbox ph))
         {
-            if (MainGameReferences.s_Instance != null) MainGameReferences.s_Instance.loopsMgr.LoopDespawn_F(Loop);
+            transform.position = m_LoopMgr.LoopEndHitboxes[(ID == 0) ? 1 : 0].transform.position + Vector3.forward * 5f;
         }
     }
 }

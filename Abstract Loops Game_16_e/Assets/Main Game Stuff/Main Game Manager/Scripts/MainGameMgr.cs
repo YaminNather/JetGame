@@ -44,7 +44,7 @@ public class MainGameMgr : MonoBehaviour
         mgr.playerController.Possess_F(spawnedPlayer);
 
         //Getting all loops and levels from their database.
-        mgr.loopsMgr.LoopsAssignAll_F();
+        mgr.loopsMgr.LoopsFieldSetup_F();
         mgr.levelsMgr.LevelsAssignAll_F();
 
         //Spawning the first loops and levels.

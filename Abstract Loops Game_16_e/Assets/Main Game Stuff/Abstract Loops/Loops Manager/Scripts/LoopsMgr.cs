@@ -8,7 +8,7 @@ public class LoopsMgr : MonoBehaviour
 {
     #region Variables
     private LoopMgrBase[] m_Loops;
-    [SerializeField] private AnimationCurve LoopTransition_AC;
+    //[SerializeField] private AnimationCurve LoopTransition_AC;
 
     private readonly Vector3 NullPos = new Vector3(-999f, -999f, -999f);
     #endregion
@@ -16,7 +16,7 @@ public class LoopsMgr : MonoBehaviour
     /// <summary>
     /// Get All Loops from the Loops Database and assign it to m_Loops.
     /// </summary>
-    public void LoopsAssignAll_F()
+    public void LoopsFieldSetup_F()
     {
         m_Loops = GlobalDatabaseInitializer.s_Instance.loopsDatabase.Loops.ToArray();
     }
@@ -48,7 +48,7 @@ public class LoopsMgr : MonoBehaviour
         loop.OnSpawn_F();
         loop.transform.position = new Vector3(0f, 0f, player.transform.position.z - 5f);
         loop.IsSpawned = true;
-        loop.EndHitbox.ListenerAdd_F(LoopEndHitboxOnEnter_EF);
+        //loop.EndHitbox.ListenerAdd_F(LoopEndHitboxOnEnter_EF);
     }
 
     /// <summary>
@@ -60,9 +60,12 @@ public class LoopsMgr : MonoBehaviour
         loop.OnDespawn_F();
         loop.IsSpawned = false;
         loop.gameObject.SetActive(false);
-        loop.EndHitbox.ListenerRemove_F(LoopEndHitboxOnEnter_EF);
+        //loop.EndHitbox.ListenerRemove_F(LoopEndHitboxOnEnter_EF);
     }
 
+    /// <summary>
+    /// Despawns all spawned loops.
+    /// </summary>
     public void LoopsAllDespawn_F()
     {
         foreach(LoopMgrBase loop in m_Loops)
@@ -75,19 +78,19 @@ public class LoopsMgr : MonoBehaviour
     /// Adds this function to the loops End hitbox to tell it to white out the screen and spawn next loop.
     /// </summary>
     /// <param name="collider"></param>
-    private void LoopEndHitboxOnEnter_EF(Collider collider)
-    {
-        if (collider.TryGetComponent(out PlayerHitbox ph))
-        {
-            Sequence Seq_00 = DOTween.Sequence();
-            Seq_00.Append(DOTween.To(() => 0f, val =>
-            {
-                UnityEngine.UI.Image loopTransition = MainGameReferences.s_Instance.LoopTransition;
-                loopTransition.color = loopTransition.color.With(a: val);
-            }, 1f, 2f).SetEase(LoopTransition_AC));
-            Seq_00.InsertCallback(0f, () => (MainGameReferences.s_Instance.playerController.PossessedPawn as JetPawn).InvincibilityStart_F());
-            Seq_00.InsertCallback(1f, RandomLoopSpawn_F);
-            Seq_00.InsertCallback(2f, () => (MainGameReferences.s_Instance.playerController.PossessedPawn as JetPawn).InvincibilityStop_F());
-        }
-    }
+    //private void LoopEndHitboxOnEnter_EF(Collider collider)
+    //{
+    //    if (collider.TryGetComponent(out PlayerHitbox ph))
+    //    {
+    //        Sequence Seq_00 = DOTween.Sequence();
+    //        Seq_00.Append(DOTween.To(() => 0f, val =>
+    //        {
+    //            UnityEngine.UI.Image loopTransition = MainGameReferences.s_Instance.LoopTransition;
+    //            loopTransition.color = loopTransition.color.With(a: val);
+    //        }, 1f, 2f).SetEase(LoopTransition_AC));
+    //        Seq_00.InsertCallback(0f, () => (MainGameReferences.s_Instance.playerController.PossessedPawn as JetPawn).InvincibilityStart_F());
+    //        Seq_00.InsertCallback(1f, RandomLoopSpawn_F);
+    //        Seq_00.InsertCallback(2f, () => (MainGameReferences.s_Instance.playerController.PossessedPawn as JetPawn).InvincibilityStop_F());
+    //    }
+    //}
 }
