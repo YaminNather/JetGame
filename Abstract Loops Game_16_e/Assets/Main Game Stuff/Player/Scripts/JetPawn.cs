@@ -110,8 +110,8 @@ public class JetPawn : Pawn
 
     private void MoveWithMouse_IEF(InputAction.CallbackContext ctx)
     {        
-        if (Mouse.current.leftButton.IsPressed() == false)
-            return;
+        //if (Mouse.current.leftButton.IsPressed() == false)
+        //    return;
 
         Vector2 value = ctx.ReadValue<Vector2>();
         float deltaMax = 30f;

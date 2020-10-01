@@ -184,6 +184,17 @@ public partial class @Player_InputAction : IInputActionCollection2, IDisposable
                     ""action"": ""MoveWithMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13d6a002-957d-414a-ae42-8ce306285503"",
+                    ""path"": ""<Touchscreen>/touch*/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""MoveWithMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
