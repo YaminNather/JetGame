@@ -30,6 +30,7 @@ public class Loop0Mgr : LoopMgrBase
 
     public override void OnSpawn_F()
     {
+        Reset_F();
         m_Hue = Random.Range(0f, 1f);
         RenderSettings.skybox = m_Skybox_Mat;
     }
@@ -61,5 +62,12 @@ public class Loop0Mgr : LoopMgrBase
     private void LoopPartMove_F(Hitbox loopPart0EndHitbox, Hitbox loopPart1EndHitbox)
     {
         loopPart0EndHitbox.transform.parent.position = loopPart1EndHitbox.transform.position;
+    }
+    
+    private void Reset_F()
+    {
+        m_LoopPartsHolder.rotation = Quaternion.identity;
+        m_LoopEndHitboxes[0].transform.parent.position = Vector3.zero;
+        m_LoopEndHitboxes[1].transform.parent.position = Vector3.forward * 500f;
     }
 }
