@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WireframeTexture:
-        m_Texture: {fileID: 2800000, guid: 85d206540f11de14e8cc318d87674b8b, type: 3}
+        m_Texture: {fileID: 2800000, guid: fc16ce8689221a14680420fd47c1fd53, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Wireframe_Texture:
