@@ -19,6 +19,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         if (s_Instance != null)
         {
             Destroy(gameObject);
