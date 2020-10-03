@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BlockComponentRotation : LevelComponent
 {
+    #region Variables
     [SerializeField] private Vector3 RotateSpeed;
+    #endregion
 
     private void Update()
     {
@@ -13,6 +15,6 @@ public class BlockComponentRotation : LevelComponent
 
     public override void Reset_F()
     {
-        transform.rotation = Quaternion.identity;
+        transform.localRotation = Quaternion.identity;
     }
 }

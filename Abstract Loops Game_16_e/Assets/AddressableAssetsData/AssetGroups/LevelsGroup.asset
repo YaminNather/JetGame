@@ -17,6 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 348297743d430d1428e7c9632b270a6a
   m_SerializeEntries:
+  - m_GUID: 45978002478d4d5419b4ccde38584218
+    m_Address: Level 2_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 45978002478d4d5419b4ccde38584218, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 45978002478d4d5419b4ccde38584218, type: 3}
   - m_GUID: 6029b0fbbcfa1214db9f3c358f58b288
     m_Address: Level 1_Prefab
     m_ReadOnly: 0

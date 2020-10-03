@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3950404756269545602}
   - component: {fileID: 1316743980833647766}
+  - component: {fileID: -6244531017469799563}
   m_Layer: 10
   m_Name: Single Semi Circle_Prefab
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateSpeed: {x: 0, y: 0, z: 30}
+--- !u!114 &-6244531017469799563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950404756269545601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752be06eabee73243a2cf1a3b4656b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3950404756430913918
 GameObject:
   m_ObjectHideFlags: 0
