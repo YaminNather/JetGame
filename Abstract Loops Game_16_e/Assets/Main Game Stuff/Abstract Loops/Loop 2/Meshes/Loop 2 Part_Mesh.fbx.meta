@@ -7,12 +7,22 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Circles_Material
+    second: {fileID: 2100000, guid: 7790c60cbee74fe4a942b6933b27e65f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Color 0_Material
     second: {fileID: 2100000, guid: 7790c60cbee74fe4a942b6933b27e65f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Color 1_Material
+    second: {fileID: 2100000, guid: 8deb122804ecd2d4e8966ef3e88a6e18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lines_Material
     second: {fileID: 2100000, guid: 8deb122804ecd2d4e8966ef3e88a6e18, type: 2}
   materials:
     materialImportMode: 2

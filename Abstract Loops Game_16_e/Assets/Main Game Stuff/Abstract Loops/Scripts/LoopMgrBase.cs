@@ -59,6 +59,6 @@ public class LoopMgrBase : MonoBehaviour
     protected virtual void Reset_F()
     {
         m_LoopEndHitboxes[0].transform.parent.position = Vector3.zero;
-        m_LoopEndHitboxes[1].transform.parent.position = Vector3.forward * 500f;
+        m_LoopEndHitboxes[1].transform.parent.position = m_LoopEndHitboxes[0].transform.position;
     }
 }
