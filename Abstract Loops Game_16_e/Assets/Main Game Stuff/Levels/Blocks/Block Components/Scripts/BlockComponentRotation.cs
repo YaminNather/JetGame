@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlockComponentRotation : LevelComponent
 {
     #region Variables
-    [SerializeField] private Vector3 RotateSpeed;
+    [SerializeField] private Vector3 RotateSpeed = new Vector3(0f, 0f, 20f);
     #endregion
 
     private void Update()

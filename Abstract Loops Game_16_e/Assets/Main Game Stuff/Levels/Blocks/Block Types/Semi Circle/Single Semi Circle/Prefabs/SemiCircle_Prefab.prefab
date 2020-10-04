@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3950404756269545602}
-  - component: {fileID: 1316743980833647766}
   - component: {fileID: -6244531017469799563}
   m_Layer: 10
   m_Name: Single Semi Circle_Prefab
@@ -25,27 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3950404756269545601}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3950404756430913919}
+  - {fileID: 7750824109897306148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1316743980833647766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3950404756269545601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a06576a9de166a459ba00b1a3681b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotateSpeed: {x: 0, y: 0, z: 30}
 --- !u!114 &-6244531017469799563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3950404756430913919}
   m_Layer: 10
-  m_Name: Mesh Holder
+  m_Name: Fan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +72,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3555610937651410264}
-  m_Father: {fileID: 3950404756269545602}
+  m_Father: {fileID: 7750824109897306148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3684865751560783977
@@ -101,6 +87,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786b25bdcc907e74796fff7428950a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7452987836343950400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7750824109897306148}
+  m_Layer: 0
+  m_Name: Fan Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7750824109897306148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452987836343950400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3950404756430913919}
+  m_Father: {fileID: 3950404756269545602}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3950404757143278259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ce759ef0fe7bfe547a100c55cce67941, type: 3}
       propertyPath: m_Name
-      value: Semi Circle_0
+      value: Blade
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ce759ef0fe7bfe547a100c55cce67941, type: 3}
       propertyPath: m_Layer

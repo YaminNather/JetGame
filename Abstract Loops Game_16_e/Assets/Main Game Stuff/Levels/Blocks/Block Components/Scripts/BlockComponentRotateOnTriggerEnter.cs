@@ -8,7 +8,7 @@ public class BlockComponentRotateOnTriggerEnter : LevelComponent
     [SerializeField] private Hitbox m_Hitbox;
     
     private bool m_ToRotate;
-    [SerializeField] private float m_RotationSpeed;
+    [SerializeField] private float m_RotationSpeed = 20f;
     #endregion
 
     private void Awake() => m_Hitbox.ListenerAdd_F(HitboxOnEnter_EF);    
