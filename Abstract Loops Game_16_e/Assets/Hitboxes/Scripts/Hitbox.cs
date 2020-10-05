@@ -51,7 +51,7 @@ public partial class Hitbox : MonoBehaviour
 #if UNITY_EDITOR
 public partial class Hitbox : MonoBehaviour
 {
-    [MenuItem("GameObject/Hitboxes/Box Hitbox", false, priority = 10)]
+    [MenuItem("GameObject/Custom/Hitboxes/Box Hitbox", false, priority = 10)]
     public static void BoxHitboxCreateMenuItem_F(MenuCommand menuCommand)
     {
         GameObject createdGObj = new GameObject("Box Hitbox", new System.Type[] { typeof(BoxCollider), typeof(Hitbox) });
@@ -60,7 +60,6 @@ public partial class Hitbox : MonoBehaviour
         GameObjectUtility.SetParentAndAlign(createdGObj, menuCommand.context as GameObject);
         Undo.RegisterCreatedObjectUndo(createdGObj, "Created a box Hitbox");
         Selection.activeGameObject = createdGObj;
-        Debug.Log($"menuCommand.context = {menuCommand.context}", menuCommand.context);
     }
 }
 

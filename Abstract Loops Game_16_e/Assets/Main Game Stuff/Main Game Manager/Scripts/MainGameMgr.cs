@@ -49,10 +49,7 @@ public class MainGameMgr : MonoBehaviour
 
         //Spawning the first loops and levels.
         mgr.loopsMgr.RandomLoopSpawn_F();
-        mgr.levelsMgr.RandomLevelSpawn_F();
-
-        //After all setup is done, start recording score.
-        mgr.scoreMgr.ScoreRecordingStart_F(mgr.playerController);
+        mgr.levelsMgr.RandomLevelSpawn_F();        
     }    
 
     /// <summary>
@@ -77,7 +74,6 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void TransitionToRevive_F()
     {
-        MainGameReferences.s_Instance.scoreMgr.ScoreRecordingStop_F();
         DOTween.To(() => 0f, val =>
         {
             MainGameReferences mgr = MainGameReferences.s_Instance;
@@ -121,7 +117,6 @@ public class MainGameMgr : MonoBehaviour
         player.Revive_F();
         JetPlayerController playerController = MainGameReferences.s_Instance.playerController;
         playerController.Possess_F(player);
-        MainGameReferences.s_Instance.scoreMgr.ScoreRecordingStart_F(playerController);
         MainGameReferences.s_Instance.levelsMgr.PlayerJustRevived = true;
         MainGameReferences.s_Instance.levelsMgr.RandomLevelSpawn_F();
     }
