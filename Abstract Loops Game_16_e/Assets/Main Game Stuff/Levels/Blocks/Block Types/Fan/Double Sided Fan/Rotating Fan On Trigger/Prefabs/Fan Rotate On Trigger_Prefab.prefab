@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6168530494982552166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089316478530367702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a6d4daa3ac48bb4da15e10caf79b0e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Hitbox: {fileID: 6015394546615865488}
-  m_RotationSpeed: 20
 --- !u!1 &918927807462880781
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +60,20 @@ MonoBehaviour:
   m_Trigger_E:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6168530494982552166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089316478530367702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6d4daa3ac48bb4da15e10caf79b0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Hitbox: {fileID: 6015394546615865488}
+  m_RotationSpeed: 60
 --- !u!1001 &670842582028677470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2176134957966460025, guid: 12cf8aebe78f1a546bf2bb759dcb08ff, type: 3}
       propertyPath: m_Name
-      value: Double Sided Fan Rotate On Trigger_Prefab
+      value: Fan Rotate On Trigger_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7990246835548908113, guid: 12cf8aebe78f1a546bf2bb759dcb08ff, type: 3}
       propertyPath: m_LocalPosition.x

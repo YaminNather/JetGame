@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1692334147565057319, guid: c99e227dd40dffc41a85522a80ba7125, type: 3}
       propertyPath: m_Name
-      value: Double Sided Fan Rotate On Trigger_Prefab
+      value: Fan Rotate On Trigger Easy_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7470417279399926543, guid: c99e227dd40dffc41a85522a80ba7125, type: 3}
       propertyPath: m_LocalPosition.x

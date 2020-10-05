@@ -63,7 +63,6 @@ public partial class Hitbox : MonoBehaviour
         Debug.Log($"menuCommand.context = {menuCommand.context}", menuCommand.context);
     }
 }
-#endif
 
 public class EditorWindowUndoTest : EditorWindow
 { 
@@ -74,3 +73,4 @@ public class EditorWindowUndoTest : EditorWindow
         CreateWindow<EditorWindowUndoTest>();
     }
 }
+#endif

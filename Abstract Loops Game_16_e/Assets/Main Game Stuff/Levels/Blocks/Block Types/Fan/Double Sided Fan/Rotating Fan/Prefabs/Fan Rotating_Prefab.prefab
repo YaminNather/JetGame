@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a06576a9de166a459ba00b1a3681b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: {x: 0, y: 0, z: 20}
+  RotateSpeed: {x: 0, y: 0, z: 60}
 --- !u!1001 &7361597116878587384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,7 +22,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2176134957966460025, guid: 12cf8aebe78f1a546bf2bb759dcb08ff, type: 3}
       propertyPath: m_Name
-      value: Double Sided Fan Rotating_Prefab
+      value: Fan Rotating_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7990246835548908113, guid: 12cf8aebe78f1a546bf2bb759dcb08ff, type: 3}
       propertyPath: m_LocalPosition.x
