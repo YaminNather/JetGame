@@ -16,7 +16,7 @@ public class CurrencyMgr : LevelComponent
             if (MainGameReferences.s_Instance != null)
             {
                 MainGameReferences.s_Instance.scoreMgr.CurrencyAdd_F(1);
-                MainGameReferences.s_Instance.currencyPSMgr.DoBurst_F(transform.position);
+                MainGameReferences.s_Instance.currenciesMgr.DoCollectedAnim_F(transform.position);                
             }
             gameObject.SetActive(false);
         }

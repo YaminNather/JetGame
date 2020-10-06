@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrencyPSMgr : MonoBehaviour
+public class CurrenciesPSMgr : MonoBehaviour
 {
     private ParticleSystem m_ParticleSystem;
 
@@ -11,7 +11,7 @@ public class CurrencyPSMgr : MonoBehaviour
         m_ParticleSystem = GetComponent<ParticleSystem>();
     }
 
-    public void DoBurst_F(Vector3 pos)
+    public void BurstDo_F(Vector3 pos)
     {
         transform.position = pos;
         m_ParticleSystem.Play();
