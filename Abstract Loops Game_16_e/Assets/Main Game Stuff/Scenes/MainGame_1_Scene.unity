@@ -21975,6 +21975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreValue_Lbl: {fileID: 587848446}
   CurrencyValue_Lbl: {fileID: 877360108}
+  ScoreModifier: 100
 --- !u!223 &1479427660
 Canvas:
   m_ObjectHideFlags: 0
