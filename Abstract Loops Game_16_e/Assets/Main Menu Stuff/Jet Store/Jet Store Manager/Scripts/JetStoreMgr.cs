@@ -120,7 +120,7 @@ public class JetStoreMgr : Page
 
     public void CloseBtn_BEF()
     {
-        Close_F(MainMenuSceneReferences.s_Instance.mainMenuMgr);        
+        MainMenuSceneReferences.s_Instance.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.Main);
     }
     #endregion
 }

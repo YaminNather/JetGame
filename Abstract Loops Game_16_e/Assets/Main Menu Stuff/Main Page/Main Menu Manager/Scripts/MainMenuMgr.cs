@@ -35,7 +35,7 @@ public class MainMenuMgr : Page
 
     public void JetStoreBtn_BEF()
     {
-        Close_F(mmsr.jetStoreMgr);        
+        MainMenuSceneReferences.s_Instance.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.JetStore);     
     }
     #endregion
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreBoardMgr : MonoBehaviour
+public class ScoreBoardMgr : Page
 {
     #region Variables
     [SerializeField] private Text ScoreLastGameValue_Lbl;

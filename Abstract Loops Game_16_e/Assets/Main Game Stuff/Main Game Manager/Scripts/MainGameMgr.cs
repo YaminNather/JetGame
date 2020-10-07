@@ -141,7 +141,7 @@ public class MainGameMgr : MonoBehaviour
         {
             MainGameReferences.s_Instance.levelsMgr.LevelsDespawnAll_F();
             MainGameReferences.s_Instance.loopsMgr.LoopsAllDespawn_F();
-            gdi.globalData.MenuToOpen = Menus_EN.ScoreBoard;
+            gdi.globalData.m_MainMenuPageToOpen = MainMenuSceneMgr.Pages_EN.ScoreBoard;
             gdi.scenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
         });
     }

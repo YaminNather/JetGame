@@ -12,7 +12,7 @@ public class GlobalData : MonoBehaviour
     private string m_SaveFileName;
     private string SavePath { get => m_SaveDir + "/" + m_SaveFileName + ".txt"; }
 
-    public Menus_EN MenuToOpen;
+    public MainMenuSceneMgr.Pages_EN m_MainMenuPageToOpen;
     
     private SaveInfo m_SaveInfo;
 
@@ -36,7 +36,8 @@ public class GlobalData : MonoBehaviour
     #endregion
 
     private void Awake()
-    {        
+    {
+        m_MainMenuPageToOpen = MainMenuSceneMgr.Pages_EN.Main;
         //Storing a save path.        
         m_SaveDir = Application.persistentDataPath + "/Saves";
         m_SaveFileName = "TestSaveFile_0";
@@ -141,5 +142,3 @@ public class SaveInfo
         JetCur = "";        
     }
 }
-
-public enum Menus_EN { MainMenu, ScoreBoard}

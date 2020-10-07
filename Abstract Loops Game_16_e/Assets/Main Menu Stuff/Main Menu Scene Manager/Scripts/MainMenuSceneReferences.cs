@@ -7,6 +7,7 @@ public class MainMenuSceneReferences : MonoBehaviour
     #region Variables
     static public MainMenuSceneReferences s_Instance;
 
+    public MainMenuSceneMgr mainMenuSceneMgr;
     public MainMenuMgr mainMenuMgr;
     public ScoreBoardMgr scoreBoardMgr;
     public JetDisplayMgr jetDisplayMgr;

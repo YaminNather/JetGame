@@ -265,13 +265,14 @@ GameObject:
   - component: {fileID: 268040740}
   - component: {fileID: 268040739}
   - component: {fileID: 268040742}
+  - component: {fileID: 268040743}
   m_Layer: 5
   m_Name: Buy Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &268040738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -406,6 +407,73 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &268040743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268040737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 26
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &301299844
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,33 +644,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Order: 2
-  m_SlideInDir: 0
-  ToUseCurve: 1
-  m_Ease_AnimCurve:
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 0
+  m_EntryEaseType: 0
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
+      inSlope: 0
       outSlope: 1
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8387763
-      outSlope: -0.8387763
+      inSlope: 1
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12771744
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 0
 --- !u!1 &445470268
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +713,7 @@ GameObject:
   - component: {fileID: 445470271}
   - component: {fileID: 445470270}
   - component: {fileID: 445470273}
+  - component: {fileID: 445470274}
   m_Layer: 5
   m_Name: Left Btn
   m_TagString: Untagged
@@ -755,6 +853,74 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &445470274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445470268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 1
 --- !u!1 &446025003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1532,7 @@ GameObject:
   - component: {fileID: 799144751}
   - component: {fileID: 799144753}
   - component: {fileID: 799144752}
+  - component: {fileID: 799144754}
   m_Layer: 5
   m_Name: Jet Name Lbl
   m_TagString: Untagged
@@ -1434,6 +1601,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799144750}
   m_CullTransparentMesh: 0
+--- !u!114 &799144754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799144750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 1
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 2
 --- !u!1 &814330767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +2025,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2123012636}
+    - target: {fileID: 6257823776791381248, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6257823776791381249, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1877,6 +2116,10 @@ PrefabInstance:
     - target: {fileID: 6257823776791381250, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_Name
       value: Settings Btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257823776791381261, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6257823776791381263, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_Material
@@ -1989,6 +2232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044637444}
+  - component: {fileID: 1044637445}
   m_Layer: 5
   m_Name: Currency Holder
   m_TagString: Untagged
@@ -2017,6 +2261,73 @@ RectTransform:
   m_AnchoredPosition: {x: -109.82495, y: -50}
   m_SizeDelta: {x: 219.65002, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1044637445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044637443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1096642893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,33 +2420,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Order: 0
-  m_SlideInDir: 2
-  ToUseCurve: 1
-  m_Ease_AnimCurve:
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 0
+  m_EntryEaseType: 0
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
+      inSlope: 0
       outSlope: 1
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8387763
-      outSlope: -0.8387763
+      inSlope: 1
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12771744
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 2
 --- !u!1001 &1121981417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2313,6 +2653,8 @@ GameObject:
   - component: {fileID: 1193006630}
   - component: {fileID: 1193006629}
   - component: {fileID: 1193006632}
+  - component: {fileID: 1193006634}
+  - component: {fileID: 1193006633}
   m_Layer: 5
   m_Name: Back Btn
   m_TagString: Untagged
@@ -2452,6 +2794,141 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1193006633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193006627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 1
+--- !u!114 &1193006634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193006627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 0
+  m_EntryEaseType: 0
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1278221173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,32 +3076,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 1281179897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Order: 1
-  m_SlideInDir: 3
-  ToUseCurve: 1
-  m_Ease_AnimCurve:
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 1
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
+      inSlope: 0
       outSlope: 1
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8387763
-      outSlope: -0.8387763
+      inSlope: 1
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12771744
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 26
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -2770,32 +3275,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 1346764221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Order: 1
-  m_SlideInDir: 3
-  ToUseCurve: 1
-  m_Ease_AnimCurve:
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 1
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
+      inSlope: 0
       outSlope: 1
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8387763
-      outSlope: -0.8387763
+      inSlope: 1
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12771744
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 26
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -2814,32 +3347,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 1346789966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Order: 1
-  m_SlideInDir: 3
-  ToUseCurve: 1
-  m_Ease_AnimCurve:
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 1
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
+      inSlope: 0
       outSlope: 1
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8387763
-      outSlope: -0.8387763
+      inSlope: 1
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12771744
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 26
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -2857,13 +3418,14 @@ GameObject:
   - component: {fileID: 1350294708}
   - component: {fileID: 1350294707}
   - component: {fileID: 1350294706}
+  - component: {fileID: 1350294710}
   m_Layer: 5
   m_Name: Equip Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1350294705
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2997,6 +3559,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350294704}
   m_CullTransparentMesh: 0
+--- !u!114 &1350294710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350294704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 26
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1375828007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,33 +3912,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Order: 2
-  m_SlideInDir: 0
-  ToUseCurve: 1
-  m_Ease_AnimCurve:
+  m_Type: 0
+  m_StartTime: 0
+  m_EndTime: 0
+  m_EntryEaseType: 0
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
+      inSlope: 0
       outSlope: 1
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8387763
-      outSlope: -0.8387763
+      inSlope: 1
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12771744
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 0
 --- !u!1 &1458545677
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,7 +4081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4848a37c6f58f4f46a4c7806c2831273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OpenTime: 2
   CurrencyValue_Lbl: {fileID: 814330770}
   JetName_Lbl: {fileID: 799144752}
   BuyAmount_Lbl: {fileID: 1321803640}
@@ -3561,6 +4218,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6257823776791381248, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6257823776791381249, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3648,6 +4309,10 @@ PrefabInstance:
     - target: {fileID: 6257823776791381250, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_Name
       value: Jet Store Btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257823776791381261, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6257823776791381263, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_Material
@@ -3998,6 +4663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d18e3c1f5e0a1409c7aed8b7bfe018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuSceneMgr: {fileID: 1672963501}
   mainMenuMgr: {fileID: 2123012637}
   scoreBoardMgr: {fileID: 544438638}
   jetDisplayMgr: {fileID: 1964654055}
@@ -4356,13 +5022,14 @@ GameObject:
   - component: {fileID: 1829107614}
   - component: {fileID: 1829107613}
   - component: {fileID: 1829107612}
+  - component: {fileID: 1829107615}
   m_Layer: 5
   m_Name: Equipped Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1829107612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4421,6 +5088,73 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 509.88306}
   m_SizeDelta: {x: 394.187, y: 150.762}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1829107615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829107611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf84144685f157f4fa8da794aa78ea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 26
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1832312725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4790,7 +5524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2123012637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4803,7 +5537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1c031bbd227074c8465bfb9cfe0a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OpenTime: 2
   CurrencyValue_Lbl: {fileID: 1714691889}
 --- !u!114 &2123012638
 MonoBehaviour:
@@ -4881,6 +5614,7 @@ GameObject:
   - component: {fileID: 2147238539}
   - component: {fileID: 2147238538}
   - component: {fileID: 2147238541}
+  - component: {fileID: 2147238542}
   m_Layer: 5
   m_Name: Right Btn
   m_TagString: Untagged
@@ -5020,6 +5754,74 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2147238542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147238536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d556da1f47ba40b37eb4ab825bf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+  m_StartTime: 1
+  m_EndTime: 2
+  m_EntryEaseType: 27
+  m_EntryToUseCurve: 0
+  m_EntryAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ExitEaseType: 0
+  m_ExitToUseCurve: 0
+  m_ExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SlideInDir: 0
 --- !u!1001 &6257823776798288199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5074,6 +5876,10 @@ PrefabInstance:
     - target: {fileID: 6257823776791381248, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257823776791381248, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
+      propertyPath: m_Transition
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6257823776791381249, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5162,6 +5968,10 @@ PrefabInstance:
     - target: {fileID: 6257823776791381250, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_Name
       value: Play Btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257823776791381261, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6257823776791381263, guid: 21b8d7003a142904cbf9d44f1c0d89a7, type: 3}
       propertyPath: m_Material
