@@ -1,6 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class MainMenuMgr : Page
@@ -9,18 +12,26 @@ public class MainMenuMgr : Page
     [Space(50)]
     private MainMenuSceneReferences mmsr;
 
-    [SerializeField] private Text CurrencyValue_Lbl; 
+    [SerializeField] private Text m_CurrencyValue_Lbl;
     #endregion
 
     private void Awake()
     {
-        mmsr = MainMenuSceneReferences.s_Instance;
+        mmsr = MainMenuSceneReferences.s_Instance;        
+    }
+
+    private void Update()
+    {
+        if(Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            Close_F();
+        }
     }
 
     private void OnEnable()
     {
-        CurrencyValue_Lbl.text = GlobalDatabaseInitializer.s_Instance.globalData.Currency + "";
-    }
+        //CurrencyValue_Lbl.text = GlobalDatabaseInitializer.s_Instance.globalData.Currency + "";
+    }   
 
     #region Button Functions
     public void Play_BEF()
