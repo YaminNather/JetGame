@@ -8,9 +8,7 @@ public class UIAnimationComponentSlide : UIAnimationComponent
     #region Variables
     [Header("Slide Settings")]
     [SerializeField] private SlideInDir_EN m_SlideInDir;
-    [SerializeField] private Ease m_EaseType;
-    [SerializeField] private bool m_ToUseCurve;
-    [SerializeField] private AnimationCurve m_Ease_AnimCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+
     private Vector3 m_PosInit;
     #endregion
 

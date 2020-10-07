@@ -31,22 +31,15 @@ public class MainMenuMgr : Page
     private void OnEnable()
     {
         //CurrencyValue_Lbl.text = GlobalDatabaseInitializer.s_Instance.globalData.Currency + "";
-    }   
-
-    #region Button Functions
-    public void Play_BEF()
-    {
-        GlobalDatabaseInitializer.s_Instance.scenesDatabase.LoadScene_F(Scenes_EN.MainGame);
-    }
-
-    public void Save_BEF()
-    {
-        GlobalDatabaseInitializer.s_Instance.globalData.Save_F();
-    }
+    }      
 
     public void JetStoreBtn_BEF()
     {
-        Close_F(mmsr.jetStoreMgr);        
+        mmsr.mainMenuSceneMgr.PageOpen_F(MainMenuPages_EN.JetStore);
     }
-    #endregion
+
+    public void PlayBtn_BEF()
+    {
+        GlobalDatabaseInitializer.s_Instance.scenesDatabase.LoadScene_F(Scenes_EN.MainGame);
+    }
 }

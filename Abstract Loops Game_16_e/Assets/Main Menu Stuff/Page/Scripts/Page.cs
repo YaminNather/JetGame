@@ -20,7 +20,7 @@ public class Page : MonoBehaviour
     public State_EN State { get => m_State; }
     #endregion
 
-    public virtual void Open_F()
+    public virtual void Open_F(System.Action onOpen_E = null)
     {
         if (m_State != State_EN.Closed) return;
 
@@ -43,11 +43,12 @@ public class Page : MonoBehaviour
         {
             Clickable = true;
             OnOpen_E?.Invoke();
+            onOpen_E?.Invoke();
             m_State = State_EN.Open; 
         });        
     }
     
-    public virtual void Close_F(Page pageToOpen = null)
+    public virtual void Close_F(Page pageToOpen = null, System.Action onClose_E = null)
     {
         if (m_State != State_EN.Open) return;
 
@@ -66,6 +67,7 @@ public class Page : MonoBehaviour
         {
             GetComponent<GraphicRaycaster>().enabled = true;
             OnClose_E?.Invoke();
+            onClose_E?.Invoke();
             gameObject.SetActive(false);
             pageToOpen?.Open_F();
             m_State = State_EN.Closed;
