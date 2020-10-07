@@ -73,7 +73,7 @@ public class LevelsMgr : MonoBehaviour
                 if (m_PlayerJustRevived)
                 {
                     m_PlayerJustRevived = false;
-                    return new Vector3(0f, 0f, MainGameReferences.s_Instance.player.transform.position.z);
+                    return new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z);
                 }
                 else
                     return Vector3.zero;

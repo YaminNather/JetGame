@@ -175,7 +175,7 @@ public class JetPawn : Pawn
         OnDeath_E?.Invoke();
 
         gameObject.SetActive(false);
-        MainGameReferences.s_Instance.playerExplosionPSMgr.DoBurst_F(transform.position);
+        MainGameReferences.INSTANCE.playerExplosionPSMgr.DoBurst_F(transform.position);
     }
 
     public override void HealthReduce_F(int damage)

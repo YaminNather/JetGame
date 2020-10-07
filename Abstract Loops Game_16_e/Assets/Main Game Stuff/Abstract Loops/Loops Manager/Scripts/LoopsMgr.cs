@@ -42,7 +42,7 @@ public class LoopsMgr : MonoBehaviour
     /// <param name="loop"></param>
     public void LoopSpawn_F(LoopMgrBase loop)
     {
-        Pawn player = MainGameReferences.s_Instance.playerController.PossessedPawn;
+        Pawn player = MainGameReferences.INSTANCE.playerController.PossessedPawn;
 
         loop.gameObject.SetActive(true);
         loop.OnSpawn_F();

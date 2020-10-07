@@ -7,9 +7,8 @@ public class ScoreMgr : MonoBehaviour
 {
     #region Variables
     [SerializeField]private Text ScoreValue_Lbl;
-    private int m_AccumulatedScorePrev;
-    private int m_AccumulatedScoreCur;
-    public int Score { get => m_AccumulatedScorePrev + m_AccumulatedScoreCur; }
+    private int m_Score;
+    public int Score { get => m_Score; }
 
     [SerializeField] private Text CurrencyValue_Lbl;
     private int m_Currency;
@@ -29,47 +28,13 @@ public class ScoreMgr : MonoBehaviour
         CurrencyValue_Lbl.text = "0";
     }
 
-    private void Update()
+    public void ScoreAdd_F(int amount)
     {
-        if(m_IsRecording)
-        {
-            m_AccumulatedScoreCur = (int)(m_player.transform.position.z - m_RecordingStartPos.z) / ScoreModifier;
-            ScoreUIUpdate_F();
-        }
+        m_Score += amount;
+        ScoreUIUpdate_F();
     }
 
-    public void ScoreRecordingStart_F(JetPlayerController playerController)
-    {
-        Pawn possessedPlayer = playerController.PossessedPawn;
-        if (m_IsRecording == true || possessedPlayer == null)
-            return;
-
-        m_IsRecording = true;
-        m_player = possessedPlayer;
-        m_RecordingStartPos = possessedPlayer.transform.position;
-    }    
-
-    public void ScoreRecordingStop_F()
-    {
-        if (!m_IsRecording)
-            return;
-
-        m_AccumulatedScorePrev += m_AccumulatedScoreCur;
-        m_player = null;
-        m_IsRecording = false;
-    }
-
-    public void ScoreRecordingReset_F()
-    {
-        if (m_IsRecording) ScoreRecordingStop_F();
-
-        m_AccumulatedScorePrev = m_AccumulatedScoreCur = 0;
-    }
-
-    private void ScoreUIUpdate_F()
-    {
-        ScoreValue_Lbl.text =  "" + (m_AccumulatedScorePrev + m_AccumulatedScoreCur);
-    }
+    private void ScoreUIUpdate_F() => ScoreValue_Lbl.text =  "" + m_Score;
 
     public void CurrencyReset_F() => m_Currency = 0;
 

@@ -21,7 +21,7 @@ public class LevelEndHitbox : Hitbox
     {
         if(other.TryGetComponent(out PlayerHitbox ph))
         {
-            if (MainGameReferences.s_Instance != null) MainGameReferences.s_Instance.levelsMgr.LevelDespawn_F(level);
+            if (MainGameReferences.INSTANCE != null) MainGameReferences.INSTANCE.levelsMgr.LevelDespawn_F(level);
             else FindObjectOfType<LevelsMgr>()?.LevelDespawn_F(level);
         }
     }

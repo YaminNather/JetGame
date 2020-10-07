@@ -13,10 +13,10 @@ public class CurrencyMgr : LevelComponent
     {
         if(other.TryGetComponent(out PlayerHitbox ph))
         {
-            if (MainGameReferences.s_Instance != null)
+            if (MainGameReferences.INSTANCE != null)
             {
-                MainGameReferences.s_Instance.scoreMgr.CurrencyAdd_F(1);
-                MainGameReferences.s_Instance.currencyPSMgr.DoBurst_F(transform.position);
+                MainGameReferences.INSTANCE.scoreMgr.CurrencyAdd_F(1);
+                MainGameReferences.INSTANCE.currencyPSMgr.DoBurst_F(transform.position);
             }
             gameObject.SetActive(false);
         }

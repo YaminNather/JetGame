@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MainGameReferences : MonoBehaviour
 {
     #region Variables
-    public static MainGameReferences s_Instance;
+    public static MainGameReferences INSTANCE;
 
     public MainGameMgr mainGameMgr;
     public JetPlayerController playerController;
@@ -23,6 +23,6 @@ public class MainGameReferences : MonoBehaviour
 
     private void Awake()
     {
-        s_Instance = this;
+        INSTANCE = this;
     }
 }

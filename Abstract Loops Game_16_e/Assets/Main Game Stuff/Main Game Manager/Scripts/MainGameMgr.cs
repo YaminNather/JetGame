@@ -20,7 +20,7 @@ public class MainGameMgr : MonoBehaviour
     private void Awake()
     {
         gdi = GlobalDatabaseInitializer.s_Instance;
-        mgr = MainGameReferences.s_Instance;
+        mgr = MainGameReferences.INSTANCE;
     }
 
     private void Start()
@@ -49,10 +49,7 @@ public class MainGameMgr : MonoBehaviour
 
         //Spawning the first loops and levels.
         mgr.loopsMgr.RandomLoopSpawn_F();
-        mgr.levelsMgr.RandomLevelSpawn_F();
-
-        //After all setup is done, start recording score.
-        mgr.scoreMgr.ScoreRecordingStart_F(mgr.playerController);
+        mgr.levelsMgr.RandomLevelSpawn_F();        
     }    
 
     /// <summary>
@@ -76,17 +73,16 @@ public class MainGameMgr : MonoBehaviour
     /// Transition To the revive part by covering the screen white.
     /// </summary>
     private void TransitionToRevive_F()
-    {
-        MainGameReferences.s_Instance.scoreMgr.ScoreRecordingStop_F();
+    {        
         DOTween.To(() => 0f, val =>
         {
-            MainGameReferences mgr = MainGameReferences.s_Instance;
+            MainGameReferences mgr = MainGameReferences.INSTANCE;
             Image LoopTransition = mgr.LoopTransition;
             LoopTransition.color = LoopTransition.color.With(a: val);
         }, 1f, 1f)
             .OnComplete(() =>
             {
-                MainGameReferences mgr = MainGameReferences.s_Instance;
+                MainGameReferences mgr = MainGameReferences.INSTANCE;
                 mgr.levelsMgr.LevelsDespawnAll_F();
                 ReviveMgr reviveMgr = mgr.reviveMgr;
                 reviveMgr.m_OnReviveEnd_E += OnReviveProcessEnd_EF;
@@ -107,7 +103,7 @@ public class MainGameMgr : MonoBehaviour
                 break;
 
             case true:
-                MainGameReferences.s_Instance.LoopTransition.DOFade(0f, 1f).OnComplete(PlayerRevive_F);
+                MainGameReferences.INSTANCE.LoopTransition.DOFade(0f, 1f).OnComplete(PlayerRevive_F);
                 break;
         }
     }
@@ -117,13 +113,12 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void PlayerRevive_F()
     {
-        JetPawn player = MainGameReferences.s_Instance.player;
+        JetPawn player = MainGameReferences.INSTANCE.player;
         player.Revive_F();
-        JetPlayerController playerController = MainGameReferences.s_Instance.playerController;
+        JetPlayerController playerController = MainGameReferences.INSTANCE.playerController;
         playerController.Possess_F(player);
-        MainGameReferences.s_Instance.scoreMgr.ScoreRecordingStart_F(playerController);
-        MainGameReferences.s_Instance.levelsMgr.PlayerJustRevived = true;
-        MainGameReferences.s_Instance.levelsMgr.RandomLevelSpawn_F();
+        MainGameReferences.INSTANCE.levelsMgr.PlayerJustRevived = true;
+        MainGameReferences.INSTANCE.levelsMgr.RandomLevelSpawn_F();
     }
 
     /// <summary>
@@ -133,14 +128,14 @@ public class MainGameMgr : MonoBehaviour
     {
         Debug.Log("Transitioning to Score Display");
         GlobalDatabaseInitializer gdi = GlobalDatabaseInitializer.s_Instance;
-        gdi.globalData.ScoreLastGame = MainGameReferences.s_Instance.scoreMgr.Score;
-        gdi.globalData.CurrencyLastGame = MainGameReferences.s_Instance.scoreMgr.Currency;
-        gdi.globalData.CurrencyChange_F(MainGameReferences.s_Instance.scoreMgr.Currency);
+        gdi.globalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
+        gdi.globalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
+        gdi.globalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
         gdi.globalData.Save_F();
-        MainGameReferences.s_Instance.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
+        MainGameReferences.INSTANCE.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
         {
-            MainGameReferences.s_Instance.levelsMgr.LevelsDespawnAll_F();
-            MainGameReferences.s_Instance.loopsMgr.LoopsAllDespawn_F();
+            MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
+            MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();
             gdi.globalData.m_MainMenuPageToOpen = MainMenuSceneMgr.Pages_EN.ScoreBoard;
             gdi.scenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
         });
