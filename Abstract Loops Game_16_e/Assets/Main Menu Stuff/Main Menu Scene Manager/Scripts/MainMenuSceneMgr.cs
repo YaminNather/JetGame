@@ -33,7 +33,7 @@ public class MainMenuSceneMgr : MonoBehaviour
         PageOpen_F(gdi.globalData.m_MainMenuPageToOpen);
         gdi.globalData.m_MainMenuPageToOpen = Pages_EN.Main;
 
-        mmsr.jetDisplayMgr.Init_F();
+        //mmsr.jetDisplayMgr.Init_F();
     }
 
     public void PageOpen_F(Pages_EN sceneEnum)

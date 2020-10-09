@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class MainGameMgr : MonoBehaviour
 {
     #region Variables
-    private GlobalDatabaseInitializer gdi;
+    private GlobalDatabaseInitializer m_gdi;
     private MainGameReferences mgr;
 
     private int m_PlayerDeathCount;
@@ -19,7 +19,7 @@ public class MainGameMgr : MonoBehaviour
 
     private void Awake()
     {
-        gdi = GlobalDatabaseInitializer.s_Instance;
+        m_gdi = GlobalDatabaseInitializer.s_Instance;
         mgr = MainGameReferences.INSTANCE;
     }
 
@@ -31,12 +31,10 @@ public class MainGameMgr : MonoBehaviour
     private IEnumerator Start_IEF()
     {
         //TESTING- Waiting for all assets to load into their database. This part will be moved somewhere else later.
-        while (gdi.AllLoaded == false) yield return null;
+        while (m_gdi.AllLoaded == false) yield return null;
 
-        //First Spawn player and possess it because loops and levels are spawned from player position.
-        AsyncOperationHandle<GameObject> asyncOpHandle_0 = Addressables.InstantiateAsync(gdi.globalData.JetCur);
-        yield return asyncOpHandle_0;
-        JetPawn spawnedPlayer = asyncOpHandle_0.Result.GetComponent<JetPawn>();
+        //First Spawn player and possess it because loops and levels are spawned from player position.        
+        JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
         spawnedPlayer.transform.position = Vector3.forward * 5;
         Debug.Log($"<color=green>Spawned Player default pos = {spawnedPlayer.transform.position}</color>");
         mgr.player = spawnedPlayer;

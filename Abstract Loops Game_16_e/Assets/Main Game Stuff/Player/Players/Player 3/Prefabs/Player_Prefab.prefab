@@ -4814,7 +4814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 800626696841855519}
   - component: {fileID: 2241644636423609075}
-  - component: {fileID: -3528691908407670503}
   - component: {fileID: 800626696841855518}
   - component: {fileID: 3851083350224478505}
   m_Layer: 9
@@ -4857,21 +4856,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InvincibilityMat: {fileID: 2100000, guid: 53766fac89be13d43a55ee96b19d9bb1, type: 2}
---- !u!114 &-3528691908407670503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800626696841855520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074e86f8e38cfc64da87ece2ba9779bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerName: Horizon Ripoff
-  m_Display_Prefab: {fileID: 800626696841855520}
-  m_Cost: 900
 --- !u!114 &800626696841855518
 MonoBehaviour:
   m_ObjectHideFlags: 0

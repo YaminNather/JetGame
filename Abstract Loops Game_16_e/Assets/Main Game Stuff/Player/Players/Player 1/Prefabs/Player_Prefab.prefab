@@ -91,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 800626696841855519}
   - component: {fileID: 2241644636423609075}
-  - component: {fileID: -6540746819281033319}
   - component: {fileID: 800626696841855518}
   - component: {fileID: 3851083350224478505}
   m_Layer: 9
@@ -129,21 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf9b69b756d15a42b2d47190f2ed090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6540746819281033319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800626696841855520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074e86f8e38cfc64da87ece2ba9779bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerName: Test Player 1
-  m_Display_Prefab: {fileID: 2260363791374545447, guid: 6713cae6ce140034084a9820e92f23a5, type: 3}
-  m_Cost: 200
+  m_InvincibilityMat: {fileID: 0}
 --- !u!114 &800626696841855518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,12 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635930a327e797b4bb68edc2c1f8d580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accel: 90
-  Deccel: 20
-  VelocityMax: {x: 10, y: 10, z: 30}
-  MovementRadius: 3
-  RotationMaxX: 20
-  RotationMaxZ: 45
+  m_Accel: 90
+  m_Deccel: 20
+  m_VelocityMax: {x: 10, y: 10, z: 30}
+  m_MovementRadius: 3
+  m_RotationMaxX: 20
+  m_RotationMaxZ: 45
 --- !u!54 &3851083350224478505
 Rigidbody:
   m_ObjectHideFlags: 0

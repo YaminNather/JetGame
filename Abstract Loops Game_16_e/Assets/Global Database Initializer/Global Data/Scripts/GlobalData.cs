@@ -30,8 +30,8 @@ public class GlobalData : MonoBehaviour
         }
     }
 
-    public List<string> JetsOwned { get => m_SaveInfo.JetsOwned; set => m_SaveInfo.JetsOwned = value; }
-    public string JetCur { get => m_SaveInfo.JetCur; set => m_SaveInfo.JetCur = value; }
+    public List<int> JetsOwned { get => m_SaveInfo.JetsOwned; set => m_SaveInfo.JetsOwned = value; }
+    public int JetCur { get => m_SaveInfo.JetCur; set => m_SaveInfo.JetCur = value; }
     #endregion
 
     private void Awake()
@@ -55,9 +55,9 @@ public class GlobalData : MonoBehaviour
         ScoreBest = 0;
         ScoreLastGame = 0; 
         JetsOwned.Clear();
-        JetsOwned.Add("Test Player 0");
-        JetsOwned.Add("Horizon Ripoff");
-        JetCur = "Horizon Ripoff";
+        JetsOwned.Add(0);
+        JetsOwned.Add(3);
+        JetCur = 3;
         
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
@@ -97,7 +97,7 @@ public class GlobalData : MonoBehaviour
         try
         {
             m_SaveInfo = JsonUtility.FromJson<SaveInfo>(File.ReadAllText(SavePath));
-            Debug.Log("<color=cyan>Loaded successfully from file.</color>");
+            Debug.Log("<color=cyan>Loaded successfully from file.</color>");            
         }
         catch (Exception e)
         {
@@ -105,11 +105,11 @@ public class GlobalData : MonoBehaviour
         }
     }
 
-    public bool JetCheckIfOwned_F(string jetName) => JetsOwned.Contains(jetName);
+    public bool JetCheckIfOwned_F(int id) => JetsOwned.Contains(id);
 
-    public void JetsOwnedAddTo_F(string jetName)
+    public void JetsOwnedAddTo_F(int id)
     {
-        JetsOwned.Add(jetName);
+        JetsOwned.Add(id);
     }
 
     public void CurrencyChange_F(int amount)
@@ -127,8 +127,8 @@ public class SaveInfo
     public int ScoreBest;
     public int ScoreLastGame;
 
-    public List<string> JetsOwned;
-    public string JetCur;
+    public List<int> JetsOwned;
+    public int JetCur;
     #endregion
 
     public SaveInfo()
@@ -136,7 +136,7 @@ public class SaveInfo
         Currency = 0;
         ScoreBest = 0;
         ScoreLastGame = 0;
-        JetsOwned = new List<string>();
-        JetCur = "";        
+        JetsOwned = new List<int>();
+        JetCur = 0;        
     }
 }

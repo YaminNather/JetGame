@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: PlayersGroup_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: 074e86f8e38cfc64da87ece2ba9779bb, type: 3}
+  m_Name: JetData
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: c20b5f13e0b3b4640a1889f8a992a498, type: 2}
-  m_StaticContent: 0
+  m_ID: 0
+  m_JetPawnPrefab: {fileID: 800626696841855520, guid: c4e2ba5e65d86254dac7d716d216c65d, type: 3}
+  m_Cost: 300

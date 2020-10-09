@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: JetDataGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: JetDataGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ef07aff0bddd14048979f73375ed658f
+  m_SerializeEntries:
+  - m_GUID: 0b0974767c8795144b3165f1ec0ae39d
+    m_Address: JetData1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 0b0974767c8795144b3165f1ec0ae39d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0b0974767c8795144b3165f1ec0ae39d, type: 2}
+  - m_GUID: 167362dd97309184db01bd9102079663
+    m_Address: JetData3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 167362dd97309184db01bd9102079663, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 167362dd97309184db01bd9102079663, type: 2}
+  - m_GUID: 8d139df5b966a064fb9f097d3f20f453
+    m_Address: JetData2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 8d139df5b966a064fb9f097d3f20f453, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8d139df5b966a064fb9f097d3f20f453, type: 2}
+  - m_GUID: ab92cbc29f8598c40a1164621fc4120c
+    m_Address: JetData0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: ab92cbc29f8598c40a1164621fc4120c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: ab92cbc29f8598c40a1164621fc4120c, type: 2}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 011306590ed9ffd46b6e003c76b55b77, type: 2}
+    - {fileID: 11400000, guid: 4f5b6bf19dcd42047b7f2e56cb8f5cc4, type: 2}

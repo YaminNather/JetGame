@@ -10,7 +10,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
 
     [HideInInspector] public GlobalData globalData;
     [HideInInspector] public LevelsDatabase levelsDatabase;
-    [HideInInspector] public JetsDatabase jetsDatabase;
+    [HideInInspector] public JetsDatabase m_JetsDatabase;
     [HideInInspector] public LoopsDatabase loopsDatabase;
     [HideInInspector] public ScenesLoader scenesDatabase;
 
@@ -39,7 +39,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     {
         globalData = gameObject.AddComponent<GlobalData>();        
         levelsDatabase = gameObject.AddComponent<LevelsDatabase>();
-        jetsDatabase = gameObject.AddComponent<JetsDatabase>();
+        m_JetsDatabase = gameObject.AddComponent<JetsDatabase>();
         loopsDatabase = gameObject.AddComponent<LoopsDatabase>();
         scenesDatabase = gameObject.AddComponent<ScenesLoader>();
     }       
@@ -51,7 +51,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     private IEnumerator DatabasesLoad_F()
     {
         yield return StartCoroutine(levelsDatabase.LoadDatabase_F());
-        yield return StartCoroutine(jetsDatabase.LoadDatabase_F());
+        yield return StartCoroutine(m_JetsDatabase.LoadDatabase_F());
         yield return StartCoroutine(loopsDatabase.LoadDatabase_F());
 
         AllLoaded = true;
