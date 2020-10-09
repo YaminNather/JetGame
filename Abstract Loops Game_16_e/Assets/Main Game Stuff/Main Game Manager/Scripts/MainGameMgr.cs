@@ -133,8 +133,7 @@ public class MainGameMgr : MonoBehaviour
         MainGameReferences.INSTANCE.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
         {
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
-            MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();
-            gdi.globalData.m_MainMenuPageToOpen = MainMenuSceneMgr.Pages_EN.ScoreBoard;
+            MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();           
             gdi.scenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
         });
     }

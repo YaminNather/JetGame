@@ -9,7 +9,6 @@ public class MainMenuSceneReferences : MonoBehaviour
 
     public MainMenuSceneMgr mainMenuSceneMgr;
     public MainMenuMgr mainMenuMgr;
-    public ScoreBoardMgr scoreBoardMgr;
     public JetDisplayMgr jetDisplayMgr;
     public JetStoreMgr jetStoreMgr;
     public ColorMgr colorMgr;

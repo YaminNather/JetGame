@@ -11,8 +11,6 @@ public class GlobalData : MonoBehaviour
     private string m_SaveDir;
     private string m_SaveFileName;
     private string SavePath { get => m_SaveDir + "/" + m_SaveFileName + ".txt"; }
-
-    public MainMenuSceneMgr.Pages_EN m_MainMenuPageToOpen;
     
     private SaveInfo m_SaveInfo;
 
@@ -36,7 +34,6 @@ public class GlobalData : MonoBehaviour
 
     private void Awake()
     {
-        m_MainMenuPageToOpen = MainMenuSceneMgr.Pages_EN.Main;
         //Storing a save path.        
         m_SaveDir = Application.persistentDataPath + "/Saves";
         m_SaveFileName = "TestSaveFile_0";

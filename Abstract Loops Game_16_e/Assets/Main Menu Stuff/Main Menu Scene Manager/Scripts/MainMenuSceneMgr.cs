@@ -30,8 +30,7 @@ public class MainMenuSceneMgr : MonoBehaviour
     {
         if (gdi.AllLoaded == false) yield return null;
 
-        PageOpen_F(gdi.globalData.m_MainMenuPageToOpen);
-        gdi.globalData.m_MainMenuPageToOpen = Pages_EN.Main;
+        PageOpen_F(Pages_EN.Main);        
 
         //mmsr.jetDisplayMgr.Init_F();
     }
@@ -53,11 +52,10 @@ public class MainMenuSceneMgr : MonoBehaviour
         {
             Pages_EN.Main => mmsr.mainMenuMgr,
             Pages_EN.JetStore => mmsr.jetStoreMgr,
-            Pages_EN.ScoreBoard => mmsr.scoreBoardMgr,
             Pages_EN.Settings => throw new System.Exception("Cannot convert to Enum to Settings Page"),
             _ => null
         };
     }
 
-    public enum Pages_EN { None, Main, Settings, JetStore, ScoreBoard } 
+    public enum Pages_EN { None, Main, Settings, JetStore } 
 }
