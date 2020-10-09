@@ -19,14 +19,13 @@ public class GlobalData : MonoBehaviour
     public int Currency { get => m_SaveInfo.Currency; private set => m_SaveInfo.Currency = value; }
     private int m_CurrencyLastGame;
     public int CurrencyLastGame { get => m_CurrencyLastGame; set => m_CurrencyLastGame = value; }
-    public int ScoreBest { get => m_SaveInfo.ScoreBest; set => m_SaveInfo.ScoreBest = value; }
-    private int m_ScoreLastGame;
+    public int ScoreBest { get => m_SaveInfo.ScoreBest; set => m_SaveInfo.ScoreBest = value; }    
     public int ScoreLastGame 
     {
-        get => m_ScoreLastGame;
+        get => m_SaveInfo.ScoreLastGame;
         set
         {
-            m_ScoreLastGame = value;
+            m_SaveInfo.ScoreLastGame = value;
             if (value > ScoreBest) ScoreBest = value;
         }
     }
@@ -41,10 +40,6 @@ public class GlobalData : MonoBehaviour
         //Storing a save path.        
         m_SaveDir = Application.persistentDataPath + "/Saves";
         m_SaveFileName = "TestSaveFile_0";
-
-
-        //Initializing some data members.
-        m_ScoreLastGame = -1;
         
         //Loading Old Data.
         Load_F();
@@ -58,6 +53,7 @@ public class GlobalData : MonoBehaviour
         m_SaveInfo = new SaveInfo();
         Currency = 0;
         ScoreBest = 0;
+        ScoreLastGame = 0; 
         JetsOwned.Clear();
         JetsOwned.Add("Test Player 0");
         JetsOwned.Add("Horizon Ripoff");
@@ -129,6 +125,7 @@ public class SaveInfo
     #region Variables
     public int Currency;
     public int ScoreBest;
+    public int ScoreLastGame;
 
     public List<string> JetsOwned;
     public string JetCur;
@@ -138,6 +135,7 @@ public class SaveInfo
     {
         Currency = 0;
         ScoreBest = 0;
+        ScoreLastGame = 0;
         JetsOwned = new List<string>();
         JetCur = "";        
     }

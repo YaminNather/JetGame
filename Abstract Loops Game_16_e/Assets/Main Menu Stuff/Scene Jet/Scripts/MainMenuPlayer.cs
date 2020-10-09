@@ -23,7 +23,7 @@ public class MainMenuPlayer : MonoBehaviour
         {
             float time = Random.Range(0f, 0.5f);            
             Vector3 input = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2), 0f);
-            Debug.Log($"<color=yellow>Time = {time}, dir = {input}</color>");
+            //Debug.Log($"<color=yellow>Time = {time}, dir = {input}</color>");
             while (time > 0f)
             {
                 m_jmc.InputVectorAdd_F(input);

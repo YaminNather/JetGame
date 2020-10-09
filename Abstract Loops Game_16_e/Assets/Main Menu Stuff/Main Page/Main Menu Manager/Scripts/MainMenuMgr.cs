@@ -9,6 +9,9 @@ public class MainMenuMgr : Page
     [Space(50)]
     private MainMenuSceneReferences mmsr;
 
+
+    [SerializeField] private Text ScoreBest_Lbl;
+    [SerializeField] private Text ScoreCur_Lbl;
     [SerializeField] private Text CurrencyValue_Lbl; 
     #endregion
 
@@ -19,7 +22,11 @@ public class MainMenuMgr : Page
 
     private void OnEnable()
     {
-        CurrencyValue_Lbl.text = GlobalDatabaseInitializer.s_Instance.globalData.Currency + "";
+        GlobalData gd = GlobalDatabaseInitializer.s_Instance.globalData;
+        ScoreBest_Lbl.text = "" + gd.ScoreBest;
+        ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
+
+        CurrencyValue_Lbl.text = gd.Currency + ""; 
     }
 
     #region Button Functions
