@@ -238,25 +238,7 @@ MonoBehaviour:
       Data: 12|System.Collections.Generic.List`1[[System.Type, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 13|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: UnityEditor.InspectorWindow, UnityEditor.CoreModule
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 14|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: UnityEditor.SceneView, UnityEditor.CoreModule
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
@@ -274,7 +256,7 @@ MonoBehaviour:
       Data: projectSetupCompleted
     - Name: $v
       Entry: 7
-      Data: 15|System.Boolean, mscorlib
+      Data: 13|System.Boolean, mscorlib
     - Name: 
       Entry: 5
       Data: true
@@ -292,7 +274,7 @@ MonoBehaviour:
       Data: savedVersion
     - Name: $v
       Entry: 7
-      Data: 16|Ludiq.PeekCore.SemanticVersion, Ludiq.PeekCore.Editor
+      Data: 14|Ludiq.PeekCore.SemanticVersion, Ludiq.PeekCore.Editor
     - Name: major
       Entry: 3
       Data: 1

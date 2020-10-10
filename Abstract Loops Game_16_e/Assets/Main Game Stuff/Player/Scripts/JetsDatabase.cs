@@ -43,7 +43,7 @@ public class JetsDatabase : DatabaseBase
         return JetInstantiate_F(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur);
     }
 
-    public GameObject JetOnlyMeshInstantiate_F(int id)
+    public GameObject MainMenuJetInstantiate_F(int id)
     {
         GameObject r = JetInstantiate_F(id);
         Component[] components = r.GetComponentsInChildren<Component>();
@@ -52,7 +52,7 @@ public class JetsDatabase : DatabaseBase
         {
             System.Type type = c.GetType();
             if (type != typeof(Transform) && type != typeof(MeshFilter) && type != typeof(MeshRenderer))
-                Destroy(c);           
+                Destroy(c);
         }       
 
         return r;

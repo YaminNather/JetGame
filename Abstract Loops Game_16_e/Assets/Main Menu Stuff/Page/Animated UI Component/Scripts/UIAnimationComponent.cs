@@ -14,7 +14,7 @@ public abstract class UIAnimationComponent : OnSceneLoadedMonoBehaviour
     public float StartTime { get => m_StartTime; }
     [SerializeField] protected float m_EndTime;
     public float EndTime { get => m_EndTime; }
-    protected float Duration { get => m_EndTime - m_StartTime; }
+    public float Duration { get => m_EndTime - m_StartTime; }
 
     [Header("Entry Ease Settings")]
     [SerializeField] protected Ease m_EntryEaseType; 

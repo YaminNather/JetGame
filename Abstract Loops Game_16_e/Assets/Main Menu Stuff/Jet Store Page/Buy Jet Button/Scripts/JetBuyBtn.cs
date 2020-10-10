@@ -17,6 +17,10 @@ public class JetBuyBtn : Button
     private JetData jetData { get => GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase.m_JetDatas[m_JetID]; }
     #endregion
 
+    /// <summary>
+    /// To be called by JetStoreMgr once to initialize this button by giving it an id, refreshing it and adding the click event.
+    /// </summary>
+    /// <param name="jetID"></param>
     public void Init_F(int jetID)
     {
         m_JetID = jetID;
@@ -24,9 +28,15 @@ public class JetBuyBtn : Button
         onClick.AddListener(OnClick_EF);
     }
 
+    /// <summary>
+    /// Refreshing the look of the button to mirror the status of the Jet linked to this button.
+    /// </summary>
     public void Refresh_F()
     {
         JetData jetData = GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase.m_JetDatas[m_JetID];            
+        
+        /* If owned, deactivate CostLbl and change the sprite to the sprite of the jet,
+        if not owned then activate cost and set sprite to common unowned sprite from the JeStoreMgr.*/
         if(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCheckIfOwned_F(m_JetID))
         {
             m_JetIcon.sprite = jetData.Icon;
@@ -40,10 +50,14 @@ public class JetBuyBtn : Button
         }
     }    
 
+    /// <summary>
+    /// Event Function to do something when the button is clicked.
+    /// </summary>
     private void OnClick_EF()
     {
         GlobalData m_GlobalData = GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
-
+        /* If jet is owned, equip it, 
+         * else check if u have enough cash to buy it, if enough buy it and equip it. */
         if (m_GlobalData.JetCheckIfOwned_F(m_JetID))
         {
             m_GlobalData.JetCur = m_JetID;
@@ -60,7 +74,9 @@ public class JetBuyBtn : Button
             }
             else Debug.LogError("Not Enough Cash!!!");
         }
-        MainMenuSceneReferences.INSTANCE.jetStoreMgr.JetSelectedSet_F(m_JetID);
+
+        //Makes the jet linked with this button the current jet and refresh the button.
+        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(m_JetID);
         Refresh_F();
     }
 }

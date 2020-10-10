@@ -33,7 +33,7 @@ public class JetStoreMgr : Page
         GameObject firstBtn = m_BuyBtnsHolderTrans.transform.GetChild(0).gameObject;
         m_JetNotOwnedSprite = firstBtn.transform.GetChild(0).GetComponent<Image>().sprite;
 
-        int aLength = m_MainMenuJetMgr.JetDatasAndGObjs.Count - 1;
+        int aLength = m_MainMenuJetMgr.JetMeshes.Count - 1;
         foreach(KeyValuePair<int, JetData> kvp in GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase.m_JetDatas)
         {
             GameObject gObj = Instantiate(firstBtn, m_BuyBtnsHolderTrans);
@@ -45,11 +45,10 @@ public class JetStoreMgr : Page
         m_JetSelected = GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur;
     }
 
-    public void JetSelectedSet_F(int id)
-    {
-        if (m_JetSelected == id) return;
-
-        m_JetSelected = id;
-        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(id);
+    public void BackBtn_BEF()
+    {        
+        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur);
+        MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.Main);
+        m_VCamera.Priority = 0;
     }
 }

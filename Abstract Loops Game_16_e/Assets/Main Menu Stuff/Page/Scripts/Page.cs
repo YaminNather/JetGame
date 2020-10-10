@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,8 @@ public class Page : MonoBehaviour
         Clickable = false;
 
         m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>(true);
+        float closeTime = MaxTimeGet_F();        
+
 
         Sequence Seq_0 = DOTween.Sequence();
 
@@ -56,7 +59,7 @@ public class Page : MonoBehaviour
             if (uiac.Type == UIAnimationComponent.Type_EN.Entry) continue;
 
             uiac.ExitInitialize_F();
-            Seq_0.Insert(uiac.StartTime, uiac.ExitTween_F());
+            Seq_0.Insert(closeTime - uiac.EndTime, uiac.ExitTween_F());
         }
 
         Seq_0.AppendCallback(() =>
@@ -67,5 +70,14 @@ public class Page : MonoBehaviour
             Clickable = true;
             page?.Open_F();
         });
+    }
+
+    private float MaxTimeGet_F()
+    {
+        float r = 0;
+        foreach (UIAnimationComponent uiac in GetComponentsInChildren<UIAnimationComponent>(true))
+            if (uiac.EndTime > r) r = uiac.EndTime;
+
+        return r;
     }
 }
