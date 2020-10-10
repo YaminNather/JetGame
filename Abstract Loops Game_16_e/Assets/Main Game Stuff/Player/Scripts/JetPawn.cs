@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class JetPawn : Pawn
 {
     #region Variables
-    private JetMovementComponent jmc;
+    private JetMovementComponent m_jmc;
+    private JetAudioMgr m_JetAudioMgr;
     private GameObject playerHitboxGObj;
 
     private Vector3 m_MovementInput;  
@@ -25,7 +26,8 @@ public class JetPawn : Pawn
     {
         m_PlayersLayerMask = LayerMask.NameToLayer("Players");
         m_BlocksLayerMask = LayerMask.NameToLayer("Blocks");
-        jmc = GetComponent<JetMovementComponent>();
+        m_jmc = GetComponent<JetMovementComponent>();
+        m_JetAudioMgr = GetComponentInChildren<JetAudioMgr>();
         playerHitboxGObj = GetComponentInChildren<PlayerHitbox>().gameObject;
         playerHitboxGObj.SetActive(false);
         HealthMaxOut_F();
@@ -73,7 +75,7 @@ public class JetPawn : Pawn
     public override void OnUnPossess_F()
     {
         m_MovementInput = Vector3.zero;
-        jmc.VelocitySetToZero_F();
+        m_jmc.VelocitySetToZero_F();
         playerHitboxGObj.SetActive(false);
     }
 
@@ -132,7 +134,7 @@ public class JetPawn : Pawn
     
     public void Move_F(Vector3 input)
     {
-        jmc.InputVectorAdd_F(input);
+        m_jmc.InputVectorAdd_F(input);
     }
 
     public void InvincibilityStart_F()
@@ -171,6 +173,8 @@ public class JetPawn : Pawn
     private void Kill_EF()
     {
         Debug.Log("Kill_EF() called");
+        m_JetAudioMgr.PlayAudioWithGlobalAudioSource_F(JetAudioMgr.AudioClipsEN.Explode);
+        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
         if(IsPossessed) m_PlayerController.UnPossess_F();
         OnDeath_E?.Invoke();
 
@@ -200,6 +204,11 @@ public class JetPawn : Pawn
         yield return new WaitForSeconds(5f);
         
         InvincibilityStop_F();
+    }
+
+    public void AudioPlay_F(JetAudioMgr.AudioClipsEN audioClip)
+    {
+        m_JetAudioMgr.PlayAudio_F(JetAudioMgr.AudioClipsEN.ZoomingPastBlock);
     }
 }
 

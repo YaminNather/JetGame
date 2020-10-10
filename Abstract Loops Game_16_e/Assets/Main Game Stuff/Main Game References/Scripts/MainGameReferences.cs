@@ -18,7 +18,7 @@ public class MainGameReferences : MonoBehaviour
     public ColorMgr colorMgr;
     public ScoreMgr scoreMgr;
     public ReviveMgr reviveMgr;
-    public CurrencyPSMgr currencyPSMgr;
+    public CurrenciesMgr currencyPSMgr;
     #endregion
 
     private void Awake()

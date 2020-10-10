@@ -7,13 +7,28 @@ using UnityEngine.UI;
 public class ReviveMgr : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private int m_ReviveTime = 3;
+    [Header("UI References")]
     [SerializeField] private Image m_FullPulse_Image;
     [SerializeField] private Image m_NoPulse_Image;
     [SerializeField] private GameObject m_ReviveBtnGObj;
+
+    [Header("Audio Stuff")]
+    private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip m_HeartbeatingAC;
+    [SerializeField] private AudioClip m_HeartFlatlineAC;
+    
+    [Space(20)]
+
+    [SerializeField] private int m_ReviveTime = 3;
+    
     private Sequence m_Pulse_Seq;
     public System.Action<bool> m_OnReviveEnd_E;
     #endregion
+
+    private void Awake()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+    }
 
     private void OnEnable()
     {
@@ -24,6 +39,7 @@ public class ReviveMgr : MonoBehaviour
         m_FullPulse_Image.color = m_NoPulse_Image.color  = new Color(0f, 0f, 0f);        
         for(int i = 0; i < m_ReviveTime; i++)
         {
+            m_Pulse_Seq.AppendCallback(() => m_AudioSource.PlayOneShot(m_HeartbeatingAC));
             m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
             m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
         }
@@ -33,6 +49,7 @@ public class ReviveMgr : MonoBehaviour
             m_FullPulse_Image.gameObject.SetActive(false);
             m_NoPulse_Image.gameObject.SetActive(true);            
         });
+        m_Pulse_Seq.AppendCallback(() => m_AudioSource.PlayOneShot(m_HeartFlatlineAC));
         m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
         m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
         m_Pulse_Seq.AppendCallback(() =>

@@ -7,7 +7,13 @@ public partial class ScoreAdderComponent : MonoBehaviour
 {    
     private void OnTriggerEnter(Collider other)
     {
-        if (MainGameReferences.INSTANCE != null) MainGameReferences.INSTANCE.scoreMgr.ScoreAdd_F(1);
+        if (other.TryGetComponent(out PlayerHitbox ph) == false) return;
+        
+        if (MainGameReferences.INSTANCE != null)
+        {
+            MainGameReferences.INSTANCE.scoreMgr.ScoreAdd_F(1);
+            ph.player.AudioPlay_F(JetAudioMgr.AudioClipsEN.ZoomingPastBlock);
+        }
     }    
 }
 

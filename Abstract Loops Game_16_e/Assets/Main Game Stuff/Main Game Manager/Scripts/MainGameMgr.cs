@@ -15,6 +15,8 @@ public class MainGameMgr : MonoBehaviour
 
     private int m_PlayerDeathCount;
     public int PlayerDeathCount { get => m_PlayerDeathCount; }
+    
+    [SerializeField] private AudioClip m_BackgroundMusicAC;
     #endregion
 
     private void Awake()
@@ -32,6 +34,9 @@ public class MainGameMgr : MonoBehaviour
     {
         //TESTING- Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_gdi.AllLoaded == false) yield return null;
+
+        //Play Background Music
+        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
 
         //First Spawn player and possess it because loops and levels are spawned from player position.        
         JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
@@ -111,6 +116,7 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void PlayerRevive_F()
     {
+        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
         JetPawn player = MainGameReferences.INSTANCE.player;
         player.Revive_F();
         JetPlayerController playerController = MainGameReferences.INSTANCE.playerController;
@@ -134,7 +140,7 @@ public class MainGameMgr : MonoBehaviour
         {
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
             MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();           
-            gdi.scenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
+            gdi.m_ScenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
         });
     }
 }

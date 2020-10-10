@@ -32,7 +32,14 @@ public class MainMenuMgr : Page
     #region Button Functions
     public void Play_BEF()
     {
-        GlobalDatabaseInitializer.INSTANCE.scenesDatabase.LoadScene_F(Scenes_EN.MainGame);
+        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
+        StartCoroutine(Play_IEF());
+    }
+
+    private IEnumerator Play_IEF()
+    {
+        yield return new WaitForSeconds(1);
+        GlobalDatabaseInitializer.INSTANCE.m_ScenesDatabase.LoadScene_F(Scenes_EN.MainGame);
     }
 
     public void Save_BEF()

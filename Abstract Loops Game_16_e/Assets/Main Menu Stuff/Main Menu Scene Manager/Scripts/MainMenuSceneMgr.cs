@@ -11,7 +11,9 @@ public class MainMenuSceneMgr : MonoBehaviour
     private GlobalDatabaseInitializer gdi;
 
     private Pages_EN m_PageCur;
-    public Pages_EN PageCur { get => m_PageCur; }    
+    public Pages_EN PageCur { get => m_PageCur; }
+
+    [SerializeField] private AudioClip m_BackgroundMusic;
     #endregion
 
     private void Awake()
@@ -22,6 +24,7 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private void Start()
     {
+        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusic);
         DOTween.To(() => 0f, val => mmsr.colorMgr.Hue0 = val, 1f, 40f).SetLoops(-1).SetEase(Ease.Linear);
         StartCoroutine(Start_IEF());
     }

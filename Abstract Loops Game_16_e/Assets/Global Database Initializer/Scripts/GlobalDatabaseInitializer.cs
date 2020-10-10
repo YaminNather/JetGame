@@ -12,7 +12,8 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     [HideInInspector] public LevelsDatabase m_LevelsDatabase;
     [HideInInspector] public JetsDatabase m_JetsDatabase;
     [HideInInspector] public LoopsDatabase m_LoopsDatabase;
-    [HideInInspector] public ScenesLoader scenesDatabase;
+    [HideInInspector] public ScenesLoader m_ScenesDatabase;
+    [HideInInspector] public BackgroundMusicMgr m_BackgroundMusicMgr;
 
     public bool AllLoaded { get; private set; }
     #endregion
@@ -41,7 +42,8 @@ public class GlobalDatabaseInitializer : MonoBehaviour
         m_LevelsDatabase = gameObject.AddComponent<LevelsDatabase>();
         m_JetsDatabase = gameObject.AddComponent<JetsDatabase>();
         m_LoopsDatabase = gameObject.AddComponent<LoopsDatabase>();
-        scenesDatabase = gameObject.AddComponent<ScenesLoader>();
+        m_ScenesDatabase = gameObject.AddComponent<ScenesLoader>();
+        m_BackgroundMusicMgr = gameObject.AddComponent<BackgroundMusicMgr>();
     }       
 
     /// <summary>
