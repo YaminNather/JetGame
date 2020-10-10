@@ -11,6 +11,7 @@ public class JetStoreMgr : Page
     private MainMenuJetMgr m_MainMenuJetMgr;
     [SerializeField] private CinemachineVirtualCamera m_VCamera;
     [SerializeField] private Transform m_BuyBtnsHolderTrans;
+    [SerializeField] private Text m_CurrencyValueLbl;
     private int m_JetSelected;
     private Sprite m_JetNotOwnedSprite;
     public Sprite JetNotOwnedSprite { get => m_JetNotOwnedSprite; }
@@ -25,7 +26,9 @@ public class JetStoreMgr : Page
     private void OnEnable()
     {
         m_VCamera.Priority = 20;
-        m_JetSelected = GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur;
+        GlobalData globalData = GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
+        m_JetSelected = globalData.JetCur;
+        m_CurrencyValueLbl.text = "" + globalData.Currency;
     }
 
     private void BuyBtnsSetup_F()
