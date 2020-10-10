@@ -10,5 +10,8 @@ public class JetData : ScriptableObject
     [SerializeField] private GameObject m_JetPawnPrefab;
     public GameObject JetPawnPrefab { get => m_JetPawnPrefab; }
     [SerializeField] private int m_Cost;
-    public int Cost { get => m_Cost; }    
+    public int Cost { get => m_Cost; }
+    [SerializeField] private Sprite m_Icon;
+    public Sprite Icon { get => m_Icon; }
+
 }

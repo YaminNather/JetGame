@@ -29,7 +29,7 @@ public class LevelsMgr : MonoBehaviour
 
     public void LevelsAssignAll_F()
     {
-        m_Levels = GlobalDatabaseInitializer.s_Instance.levelsDatabase.Levels.ToArray();
+        m_Levels = GlobalDatabaseInitializer.INSTANCE.m_LevelsDatabase.Levels.ToArray();
     }       
 
     public void RandomLevelSpawn_F()

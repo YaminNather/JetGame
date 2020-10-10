@@ -19,7 +19,7 @@ public class MainGameMgr : MonoBehaviour
 
     private void Awake()
     {
-        m_gdi = GlobalDatabaseInitializer.s_Instance;
+        m_gdi = GlobalDatabaseInitializer.INSTANCE;
         mgr = MainGameReferences.INSTANCE;
     }
 
@@ -125,11 +125,11 @@ public class MainGameMgr : MonoBehaviour
     private void TransitionToScoreDisplay_F()
     {
         Debug.Log("Transitioning to Score Display");
-        GlobalDatabaseInitializer gdi = GlobalDatabaseInitializer.s_Instance;
-        gdi.globalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
-        gdi.globalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
-        gdi.globalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
-        gdi.globalData.Save_F();
+        GlobalDatabaseInitializer gdi = GlobalDatabaseInitializer.INSTANCE;
+        gdi.m_GlobalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
+        gdi.m_GlobalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
+        gdi.m_GlobalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
+        gdi.m_GlobalData.Save_F();
         MainGameReferences.INSTANCE.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
         {
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();

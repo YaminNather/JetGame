@@ -16,8 +16,8 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private void Awake()
     {
-        gdi = GlobalDatabaseInitializer.s_Instance;
-        mmsr = MainMenuSceneReferences.s_Instance;
+        gdi = GlobalDatabaseInitializer.INSTANCE;
+        mmsr = MainMenuSceneReferences.INSTANCE;
     }
 
     private void Start()
@@ -28,8 +28,10 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private IEnumerator Start_IEF()
     {
-        if (gdi.AllLoaded == false) yield return null;
+        while (gdi.AllLoaded == false) yield return null;
 
+        Debug.Log("FINISHED LOADING");
+        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetsInstantiate_F();
         PageOpen_F(Pages_EN.Main);        
 
         //mmsr.jetDisplayMgr.Init_F();

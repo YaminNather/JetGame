@@ -6,12 +6,12 @@ using UnityEngine;
 public class GlobalDatabaseInitializer : MonoBehaviour
 {
     #region Variables
-    static public GlobalDatabaseInitializer s_Instance;
+    static public GlobalDatabaseInitializer INSTANCE;
 
-    [HideInInspector] public GlobalData globalData;
-    [HideInInspector] public LevelsDatabase levelsDatabase;
+    [HideInInspector] public GlobalData m_GlobalData;
+    [HideInInspector] public LevelsDatabase m_LevelsDatabase;
     [HideInInspector] public JetsDatabase m_JetsDatabase;
-    [HideInInspector] public LoopsDatabase loopsDatabase;
+    [HideInInspector] public LoopsDatabase m_LoopsDatabase;
     [HideInInspector] public ScenesLoader scenesDatabase;
 
     public bool AllLoaded { get; private set; }
@@ -20,12 +20,12 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        if (s_Instance != null)
+        if (INSTANCE != null)
         {
             Destroy(gameObject);
             return;
         }
-        s_Instance = this;
+        INSTANCE = this;
 
         AddAllComponents_F();
         StartCoroutine(DatabasesLoad_F());
@@ -37,10 +37,10 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     /// </summary>
     private void AddAllComponents_F()
     {
-        globalData = gameObject.AddComponent<GlobalData>();        
-        levelsDatabase = gameObject.AddComponent<LevelsDatabase>();
+        m_GlobalData = gameObject.AddComponent<GlobalData>();        
+        m_LevelsDatabase = gameObject.AddComponent<LevelsDatabase>();
         m_JetsDatabase = gameObject.AddComponent<JetsDatabase>();
-        loopsDatabase = gameObject.AddComponent<LoopsDatabase>();
+        m_LoopsDatabase = gameObject.AddComponent<LoopsDatabase>();
         scenesDatabase = gameObject.AddComponent<ScenesLoader>();
     }       
 
@@ -50,9 +50,9 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     /// <returns></returns>
     private IEnumerator DatabasesLoad_F()
     {
-        yield return StartCoroutine(levelsDatabase.LoadDatabase_F());
+        yield return StartCoroutine(m_LevelsDatabase.LoadDatabase_F());
         yield return StartCoroutine(m_JetsDatabase.LoadDatabase_F());
-        yield return StartCoroutine(loopsDatabase.LoadDatabase_F());
+        yield return StartCoroutine(m_LoopsDatabase.LoadDatabase_F());
 
         AllLoaded = true;
     }

@@ -17,12 +17,12 @@ public class MainMenuMgr : Page
 
     private void Awake()
     {
-        mmsr = MainMenuSceneReferences.s_Instance;
+        mmsr = MainMenuSceneReferences.INSTANCE;
     }
 
     private void OnEnable()
     {
-        GlobalData gd = GlobalDatabaseInitializer.s_Instance.globalData;
+        GlobalData gd = GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
         ScoreBest_Lbl.text = "" + gd.ScoreBest;
         ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
 
@@ -32,17 +32,17 @@ public class MainMenuMgr : Page
     #region Button Functions
     public void Play_BEF()
     {
-        GlobalDatabaseInitializer.s_Instance.scenesDatabase.LoadScene_F(Scenes_EN.MainGame);
+        GlobalDatabaseInitializer.INSTANCE.scenesDatabase.LoadScene_F(Scenes_EN.MainGame);
     }
 
     public void Save_BEF()
     {
-        GlobalDatabaseInitializer.s_Instance.globalData.Save_F();
+        GlobalDatabaseInitializer.INSTANCE.m_GlobalData.Save_F();
     }
 
     public void JetStoreBtn_BEF()
     {
-        MainMenuSceneReferences.s_Instance.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.JetStore);     
+        MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.JetStore);     
     }
     #endregion
 }

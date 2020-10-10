@@ -5,9 +5,10 @@ using UnityEngine;
 public class MainMenuSceneReferences : MonoBehaviour
 {
     #region Variables
-    static public MainMenuSceneReferences s_Instance;
+    static public MainMenuSceneReferences INSTANCE;
 
     public MainMenuSceneMgr mainMenuSceneMgr;
+    public MainMenuJetMgr mainMenuJetMgr;
     public MainMenuMgr mainMenuMgr;
     public JetDisplayMgr jetDisplayMgr;
     public JetStoreMgr jetStoreMgr;
@@ -16,6 +17,6 @@ public class MainMenuSceneReferences : MonoBehaviour
 
     private void Awake()
     {
-        s_Instance = this;        
+        INSTANCE = this;        
     }    
 }

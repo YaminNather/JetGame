@@ -21,7 +21,7 @@ public class Page : MonoBehaviour
         gameObject.SetActive(true);
         Clickable = false;
 
-        m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>();
+        m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>(true);
         
         Sequence Seq_0 = DOTween.Sequence();
 
@@ -46,7 +46,7 @@ public class Page : MonoBehaviour
     {
         Clickable = false;
 
-        m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>();
+        m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>(true);
 
         Sequence Seq_0 = DOTween.Sequence();
 

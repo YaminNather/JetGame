@@ -16,7 +16,7 @@ public class JetsDatabase : DatabaseBase
     {
         if(m_JetDatas == null || m_JetDatas.Count == 0)
         {
-            //Debug.Log("<color=red><b>-----PLAYER LOADING BEGINS-----</b></color>");
+            //Debug.Log("<color=red><b>-----JETS LOADING BEGINS-----</b></color>");
             m_JetDatas = new Dictionary<int, JetData>();
 
             yield return Addressables.LoadAssetsAsync<JetData>("JetData", x =>
@@ -40,6 +40,21 @@ public class JetsDatabase : DatabaseBase
 
     public GameObject JetCurInstantiate_F()
     {
-        return JetInstantiate_F(GlobalDatabaseInitializer.s_Instance.globalData.JetCur);
+        return JetInstantiate_F(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur);
+    }
+
+    public GameObject JetOnlyMeshInstantiate_F(int id)
+    {
+        GameObject r = JetInstantiate_F(id);
+        Component[] components = r.GetComponentsInChildren<Component>();
+
+        foreach(Component c in components)
+        {
+            System.Type type = c.GetType();
+            if (type != typeof(Transform) && type != typeof(MeshFilter) && type != typeof(MeshRenderer))
+                Destroy(c);           
+        }       
+
+        return r;
     }
 }
