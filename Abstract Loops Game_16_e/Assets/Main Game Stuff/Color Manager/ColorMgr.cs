@@ -11,15 +11,15 @@ public class ColorMgr : MonoBehaviour
         get => m_Hue0;
         set
         {
-            m_Hue0 = value;
-            Shader.SetGlobalFloat("_Hue0", value);
+            //m_Hue0 = value;
+            //Shader.SetGlobalFloat("_Hue0", value);
         }
     }
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        Shader.SetGlobalFloat("_Hue0", m_Hue0);
+        Shader.SetGlobalFloat("_Hue0", m_Hue0);        
     }
 #endif
 }

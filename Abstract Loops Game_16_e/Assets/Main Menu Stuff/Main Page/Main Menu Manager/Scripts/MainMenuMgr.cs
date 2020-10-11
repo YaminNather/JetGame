@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class MainMenuMgr : Page
@@ -12,7 +13,7 @@ public class MainMenuMgr : Page
 
     [SerializeField] private Text ScoreBest_Lbl;
     [SerializeField] private Text ScoreCur_Lbl;
-    [SerializeField] private Text CurrencyValue_Lbl; 
+    [SerializeField] private Text CurrencyValue_Lbl;     
     #endregion
 
     private void Awake()
@@ -50,6 +51,13 @@ public class MainMenuMgr : Page
     public void JetStoreBtn_BEF()
     {
         MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.JetStore);     
+    }
+
+    public void SettingsBtn_BEF()
+    {
+        //Shader.SetGlobalFloat("_Hue0", Shader.GetGlobalFloat("_Hue0") + 0.1f * Time.deltaTime);
+        GameObject GObj_0 = FindObjectOfType<Volume>(true).gameObject;
+        GObj_0.SetActive(!GObj_0.activeSelf);
     }
     #endregion
 }
