@@ -2,7 +2,7 @@
     <ui:VisualElement style="padding-left: 0; padding-right: 0; margin-top: 10px; margin-bottom: 10px; margin-left: 5px; margin-right: 5px;">
         <Style src="ToolEditorWindow_USS.uss" />
         <ui:VisualElement name="SelectBlockSection_VE" style="margin-top: 10px; margin-bottom: 10px;">
-            <ui:Label text="SELECT BLOCK" display-tooltip-when-elided="True" name="Header_Lbl" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 18px; -unity-font: url(&apos;/Assets/Lomenu UI/Fonts/Purista Semibold.otf&apos;);" />
+            <ui:Label text="SELECT BLOCK" display-tooltip-when-elided="True" name="Header_Lbl" style="-unity-font: url(&apos;/Assets/Spawn Level Prefab Tool/Editor/Fonts/Purista Semibold.otf&apos;); -unity-text-align: upper-center; font-size: 20px;" />
             <ui:ScrollView>
                 <ui:VisualElement name="BlockTypesSection_VE" style="margin-left: 10px; margin-right: 10px;" />
             </ui:ScrollView>
