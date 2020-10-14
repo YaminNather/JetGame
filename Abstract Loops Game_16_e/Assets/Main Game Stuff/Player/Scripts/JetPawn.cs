@@ -172,7 +172,7 @@ public class JetPawn : Pawn
 
     private void Kill_EF()
     {
-        Debug.Log("Kill_EF() called");
+        //Debug.Log("Kill_EF() called");
         m_JetAudioMgr.PlayAudioWithGlobalAudioSource_F(JetAudioMgr.AudioClipsEN.Explode);
         GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
         if(IsPossessed) m_PlayerController.UnPossess_F();
