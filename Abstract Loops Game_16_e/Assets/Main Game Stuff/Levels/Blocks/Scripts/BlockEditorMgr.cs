@@ -7,6 +7,11 @@ using UnityEngine;
 [ExecuteAlways][AddComponentMenu("Block Stuff/BlockEditorMgr")][DisallowMultipleComponent]
 public class BlockEditorMgr : MonoBehaviour
 {
+    #region Variables
+    [SerializeField] private Transform m_RotationObjTrans;
+    public Transform RotationObjTrans { get => m_RotationObjTrans; }
+    #endregion
+
     private void Update()
     {
         if (Application.isPlaying)

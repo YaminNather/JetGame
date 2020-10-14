@@ -1,0 +1,6 @@
+.BlockTypeSection {
+    -unity-text-align: upper-left;
+    -unity-font-style: normal;
+    font-size: 17px;
+    -unity-font: url('/Assets/Lomenu UI/Fonts/Purista Semibold.otf');
+}
