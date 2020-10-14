@@ -65,6 +65,20 @@ public class JetPawn : Pawn
         Move_F(m_MovementInput);
     }
 
+#if UNITY_EDITOR
+    public void LateUpdate()
+    {
+        if (Application.isPlaying == false || IsPossessed == false) return;
+
+        UnityEditor.SceneView view = UnityEditor.SceneView.lastActiveSceneView;
+        if (view != null)
+        {
+            view.pivot = transform.position.With(x: 0f, y: 0f);
+            //view.LookAtDirect(transform.position.With(x:0f, y:0f), Quaternion.Euler(45f, 45f, 0f));
+        }
+    }
+#endif
+
     public override void OnPossess_F(PlayerController playerController)
     {
         base.OnPossess_F(playerController);
