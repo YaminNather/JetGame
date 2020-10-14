@@ -40,6 +40,11 @@ public class GlobalData : MonoBehaviour
         
         //Loading Old Data.
         Load_F();
+        if (JetsOwned.Contains(3) != true)
+        {
+            JetsOwned.Add(3);
+        }
+        Save_F();
     }
 
     public void SaveNew_F()
