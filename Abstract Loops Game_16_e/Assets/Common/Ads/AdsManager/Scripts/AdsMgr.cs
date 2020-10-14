@@ -29,10 +29,18 @@ public class AdsMgr : MonoBehaviour
         // Create a 320x50 banner at the top of the screen.
         m_BannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
 
+        //Adding callbacks to Banner events.
+        m_BannerView.OnAdLoaded += BannerOnAdLoaded_E;
+
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
 
         // Load the banner with the request.
         m_BannerView.LoadAd(request);
+    }
+
+    private void BannerOnAdLoaded_E(object sender, System.EventArgs e)
+    {
+        Debug.Log("<color=yellow>Banner Ad Loaded</color>");
     }
 }

@@ -52,12 +52,12 @@ public class JetPawn : Pawn
         {
             if (m_IsInvincible == false)
             {
-                Debug.Log("Called InvincibilityStart_F()");
+                //Debug.Log("Called InvincibilityStart_F()");
                 InvincibilityStart_F();
             }
             else 
             {
-                Debug.Log("Called InvincibilityStop_F()");
+                //Debug.Log("Called InvincibilityStop_F()");
                 InvincibilityStop_F();
             }
         }
