@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3471054703938148727}
   - component: {fileID: 5380504465286565043}
   - component: {fileID: 4055274446933916097}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Score Adder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
