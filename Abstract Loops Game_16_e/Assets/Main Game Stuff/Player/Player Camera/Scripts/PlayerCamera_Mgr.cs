@@ -32,7 +32,7 @@ public class PlayerCamera_Mgr : MonoBehaviour
 
     public void OnUnPossess_F()
     {
-        Debug.Log("Camera OnUnPossess happened");
+        //Debug.Log("Camera OnUnPossess happened");
         m_Player = null;
         jmc = null;
         m_MaxFOVCVC.m_Priority = 0;

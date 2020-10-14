@@ -9,7 +9,7 @@ public class BlockComponentDamagePlayer : LevelComponent
     {
         if(other.TryGetComponent(out PlayerHitbox ph))
         {
-            Debug.Log("Player has entered damage trigger");
+            //Debug.Log("Player has entered damage trigger");
             ph.player.HealthReduce_F(100);
         }
     }

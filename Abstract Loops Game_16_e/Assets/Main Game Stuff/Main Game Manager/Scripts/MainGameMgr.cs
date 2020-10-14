@@ -41,7 +41,7 @@ public class MainGameMgr : MonoBehaviour
         //First Spawn player and possess it because loops and levels are spawned from player position.        
         JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
         spawnedPlayer.transform.position = Vector3.forward * 5;
-        Debug.Log($"<color=green>Spawned Player default pos = {spawnedPlayer.transform.position}</color>");
+        //Debug.Log($"<color=green>Spawned Player default pos = {spawnedPlayer.transform.position}</color>");
         mgr.player = spawnedPlayer;
         mgr.player.OnDeath_E += OnPlayerDeath_EF;
         mgr.playerController.Possess_F(spawnedPlayer);

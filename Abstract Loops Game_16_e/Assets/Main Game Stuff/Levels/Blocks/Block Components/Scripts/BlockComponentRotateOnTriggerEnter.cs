@@ -29,7 +29,7 @@ public class BlockComponentRotateOnTriggerEnter : LevelComponent
     {
         if (other.TryGetComponent(out PlayerHitbox ph))
         {
-            Debug.Log($"<color=yellow>Fan to start rotating</color>", this.gameObject);
+            //Debug.Log($"<color=yellow>Fan to start rotating</color>", this.gameObject);
             m_ToRotate = true;
         }
     }
