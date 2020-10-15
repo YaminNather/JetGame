@@ -22281,8 +22281,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c208f0fee2e17340932f23d5086c1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreValue_Lbl: {fileID: 587848446}
-  CurrencyValue_Lbl: {fileID: 877360108}
+  m_ScoreValue_Lbl: {fileID: 587848446}
+  m_ScoreValueLblUpdateTEaseAC:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.0951328
+      outSlope: 3.0951328
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.11728352
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0.00052786904
+      outSlope: 0.00052786904
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.926239
+      value: 0
+      inSlope: -3.291962
+      outSlope: -3.291962
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13183251
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_CurrencyValue_Lbl: {fileID: 877360108}
   ScoreModifier: 100
 --- !u!223 &1479427660
 Canvas:

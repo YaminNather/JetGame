@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,11 +7,13 @@ using UnityEngine.UI;
 public class ScoreMgr : MonoBehaviour
 {
     #region Variables
-    [SerializeField]private Text ScoreValue_Lbl;
+    [SerializeField]private Text m_ScoreValue_Lbl;
     private int m_Score;
     public int Score { get => m_Score; }
+    private Tweener m_ScoreValueUpdateT;
+    [SerializeField] private AnimationCurve m_ScoreValueLblUpdateTEaseAC;
 
-    [SerializeField] private Text CurrencyValue_Lbl;
+    [SerializeField] private Text m_CurrencyValue_Lbl;
     private int m_Currency;
     public int Currency { get => m_Currency; set => m_Currency = value; }
 
@@ -24,8 +27,14 @@ public class ScoreMgr : MonoBehaviour
 
     private void Awake()
     {
-        ScoreValue_Lbl.text = "0";
-        CurrencyValue_Lbl.text = "0";
+        m_ScoreValue_Lbl.text = "0";
+        m_ScoreValueUpdateT = DOTween.To(() => 1f, val => m_ScoreValue_Lbl.transform.localScale = new Vector3(val, val, val), 1.5f, 0.5f)
+            .SetEase(m_ScoreValueLblUpdateTEaseAC)
+            .SetAutoKill(false)
+            .Pause();
+        
+        m_CurrencyValue_Lbl.text = "0";
+
     }
 
     public void ScoreAdd_F(int amount)
@@ -34,7 +43,13 @@ public class ScoreMgr : MonoBehaviour
         ScoreUIUpdate_F();
     }
 
-    private void ScoreUIUpdate_F() => ScoreValue_Lbl.text =  "" + m_Score;
+    private void ScoreUIUpdate_F()
+    {
+        
+        m_ScoreValue_Lbl.text = "" + m_Score;
+
+        m_ScoreValueUpdateT.Restart();
+    }
 
     public void CurrencyReset_F() => m_Currency = 0;
 
@@ -44,5 +59,5 @@ public class ScoreMgr : MonoBehaviour
         CurrencyUIUpdate_F();
     }
 
-    private void CurrencyUIUpdate_F() => CurrencyValue_Lbl.text = "" + m_Currency;    
+    private void CurrencyUIUpdate_F() => m_CurrencyValue_Lbl.text = "" + m_Currency;    
 }
