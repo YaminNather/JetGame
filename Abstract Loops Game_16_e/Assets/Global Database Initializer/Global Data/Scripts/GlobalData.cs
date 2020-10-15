@@ -40,10 +40,9 @@ public class GlobalData : MonoBehaviour
         
         //Loading Old Data.
         Load_F();
-        if (JetsOwned.Contains(3) != true)
-        {
-            JetsOwned.Add(3);
-        }
+
+
+        Currency = 90000;        
         Save_F();
     }
 
