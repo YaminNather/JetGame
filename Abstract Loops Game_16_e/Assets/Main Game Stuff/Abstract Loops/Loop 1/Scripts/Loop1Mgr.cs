@@ -14,8 +14,8 @@ public class Loop1Mgr : LoopMgrBase
 
     private void Update()
     {
-        m_Hue += 0.1f * Time.deltaTime;
-        if (m_Hue >= 1f) m_Hue = 0f;
-        MainGameReferences.INSTANCE.colorMgr.Hue0 = m_Hue;
+        //m_Hue += 0.1f * Time.deltaTime;
+        //if (m_Hue >= 1f) m_Hue = 0f;
+        //MainGameReferences.INSTANCE.colorMgr.Hue0 = m_Hue;
     }
 }

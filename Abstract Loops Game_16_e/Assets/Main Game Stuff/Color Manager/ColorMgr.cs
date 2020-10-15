@@ -11,11 +11,15 @@ public class ColorMgr : MonoBehaviour
         get => m_Hue0;
         set
         {
-            //m_Hue0 = value;
-            //Shader.SetGlobalFloat("_Hue0", value);
+            m_Hue0 = value;
+            Shader.SetGlobalFloat("_Hue0", value);
         }
     }
 
+    private void Start()
+    {
+        Hue0 = Random.Range(0f, 1f);
+    }
 #if UNITY_EDITOR
     private void OnValidate()
     {

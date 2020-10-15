@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 204084964960524767, guid: aa4ca3974d732604090cd86ea6d339cb, type: 3}
+      propertyPath: m_RotationSpeed
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 3943449102938519292, guid: aa4ca3974d732604090cd86ea6d339cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3943449102938519295, guid: aa4ca3974d732604090cd86ea6d339cb, type: 3}
       propertyPath: m_Name
-      value: Single Semi Circle Rotating_Prefab
+      value: Rotating Easy_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa4ca3974d732604090cd86ea6d339cb, type: 3}

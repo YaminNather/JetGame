@@ -18,28 +18,35 @@ MonoBehaviour:
   m_GUID: ef07aff0bddd14048979f73375ed658f
   m_SerializeEntries:
   - m_GUID: 0b0974767c8795144b3165f1ec0ae39d
-    m_Address: JetData1
+    m_Address: JetData 1
     m_ReadOnly: 0
     m_SerializedLabels:
     - JetData
     m_MainAsset: {fileID: 11400000, guid: 0b0974767c8795144b3165f1ec0ae39d, type: 2}
     m_TargetAsset: {fileID: 11400000, guid: 0b0974767c8795144b3165f1ec0ae39d, type: 2}
   - m_GUID: 167362dd97309184db01bd9102079663
-    m_Address: JetData3
+    m_Address: JetData 3 Horizon Ripoff
     m_ReadOnly: 0
     m_SerializedLabels:
     - JetData
     m_MainAsset: {fileID: 11400000, guid: 167362dd97309184db01bd9102079663, type: 2}
     m_TargetAsset: {fileID: 11400000, guid: 167362dd97309184db01bd9102079663, type: 2}
+  - m_GUID: 51b92778e2bd9ae45813e779e765be8b
+    m_Address: JetData 4 UFO
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 51b92778e2bd9ae45813e779e765be8b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 51b92778e2bd9ae45813e779e765be8b, type: 2}
   - m_GUID: 8d139df5b966a064fb9f097d3f20f453
-    m_Address: JetData2
+    m_Address: JetData 2
     m_ReadOnly: 0
     m_SerializedLabels:
     - JetData
     m_MainAsset: {fileID: 11400000, guid: 8d139df5b966a064fb9f097d3f20f453, type: 2}
     m_TargetAsset: {fileID: 11400000, guid: 8d139df5b966a064fb9f097d3f20f453, type: 2}
   - m_GUID: ab92cbc29f8598c40a1164621fc4120c
-    m_Address: JetData0
+    m_Address: JetData 0
     m_ReadOnly: 0
     m_SerializedLabels:
     - JetData

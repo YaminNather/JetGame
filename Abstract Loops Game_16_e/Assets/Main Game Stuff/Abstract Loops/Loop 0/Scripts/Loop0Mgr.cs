@@ -27,9 +27,9 @@ public class Loop0Mgr : LoopMgrBase
 
     private void Update()
     {
-        m_Hue += 0.1f * Time.deltaTime;
-        if (m_Hue >= 1f) m_Hue = 0f;
-        MainGameReferences.INSTANCE.colorMgr.Hue0 = m_Hue;
+        //m_Hue += 0.1f * Time.deltaTime;
+        //if (m_Hue >= 1f) m_Hue = 0f;
+        //MainGameReferences.INSTANCE.colorMgr.Hue0 = m_Hue;
         m_LoopPartsHolder.Rotate(0f, 0f, 90f * Time.deltaTime);
     }
     
