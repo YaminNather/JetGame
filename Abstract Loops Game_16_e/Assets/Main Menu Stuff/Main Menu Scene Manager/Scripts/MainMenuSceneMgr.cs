@@ -50,7 +50,7 @@ public class MainMenuSceneMgr : MonoBehaviour
             gdi.m_AdsMgr.BannerCheckAndCreate_F();
             if(gdi.m_AdsMgr.GamesSinceLastInterstitialAd == 2)
             {
-                gdi.m_AdsMgr.InterstitialAd.Show_F();
+                if(gdi.m_AdsMgr.InterstitialAd.IsValid_F() == false) gdi.m_AdsMgr.InterstitialAd.Show_F();
             }
         });        
 
