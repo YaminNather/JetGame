@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Jet_Material
+    second: {fileID: 2100000, guid: 898e1f98013e5284bb27f32b2cc23822, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: No Name
     second: {fileID: 2100000, guid: 898e1f98013e5284bb27f32b2cc23822, type: 2}
   - first:
