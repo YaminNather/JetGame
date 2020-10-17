@@ -100,7 +100,7 @@ public class InterstitialAdWrapper
 {
     #region Variables
     private bool m_IsValid;
-    public bool IsValid { get => IsValid; }
+    public bool IsValid { get => m_IsValid; }
 
     private InterstitialAd m_InterstitialAd;
     public InterstitialAd InterstitialAd { get => m_InterstitialAd; }
@@ -147,7 +147,7 @@ public class RewardedAdWrapper
 {
     #region Variables
     private bool m_IsValid;
-    public bool IsValid { get => IsValid; }
+    public bool IsValid { get => m_IsValid; }
 
     private RewardedAd m_RewardedAd;
     public RewardedAd RewardedAd { get => m_RewardedAd; }
