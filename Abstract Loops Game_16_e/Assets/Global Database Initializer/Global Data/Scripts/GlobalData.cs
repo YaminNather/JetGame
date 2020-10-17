@@ -11,22 +11,28 @@ public class GlobalData : MonoBehaviour
     private string m_SaveDir;
     private string m_SaveFileName;
     private string SavePath { get => m_SaveDir + "/" + m_SaveFileName + ".txt"; }
-    
+
     private SaveInfo m_SaveInfo;
 
     public int Currency { get => m_SaveInfo.Currency; private set => m_SaveInfo.Currency = value; }
     private int m_CurrencyLastGame;
     public int CurrencyLastGame { get => m_CurrencyLastGame; set => m_CurrencyLastGame = value; }
-    public int ScoreBest { get => m_SaveInfo.ScoreBest; set => m_SaveInfo.ScoreBest = value; }    
-    public int ScoreLastGame 
+    public int ScoreBest { get => m_SaveInfo.ScoreBest; set => m_SaveInfo.ScoreBest = value; }
+    public int ScoreLastGame
     {
         get => m_SaveInfo.ScoreLastGame;
         set
         {
             m_SaveInfo.ScoreLastGame = value;
-            if (value > ScoreBest) ScoreBest = value;
+            if (value > ScoreBest)
+            {
+                ScoreBest = value;
+                m_ScoreLastGameIsBest = true;
+            }
         }
     }
+    public bool m_ScoreLastGameIsBest;
+    public bool ScoreLastGameIsBest { get => m_ScoreLastGameIsBest; set => m_ScoreLastGameIsBest = value; }   
 
     public List<int> JetsOwned { get => m_SaveInfo.JetsOwned; set => m_SaveInfo.JetsOwned = value; }
     public int JetCur { get => m_SaveInfo.JetCur; set => m_SaveInfo.JetCur = value; }

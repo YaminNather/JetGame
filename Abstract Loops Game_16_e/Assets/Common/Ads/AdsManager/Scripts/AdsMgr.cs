@@ -2,75 +2,148 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
+using System;
 
 public class AdsMgr : MonoBehaviour
 {
     #region Variables
-    private BannerView m_BannerView;
-    private InterstitialAd m_InterstitialAd;
+    private BannerAdWrapper m_BannerAd; 
+    public BannerAdWrapper BannerAd { get => BannerAd; }
+
+    private InterstitialAdWrapper m_InterstitialAd;   
+    public InterstitialAdWrapper InterstitialAd { get => m_InterstitialAd; }
+    private int m_GamesSinceLastInterstitialAd;
+    public int GamesSinceLastInterstitialAd { get => m_GamesSinceLastInterstitialAd; set => m_GamesSinceLastInterstitialAd = value; }
+
+    private RewardedAdWrapper m_RewardedAd;    
+    public RewardedAdWrapper RewardedAd { get => m_RewardedAd; }
     #endregion
 
     private void Start()
     {
-        MobileAds.Initialize(status => { });
-
-        //BannerViewRequest_F();
-        //InterstitialRequest_F();
+        MobileAds.Initialize(status => { });        
+    } 
+    
+    public void BannerCheckAndCreate_F()
+    {
+        if(m_BannerAd == null)
+        {
+            m_BannerAd = new BannerAdWrapper("");
+            m_BannerAd.BannerView.OnAdFailedToLoad += (sender, e) => m_BannerAd = null;
+            m_BannerAd.LoadAndShow_F();            
+        }
     }
 
-    private void BannerViewRequest_F()
+    public void InterstitialAdCheckAndCreate_F()
     {
-        string adUnitId;
-#if UNITY_ANDROID
-        adUnitId = "ca-app-pub-3940256099942544/6300978111";
-#elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-3940256099942544/2934735716";
-#else
-            string adUnitId = "unexpected_platform";
-#endif
+        if (m_InterstitialAd == null)
+        {
+            m_InterstitialAd = new InterstitialAdWrapper("", false);
+            m_InterstitialAd.InterstitialAd.OnAdFailedToLoad += (sender, e) => m_InterstitialAd = null;
+            m_InterstitialAd.InterstitialAd.OnAdOpening += (sender, e) => m_GamesSinceLastInterstitialAd = 0;
+            m_InterstitialAd.InterstitialAd.OnAdClosed += (sender, e) => 
+            {
+                m_InterstitialAd = new InterstitialAdWrapper("", false);
+                m_InterstitialAd.Load_F();
+            };
+            m_InterstitialAd.Load_F();
+        }
+    }
+}
 
-        // Create a 320x50 banner at the top of the screen.
-        m_BannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+public class BannerAdWrapper
+{
+    #region Variables
+    private BannerView m_BannerView;
+    public BannerView BannerView { get => m_BannerView; }   
+    #endregion
 
-        //Adding callbacks to Banner events.
-        m_BannerView.OnAdLoaded += BannerViewOnAdLoaded_E;
+    public BannerAdWrapper(string appId)
+    {
+        m_BannerView = new BannerView(appId, AdSize.Banner, AdPosition.Bottom);        
+    }
 
+    public void LoadAndShow_F()
+    {
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
 
         // Load the banner with the request.
         m_BannerView.LoadAd(request);
     }
+}
 
-    private void BannerViewOnAdLoaded_E(object sender, System.EventArgs e)
+public class InterstitialAdWrapper
+{
+    #region Variables
+    private InterstitialAd m_InterstitialAd;
+    public InterstitialAd InterstitialAd { get => m_InterstitialAd; }
+    private bool m_ShowOnLoad;
+    #endregion
+
+    public InterstitialAdWrapper(string appId, bool m_ShowOnLoad)
     {
-        Debug.Log("<color=yellow>Banner Ad Loaded</color>");
+        m_InterstitialAd = new InterstitialAd(appId);
+
+        m_InterstitialAd.OnAdLoaded += OnAdLoaded_EF;
+
+        this.m_ShowOnLoad = m_ShowOnLoad;
     }
 
-    private void InterstitialRequest_F()
+    public void Load_F()
     {
-        string adUnitId;
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
 
-#if UNITY_ANDROID
-        adUnitId = "ca-app-pub-3940256099942544/1033173712";
-#elif UNITY_IPHONE
-        adUnitId = "ca-app-pub-3940256099942544/4411468910";
-#else
-        adUnitId = "unexpected_platform";
-#endif
-
-        m_InterstitialAd = new InterstitialAd(adUnitId);
-
-        m_InterstitialAd.OnAdLoaded += InterstitialAdOnAdLoaded_E;
-
-        AdRequest adRequest = new AdRequest.Builder().Build();
-        m_InterstitialAd.LoadAd(adRequest);
+        // Load the banner with the request.
+        m_InterstitialAd.LoadAd(request);
     }
 
-    private void InterstitialAdOnAdLoaded_E(object sender, System.EventArgs e)
+    public void Show_F()
     {
-        Debug.Log("<color=yellow>Interstitial Ad loaded, gonna show it now.</color>");
-        Debug.Log($"<color=yellow>InterstitialAdOnAdLoaded function parameter sender = {sender}</color>");
         m_InterstitialAd.Show();
+    }
+
+    private void OnAdLoaded_EF(object sender, EventArgs e)
+    {
+        if (m_ShowOnLoad == true) m_InterstitialAd.Show();
+    }
+}
+
+public class RewardedAdWrapper
+{
+    #region Variables
+    private RewardedAd m_RewardedAd;
+    public RewardedAd RewardedAd { get => m_RewardedAd; }
+    private bool m_ShowOnLoad;   
+    #endregion
+
+    public RewardedAdWrapper(string appId, bool m_ShowOnLoad, EventHandler<Reward> onUserEarnedReward_E = null)
+    {
+        m_RewardedAd = new RewardedAd(appId);
+
+        m_RewardedAd.OnAdLoaded += OnAdLoaded_EF;        
+        m_RewardedAd.OnUserEarnedReward += onUserEarnedReward_E;
+
+        this.m_ShowOnLoad = m_ShowOnLoad;  
+    }
+
+    public void Load_F()
+    {
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+
+        // Load the banner with the request.
+        m_RewardedAd.LoadAd(request);
+    }
+
+    public void Show_F()
+    {
+        m_RewardedAd.Show();
+    }
+
+    private void OnAdLoaded_EF(object sender, EventArgs e)
+    {
+        if (m_ShowOnLoad == true) m_RewardedAd.Show();
     }
 }

@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using GoogleMobileAds.Api;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,18 +18,49 @@ public class ReviveMgr : MonoBehaviour
     private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_HeartbeatingAC;
     [SerializeField] private AudioClip m_HeartFlatlineAC;
-    
+
     [Space(20)]
 
     [SerializeField] private int m_ReviveTime = 3;
-    
+
     private Sequence m_Pulse_Seq;
-    public System.Action<bool> m_OnReviveEnd_E;
+    public System.Action<bool> m_OnReviveEndE;
+
+    private RewardedAdWrapper m_RewardedAd;
+    public bool IsAdLoaded { get => m_RewardedAd != null; }
     #endregion
 
     private void Awake()
     {
         m_AudioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(RewardedAdTryLoad_IEF());        
+    }
+
+    private IEnumerator RewardedAdTryLoad_IEF()
+    {
+        int triesCount = 0;
+        tryToLoad_EF();
+        yield break;
+        
+        void tryToLoad_EF()
+        {
+            if (triesCount < 2)
+            {
+                m_RewardedAd = new RewardedAdWrapper("", false);
+                m_RewardedAd.Load_F();
+                m_RewardedAd.RewardedAd.OnAdFailedToLoad += (sender, e) => tryToLoad_EF();
+                m_RewardedAd.RewardedAd.OnAdClosed += (sender, e) => m_OnReviveEndE.Invoke(true);
+                triesCount++;
+            }
+            else
+            {
+                m_RewardedAd = null;
+            }
+        }
     }
 
     private void OnEnable()
@@ -54,7 +87,7 @@ public class ReviveMgr : MonoBehaviour
         m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
         m_Pulse_Seq.AppendCallback(() =>
         {
-            m_OnReviveEnd_E?.Invoke(false);
+            m_OnReviveEndE?.Invoke(false);
             gameObject.SetActive(false);
         });
     } 
@@ -63,7 +96,12 @@ public class ReviveMgr : MonoBehaviour
     {
         if (m_Pulse_Seq.IsActive())
             m_Pulse_Seq.Kill();
-        m_OnReviveEnd_E?.Invoke(true);
         gameObject.SetActive(false);
-    }
+
+#if UNITY_EDITOR
+        m_OnReviveEndE?.Invoke(true);
+#else
+        m_RewardedAd.Show_F();
+#endif
+    }    
 }

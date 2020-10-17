@@ -14,6 +14,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
     [HideInInspector] public LoopsDatabase m_LoopsDatabase;
     [HideInInspector] public ScenesLoader m_ScenesDatabase;
     [HideInInspector] public BackgroundMusicMgr m_BackgroundMusicMgr;
+    [HideInInspector] public AdsMgr m_AdsMgr;
 
     public bool AllLoaded { get; private set; }
     #endregion
@@ -45,6 +46,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
         m_LoopsDatabase = gameObject.AddComponent<LoopsDatabase>();
         m_ScenesDatabase = gameObject.AddComponent<ScenesLoader>();
         m_BackgroundMusicMgr = gameObject.AddComponent<BackgroundMusicMgr>();
+        m_AdsMgr = gameObject.AddComponent<AdsMgr>();
     }       
 
     /// <summary>

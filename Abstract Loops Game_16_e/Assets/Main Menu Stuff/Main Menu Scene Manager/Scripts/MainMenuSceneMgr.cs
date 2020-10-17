@@ -14,6 +14,9 @@ public class MainMenuSceneMgr : MonoBehaviour
     public Pages_EN PageCur { get => m_PageCur; }
 
     [SerializeField] private AudioClip m_BackgroundMusic;
+
+    private bool m_ScoreLastGameIsBest;
+    public bool ScoreLastGameIsBest { get => m_ScoreLastGameIsBest; }
     #endregion
 
     private void Awake()
@@ -24,7 +27,15 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private void Start()
     {
-        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusic);
+        gdi.m_AdsMgr.InterstitialAdCheckAndCreate_F();
+
+        if (gdi.m_GlobalData.ScoreLastGameIsBest)
+        { 
+            m_ScoreLastGameIsBest = true;
+            gdi.m_GlobalData.ScoreLastGameIsBest = false;
+        }
+
+        gdi.m_BackgroundMusicMgr.Play_F(m_BackgroundMusic);
         //DOTween.To(() => 0f, val => mmsr.colorMgr.Hue0 = val, 1f, 40f).SetLoops(-1).SetEase(Ease.Linear);
         StartCoroutine(Start_IEF());
     }
@@ -33,20 +44,26 @@ public class MainMenuSceneMgr : MonoBehaviour
     {
         while (gdi.AllLoaded == false) yield return null;
 
-        Debug.Log("FINISHED LOADING");
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetsInstantiate_F();
-        PageOpen_F(Pages_EN.Main);        
+        PageOpen_F(Pages_EN.Main, onOpen_E: () => 
+        {
+            gdi.m_AdsMgr.BannerCheckAndCreate_F();
+            if(gdi.m_AdsMgr.GamesSinceLastInterstitialAd == 2)
+            {
+                gdi.m_AdsMgr.InterstitialAd.Show_F();
+            }
+        });        
 
         //mmsr.jetDisplayMgr.Init_F();
     }
 
-    public void PageOpen_F(Pages_EN sceneEnum)
+    public void PageOpen_F(Pages_EN sceneEnum, Action onClose_E = null, Action onOpen_E = null)
     {
         Page pageToOpen = PagesENToPage_F(sceneEnum);
         if (pageToOpen == null) throw new Exception("Cannot open Page Page is null!!!");
 
-        if (m_PageCur == Pages_EN.None) pageToOpen.Open_F();
-        else PagesENToPage_F(m_PageCur).Close_F(pageToOpen);
+        if (m_PageCur == Pages_EN.None) pageToOpen.Open_F(onOpen_E);
+        else PagesENToPage_F(m_PageCur).Close_F(pageToOpen, onOpen:onOpen_E);
 
         m_PageCur = sceneEnum;
     }

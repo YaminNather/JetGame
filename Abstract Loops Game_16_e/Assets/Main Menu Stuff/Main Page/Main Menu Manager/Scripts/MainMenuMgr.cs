@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +12,12 @@ public class MainMenuMgr : Page
     [Space(50)]
     private MainMenuSceneReferences mmsr;
 
+    [SerializeField] private Text m_ScoreBest_Lbl;
+    [SerializeField] private Text m_ScoreCur_Lbl;
+    [SerializeField] private Text m_CurrencyValue_Lbl;
+    [SerializeField] private GameObject m_NewBestScoreLblGObj;
 
-    [SerializeField] private Text ScoreBest_Lbl;
-    [SerializeField] private Text ScoreCur_Lbl;
-    [SerializeField] private Text CurrencyValue_Lbl;     
+    private Tweener m_NewBestScoreLblAnimT;
     #endregion
 
     private void Awake()
@@ -23,11 +27,27 @@ public class MainMenuMgr : Page
 
     private void OnEnable()
     {
+        //Get the score and currency from GlobalData and assign it to the labels.
         GlobalData gd = GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
-        ScoreBest_Lbl.text = "" + gd.ScoreBest;
-        ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
+        m_ScoreBest_Lbl.text = "" + gd.ScoreBest;
+        m_ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
+        m_CurrencyValue_Lbl.text = "" + gd.Currency;
 
-        CurrencyValue_Lbl.text = gd.Currency + ""; 
+        //If last game's score was the best then enable the NewBestScore Lbl.
+        if (mmsr.mainMenuSceneMgr.ScoreLastGameIsBest)
+        {
+            m_NewBestScoreLblGObj.gameObject.SetActive(true);
+            m_NewBestScoreLblAnimT = m_NewBestScoreLblGObj.transform.DOScale(1.2f, 1f).SetEase(Ease.Flash, 2).SetLoops(-1);
+        }
+        else
+            m_NewBestScoreLblGObj.gameObject.SetActive(false);
+    }
+
+    public override void Close_F(Page page = null, Action onClose_E = null, Action onOpen = null)
+    {
+        if (m_NewBestScoreLblAnimT.IsActive()) m_NewBestScoreLblAnimT.Kill();
+        m_NewBestScoreLblGObj.gameObject.SetActive(false);
+        base.Close_F(page, onClose_E);
     }
 
     #region Button Functions

@@ -43,7 +43,7 @@ public class Page : MonoBehaviour
         });
     }
 
-    public virtual void Close_F(Page page = null, System.Action onClose_E = null)
+    public virtual void Close_F(Page page = null, System.Action onClose_E = null, System.Action onOpen = null)
     {
         Clickable = false;
 
@@ -68,7 +68,7 @@ public class Page : MonoBehaviour
             onClose_E?.Invoke();
             gameObject.SetActive(false);
             Clickable = true;
-            page?.Open_F();
+            page?.Open_F(OnOpen_E);
         });
     }
 

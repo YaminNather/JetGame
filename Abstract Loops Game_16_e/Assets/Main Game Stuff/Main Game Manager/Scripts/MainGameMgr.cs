@@ -69,7 +69,7 @@ public class MainGameMgr : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         if (m_PlayerDeathCount == 1) TransitionToRevive_F();
-        else if (m_PlayerDeathCount > 1) TransitionToScoreDisplay_F();
+        else if (m_PlayerDeathCount > 1) TransitionToMainMenu_F();
     }
 
     /// <summary>
@@ -88,8 +88,12 @@ public class MainGameMgr : MonoBehaviour
                 MainGameReferences mgr = MainGameReferences.INSTANCE;
                 mgr.levelsMgr.LevelsDespawnAll_F();
                 ReviveMgr reviveMgr = mgr.reviveMgr;
-                reviveMgr.m_OnReviveEnd_E += OnReviveProcessEnd_EF;
-                reviveMgr.gameObject.SetActive(true);
+                if (reviveMgr.IsAdLoaded)
+                {
+                    reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
+                    reviveMgr.gameObject.SetActive(true);
+                }
+                else TransitionToMainMenu_F();
             });                
     }
 
@@ -102,7 +106,7 @@ public class MainGameMgr : MonoBehaviour
         switch(decision)
         {
             case false:
-                TransitionToScoreDisplay_F();
+                TransitionToMainMenu_F();
                 break;
 
             case true:
@@ -128,16 +132,21 @@ public class MainGameMgr : MonoBehaviour
     /// <summary>
     /// Transition To the revive part after players dead by covering the screen black.
     /// </summary>
-    private void TransitionToScoreDisplay_F()
+    private void TransitionToMainMenu_F()
     {
-        Debug.Log("Transitioning to Score Display");
+        //Debug.Log("Transitioning to Score Display");
+        
+        //Setting the score and currency values in Global Data and saving it.
         GlobalDatabaseInitializer gdi = GlobalDatabaseInitializer.INSTANCE;
         gdi.m_GlobalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
         gdi.m_GlobalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
         gdi.m_GlobalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
         gdi.m_GlobalData.Save_F();
+
+        //Doing a fade out to black and when fade is done, despawning all levels and loops and then opening the Main Menu Scene.
         MainGameReferences.INSTANCE.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
         {
+            GlobalDatabaseInitializer.INSTANCE.m_AdsMgr.GamesSinceLastInterstitialAd++;
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
             MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();           
             gdi.m_ScenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
