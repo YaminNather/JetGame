@@ -5045,6 +5045,7 @@ MonoBehaviour:
   m_LoopsDatabase: {fileID: 0}
   m_ScenesDatabase: {fileID: 0}
   m_BackgroundMusicMgr: {fileID: 0}
+  m_AdsMgr: {fileID: 0}
 --- !u!4 &1293162694
 Transform:
   m_ObjectHideFlags: 0
