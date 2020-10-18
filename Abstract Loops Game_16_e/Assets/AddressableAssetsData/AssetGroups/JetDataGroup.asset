@@ -38,6 +38,13 @@ MonoBehaviour:
     - JetData
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 6151874c7adcae548b05c46f6338741c
+    m_Address: JetData 9Flying Car
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 6151874c7adcae548b05c46f6338741c, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 6151874c7adcae548b05c46f6338741c, type: 2}
   - m_GUID: 8d139df5b966a064fb9f097d3f20f453
     m_Address: JetData 2
     m_ReadOnly: 0
