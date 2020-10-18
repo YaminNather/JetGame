@@ -112,6 +112,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jet_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2004242773325718614, guid: 9f81d823a675de34abfb9cb9c545895e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041770390886179763, guid: 9f81d823a675de34abfb9cb9c545895e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041770390886179763, guid: 9f81d823a675de34abfb9cb9c545895e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746139041367587787, guid: 9f81d823a675de34abfb9cb9c545895e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f81d823a675de34abfb9cb9c545895e, type: 3}
 --- !u!4 &8388429133206450234 stripped
