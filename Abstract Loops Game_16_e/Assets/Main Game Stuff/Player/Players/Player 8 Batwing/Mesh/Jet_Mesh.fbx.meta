@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11b0ccc022f17f241a165ef2b3f4fa6b
+guid: b7d4eb03584989342ad1a8c6209d05a8
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -8,12 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Jet_Material
-    second: {fileID: 2100000, guid: dab7193d83fde004ea2765e37904b0ff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: dab7193d83fde004ea2765e37904b0ff, type: 2}
+    second: {fileID: 2100000, guid: e774557ca55fcbc4b945b13be4be79c4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

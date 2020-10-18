@@ -29,8 +29,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - JetData
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 11400000, guid: 167362dd97309184db01bd9102079663, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 167362dd97309184db01bd9102079663, type: 2}
   - m_GUID: 51b92778e2bd9ae45813e779e765be8b
     m_Address: JetData 4 UFO
     m_ReadOnly: 0
@@ -45,6 +45,13 @@ MonoBehaviour:
     - JetData
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 9c288ca71d903494eb39bba912d9b9e5
+    m_Address: JetData 8 Batwing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 9c288ca71d903494eb39bba912d9b9e5, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 9c288ca71d903494eb39bba912d9b9e5, type: 2}
   - m_GUID: ab7fc5394cd4f0e4db55e1ed392115da
     m_Address: JetData 5 Paper Plane
     m_ReadOnly: 0
@@ -66,6 +73,13 @@ MonoBehaviour:
     - JetData
     m_MainAsset: {fileID: 11400000, guid: c26edbd222c04a04b87d51c044968a0c, type: 2}
     m_TargetAsset: {fileID: 11400000, guid: c26edbd222c04a04b87d51c044968a0c, type: 2}
+  - m_GUID: f88f9ab574cf6064c82b8e63488e2707
+    m_Address: JetData 7 Pointy Jet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: f88f9ab574cf6064c82b8e63488e2707, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f88f9ab574cf6064c82b8e63488e2707, type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
   m_SchemaSet:
