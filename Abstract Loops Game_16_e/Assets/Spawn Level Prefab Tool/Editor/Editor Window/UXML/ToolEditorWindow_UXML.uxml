@@ -3,8 +3,8 @@
         <Style src="ToolEditorWindow_USS.uss" />
         <ui:VisualElement name="SelectBlockSection_VE" style="margin-top: 10px; margin-bottom: 10px;">
             <ui:Label text="SELECT BLOCK" display-tooltip-when-elided="True" name="Header_Lbl" style="-unity-font: url(&apos;/Assets/Spawn Level Prefab Tool/Editor/Fonts/Purista Semibold.otf&apos;); -unity-text-align: upper-center; font-size: 20px;" />
-            <ui:ScrollView>
-                <ui:VisualElement name="BlockTypesSection_VE" style="margin-left: 10px; margin-right: 10px;" />
+            <ui:ScrollView style="max-height: 236px;">
+                <ui:VisualElement name="BlockTypesSection_VE" style="margin-left: 10px; margin-right: 10px; max-height: 1349px;" />
             </ui:ScrollView>
         </ui:VisualElement>
         <uie:IntegerField label="Spawn Count" value="1" name="SpawnCount_IntegerField" />
