@@ -2,6 +2,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Callbacks;
+using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -48,7 +53,7 @@ public class MainGameMgr : MonoBehaviour
 
         //Getting all loops and levels from their database.
         mgr.loopsMgr.LoopsFieldSetup_F();
-        mgr.levelsMgr.LevelsAssignAll_F();
+        mgr.levelsMgr.GetAllLevelsForGame_F();
 
         //Spawning the first loops and levels.
         mgr.loopsMgr.RandomLoopSpawn_F();
@@ -152,4 +157,18 @@ public class MainGameMgr : MonoBehaviour
             gdi.m_ScenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
         });
     }
+
+#if UNITY_EDITOR
+    [PostProcessScene]
+    public static void PostProcessScene_F()
+    {
+        Debug.Log("<color=green>Post Processed</color>");
+    }
+
+    [MenuItem("Scenes/Main Game")]
+    public static void MainGameSceneOpen_F()
+    {
+        EditorSceneManager.OpenScene("Assets/Main Game Stuff/Scenes/MainGame_1_Scene.unity");
+    }
+#endif
 }

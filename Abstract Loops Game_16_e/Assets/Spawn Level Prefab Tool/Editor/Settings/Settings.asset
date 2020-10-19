@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Settings
   m_EditorClassIdentifier: Assembly-CSharp-Editor:SpawnLevelPrefabsTool:ToolSettings
-  m_BlocksPath: Assets/Main Game Stuff/Levels/Blocks
+  m_BlocksPath: Assets/Main Game Stuff/Levels/Blocks/Types

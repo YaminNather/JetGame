@@ -2,6 +2,8 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class MainMenuSceneMgr : MonoBehaviour
@@ -79,5 +81,10 @@ public class MainMenuSceneMgr : MonoBehaviour
         };
     }
 
-    public enum Pages_EN { None, Main, Settings, JetStore } 
+    public enum Pages_EN { None, Main, Settings, JetStore }
+
+#if UNITY_EDITOR
+    [MenuItem("Scenes/Main Menu")]
+    public static void OpenScene_F() => EditorSceneManager.OpenScene("Assets/Main Menu Stuff/Scenes/MainMenu_0_Scene.unity");
+#endif
 }

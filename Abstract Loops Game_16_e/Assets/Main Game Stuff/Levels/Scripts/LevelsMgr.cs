@@ -12,6 +12,9 @@ public class LevelsMgr : MonoBehaviour
     public bool PlayerJustRevived { get => m_PlayerJustRevived; set => m_PlayerJustRevived = value; }    
 
     private readonly Vector3 k_NullVector = new Vector3(-999f, -999f, -999f);
+
+    [Header("Testing Stuff")]
+    [SerializeField] private LevelMgr m_TestLevel;    
     #endregion
 
     private void Awake()
@@ -19,6 +22,21 @@ public class LevelsMgr : MonoBehaviour
         m_LevelsSpawned = new Queue<LevelMgr>(2);        
     }
 
+    public void GetAllLevelsForGame_F()
+    {
+        if (m_TestLevel == null) m_Levels = GlobalDatabaseInitializer.INSTANCE.m_LevelsDatabase.Levels.ToArray();
+        else
+        {
+            m_Levels = new LevelMgr[2];
+            for(int i = 0; i < 2; i++)
+            {
+                m_Levels[i] = Instantiate(m_TestLevel);
+                m_Levels[i].gameObject.SetActive(false);
+                m_Levels[i].Init_F();
+            }
+        }
+    }       
+    
     public LevelMgr LevelCurGet_F()
     {
         if (m_LevelsSpawned.Count == 0)
@@ -26,11 +44,6 @@ public class LevelsMgr : MonoBehaviour
 
         return m_LevelsSpawned.ElementAt(0);
     }
-
-    public void LevelsAssignAll_F()
-    {
-        m_Levels = GlobalDatabaseInitializer.INSTANCE.m_LevelsDatabase.Levels.ToArray();
-    }       
 
     public void RandomLevelSpawn_F()
     {
