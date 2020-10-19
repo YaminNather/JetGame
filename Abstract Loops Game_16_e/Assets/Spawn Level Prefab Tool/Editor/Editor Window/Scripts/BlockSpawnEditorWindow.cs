@@ -153,13 +153,14 @@ namespace SpawnLevelPrefabsTool
                 button_0.clicked += () => SelectedPrefabSet_F(button_0.userData as string);
 
                 //Creating new foldout if foldout doesnt exist for that type.
-                string type = DirectoryPartGet_F(path, 2);
+                string type = PrefabTypeGet_F(path);
                 if (!foldoutsDict.ContainsKey(type))                
                 {
                     Foldout foldout_0 = new Foldout()
                     {
                         name = type + "sSection_Foldout",
-                        text = type.ToUpper(),                        
+                        text = type.ToUpper(),
+                        value = false
                     };
                     foldout_0.AddToClassList("BlockTypeSection");
                     blocksSectionVE.Add(foldout_0);
@@ -169,7 +170,12 @@ namespace SpawnLevelPrefabsTool
                 //Making button child of foldout.
                 foldoutsDict[type].Add(button_0);
             }            
-        }        
+        }
+        
+        private string PrefabTypeGet_F(string path)
+        {
+            return path.Replace($"{m_BlocksPath}/", "").Replace($"/{DirectoryPartGet_F(path)}", "").Replace("/Prefabs", "").Replace("/", " ");
+        }
 
         private void SelectedPrefabSet_F(string path)
         {
