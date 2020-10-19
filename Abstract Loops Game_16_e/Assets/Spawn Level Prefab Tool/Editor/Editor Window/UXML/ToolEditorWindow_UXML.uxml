@@ -11,12 +11,12 @@
         <ui:Foldout text="Distance Settings" name="DistSettingsSection_VE">
             <uie:FloatField label="Initial Distance" value="10" name="InitialDist_FloatField" />
             <uie:FloatField label="Relative Distance" value="10" name="RelativeDist_FloatField" />
-            <ui:Toggle label="Use Context" name="UseContextForDist_Toggle" />
+            <ui:Toggle label="Use Context" name="DistUseContext_Toggle" />
         </ui:Foldout>
         <ui:Foldout text="RotationSettings" name="RotationSettingsSection_VE">
             <uie:FloatField label="Initial Rotation" value="0" name="InitialRotation_FloatField" />
             <uie:FloatField label="Relative Rotation" value="45" name="RelativeRotation_FloatField" />
-            <ui:Toggle label="Use Context" name="UseContextForRotation_Toggle" />
+            <ui:Toggle label="Use Context" name="RotationUseContext_Toggle" />
         </ui:Foldout>
         <ui:Button text="Spawn" display-tooltip-when-elided="True" name="Spawn_Btn" style="margin-top: 12px;" />
     </ui:VisualElement>

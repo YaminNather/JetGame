@@ -20,16 +20,21 @@ namespace SpawnLevelPrefabsTool
         #region Variables
         static private BlockSpawnEditorWindow s_Window;
 
+        private Transform m_Context;
         private SerializedObject m_SO;
         private string m_BlocksPath;
         private GameObject m_SelectedPrefab;
-        private List<GameObject> m_Ghosts;
-        private Transform m_Context;
-        private List<Transform> m_GhostsRotationObjsTranss;
+        private LinkedList<GameObject> m_Ghosts;
+        private LinkedList<Transform> m_GhostsRotationObjsTranss;
 
         private IntegerField m_SpawnCountIntegerField;
 
-        [SerializeField] public float m_RelativeDist = 0;
+        [SerializeField] private bool m_DistUseContext;
+        [SerializeField] private float m_InitialDist;
+        [SerializeField] private float m_RelativeDist = 0;
+
+        [SerializeField] private bool m_RotUseContext;
+        [SerializeField] private float m_InitialRot;
         [SerializeField] private float m_RelativeRot;
         #endregion
 
@@ -50,8 +55,8 @@ namespace SpawnLevelPrefabsTool
             m_BlocksPath = ToolSettingsProvider.GetOrCreateSettingsFile_F().BlocksPath;
             m_RelativeDist = 10;
             m_RelativeRot = 45;
-            m_Ghosts = new List<GameObject>();
-            m_GhostsRotationObjsTranss = new List<Transform>();
+            m_Ghosts = new LinkedList<GameObject>();
+            m_GhostsRotationObjsTranss = new LinkedList<Transform>();
             
             //Make Current Selection as context.
             if (Selection.activeTransform) m_Context = Selection.activeTransform;
@@ -79,13 +84,16 @@ namespace SpawnLevelPrefabsTool
         {
             m_SO = new SerializedObject(this);
 
+            //Instantiating the UXML file and adding stylesheet.
             VisualTreeAsset uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Spawn Level Prefab Tool/Editor/Editor Window/UXML/ToolEditorWindow_UXML.uxml");
             StyleSheet uss = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Spawn Level Prefab Tool/Editor/Editor Window/UXML/ToolEditorWindow_USS.uss");
             rootVisualElement.Add(uxml.Instantiate());
             rootVisualElement.styleSheets.Add(uss);
 
+            //Creating the Section where you select blocks.
             BlockTypeSectionsCreate_F();
 
+            //Setting up SpawnCount IntegerField.
             m_SpawnCountIntegerField = rootVisualElement.Q<IntegerField>("SpawnCount_IntegerField");
             m_SpawnCountIntegerField.SetValueWithoutNotify(1);
             m_SpawnCountIntegerField.RegisterValueChangedCallback(e =>
@@ -94,16 +102,34 @@ namespace SpawnLevelPrefabsTool
                 if(m_SelectedPrefab != null) GhostsCreate_F();
             });
 
-            FloatField relativeDistFloatField = rootVisualElement.Q<FloatField>("RelativeDist_FloatField");
-            //RelativeDist_FloatField.BindProperty(m_SO.FindProperty("m_RelativeDist"));
-            UIToolkitUtilities.DestroyableUITextValueFieldConvertTo_F<FloatField, float>(relativeDistFloatField, this, () => m_RelativeDist, val => m_RelativeDist = val);
-            relativeDistFloatField.schedule.Execute(GhostsTranssRefresh_F).Every(1);
+            //Setting up InitialDist FloatField.
+            FloatField initialDistFloatField = rootVisualElement.Q<FloatField>("InitialDist_FloatField");
+            UIToolkitUtilities.DestroyableUITextValueFieldConvertTo_F<FloatField, float>(initialDistFloatField, this, () => m_InitialDist, val => m_InitialDist = val);
             
+            //Setting up RelativeDist FloatField.
+            FloatField relativeDistFloatField = rootVisualElement.Q<FloatField>("RelativeDist_FloatField");
+            UIToolkitUtilities.DestroyableUITextValueFieldConvertTo_F<FloatField, float>(relativeDistFloatField, this, () => m_RelativeDist, val => m_RelativeDist = val);
+
+            //Setting up DistUseContext FloatField.
+            Toggle distUseContext_Toggle = rootVisualElement.Q<Toggle>("DistUseContext_Toggle");
+            UIToolkitUtilities.DestroyableUIToggleConvertTo_F(distUseContext_Toggle, this, () => m_DistUseContext, val => m_DistUseContext = val);
+
+            //Setting up InitialRot FloatField.
+            FloatField initialRotFloatField = rootVisualElement.Q<FloatField>("InitialRotation_FloatField");
+            UIToolkitUtilities.DestroyableUITextValueFieldConvertTo_F<FloatField, float>(initialRotFloatField, this, () => m_InitialRot, val => m_InitialRot = val);
+
+            //Setting up RelativeRot FloatField.
             FloatField relativeRotFloatField = rootVisualElement.Q<FloatField>("RelativeRotation_FloatField");
             UIToolkitUtilities.DestroyableUITextValueFieldConvertTo_F<FloatField, float>(relativeRotFloatField, this, () => m_RelativeRot, val => m_RelativeRot = val);
-            relativeRotFloatField.schedule.Execute(GhostsTranssRefresh_F).Every(1);
-            rootVisualElement.Add(relativeRotFloatField);
+
+            //Setting up DistUseContext FloatField.
+            Toggle rotUseContext_Toggle = rootVisualElement.Q<Toggle>("RotationUseContext_Toggle");
+            UIToolkitUtilities.DestroyableUIToggleConvertTo_F(rotUseContext_Toggle, this, () => m_RotUseContext, val => m_RotUseContext = val);
+
+            //Making the ghost update every millisecond.
+            rootVisualElement.schedule.Execute(GhostsTranssRefresh_F).Every(1);
             
+            //Setting up Spawn Button. 
             Button Spawn_Btn = rootVisualElement.Q<Button>("Spawn_Btn");
             Spawn_Btn.clicked += SpawnBtnOnClick_BEF;
         }
@@ -143,37 +169,7 @@ namespace SpawnLevelPrefabsTool
                 //Making button child of foldout.
                 foldoutsDict[type].Add(button_0);
             }            
-        }
-        
-        private void SpawnBtnOnClick_BEF()
-        {
-            if (m_SelectedPrefab == null || m_Ghosts.Count == 0)
-            {
-                Debug.LogError("No Object Selected");
-                return;
-            }
-            ActualGObjsInstantiate_F();
-            Close();
-        }
-
-        private void ActualGObjsInstantiate_F()
-        {
-            //Instantiate the prefab, set the position and rotation and register it in Undo.
-            GameObject spawnedGObj = null;
-            for (int i = 0; i < m_SpawnCountIntegerField.value; i++)
-            {
-                spawnedGObj = PrefabUtility.InstantiatePrefab(m_SelectedPrefab, PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.transform) as GameObject;
-                spawnedGObj.transform.position = m_Ghosts[i].transform.position;
-                if (m_GhostsRotationObjsTranss.Count != 0)
-                {
-                    spawnedGObj.GetComponent<BlockEditorMgr>().RotationObjTrans.rotation = m_GhostsRotationObjsTranss[i].transform.rotation;
-                }                
-                Undo.RegisterCreatedObjectUndo(spawnedGObj, "Created a new Block");
-            }
-            
-            //Set the last spawned object as the selected object.
-            Selection.activeTransform = spawnedGObj.transform;
-        }
+        }        
 
         private void SelectedPrefabSet_F(string path)
         {
@@ -190,17 +186,17 @@ namespace SpawnLevelPrefabsTool
             //First destroy all existing ghosts before making new ones.
             GhostsDestroy_F();
 
-            //Spawn new ghosts in SpawnCountFloatField.value amount.
+            //Spawn SpawnCountFloatField.value amount of ghosts.
             for (int i = 0; i < m_SpawnCountIntegerField.value; i++) 
             {
-                m_Ghosts.Add(PrefabUtility.InstantiatePrefab(m_SelectedPrefab, PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.transform) as GameObject); 
-                m_Ghosts[i].transform.position = Vector3.zero;
+                m_Ghosts.AddLast(PrefabUtility.InstantiatePrefab(m_SelectedPrefab, PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.transform) as GameObject); 
+                m_Ghosts.Last.Value.transform.position = Vector3.zero;
             }
 
             //Check if the selected prefab has blockEditorMgrs with RotationObjTrans, if it does store it.
             if (m_SelectedPrefab.TryGetComponent(out BlockEditorMgr blockEditorMgr) && blockEditorMgr.RotationObjTrans != null)
             {
-                foreach(GameObject ghost in m_Ghosts) m_GhostsRotationObjsTranss.Add(ghost.GetComponent<BlockEditorMgr>().RotationObjTrans);                
+                foreach(GameObject ghost in m_Ghosts) m_GhostsRotationObjsTranss.AddLast(ghost.GetComponent<BlockEditorMgr>().RotationObjTrans);                
             }
             Debug.Log($"<color=cyan>m_GhostsRotationObjsTranss.Count = {m_GhostsRotationObjsTranss.Count}</color>");
             
@@ -230,26 +226,21 @@ namespace SpawnLevelPrefabsTool
             if (ghostsCount == 0)
                 return;
 
-            //Setting position 
-            float relativeToGObjPosZ = 0f;
-            if (m_Context != null) relativeToGObjPosZ = m_Context.position.z;
-            for (int i = 0; i < ghostsCount; i++)
-            {                                
-                m_Ghosts[i].transform.position = new Vector3(0f, 0f, relativeToGObjPosZ + m_RelativeDist);
-                relativeToGObjPosZ += m_RelativeDist;
-            }
-
-            //Setting rotation
+            //Setting position.
+            m_Ghosts.First.Value.transform.position = new Vector3(0f, 0f, (m_DistUseContext == true && m_Context != null) ? m_Context.position.z + m_InitialDist : m_InitialDist);            
+            for(LinkedListNode<GameObject> node = m_Ghosts.First.Next; node != null; node = node.Next)
+                node.Value.transform.position = node.Previous.Value.transform.position + new Vector3(0f, 0f, m_RelativeDist);
+            
+            //Setting rotation.
             if (m_GhostsRotationObjsTranss.Count != 0)
             {
-                float relativeToGObjRotZ = 0f;
-                if (m_Context != null && m_Context.TryGetComponent(out BlockEditorMgr blockEditorMgr) && blockEditorMgr.RotationObjTrans != null)
-                    relativeToGObjRotZ = blockEditorMgr.RotationObjTrans.eulerAngles.z;
-                for(int i = 0; i < ghostsCount; i++)
-                { 
-                    m_GhostsRotationObjsTranss[i].eulerAngles = new Vector3(0f, 0f, relativeToGObjRotZ + m_RelativeRot);
-                    relativeToGObjRotZ += m_RelativeRot;
-                }
+                m_GhostsRotationObjsTranss.First.Value.eulerAngles = new Vector3(0f, 0f, 
+                    (m_RotUseContext && m_Context != null 
+                    && m_Context.TryGetComponent(out BlockEditorMgr blockEditorMgr)
+                    && blockEditorMgr.RotationObjTrans != null) ? blockEditorMgr.RotationObjTrans.eulerAngles.z + m_InitialRot : m_InitialRot);
+
+                for(LinkedListNode<Transform> node = m_GhostsRotationObjsTranss.First.Next; node != null; node = node.Next)
+                    node.Value.eulerAngles = node.Previous.Value.eulerAngles + new Vector3(0f, 0f, m_RelativeRot);
             }
         }
 
@@ -259,6 +250,36 @@ namespace SpawnLevelPrefabsTool
                 foreach (GameObject ghost in m_Ghosts) DestroyImmediate(ghost);
             m_Ghosts.Clear();
             m_GhostsRotationObjsTranss.Clear();
+        }
+
+        private void SpawnBtnOnClick_BEF()
+        {
+            if (m_SelectedPrefab == null || m_Ghosts.Count == 0)
+            {
+                Debug.LogError("No Object Selected");
+                return;
+            }
+            ActualGObjsInstantiate_F();
+            Close();
+        }
+
+        private void ActualGObjsInstantiate_F()
+        {
+            //Instantiate the prefab, set the position and rotation and register it in Undo.
+            GameObject spawnedGObj = null;
+            for (int i = 0; i < m_SpawnCountIntegerField.value; i++)
+            {
+                spawnedGObj = PrefabUtility.InstantiatePrefab(m_SelectedPrefab, PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.transform) as GameObject;
+                spawnedGObj.transform.position = m_Ghosts.ElementAt(i).transform.position;
+                if (m_GhostsRotationObjsTranss.Count != 0)
+                {
+                    spawnedGObj.GetComponent<BlockEditorMgr>().RotationObjTrans.rotation = m_GhostsRotationObjsTranss.ElementAt(i).transform.rotation;
+                }                
+                Undo.RegisterCreatedObjectUndo(spawnedGObj, "Created a new Block");
+            }
+            
+            //Set the last spawned object as the selected object.
+            Selection.activeTransform = spawnedGObj.transform;
         }
 
         //private string[] PrefabsPathsOfTypeGet_F(string type)
@@ -357,6 +378,18 @@ namespace SpawnLevelPrefabsTool
             });
 
             return textValueField;
+        }
+
+        public static Toggle DestroyableUIToggleConvertTo_F(Toggle toggle, UnityEngine.Object undoObject, System.Func<bool> getter, System.Action<bool> setter, int updateTime = 1)
+        {
+            toggle.schedule.Execute(() => toggle.value = getter.Invoke()).Every(updateTime);
+            toggle.RegisterValueChangedCallback(x =>
+            {
+                Undo.RegisterCompleteObjectUndo(undoObject, $"Toggle {toggle.label} value changed");
+                setter(x.newValue);
+            });
+
+            return toggle;
         }
     }
 }
