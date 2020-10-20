@@ -52,9 +52,16 @@ namespace SpawnLevelPrefabsTool
             if (PrefabStageUtility.GetCurrentPrefabStage() == null) return;
             Debug.Log($"Open Prefab = {PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.transform.name}");
 
+            //Getting the blocks path from settings.
             m_BlocksPath = ToolSettingsProvider.GetOrCreateSettingsFile_F().BlocksPath;
-            m_RelativeDist = 10;
-            m_RelativeRot = 45;
+
+            //Setting initial values for the fields.
+            m_InitialDist = 30;
+            m_RelativeDist = 30;
+            m_DistUseContext = true;
+            m_InitialRot = 0;
+            m_RelativeRot = 180;
+            m_RotUseContext = true;
             m_Ghosts = new LinkedList<GameObject>();
             m_GhostsRotationObjsTranss = new LinkedList<Transform>();
             

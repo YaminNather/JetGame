@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &204084964960524767
+--- !u!114 &7309703385796932012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3943449103032782592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a6d4daa3ac48bb4da15e10caf79b0e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a06576a9de166a459ba00b1a3681b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Hitbox: {fileID: 8439435388374675549}
-  m_RotationSpeed: 20
+  RotateSpeed: {x: 0, y: 0, z: 90}
 --- !u!1 &2333635204438456865
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,9 +80,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3471054703938148727, guid: 096985809002a5a44863c29908feb80b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3950404756269545601, guid: 096985809002a5a44863c29908feb80b, type: 3}
       propertyPath: m_Name
-      value: Single Semi Circle Rotating_Prefab
+      value: Rotating Base_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3950404756269545602, guid: 096985809002a5a44863c29908feb80b, type: 3}
       propertyPath: m_LocalPosition.x
