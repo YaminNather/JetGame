@@ -17,6 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 348297743d430d1428e7c9632b270a6a
   m_SerializeEntries:
+  - m_GUID: 37100e5c6aab18146b14740cf88a0866
+    m_Address: Level 3_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 37100e5c6aab18146b14740cf88a0866, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 37100e5c6aab18146b14740cf88a0866, type: 3}
+  - m_GUID: 3956613e26438a04c861069c30561173
+    m_Address: Level 6_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 3956613e26438a04c861069c30561173, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 3956613e26438a04c861069c30561173, type: 3}
   - m_GUID: 45978002478d4d5419b4ccde38584218
     m_Address: Level 2_Prefab
     m_ReadOnly: 0
@@ -24,21 +38,20 @@ MonoBehaviour:
     - Level
     m_MainAsset: {fileID: 4476890708411462116, guid: 45978002478d4d5419b4ccde38584218, type: 3}
     m_TargetAsset: {fileID: 4476890708411462116, guid: 45978002478d4d5419b4ccde38584218, type: 3}
-  - m_GUID: 6029b0fbbcfa1214db9f3c358f58b288
-    m_Address: Level 1_Prefab
+  - m_GUID: 4ad2c546494ab6b44b0ad77f686c2e7b
+    m_Address: Level 4_Prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: c8026525955273c4dbb0eeed5b1aaac1
-    m_Address: Level 0_Prefab
+    m_MainAsset: {fileID: 4476890708411462116, guid: 4ad2c546494ab6b44b0ad77f686c2e7b, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 4ad2c546494ab6b44b0ad77f686c2e7b, type: 3}
+  - m_GUID: edc36d21dadbeba4fba8b25e681559a5
+    m_Address: Level 5_Prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Levels
     - Level
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 4476890708411462116, guid: edc36d21dadbeba4fba8b25e681559a5, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: edc36d21dadbeba4fba8b25e681559a5, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
   m_SchemaSet:
