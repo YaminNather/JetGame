@@ -3,8 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.IO;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
-public class JetPawn : Pawn
+public partial class JetPawn : Pawn
 {
     #region Variables
     private JetMovementComponent m_jmc;
@@ -225,6 +229,54 @@ public class JetPawn : Pawn
         m_JetAudioMgr.PlayAudio_F(JetAudioMgr.AudioClipsEN.ZoomingPastBlock);
     }
 }
+
+#if UNITY_EDITOR
+public partial class JetPawn : Pawn
+{
+
+    private const string JETBASEPREFABPATH = "Assets/Main Game Stuff/Player/Players/Base Prefab/PlayerBase_Prefab.prefab";
+
+    [MenuItem("Assets/Create/Player Stuff/Create Base Player_Prefab Variant", true)]
+    private static bool NewJetCreateValidator_F()
+    {
+        //Check if a folder is selected.
+        foreach(UnityEngine.Object obj in Selection.GetFiltered<UnityEngine.Object>(SelectionMode.Assets))
+        {
+            if (Path.HasExtension(AssetDatabase.GetAssetPath(obj)) == true) return false;            
+        }
+
+        //Check if the PlayerBase_Prefab exists.
+        GameObject asset = AssetDatabase.LoadAssetAtPath<GameObject>(JETBASEPREFABPATH);
+        if (asset == null && asset.TryGetComponent(out JetPawn _) == false) return false;
+        
+        return true;
+    }
+
+    [MenuItem("Assets/Create/Player Stuff/Create Base Player_Prefab Variant")]
+    private static void NewJetCreate_F()
+    {
+        //Loading and instantiating a temporary object from the base prefab.
+        GameObject asset = AssetDatabase.LoadAssetAtPath<GameObject>(JETBASEPREFABPATH);
+        GameObject instantiatedObj = PrefabUtility.InstantiatePrefab(asset) as GameObject;        
+        instantiatedObj.transform.name = "Player Base_PrefabVariant";
+        
+        //Finding the path where the variant should be created.
+        string path = "Assets";
+        foreach(UnityEngine.Object obj in Selection.GetFiltered<UnityEngine.Object>(SelectionMode.Assets))
+        {
+            path = AssetDatabase.GetAssetPath(obj);
+            if(!string.IsNullOrEmpty(path)) break;
+        }
+        path += $"/{instantiatedObj.transform.name}.prefab";
+        Debug.Log($"<color=yellow>path = {path}</color>");
+
+        //Saving the instantiated temporary object in the path and removing the temporary object.
+        PrefabUtility.SaveAsPrefabAsset(instantiatedObj, path);        
+        //ProjectWindowUtil.CreateAsset(instantiatedObj, path);
+        DestroyImmediate(instantiatedObj);        
+    }
+}
+#endif
 
 public abstract class Pawn : MonoBehaviour
 {
