@@ -8,58 +8,84 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 public class LevelsDatabase : DatabaseBase
 {
     #region Variables
-    private List<LevelMgr> m_Levels;
-    public List<LevelMgr> Levels { get => m_Levels; }    
+    private LevelMgr[] m_EasyLevels;
+    public LevelMgr[] EasyLevels => m_EasyLevels;
+    private LevelMgr[] m_NormalLevels;
+    public LevelMgr[] NormalLevels => m_NormalLevels;
+    private LevelMgr[] m_HardLevels;
+    public LevelMgr[] HardLevels => m_HardLevels;
     #endregion
-
-    public LevelMgr LevelGet_F(int index)
-    {
-        if (m_IsLoaded == false || m_Levels == null || index >= Levels.Count) return null;        
-        
-        return Levels[index];
-    }
 
     public override IEnumerator LoadDatabase_F()
     {
-        if (Levels == null || Levels.Count == 0)
-        {
-            //Debug.Log("<color=red><b>-----LEVELS LOADING BEGINS-----</b></color>");
+        //Debug.Log("<color=red><b>-----LEVELS LOADING BEGINS-----</b></color>");
 
-            m_Levels = new List<LevelMgr>();
+        List<LevelMgr> levels = new List<LevelMgr>();
+        yield return LevelsInstantiateAndSetup_F("Easy", levels);
+        m_EasyLevels = levels.ToArray();
 
-            //Finding the resource locations of all loop addressables.
-            IList<IResourceLocation> resourceLocations = null;
-            AsyncOperationHandle<IList<IResourceLocation>> asyncOpHandle_0 = Addressables.LoadResourceLocationsAsync("Level");
-            asyncOpHandle_0.Completed += x => resourceLocations = x.Result;
-            yield return asyncOpHandle_0;
+        yield return LevelsInstantiateAndSetup_F("Normal", levels);
+        m_NormalLevels = levels.ToArray();
 
-            //Loading all the loop addressables.
-            yield return Addressables.LoadAssetsAsync<GameObject>(resourceLocations, gObj =>
-            {
-                //if (gObj.TryGetComponent(out LevelMgr level)) Debug.Log("<color=green>Level Loaded- " + level.transform.name + "</color>");
-            });
-
-            //Instantiating all the loop addressables.
-            foreach (IResourceLocation rl in resourceLocations)
-            {
-                AsyncOperationHandle<GameObject> asyncOpHandle_1 = Addressables.InstantiateAsync(rl);
-                asyncOpHandle_1.Completed += x =>
-                {
-                    if (x.Result.TryGetComponent(out LevelMgr level))
-                    {
-                        x.Result.SetActive(false);
-                        m_Levels.Add(level);
-                        level.transform.name = level.transform.name + " from Addressables";
-                        level.Init_F();
-                        DontDestroyOnLoad(x.Result);
-                    }
-                    //Debug.Log("<color=yellow>Level Instantiated- " + level.transform.name + "</color>");
-                };
-                yield return asyncOpHandle_1;
-            }
-
-            m_IsLoaded = true;
-        }      
-
+        //yield return LevelsInstantiateAndSetup_F("Hard", levels);
+        //m_HardLevels = levels.ToArray();
+        
+        m_IsLoaded = true;
     }
+
+    private IEnumerator LevelResourceLocationsGet_F(string type, IList<IResourceLocation> resourceLocations)
+    {
+        type = type + " Level";
+        resourceLocations = null;
+        AsyncOperationHandle<IList<IResourceLocation>> asyncOpHandle0 = Addressables.LoadResourceLocationsAsync(type);
+        asyncOpHandle0.Completed += x => resourceLocations = x.Result;
+        yield return asyncOpHandle0;
+    }
+
+    private IEnumerator LevelsInstantiateAndSetup_F(string type, List<LevelMgr> list)
+    {
+        Debug.Log($"Instantiating {type} levels");
+        list.Clear();
+
+        type = type + " Level";
+        IList<IResourceLocation> resourceLocations = null;
+        AsyncOperationHandle<IList<IResourceLocation>> asyncOpHandle0 = Addressables.LoadResourceLocationsAsync(type);
+        asyncOpHandle0.Completed += x => resourceLocations = x.Result;
+        yield return asyncOpHandle0;
+        
+        Debug.Log($"ResourceLocations.Length = {resourceLocations.Count}");
+
+        foreach (IResourceLocation rl in resourceLocations)
+        {
+            AsyncOperationHandle<GameObject> asyncOpHandle_1 = Addressables.InstantiateAsync(rl);
+            asyncOpHandle_1.Completed += x =>
+            {
+                if (x.Result.TryGetComponent(out LevelMgr level))
+                {
+                    x.Result.SetActive(false);
+                    list.Add(level);
+                    level.transform.name = level.transform.name + " from Addressables";
+                    level.Init_F();
+                    DontDestroyOnLoad(x.Result);
+                }
+                //Debug.Log("<color=yellow>Level Instantiated- " + level.transform.name + "</color>");
+            };
+            yield return asyncOpHandle_1;
+        }
+    }
+
+    public class CustomAsyncOp<T> : CustomYieldInstruction
+    {
+        protected bool m_IsComplete;
+        public bool IsComplete => m_IsComplete;
+        protected T m_Result;
+        public T Result => m_Result;
+
+        public override bool keepWaiting => m_IsComplete;
+    }
+
+    //public class ResourceLocationsLoad : CustomAsyncOp<IList<IResourceLocation>>
+    //{
+    //    Re
+    //}
 }

@@ -18,6 +18,13 @@ public class MainGameMgr : MonoBehaviour
     private GlobalDatabaseInitializer m_gdi;
     private MainGameReferences mgr;
 
+    private DifficultyEN m_Difficulty;
+    public DifficultyEN Difficulty
+    {
+        get => m_Difficulty;
+        set => m_Difficulty = value;
+    }
+
     private int m_PlayerDeathCount;
     public int PlayerDeathCount { get => m_PlayerDeathCount; }
     
@@ -159,16 +166,9 @@ public class MainGameMgr : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    [PostProcessScene]
-    public static void PostProcessScene_F()
-    {
-        Debug.Log("<color=green>Post Processed</color>");
-    }
-
     [MenuItem("Scenes/Main Game")]
-    public static void MainGameSceneOpen_F()
-    {
-        EditorSceneManager.OpenScene("Assets/Main Game Stuff/Scenes/MainGame_1_Scene.unity");
-    }
+    public static void MainGameSceneOpen_F() => EditorSceneManager.OpenScene("Assets/Main Game Stuff/Scenes/MainGame_1_Scene.unity");
 #endif
+
+    public enum DifficultyEN { Easy, Normal, Hard }
 }

@@ -6,15 +6,19 @@ using UnityEngine;
 public class LevelsMgr : MonoBehaviour
 {
     #region Variables
-    private LevelMgr[] m_Levels;
+    private LevelMgr[] m_EasyLevels;
+    private LevelMgr[] m_NormalLevels;
+    private LevelMgr[] m_HardLevels;
     private Queue<LevelMgr> m_LevelsSpawned;
     private bool m_PlayerJustRevived;
     public bool PlayerJustRevived { get => m_PlayerJustRevived; set => m_PlayerJustRevived = value; }    
 
     private readonly Vector3 k_NullVector = new Vector3(-999f, -999f, -999f);
 
+#if UNITY_EDITOR
     [Header("Testing Stuff")]
-    [SerializeField] private LevelMgr m_TestLevel;    
+    [SerializeField] private LevelMgr[] m_TestLevels;
+#endif   
     #endregion
 
     private void Awake()
@@ -24,17 +28,38 @@ public class LevelsMgr : MonoBehaviour
 
     public void GetAllLevelsForGame_F()
     {
-        if (m_TestLevel == null) m_Levels = GlobalDatabaseInitializer.INSTANCE.m_LevelsDatabase.Levels.ToArray();
+        LevelsDatabase ldb = GlobalDatabaseInitializer.INSTANCE.m_LevelsDatabase;
+#if UNITY_EDITOR
+        if (m_TestLevels == null || m_TestLevels.Length == 0)
+        {
+#endif
+            m_EasyLevels = ldb.EasyLevels;
+            m_NormalLevels = ldb.NormalLevels;
+            m_HardLevels = ldb.NormalLevels;
+#if UNITY_EDITOR
+        }
         else
         {
-            m_Levels = new LevelMgr[2];
-            for(int i = 0; i < 2; i++)
+            if (m_TestLevels.Length == 1)
             {
-                m_Levels[i] = Instantiate(m_TestLevel);
-                m_Levels[i].gameObject.SetActive(false);
-                m_Levels[i].Init_F();
+                m_EasyLevels = m_NormalLevels = m_HardLevels = new LevelMgr[2];
+                for (int i = 0; i < 2; i++) 
+                    m_EasyLevels[i] = Instantiate(m_TestLevels[0].gameObject).GetComponent<LevelMgr>();
+            }
+            else
+            {
+                m_EasyLevels = m_NormalLevels = m_HardLevels = new LevelMgr[m_TestLevels.Length];
+                for (int i = 0; i < m_TestLevels.Length; i++)
+                    m_EasyLevels[i] = Instantiate(m_TestLevels[i].gameObject).GetComponent<LevelMgr>();
+            }
+
+            foreach (LevelMgr level in m_EasyLevels)
+            {
+                level.gameObject.SetActive(false);
+                level.Init_F();
             }
         }
+#endif
     }       
     
     public LevelMgr LevelCurGet_F()
@@ -51,18 +76,27 @@ public class LevelsMgr : MonoBehaviour
             return;
 
         int toSpawnCount = 2 - m_LevelsSpawned.Count;
-
         for (int i = 0; i < toSpawnCount; i++)
-        {
-            int index = 0, levelLength = m_Levels.Length;
-            do
-            {
-                index = Random.Range(0, levelLength);
-            } while (m_Levels[index].IsSpawned);
-            
-            LevelSpawn_F(m_Levels[index]);
+            LevelSpawn_F(RandomLevelGet_F(MainGameReferences.INSTANCE.mainGameMgr.Difficulty));
+
         }
 
+    public LevelMgr RandomLevelGet_F(MainGameMgr.DifficultyEN difficulty)
+    {
+        LevelMgr[] levels = difficulty switch
+        {
+            MainGameMgr.DifficultyEN.Easy => m_EasyLevels,
+            MainGameMgr.DifficultyEN.Normal => m_NormalLevels,
+            MainGameMgr.DifficultyEN.Hard => m_HardLevels
+        };
+
+        int index = 0, levelLength = levels.Length;
+        do
+        {
+            index = Random.Range(0, levelLength);
+        } while (levels[index].IsSpawned);
+
+        return levels[index];
     }
 
     public void LevelSpawn_F(LevelMgr level)

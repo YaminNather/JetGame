@@ -40,6 +40,10 @@ public class ScoreMgr : MonoBehaviour
     public void ScoreAdd_F(int amount)
     {
         m_Score += amount;
+        if (m_Score == 20)
+            MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Normal;
+        //else if(m_Score == 10)
+        
         ScoreUIUpdate_F();
     }
 
