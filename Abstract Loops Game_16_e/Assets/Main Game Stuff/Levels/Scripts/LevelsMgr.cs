@@ -35,7 +35,7 @@ public class LevelsMgr : MonoBehaviour
 #endif
             m_EasyLevels = ldb.EasyLevels;
             m_NormalLevels = ldb.NormalLevels;
-            m_HardLevels = ldb.NormalLevels;
+            m_HardLevels = ldb.HardLevels;
 #if UNITY_EDITOR
         }
         else

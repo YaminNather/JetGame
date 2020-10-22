@@ -27,8 +27,8 @@ public class LevelsDatabase : DatabaseBase
         yield return LevelsInstantiateAndSetup_F("Normal", levels);
         m_NormalLevels = levels.ToArray();
 
-        //yield return LevelsInstantiateAndSetup_F("Hard", levels);
-        //m_HardLevels = levels.ToArray();
+        yield return LevelsInstantiateAndSetup_F("Hard", levels);
+        m_HardLevels = levels.ToArray();
         
         m_IsLoaded = true;
     }

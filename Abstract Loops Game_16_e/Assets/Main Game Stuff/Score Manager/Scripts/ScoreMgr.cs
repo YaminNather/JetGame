@@ -42,8 +42,9 @@ public class ScoreMgr : MonoBehaviour
         m_Score += amount;
         if (m_Score == 20)
             MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Normal;
-        //else if(m_Score == 10)
-        
+        else if(m_Score == 10)
+            MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Hard;
+
         ScoreUIUpdate_F();
     }
 
