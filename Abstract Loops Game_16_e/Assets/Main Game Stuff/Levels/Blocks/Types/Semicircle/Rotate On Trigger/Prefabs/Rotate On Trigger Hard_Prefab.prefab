@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2090509820668499912, guid: 98220ae555ffa654ebf0e8ef9aa71d58, type: 3}
+      propertyPath: m_RotationSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2882636451613022405, guid: 98220ae555ffa654ebf0e8ef9aa71d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2882636451613022406, guid: 98220ae555ffa654ebf0e8ef9aa71d58, type: 3}
       propertyPath: m_Name
-      value: Single Semi Circle Rotate On Trigger_Prefab
+      value: Rotate On Trigger Hard_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98220ae555ffa654ebf0e8ef9aa71d58, type: 3}

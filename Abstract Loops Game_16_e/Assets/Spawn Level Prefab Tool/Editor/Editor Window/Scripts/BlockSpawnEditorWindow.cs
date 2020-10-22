@@ -60,7 +60,7 @@ namespace SpawnLevelPrefabsTool
             m_RelativeDist = 30;
             m_DistUseContext = true;
             m_InitialRot = 0;
-            m_RelativeRot = 180;
+            m_RelativeRot = 90;
             m_RotUseContext = true;
             m_Ghosts = new LinkedList<GameObject>();
             m_GhostsRotationObjsTranss = new LinkedList<Transform>();
@@ -349,9 +349,7 @@ namespace SpawnLevelPrefabsTool
         private void OnDisable()
         {
             Debug.Log("OnDisable called");
-
             Reset_F();
-
             Undo.ClearUndo(this);
         }
 

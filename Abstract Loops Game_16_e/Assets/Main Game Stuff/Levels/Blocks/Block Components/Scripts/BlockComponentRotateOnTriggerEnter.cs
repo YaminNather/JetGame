@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockComponentRotateOnTriggerEnter : LevelComponent
+public class BlockComponentRotateOnTriggerEnter : BlockComponentRotationBase
 {
     #region Variables
     [SerializeField] private Hitbox m_Hitbox;
-    
     private bool m_IsRotating;
-    [SerializeField] private float m_RotationSpeed = 20f;
-    [SerializeField] private int m_RotationDir = 1;
     #endregion
 
     private void Awake() => m_Hitbox.ListenerAdd_F(HitboxOnEnter_EF);    
