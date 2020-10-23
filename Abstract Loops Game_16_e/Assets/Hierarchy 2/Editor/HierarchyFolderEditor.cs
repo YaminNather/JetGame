@@ -8,7 +8,7 @@ using UnityEditor.UIElements;
 
 namespace Hierarchy2
 {
-    [CustomEditor(typeof(HierarchyFolder))]
+    [CustomEditor(typeof(HierarchyFolder)), CanEditMultipleObjects]
     internal class HierarchyFolderEditor : Editor
     {
         private void OnEnable()
@@ -31,8 +31,32 @@ namespace Hierarchy2
                     script.destroyAfterFlatten = EditorGUILayout.Toggle("Destroy After Flatten", script.destroyAfterFlatten);
                 }
             });
-            root.Add(imguiContainer);
+
+            //root.Add(imguiContainer);
             
+            PropertyField flattenModePropertyField = new PropertyField();
+            flattenModePropertyField.BindProperty(serializedObject.FindProperty("flattenMode"));
+            root.Add(flattenModePropertyField);
+
+            VisualElement flattenOptionSectionVE = new VisualElement();
+            
+            PropertyField propertyField0 = new PropertyField();
+            propertyField0.BindProperty(serializedObject.FindProperty("flattenSpace"));
+            flattenOptionSectionVE.Add(propertyField0);
+            
+            propertyField0 = new PropertyField();
+            propertyField0.BindProperty(serializedObject.FindProperty("destroyAfterFlatten"));
+            flattenOptionSectionVE.Add(propertyField0);
+
+            flattenOptionSectionVE.visible = !serializedObject.FindProperty("flattenMode").hasMultipleDifferentValues 
+                                             && ((HierarchyFolder.FlattenMode)serializedObject.FindProperty("flattenMode").enumValueIndex != HierarchyFolder.FlattenMode.None);
+            root.Add(flattenOptionSectionVE);
+
+            flattenModePropertyField.RegisterValueChangeCallback(x =>
+            {
+                flattenOptionSectionVE.visible = (HierarchyFolder.FlattenMode)x.changedProperty.enumValueIndex != HierarchyFolder.FlattenMode.None;
+            });
+
             return root;
         }
 
