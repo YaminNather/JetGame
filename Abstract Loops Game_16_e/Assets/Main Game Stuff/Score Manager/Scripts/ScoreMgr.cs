@@ -7,22 +7,21 @@ using UnityEngine.UI;
 public class ScoreMgr : MonoBehaviour
 {
     #region Variables
-    [SerializeField]private Text m_ScoreValue_Lbl;
+    [Header("Score Stuff")]
+    [SerializeField] private Text m_ScoreValue_Lbl;
     private int m_Score;
-    public int Score { get => m_Score; }
+    public int Score => m_Score; 
     private Tweener m_ScoreValueUpdateT;
     [SerializeField] private AnimationCurve m_ScoreValueLblUpdateTEaseAC;
+    public System.Action<int> ScoreOnUpdate_E;
 
+    private int m_ScoreBest;
+    private ScoreBestCheckpointMgr m_ScoreBestCheckpointMgr;
+
+    [Header("Currency Stuff")]
     [SerializeField] private Text m_CurrencyValue_Lbl;
     private int m_Currency;
     public int Currency { get => m_Currency; set => m_Currency = value; }
-
-    private bool m_IsRecording;
-    public bool IsRecording { get => m_IsRecording; }
-    private Vector3 m_RecordingStartPos;
-    private Pawn m_player;
-
-    [SerializeField] private int ScoreModifier;
     #endregion
 
     private void Awake()
@@ -32,10 +31,13 @@ public class ScoreMgr : MonoBehaviour
             .SetEase(m_ScoreValueLblUpdateTEaseAC)
             .SetAutoKill(false)
             .Pause();
+        m_ScoreBestCheckpointMgr = GetComponentInChildren<ScoreBestCheckpointMgr>(true);
         
         m_CurrencyValue_Lbl.text = "0";
 
     }
+
+    public void ScoreBestSet_F() => m_ScoreBest = GlobalDatabaseInitializer.INSTANCE.m_GlobalData.ScoreBest;
 
     public void ScoreAdd_F(int amount)
     {
@@ -44,6 +46,14 @@ public class ScoreMgr : MonoBehaviour
             MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Normal;
         else if(m_Score == 10)
             MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Hard;
+
+        ScoreOnUpdate_E?.Invoke(m_Score);
+
+        if (m_Score == m_ScoreBest - 10)
+        {
+            m_ScoreBestCheckpointMgr.gameObject.SetActive(true);
+            m_ScoreBestCheckpointMgr.CountdownStart_F(m_ScoreBest);
+        }
 
         ScoreUIUpdate_F();
     }
@@ -64,5 +74,5 @@ public class ScoreMgr : MonoBehaviour
         CurrencyUIUpdate_F();
     }
 
-    private void CurrencyUIUpdate_F() => m_CurrencyValue_Lbl.text = "" + m_Currency;    
+    private void CurrencyUIUpdate_F() => m_CurrencyValue_Lbl.text = "" + m_Currency;
 }

@@ -47,6 +47,9 @@ public class MainGameMgr : MonoBehaviour
         //TESTING- Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_gdi.AllLoaded == false) yield return null;
 
+        //Sets the best score in ScoreMgr.
+        mgr.scoreMgr.ScoreBestSet_F();
+
         //Play Background Music
         GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
 
