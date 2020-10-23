@@ -23,6 +23,17 @@ public class MainMenuMgr : Page
     private void Awake()
     {
         mmsr = MainMenuSceneReferences.INSTANCE;
+        OnOpen_E += OnOpen_EF;
+    }
+
+    private void OnOpen_EF()
+    {
+        //If last game's score was the best then enable the NewBestScore Lbl.
+        if (mmsr.mainMenuSceneMgr.ScoreLastGameIsBest)
+        {
+            m_NewBestScoreLblGObj.gameObject.SetActive(true);
+            m_NewBestScoreLblAnimT = m_NewBestScoreLblGObj.transform.DOScale(1.2f, 1f).SetEase(Ease.Flash, 2).SetLoops(-1);
+        }
     }
 
     private void OnEnable()
@@ -32,15 +43,7 @@ public class MainMenuMgr : Page
         m_ScoreBest_Lbl.text = "" + gd.ScoreBest;
         m_ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
         m_CurrencyValue_Lbl.text = "" + gd.Currency;
-
-        //If last game's score was the best then enable the NewBestScore Lbl.
-        if (mmsr.mainMenuSceneMgr.ScoreLastGameIsBest)
-        {
-            m_NewBestScoreLblGObj.gameObject.SetActive(true);
-            m_NewBestScoreLblAnimT = m_NewBestScoreLblGObj.transform.DOScale(1.2f, 1f).SetEase(Ease.Flash, 2).SetLoops(-1);
-        }
-        else
-            m_NewBestScoreLblGObj.gameObject.SetActive(false);
+        m_NewBestScoreLblGObj.gameObject.SetActive(false);
     }
 
     public override void Close_F(Page page = null, Action onClose_E = null, Action onOpen = null)

@@ -48,3 +48,9 @@ public static partial class ExtensionMethods
         return new Color(r??c.r, g??c.g, b??c.b, a??c.a);
     }
 }
+
+//Vector2
+public static partial class ExtensionMethods
+{
+    public static Vector2 With(this Vector2 v, float? x = null, float? y = null) => new Vector2(x??v.x, y??v.y);
+}

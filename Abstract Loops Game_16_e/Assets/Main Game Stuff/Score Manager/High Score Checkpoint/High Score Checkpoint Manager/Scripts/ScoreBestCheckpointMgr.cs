@@ -13,6 +13,8 @@ public class ScoreBestCheckpointMgr : MonoBehaviour
     [SerializeField] private GameObject m_ScoreBestDiffHolder;
     [SerializeField] private Text m_ScoreBestDiffValueLbl;
     [SerializeField] private AnimationCurve m_ScoreBestDiffUpdateAC;
+    [SerializeField] private RectTransform m_LRStreakImageRT;
+    [SerializeField] private RectTransform m_RLStreakImageRT;
     private int m_ScoreBest;
 
     [SerializeField] private Text m_ScoreBestCrossedLbl;
@@ -47,12 +49,24 @@ public class ScoreBestCheckpointMgr : MonoBehaviour
         MainGameReferences.INSTANCE.scoreMgr.ScoreOnUpdate_E -= ScoreOnUpdate_EF;
         m_ScoreBestDiffHolder.SetActive(false);
         m_ScoreBestCrossedLbl.gameObject.SetActive(true);
+        m_LRStreakImageRT.gameObject.SetActive(true);
+        m_RLStreakImageRT.gameObject.SetActive(true);
 
         m_ScoreBestCrossedLbl.transform.localScale = Vector3.zero;
         Sequence sequence = DOTween.Sequence();
+        float time = 0.0f;
         sequence.Append(m_ScoreBestCrossedLbl.transform.DOScale(1.0f, 0.5f).SetEase(Ease.OutBack));
-        sequence.AppendInterval(0.5f);
-        sequence.Append(m_ScoreBestCrossedLbl.transform.DOScale(0.0f, 0.5f).SetEase(Ease.InBack));
+        time = 0.5f;
+        for (int i = 0; i < 1; i++)
+        {
+            sequence.Append(m_RLStreakImageRT.DOAnchorPosX(m_LRStreakImageRT.anchoredPosition.x, 0.5f).SetEase(Ease.OutBack));
+            sequence.Insert(0.5f,m_LRStreakImageRT.DOAnchorPosX(m_RLStreakImageRT.anchoredPosition.x, 0.5f).SetEase(Ease.OutBack));
+            time += 0.5f;
+            sequence.Append(m_RLStreakImageRT.DOAnchorPosX(Screen.width * 2.0f, 0.5f).SetEase(Ease.OutBack));
+            sequence.Insert(time, m_LRStreakImageRT.DOAnchorPosX(-Screen.width * 2.0f, 0.5f).SetEase(Ease.OutBack));
+        }
+        sequence.Insert(time, m_ScoreBestCrossedLbl.transform.DOScale(0.0f, 0.1f).SetEase(Ease.InBack));
+        time += 0.5f;
         sequence.AppendCallback(() => gameObject.SetActive(false));
     }
 }
