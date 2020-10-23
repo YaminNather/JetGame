@@ -194,13 +194,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.xsduan.hierarchy-folders": {
-      "version": "https://github.com/xsduan/unity-hierarchy-folders.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "86c614734d88841793b2138bbb8b7d49df228d04"
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
