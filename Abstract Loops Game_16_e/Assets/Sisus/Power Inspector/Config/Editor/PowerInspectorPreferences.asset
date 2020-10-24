@@ -207,7 +207,7 @@ MonoBehaviour:
       shift: 0
       controlOrCommand: 0
       alt: 0
-  defaultScriptPath: 
+  defaultScriptPath: Plugins/PowerInspector/Code/GUIInstructions
   defaultEditorScriptPath: Editor
   defaultNamespace: 
   createScriptWizard:
@@ -313,8 +313,8 @@ MonoBehaviour:
       typeSerialized: UnityEngine.AudioSource, UnityEngine.AudioModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     - label: Effects/Halo
-      typeSerialized: UnityEngine.Halo, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.Halo, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     - label: Effects/Lens Flare
       typeSerialized: UnityEngine.LensFlare, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -346,14 +346,14 @@ MonoBehaviour:
       typeSerialized: UnityEngine.EventSystems.Physics2DRaycaster, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     - label: Event/Physics Raycaster
-      typeSerialized: UnityEngine.EventSystems.PhysicsRaycaster, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.EventSystems.PhysicsRaycaster, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
     - label: Event/Standalone Input Module
       typeSerialized: UnityEngine.EventSystems.StandaloneInputModule, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     - label: Event/Touch Input Module
-      typeSerialized: UnityEngine.EventSystems.TouchInputModule, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.EventSystems.TouchInputModule, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
     - label: Layout/Aspect Ratio Fitter
       typeSerialized: UnityEngine.UI.AspectRatioFitter, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -364,8 +364,8 @@ MonoBehaviour:
       typeSerialized: UnityEngine.UI.CanvasScaler, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
     - label: Layout/Canvas
-      typeSerialized: UnityEngine.Canvas, UnityEngine.UIModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.Canvas, UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     - label: Layout/Content Size Fitter
       typeSerialized: UnityEngine.UI.ContentSizeFitter, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -412,8 +412,8 @@ MonoBehaviour:
       typeSerialized: UnityEngine.BillboardRenderer, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     - label: Miscellaneous/Grid
-      typeSerialized: UnityEngine.Grid, UnityEngine.GridModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.Grid, UnityEngine.GridModule, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     - label: Miscellaneous/Look At Constraint
       typeSerialized: UnityEngine.Animations.LookAtConstraint, UnityEngine.AnimationModule,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -492,8 +492,8 @@ MonoBehaviour:
       typeSerialized: UnityEngine.CapsuleCollider2D, UnityEngine.Physics2DModule,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - label: Physics 2D/Circle Collider 2D
-      typeSerialized: UnityEngine.CircleCollider2D, UnityEngine.Physics2DModule,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.CircleCollider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
     - label: Physics 2D/Composite Collider 2D
       typeSerialized: UnityEngine.CompositeCollider2D, UnityEngine.Physics2DModule,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -618,8 +618,8 @@ MonoBehaviour:
       typeSerialized: UnityEngine.LightProbeGroup, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     - label: Rendering/Light Probe Proxy Volume
-      typeSerialized: UnityEngine.LightProbeProxyVolume, UnityEngine.CoreModule,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.LightProbeProxyVolume, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
     - label: Rendering/Light
       typeSerialized: UnityEngine.Light, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -687,8 +687,8 @@ MonoBehaviour:
       typeSerialized: UnityEngine.UI.ScrollRect, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
     - label: UI/Scrollbar
-      typeSerialized: UnityEngine.UI.Scrollbar, UnityEngine.UI, Version=1.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      typeSerialized: UnityEngine.UI.Scrollbar, UnityEngine.UI, Version=1.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     - label: UI/Selectable
       typeSerialized: UnityEngine.UI.Selectable, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -705,8 +705,8 @@ MonoBehaviour:
       typeSerialized: TMPro.TMP_InputField, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     - label: UI/TextMeshPro - Text (UI)
-      typeSerialized: TMPro.TextMeshProUGUI, Unity.TextMeshPro, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      typeSerialized: TMPro.TextMeshProUGUI, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     - label: UI/Toggle Group
       typeSerialized: UnityEngine.UI.ToggleGroup, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -727,24 +727,27 @@ MonoBehaviour:
       labels: {fileID: 11400000, guid: de22353365ca500448a52b887a6f0858, type: 2}
       PrefixIdleText: {r: 0, g: 0, b: 0, a: 1}
       SelectedLineIndicator: {r: 0, g: 0.21568628, b: 1, a: 0.5019608}
-      SelectedLineIndicatorUnfocused: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0.5019608}
+      SelectedLineIndicatorUnfocused: {r: 0.40392157, g: 0.40392157, b: 0.40392157,
+        a: 0.5019608}
       PrefixSelectedText: {r: 0, g: 0.19607843, b: 0.9019608, a: 1}
-      PrefixSelectedUnfocusedText: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
+      PrefixSelectedUnfocusedText: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
       PrefixMouseoveredText: {r: 0.9372549, g: 0.9372549, b: 0.9372549, a: 1}
       PrefixMouseoveredRectHighlight: {r: 1, g: 1, b: 1, a: 0.3019608}
       PrefixMouseoveredRectShadow: {r: 0, g: 0, b: 0, a: 0.14901961}
       ControlSelectedRect: {r: 0.2, g: 0.30980393, b: 0.81960785, a: 1}
       ControlSelectedUnfocusedRect: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
       ControlSelectedTint: {r: 0.5019608, g: 0.59607846, b: 0.9529412, a: 1}
-      ControlSelectedUnfocusedTint: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
+      ControlSelectedUnfocusedTint: {r: 0.56078434, g: 0.56078434, b: 0.56078434,
+        a: 1}
       ControlMouseoveredTint: {r: 1, g: 1, b: 1, a: 0.10980392}
       ControlUnappliedChangesTint: {r: 0.5, g: 1, b: 0.5, a: 0.039215688}
       CanDragPrefixToAdjustValueTint: {r: 0.5019608, g: 1, b: 0.5019608, a: 0.039215688}
       Background: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
       BackgroundSelected: {r: 0.24313726, g: 0.49019608, b: 0.90588236, a: 1}
       BackgroundSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
-      ComponentHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
-      ComponentMouseoveredHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
+      ComponentHeaderBackground: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
+      ComponentMouseoveredHeaderBackground: {r: 0.7607843, g: 0.7607843, b: 0.7607843,
+        a: 1}
       ButtonSelected: {r: 0.7019608, g: 0.7490196, b: 1, a: 1}
       ComponentSeparatorLine: {r: 0.3254902, g: 0.3254902, b: 0.3254902, a: 1}
       ToolbarSeparator: {r: 0, g: 0, b: 0, a: 0.3019608}
@@ -752,8 +755,9 @@ MonoBehaviour:
       LockViewHighlight: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       InvalidAction: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       ToolbarItemSelected: {r: 0.23529412, g: 0.4627451, b: 0.7529412, a: 1}
-      ToolbarItemSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
-      AssetHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
+      ToolbarItemSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434,
+        a: 1}
+      AssetHeaderBackground: {r: 0.85490197, g: 0.85490197, b: 0.85490197, a: 1}
       SplitViewDivider: {r: 1, g: 1, b: 1, a: 1}
       SyntaxHighlight:
         StringColor: {r: 0.8392157, g: 0.6156863, b: 0.52156866, a: 1}
@@ -776,24 +780,27 @@ MonoBehaviour:
       labels: {fileID: 11400000, guid: de22353365ca500448a52b887a6f0858, type: 2}
       PrefixIdleText: {r: 0, g: 0, b: 0, a: 1}
       SelectedLineIndicator: {r: 0, g: 0.21568628, b: 1, a: 0.5019608}
-      SelectedLineIndicatorUnfocused: {r: 0, g: 0, b: 0, a: 0}
+      SelectedLineIndicatorUnfocused: {r: 0.40392157, g: 0.40392157, b: 0.40392157,
+        a: 0.5019608}
       PrefixSelectedText: {r: 0, g: 0.19607843, b: 0.9019608, a: 1}
-      PrefixSelectedUnfocusedText: {r: 0, g: 0, b: 0, a: 0}
+      PrefixSelectedUnfocusedText: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
       PrefixMouseoveredText: {r: 0.9372549, g: 0.9372549, b: 0.9372549, a: 1}
       PrefixMouseoveredRectHighlight: {r: 1, g: 1, b: 1, a: 0.3019608}
       PrefixMouseoveredRectShadow: {r: 0, g: 0, b: 0, a: 0.14901961}
       ControlSelectedRect: {r: 0.2, g: 0.30980393, b: 0.81960785, a: 1}
-      ControlSelectedUnfocusedRect: {r: 0, g: 0, b: 0, a: 0}
+      ControlSelectedUnfocusedRect: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
       ControlSelectedTint: {r: 0.5019608, g: 0.59607846, b: 0.9529412, a: 1}
-      ControlSelectedUnfocusedTint: {r: 0, g: 0, b: 0, a: 0}
+      ControlSelectedUnfocusedTint: {r: 0.56078434, g: 0.56078434, b: 0.56078434,
+        a: 1}
       ControlMouseoveredTint: {r: 1, g: 1, b: 1, a: 0.10980392}
       ControlUnappliedChangesTint: {r: 0.5, g: 1, b: 0.5, a: 0.039215688}
-      CanDragPrefixToAdjustValueTint: {r: 0, g: 0, b: 0, a: 0}
+      CanDragPrefixToAdjustValueTint: {r: 0.5019608, g: 1, b: 0.5019608, a: 0.039215688}
       Background: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
       BackgroundSelected: {r: 0.24313726, g: 0.49019608, b: 0.90588236, a: 1}
       BackgroundSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
-      ComponentHeaderBackground: {r: 0, g: 0, b: 0, a: 0}
-      ComponentMouseoveredHeaderBackground: {r: 0, g: 0, b: 0, a: 0}
+      ComponentHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
+      ComponentMouseoveredHeaderBackground: {r: 0.8392157, g: 0.8392157, b: 0.8392157,
+        a: 1}
       ButtonSelected: {r: 0.7019608, g: 0.7490196, b: 1, a: 1}
       ComponentSeparatorLine: {r: 0.3254902, g: 0.3254902, b: 0.3254902, a: 1}
       ToolbarSeparator: {r: 0, g: 0, b: 0, a: 0.3019608}
@@ -801,9 +808,10 @@ MonoBehaviour:
       LockViewHighlight: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       InvalidAction: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       ToolbarItemSelected: {r: 0.23529412, g: 0.4627451, b: 0.7529412, a: 1}
-      ToolbarItemSelectedUnfocused: {r: 0, g: 0, b: 0, a: 0}
+      ToolbarItemSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434,
+        a: 1}
       AssetHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
-      SplitViewDivider: {r: 0, g: 0, b: 0, a: 0}
+      SplitViewDivider: {r: 1, g: 1, b: 1, a: 1}
       SyntaxHighlight:
         StringColor: {r: 0.8392157, g: 0.6156863, b: 0.52156866, a: 1}
         KeywordColor: {r: 0.3372549, g: 0.6117647, b: 0.8392157, a: 1}
@@ -823,26 +831,30 @@ MonoBehaviour:
       guiStyles: {fileID: 11400000, guid: cae1f91789b883743bb161e15833b9e2, type: 2}
       graphics: {fileID: 11400000, guid: 6c90163ce0d8fd8479b630efc39a3f5e, type: 2}
       labels: {fileID: 11400000, guid: de22353365ca500448a52b887a6f0858, type: 2}
-      PrefixIdleText: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
-      SelectedLineIndicator: {r: 0, g: 0.21568628, b: 1, a: 0.5019608}
-      SelectedLineIndicatorUnfocused: {r: 0, g: 0, b: 0, a: 0}
+      PrefixIdleText: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
+      SelectedLineIndicator: {r: 0.28627452, g: 0.5568628, b: 0.89411765, a: 0.5019608}
+      SelectedLineIndicatorUnfocused: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 0.5019608}
       PrefixSelectedText: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
-      PrefixSelectedUnfocusedText: {r: 0, g: 0, b: 0, a: 0}
+      PrefixSelectedUnfocusedText: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
       PrefixMouseoveredText: {r: 1, g: 1, b: 1, a: 1}
-      PrefixMouseoveredRectHighlight: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+      PrefixMouseoveredRectHighlight: {r: 0.21960784, g: 0.21960784, b: 0.21960784,
+        a: 1}
       PrefixMouseoveredRectShadow: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
       ControlSelectedRect: {r: 0.2, g: 0.30980393, b: 0.81960785, a: 1}
-      ControlSelectedUnfocusedRect: {r: 0, g: 0, b: 0, a: 0}
+      ControlSelectedUnfocusedRect: {r: 0.39215687, g: 0.39215687, b: 0.39215687,
+        a: 1}
       ControlSelectedTint: {r: 0.5019608, g: 0.59607846, b: 0.9529412, a: 1}
-      ControlSelectedUnfocusedTint: {r: 0, g: 0, b: 0, a: 0}
+      ControlSelectedUnfocusedTint: {r: 0.56078434, g: 0.56078434, b: 0.56078434,
+        a: 1}
       ControlMouseoveredTint: {r: 1, g: 1, b: 1, a: 0.015686275}
       ControlUnappliedChangesTint: {r: 0.5, g: 1, b: 0.5, a: 1}
-      CanDragPrefixToAdjustValueTint: {r: 0, g: 0, b: 0, a: 0}
+      CanDragPrefixToAdjustValueTint: {r: 0.5019608, g: 1, b: 0.5019608, a: 0.039215688}
       Background: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
       BackgroundSelected: {r: 0.24313726, g: 0.49019608, b: 0.90588236, a: 1}
       BackgroundSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
-      ComponentHeaderBackground: {r: 0, g: 0, b: 0, a: 0}
-      ComponentMouseoveredHeaderBackground: {r: 0, g: 0, b: 0, a: 0}
+      ComponentHeaderBackground: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+      ComponentMouseoveredHeaderBackground: {r: 0.21960784, g: 0.21960784, b: 0.21960784,
+        a: 1}
       ButtonSelected: {r: 0.7019608, g: 0.7490196, b: 1, a: 1}
       ComponentSeparatorLine: {r: 0.3254902, g: 0.3254902, b: 0.3254902, a: 1}
       ToolbarSeparator: {r: 0, g: 0, b: 0, a: 0.25}
@@ -850,9 +862,10 @@ MonoBehaviour:
       LockViewHighlight: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       InvalidAction: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       ToolbarItemSelected: {r: 0.23529412, g: 0.4627451, b: 0.7529412, a: 1}
-      ToolbarItemSelectedUnfocused: {r: 0, g: 0, b: 0, a: 0}
-      AssetHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
-      SplitViewDivider: {r: 0, g: 0, b: 0, a: 0}
+      ToolbarItemSelectedUnfocused: {r: 0.28235295, g: 0.28235295, b: 0.28235295,
+        a: 1}
+      AssetHeaderBackground: {r: 0.24313726, g: 0.24313726, b: 0.24313726, a: 1}
+      SplitViewDivider: {r: 1, g: 1, b: 1, a: 1}
       SyntaxHighlight:
         StringColor: {r: 0.8392157, g: 0.6156863, b: 0.52156866, a: 1}
         KeywordColor: {r: 0.3372549, g: 0.6117647, b: 0.8392157, a: 1}
@@ -868,40 +881,45 @@ MonoBehaviour:
         PreprocessorDirectiveColorTag: <color=#9A9A9A>
       nameHash: -1601744955
     - Name: ProModern
-      guiSkin: {fileID: 0}
+      guiSkin: {fileID: 11400000, guid: 11f5f6cee386ce241bff52712393138f, type: 2}
       guiStyles: {fileID: 11400000, guid: 6b88be82e95f4ed4bbcad44172834e6b, type: 2}
       graphics: {fileID: 11400000, guid: 248f2906b2afe7a4bbb06bcc1fe41bb2, type: 2}
       labels: {fileID: 11400000, guid: de22353365ca500448a52b887a6f0858, type: 2}
       PrefixIdleText: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
-      SelectedLineIndicator: {r: 0, g: 0.21568628, b: 1, a: 0.5019608}
-      SelectedLineIndicatorUnfocused: {r: 0, g: 0, b: 0, a: 0}
+      SelectedLineIndicator: {r: 0.28627452, g: 0.5568628, b: 0.89411765, a: 0.5019608}
+      SelectedLineIndicatorUnfocused: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 0.5019608}
       PrefixSelectedText: {r: 0.29803923, g: 0.49411765, b: 1, a: 1}
-      PrefixSelectedUnfocusedText: {r: 0, g: 0, b: 0, a: 0}
+      PrefixSelectedUnfocusedText: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
       PrefixMouseoveredText: {r: 1, g: 1, b: 1, a: 1}
-      PrefixMouseoveredRectHighlight: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+      PrefixMouseoveredRectHighlight: {r: 0.21960784, g: 0.21960784, b: 0.21960784,
+        a: 1}
       PrefixMouseoveredRectShadow: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
       ControlSelectedRect: {r: 0.2, g: 0.30980393, b: 0.81960785, a: 1}
-      ControlSelectedUnfocusedRect: {r: 0, g: 0, b: 0, a: 0}
+      ControlSelectedUnfocusedRect: {r: 0.39215687, g: 0.39215687, b: 0.39215687,
+        a: 1}
       ControlSelectedTint: {r: 0.5019608, g: 0.59607846, b: 0.9529412, a: 1}
-      ControlSelectedUnfocusedTint: {r: 0, g: 0, b: 0, a: 0}
+      ControlSelectedUnfocusedTint: {r: 0.56078434, g: 0.56078434, b: 0.56078434,
+        a: 1}
       ControlMouseoveredTint: {r: 1, g: 1, b: 1, a: 0.015686275}
       ControlUnappliedChangesTint: {r: 0.5, g: 1, b: 0.5, a: 1}
-      CanDragPrefixToAdjustValueTint: {r: 0, g: 0, b: 0, a: 0}
+      CanDragPrefixToAdjustValueTint: {r: 0.5019608, g: 1, b: 0.5019608, a: 0.039215688}
       Background: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
       BackgroundSelected: {r: 0.24313726, g: 0.49019608, b: 0.90588236, a: 1}
       BackgroundSelectedUnfocused: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
-      ComponentHeaderBackground: {r: 0, g: 0, b: 0, a: 0}
-      ComponentMouseoveredHeaderBackground: {r: 0, g: 0, b: 0, a: 0}
+      ComponentHeaderBackground: {r: 0.24313726, g: 0.24313726, b: 0.24313726, a: 1}
+      ComponentMouseoveredHeaderBackground: {r: 0.2784314, g: 0.2784314, b: 0.2784314,
+        a: 1}
       ButtonSelected: {r: 0.7019608, g: 0.7490196, b: 1, a: 1}
-      ComponentSeparatorLine: {r: 0.3254902, g: 0.3254902, b: 0.3254902, a: 1}
+      ComponentSeparatorLine: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 1}
       ToolbarSeparator: {r: 0, g: 0, b: 0, a: 0.25}
       FilterHighlight: {r: 0.3019608, g: 0.45490196, b: 0.3019608, a: 1}
       LockViewHighlight: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       InvalidAction: {r: 0.85490197, g: 0.19215687, b: 0.19215687, a: 1}
       ToolbarItemSelected: {r: 0.23529412, g: 0.4627451, b: 0.7529412, a: 1}
-      ToolbarItemSelectedUnfocused: {r: 0, g: 0, b: 0, a: 0}
-      AssetHeaderBackground: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 1}
-      SplitViewDivider: {r: 0, g: 0, b: 0, a: 0}
+      ToolbarItemSelectedUnfocused: {r: 0.28235295, g: 0.28235295, b: 0.28235295,
+        a: 1}
+      AssetHeaderBackground: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+      SplitViewDivider: {r: 1, g: 1, b: 1, a: 1}
       SyntaxHighlight:
         StringColor: {r: 0.8392157, g: 0.6156863, b: 0.52156866, a: 1}
         KeywordColor: {r: 0.3372549, g: 0.6117647, b: 0.8392157, a: 1}
@@ -922,7 +940,7 @@ MonoBehaviour:
   maxDisplayDuration: 4
   warnAboutInvokingInEditMode: 1
   askAboutStartingCoroutines: 0
-  currentVersion: 12000
+  currentVersion: 13000
   componentCategories:
   - name: 
     components:

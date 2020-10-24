@@ -42,11 +42,13 @@ public class JetBuyBtn : Button
         if(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCheckIfOwned_F(m_JetID))
         {
             m_JetIcon.sprite = jetData.Icon;
+            m_JetIcon.color = Color.red;
             m_CostLbl.gameObject.SetActive(false);
         }
         else
         {
             m_JetIcon.sprite = MainMenuSceneReferences.INSTANCE.jetStoreMgr.JetNotOwnedSprite;
+            m_JetIcon.color = Color.white;
             m_CostLbl.gameObject.SetActive(true);
             m_CostLbl.text = "" + jetData.Cost;
         }

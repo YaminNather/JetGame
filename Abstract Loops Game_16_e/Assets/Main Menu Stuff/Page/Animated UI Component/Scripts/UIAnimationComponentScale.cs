@@ -16,7 +16,7 @@ public class UIAnimationComponentScale : UIAnimationComponent
 
     public override Tweener EntryTween_F()
     {
-        Tweener r = GetComponent<RectTransform>().DOScale(m_ScaleInit, m_EndTime);
+        Tweener r = GetComponent<RectTransform>().DOScale(m_ScaleInit, Duration);
         EntryTweenSetEase_F(r);
         return r;
     }
@@ -25,7 +25,7 @@ public class UIAnimationComponentScale : UIAnimationComponent
 
     public override Tweener ExitTween_F()
     {
-        Tweener r = GetComponent<RectTransform>().DOScale(Vector3.zero, m_EndTime);
+        Tweener r = GetComponent<RectTransform>().DOScale(Vector3.zero, Duration);
         ExitTweenSetEase_F(r);
         return r;
     }   

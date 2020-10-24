@@ -15,4 +15,4 @@ MonoBehaviour:
   m_ID: 3
   m_JetPawnPrefab: {fileID: 493487376111970507, guid: 46b95166e9ecd4d41bf82c7adbcd1be9, type: 3}
   m_Cost: 700
-  m_Icon: {fileID: 21300000, guid: 8e44695e6720ee34bae8e57db139084a, type: 3}
+  m_Icon: {fileID: 21300000, guid: 9247ab94d38908e4aa20b640611b6774, type: 3}
