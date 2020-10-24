@@ -125,8 +125,11 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 4340de52aa0f6bd43b1e62928aa8f5e6
   m_FloatValues:
-    60b5752380756fe41bb4be751a756f4f: -2.018035
-    b67baf77606661f4f9ccb9e8a80eb392: -4.560346
+    60b5752380756fe41bb4be751a756f4f: -2
+    f8bb7c04f46ea614785942bf8b75390f: -0.002441872
+    281580361c731964c8658bbb82d2375c: 0
+    b67baf77606661f4f9ccb9e8a80eb392: 0
+    7c77b2fc6fea326459ff78bc4c4a7666: 1
   m_TransitionOverrides: {}
 --- !u!243 &3262884597009774204
 AudioMixerGroupController:
@@ -134,7 +137,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Global
+  m_Name: Music
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: e733a026545596348852479d09a2ef22
   m_Children:
@@ -201,7 +204,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Main Game
+  m_Name: SFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 6f5b44c15d1a0724fb113621d2709a23
   m_Children:
