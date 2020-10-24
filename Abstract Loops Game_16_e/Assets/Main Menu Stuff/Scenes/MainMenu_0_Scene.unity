@@ -522,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MusicSlider: {fileID: 1545631971}
   m_SFXSlider: {fileID: 217730696}
+  m_0AudioMixer: {fileID: 24100000, guid: 829154336424615409838fc79269e1de, type: 2}
 --- !u!1 &153691176
 GameObject:
   m_ObjectHideFlags: 3
@@ -7762,7 +7763,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 47425849}
   m_Direction: 0
-  m_MinValue: -20
+  m_MinValue: -23
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
