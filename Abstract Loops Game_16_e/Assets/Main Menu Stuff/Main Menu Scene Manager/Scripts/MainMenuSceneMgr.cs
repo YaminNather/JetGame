@@ -12,8 +12,8 @@ public class MainMenuSceneMgr : MonoBehaviour
     private MainMenuSceneReferences mmsr;
     private GlobalDatabaseInitializer gdi;
 
-    private Pages_EN m_PageCur;
-    public Pages_EN PageCur { get => m_PageCur; }
+    private PagesEN m_PageCur;
+    public PagesEN PageCur { get => m_PageCur; }
 
     [SerializeField] private AudioClip m_BackgroundMusic;
 
@@ -47,7 +47,7 @@ public class MainMenuSceneMgr : MonoBehaviour
         while (gdi.AllLoaded == false) yield return null;
 
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetsInstantiate_F();
-        PageOpen_F(Pages_EN.Main, onOpen_E: () => 
+        PageOpen_F(PagesEN.Main, onOpen_E: () => 
         {
             gdi.m_AdsMgr.BannerCheckAndCreate_F();
             if(gdi.m_AdsMgr.GamesSinceLastInterstitialAd == 2)
@@ -59,32 +59,37 @@ public class MainMenuSceneMgr : MonoBehaviour
         //mmsr.jetDisplayMgr.Init_F();
     }
 
-    public void PageOpen_F(Pages_EN sceneEnum, Action onClose_E = null, Action onOpen_E = null)
+    public void PageOpen_F(PagesEN sceneEnum, Action onClose_E = null, Action onOpen_E = null)
     {
-        Page pageToOpen = PagesENToPage_F(sceneEnum);
+        Page pageToOpen = sceneEnum.ToPage_F();
         if (pageToOpen == null) throw new Exception("Cannot open Page Page is null!!!");
 
-        if (m_PageCur == Pages_EN.None) pageToOpen.Open_F(onOpen_E);
-        else PagesENToPage_F(m_PageCur).Close_F(pageToOpen, onOpen:onOpen_E);
+        if (m_PageCur == PagesEN.None) pageToOpen.Open_F(onOpen_E);
+        else m_PageCur.ToPage_F().Close_F(pageToOpen, onOpen:onOpen_E);
 
         m_PageCur = sceneEnum;
     }
 
-    public Page PagesENToPage_F(Pages_EN sceneEnum)
-    {
-        return sceneEnum switch
-        {
-            Pages_EN.Main => mmsr.mainMenuMgr,
-            Pages_EN.JetStore => mmsr.jetStoreMgr,
-            Pages_EN.Settings => throw new System.Exception("Cannot convert to Enum to Settings Page"),
-            _ => null
-        };
-    }
-
-    public enum Pages_EN { None, Main, Settings, JetStore }
+    public enum PagesEN { None, Main, Settings, JetStore }
 
 #if UNITY_EDITOR
     [MenuItem("Scenes/Main Menu")]
     public static void OpenScene_F() => EditorSceneManager.OpenScene("Assets/Main Menu Stuff/Scenes/MainMenu_0_Scene.unity");
 #endif
+}
+
+//PagesEN
+public static partial class ExtensionMethods
+{
+    public static Page ToPage_F(this MainMenuSceneMgr.PagesEN p)
+    {
+        MainMenuSceneReferences mmsr = MainMenuSceneReferences.INSTANCE;
+        return p switch
+        {
+            MainMenuSceneMgr.PagesEN.Main => mmsr.mainMenuMgr,
+            MainMenuSceneMgr.PagesEN.JetStore => mmsr.jetStoreMgr,
+            MainMenuSceneMgr.PagesEN.Settings => mmsr.settingsPageMgr,
+            _ => null
+        };
+    }
 }

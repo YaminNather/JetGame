@@ -51,7 +51,7 @@ public class JetStoreMgr : Page
     public void BackBtn_BEF()
     {        
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur);
-        MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.Main);
+        MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.Main);
         m_VCamera.Priority = 0;
     }
 }

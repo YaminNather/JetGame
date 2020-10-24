@@ -12,6 +12,7 @@ public class MainMenuSceneReferences : MonoBehaviour
     public MainMenuMgr mainMenuMgr;
     public JetDisplayMgr jetDisplayMgr;
     public JetStoreMgr jetStoreMgr;
+    public SettingsPageMgr settingsPageMgr;
     public ColorMgr colorMgr;
     #endregion
 

@@ -73,14 +73,16 @@ public class MainMenuMgr : Page
 
     public void JetStoreBtn_BEF()
     {
-        MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.Pages_EN.JetStore);     
+        MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.JetStore);     
     }
 
     public void SettingsBtn_BEF()
     {
-        //Shader.SetGlobalFloat("_Hue0", Shader.GetGlobalFloat("_Hue0") + 0.1f * Time.deltaTime);
-        GameObject GObj_0 = FindObjectOfType<Volume>(true).gameObject;
-        GObj_0.SetActive(!GObj_0.activeSelf);
+        ////Shader.SetGlobalFloat("_Hue0", Shader.GetGlobalFloat("_Hue0") + 0.1f * Time.deltaTime);
+        //GameObject GObj_0 = FindObjectOfType<Volume>(true).gameObject;
+        //GObj_0.SetActive(!GObj_0.activeSelf);
+
+        mmsr.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.Settings);
     }
     #endregion
 }
