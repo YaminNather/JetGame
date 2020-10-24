@@ -41,6 +41,8 @@ public class JetBuyBtn : Button
         if not owned then activate cost and set sprite to common unowned sprite from the JeStoreMgr.*/
         if(GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCheckIfOwned_F(m_JetID))
         {
+            //\nIs jetData.Icon = null ? { jetData.Icon == null}
+            Debug.Log($"m_JetID == {m_JetID}\nIs m_JetIcon.sprite null? {m_JetIcon.sprite == null}");
             m_JetIcon.sprite = jetData.Icon;
             m_CostLbl.gameObject.SetActive(false);
         }
