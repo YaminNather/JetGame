@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UI;
@@ -60,27 +58,25 @@ public class JetBuyBtn : Button
     private void OnClick_EF()
     {
         GlobalData m_GlobalData = GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
+
         /* If jet is owned, equip it, 
          * else check if u have enough cash to buy it, if enough buy it and equip it. */
         if (m_GlobalData.JetCheckIfOwned_F(m_JetID))
         {
             m_GlobalData.JetCur = m_JetID;
             m_GlobalData.Save_F();
+            MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(m_JetID);
         }
-        else
-        {            
-            if (m_GlobalData.Currency >= jetData.Cost)
-            {
-                m_GlobalData.JetsOwnedAddTo_F(m_JetID);
-                m_GlobalData.CurrencyChange_F(-jetData.Cost);
-                m_GlobalData.JetCur = m_JetID;
-                m_GlobalData.Save_F();
-            }
-            else Debug.LogError("Not Enough Cash!!!");
+        else if (m_GlobalData.Currency >= jetData.Cost)
+        {
+            m_GlobalData.JetsOwnedAddTo_F(m_JetID);
+            m_GlobalData.CurrencyChange_F(-jetData.Cost);
+            m_GlobalData.JetCur = m_JetID;
+            m_GlobalData.Save_F();
+            MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(m_JetID);
         }
 
-        //Makes the jet linked with this button the current jet and refresh the button.
-        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(m_JetID);
+        //Refresh the button.
         Refresh_F();
     }
 }
