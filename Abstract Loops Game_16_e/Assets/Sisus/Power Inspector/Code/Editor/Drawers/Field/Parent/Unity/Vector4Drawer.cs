@@ -28,12 +28,9 @@ namespace Sisus
 		private static FieldInfo fieldInfoW;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get { return true; }
-		}
+		public override bool DrawInSingleRow => true;
 
-		/// <summary> Creates a new instance of Vector4Drawer. </summary>
+        /// <summary> Creates a new instance of Vector4Drawer. </summary>
 		/// <param name="value"> The value. </param>
 		/// <param name="memberInfo"> Information describing the member. </param>
 		/// <param name="parent"> The parent. </param>

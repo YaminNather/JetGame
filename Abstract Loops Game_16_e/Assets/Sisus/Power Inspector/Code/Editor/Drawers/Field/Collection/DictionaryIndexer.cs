@@ -45,11 +45,8 @@ namespace Sisus
 			}
 
 			//NOTE: the index is ignored when setting a value
-			set
-			{
-				dictionary[value.Key] = value.Value;
-			}
-		}
+			set => dictionary[value.Key] = value.Value;
+        }
 
 		public void SetDictionary(IDictionary value)
 		{

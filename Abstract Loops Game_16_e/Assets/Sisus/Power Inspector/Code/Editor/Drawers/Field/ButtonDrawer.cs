@@ -46,25 +46,13 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(string);
-			}
-		}
+		public override Type Type => typeof(string);
 
-		/// <inheritdoc/>
-		public override float Height
-		{
-			get
-			{
-				return VerticalPadding + DrawGUI.SingleLineHeight + VerticalPadding;
-			}
-		}
+        /// <inheritdoc/>
+		public override float Height => VerticalPadding + DrawGUI.SingleLineHeight + VerticalPadding;
 
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override void UpdateCachedValuesFromFieldsRecursively() { }
 
 		/// <summary>

@@ -279,15 +279,9 @@ namespace Sisus.Attributes
 		}
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return Target.This;
-			}
-		}
+		public Target Target => Target.This;
 
-		public IShowInInspectorIf GetEvaluator()
+        public IShowInInspectorIf GetEvaluator()
 		{
 			return new ShouldShowHelpBoxEvaluator(this);
 		}

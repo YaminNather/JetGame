@@ -118,70 +118,25 @@ namespace Sisus
 			}
 		}
 
-		private Color32 BgColor
-		{
-			get
-			{
-				return inspector.Preferences.theme.Background;
-			}
-		}
+		private Color32 BgColor => inspector.Preferences.theme.Background;
 
-		private static Color32 BgColorNavigationBar
-		{
-			get
-			{
-				return DrawGUI.IsProSkin ? BgColorNavigationBarDark : BgColorNavigationBarLight;
-			}
-		}
+        private static Color32 BgColorNavigationBar => DrawGUI.IsProSkin ? BgColorNavigationBarDark : BgColorNavigationBarLight;
 
-		private float ScrollAreaHeight
-		{
-			get
-			{
-				return Mathf.Min(currentViewItemCount * DrawGUI.SingleLineHeight, ScrollAreaMaxHeight);
-			}
-		}
+        private float ScrollAreaHeight => Mathf.Min(currentViewItemCount * DrawGUI.SingleLineHeight, ScrollAreaMaxHeight);
 
-		public float TotalHeight
-		{
-			get
-			{
-				return TopPartHeight + ScrollAreaHeight;
-			}
-		}
+        public float TotalHeight => TopPartHeight + ScrollAreaHeight;
 
-		private float NavigationBarHeight
-		{
-			get
-			{
-				return currentViewLabel.text.Length > 0 || activeGroup != null ? NavigationBarNormalHeight : 0f;
-			}
-		}
+        private float NavigationBarHeight => currentViewLabel.text.Length > 0 || activeGroup != null ? NavigationBarNormalHeight : 0f;
 
-		private float TopPartHeight
-		{
-			get
-			{
-				return FilterAreaHeight + NavigationBarHeight;
-			}
-		}
+        private float TopPartHeight => FilterAreaHeight + NavigationBarHeight;
 
-		private float Width
-		{
-			get
-			{
-				return width;
-			}
-		}
+        private float Width => width;
 
-		private string FilterString
+        private string FilterString
 		{
-			get
-			{
-				return filter;
-			}
+			get => filter;
 
-			set
+            set
 			{
 				filter = value;
 				setFilter = value;

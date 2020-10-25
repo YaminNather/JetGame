@@ -16,51 +16,21 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool Selectable => false;
 
-		/// <inheritdoc />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc />
+		public override bool ReadOnly => true;
 
-		/// <inheritdoc />
-		public override bool CanReadFromFieldWithoutSideEffects
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		public override bool CanReadFromFieldWithoutSideEffects => false;
 
-		/// <inheritdoc />
-		protected override bool CanWriteToFieldWithoutSideEffects
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool CanWriteToFieldWithoutSideEffects => false;
 
-		/// <inheritdoc />
-		public override bool Clickable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		public override bool Clickable => false;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override void SetupInterface(object setValue, Type setValueType, LinkedMemberInfo setMemberInfo, IParentDrawer setParent, GUIContent setLabel, bool setReadOnly)
 		{
 			throw new NotSupportedException("Please use the other SetupInterface method.");

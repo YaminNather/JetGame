@@ -12,24 +12,12 @@ namespace Sisus
 		private static Type[] allDelegateTypes;
 
 		/// <inheritdoc />
-		protected override bool CanBeUnityObject
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		/// <inheritdoc />
-		protected override Type[] NonUnityObjectTypes
-		{
-			get
-			{
-				return allDelegateTypes;
-			}
-		}
+		protected override bool CanBeUnityObject => false;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
+		protected override Type[] NonUnityObjectTypes => allDelegateTypes;
+
+        /// <inheritdoc />
 		protected override bool IsValidUnityObjectValue(Object test)
 		{
 			return false;

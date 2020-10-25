@@ -32,48 +32,21 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return null;
-			}
+			get => null;
 
-			set
-			{
-				throw new NotSupportedException();
-			}
-		}
+            set => throw new NotSupportedException();
+        }
 		#endif
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Method; }
-		}
+		public override MemberTypes MemberType => MemberTypes.Method;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.Method;
-			}
-		}
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.Method;
 
-		public override string Name
-		{
-			get
-			{
-				return MemberInfo.Name;
-			}
-		}
+        public override string Name => MemberInfo.Name;
 
-		public override bool IsStatic
-		{
-			get
-			{
-				return getMethodInfo != null ? getMethodInfo.IsStatic : setMethodInfo.IsStatic;
-			}
-		}
+        public override bool IsStatic => getMethodInfo != null ? getMethodInfo.IsStatic : setMethodInfo.IsStatic;
 
-		public override bool Equals(MemberData other)
+        public override bool Equals(MemberData other)
 		{
 			var b = other as MethodData;
 			if(b == null)
@@ -96,17 +69,11 @@ namespace Sisus
 			return b.setMethodInfo != null && setMethodInfo.EqualTo(b.setMethodInfo);
 		}
 
-		public override MemberInfo MemberInfo
-		{
-			get { return getMethodInfo; }
-		}
+		public override MemberInfo MemberInfo => getMethodInfo;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return setMethodInfo; }
-		}
+        public override MemberInfo SecondMemberInfo => setMethodInfo;
 
-		public override Type Type
+        public override Type Type
 		{
 			get
 			{
@@ -119,31 +86,13 @@ namespace Sisus
 			}
 		}
 
-		public override bool CanRead
-		{
-			get
-			{
-				return getHasReturnValue && !isGeneric && getHasNoParameters;
-			}
-		}
+		public override bool CanRead => getHasReturnValue && !isGeneric && getHasNoParameters;
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return false;
-			}
-		}
+        public override bool CanReadWithoutSideEffects => false;
 
-		public override bool CanWrite
-		{
-			get
-			{
-				return false;
-			}
-		}
+        public override bool CanWrite => false;
 
-		public void Setup(MethodInfo inGetMethodInfo, MethodInfo inSetMethodInfo)
+        public void Setup(MethodInfo inGetMethodInfo, MethodInfo inSetMethodInfo)
 		{
 			getMethodInfo = inGetMethodInfo;
 			setMethodInfo = inSetMethodInfo;

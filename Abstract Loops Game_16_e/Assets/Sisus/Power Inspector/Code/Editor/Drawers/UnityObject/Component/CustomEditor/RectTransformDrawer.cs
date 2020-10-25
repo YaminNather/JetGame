@@ -10,15 +10,9 @@ namespace Sisus
 	public class RectTransformDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		public override float MinPrefixLabelWidth
-		{
-			get
-			{
-				return 60f;
-			}
-		}
+		public override float MinPrefixLabelWidth => 60f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override float GetOptimalPrefixLabelWidthForEditor(int indentLevel)
 		{
 			return 72f;

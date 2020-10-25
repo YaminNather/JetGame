@@ -19,24 +19,12 @@ namespace Sisus
 		private OpeningViewMenu onViewMenuOpening;
 
 		/// <inheritdoc/>
-		public override float MinWidth
-		{
-			get
-			{
-				return width;
-			}
-		}
+		public override float MinWidth => width;
 
-		/// <inheritdoc/>
-		public override float MaxWidth
-		{
-			get
-			{
-				return width;
-			}
-		}
-		
-		/// <summary>
+        /// <inheritdoc/>
+		public override float MaxWidth => width;
+
+        /// <summary>
 		/// Called right before the View-menu is opened, this allows any
 		/// subscriber to add more items to the menu that will pop open.
 		/// </summary>
@@ -125,15 +113,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetFeatureUrl("view-menu");
-			}
-		}
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetFeatureUrl("view-menu");
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup()
 		{
 			guiStyle = InspectorPreferences.Styles.ToolbarMenu;

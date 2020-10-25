@@ -31,7 +31,7 @@ namespace Hierarchy2
                     instance = new HierarchyEditor();
                 return instance;
             }
-            private set { instance = value; }
+            private set => instance = value;
         }
 
         Dictionary<int, HierarchyCanvas> hierarchyCanvas = new Dictionary<int, HierarchyCanvas>();
@@ -47,10 +47,7 @@ namespace Hierarchy2
         HierarchySettings settings;
         HierarchyResources resources;
 
-        HierarchySettings.ThemeData ThemeData
-        {
-            get { return settings.usedTheme; }
-        }
+        HierarchySettings.ThemeData ThemeData => settings.usedTheme;
 
         int deepestRow = int.MinValue;
         int previousRowIndex = int.MinValue;
@@ -59,10 +56,7 @@ namespace Hierarchy2
         Scene currentScene;
         Scene previousScene;
 
-        public static bool IsMultiScene
-        {
-            get { return SceneManager.sceneCount > 1; }
-        }
+        public static bool IsMultiScene => SceneManager.sceneCount > 1;
 
         bool selectionStyleAfterInvoke = false;
         bool checkingAllHierarchy = false;
@@ -1616,10 +1610,7 @@ namespace Hierarchy2
                 this.afterName = afterName;
             }
 
-            public static WidthUse zero
-            {
-                get { return new WidthUse(0, 0, 0); }
-            }
+            public static WidthUse zero => new WidthUse(0, 0, 0);
         }
 
         sealed class HierarchyWindow
@@ -1700,25 +1691,13 @@ namespace Hierarchy2
             public CustomRowItem customRowItem;
             public HierarchyFolder hierarchyFolder;
 
-            public string name
-            {
-                get { return isNull ? "Null" : gameObject.name; }
-            }
+            public string name => isNull ? "Null" : gameObject.name;
 
-            public int childCount
-            {
-                get { return gameObject.transform.childCount; }
-            }
+            public int childCount => gameObject.transform.childCount;
 
-            public Scene Scene
-            {
-                get { return gameObject.scene; }
-            }
+            public Scene Scene => gameObject.scene;
 
-            public bool isStatic
-            {
-                get { return isNull ? false : gameObject.isStatic; }
-            }
+            public bool isStatic => isNull ? false : gameObject.isStatic;
 
             public RowItem()
             {
@@ -1881,10 +1860,7 @@ namespace Hierarchy2
                 normal = new GUIStyleState() {textColor = Color.white}
             };
 
-            internal static GUIStyle TreeBoldLabel
-            {
-                get { return TreeView.DefaultStyles.boldLabel; }
-            }
+            internal static GUIStyle TreeBoldLabel => TreeView.DefaultStyles.boldLabel;
 
             internal static GUIStyle TreeLabel = new GUIStyle(TreeView.DefaultStyles.label)
             {

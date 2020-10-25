@@ -9,12 +9,12 @@ public class MainMenuJetMgr : MonoBehaviour
     private JetMovementComponent m_jmc;
 
     private Dictionary<int, GameObject> m_JetMeshes;
-    public Dictionary<int, GameObject> JetMeshes { get => m_JetMeshes; }
+    public Dictionary<int, GameObject> JetMeshes => m_JetMeshes;
     private int m_JetCurID;
-    public int JetCurID { get => m_JetCurID; }
+    public int JetCurID => m_JetCurID;
 
-    private JetsDatabase JetDatas { get => GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase; }
-    private GlobalData GlobalData { get => GlobalDatabaseInitializer.INSTANCE.m_GlobalData; }
+    private JetsDatabase JetDatas => GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase;
+    private GlobalData GlobalData => GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
 
     [SerializeField] private Material MainMenuJetMaterial;
 

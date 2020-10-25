@@ -27,15 +27,9 @@ namespace Sisus
 		private string lastShownDocumentationUrl = "";
 
 		/// <inheritdoc />
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return DebugMode;
-			}
-		}
+		protected override bool HasExecuteMethodIcon => DebugMode;
 
-		public static Vector2 GetExpectedMinSize(float toolbarHeight = ExpectedToolbarHeight)
+        public static Vector2 GetExpectedMinSize(float toolbarHeight = ExpectedToolbarHeight)
 		{
 			return new Vector2(800f, GetExpectedHeight(toolbarHeight));
 		}
@@ -70,15 +64,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return "";
-			}
-		}
+		public override string DocumentationPageUrl => "";
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup(Object[] setTargets, IParentDrawer setParent, GUIContent setLabel, IInspector setInspector)
 		{
 			#if DEV_MODE

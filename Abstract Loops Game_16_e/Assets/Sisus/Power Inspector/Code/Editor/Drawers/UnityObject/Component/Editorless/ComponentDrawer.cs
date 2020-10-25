@@ -40,33 +40,15 @@ namespace Sisus
 		private bool expandable;
 
 		/// <inheritdoc/>
-		public Vector2 MouseDownCursorTopLeftCornerOffset
-		{
-			get
-			{
-				return Vector2.zero;
-			}
-		}
+		public Vector2 MouseDownCursorTopLeftCornerOffset => Vector2.zero;
 
-		/// <inheritdoc />
-		public override bool Foldable
-		{
-			get
-			{
-				return expandable;
-			}
-		}
+        /// <inheritdoc />
+		public override bool Foldable => expandable;
 
-		/// <inheritdoc/>
-		protected override bool HasEnabledFlag
-		{
-			get
-			{
-				return hasEnabledFlag;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool HasEnabledFlag => hasEnabledFlag;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override bool IsAsset
 		{
 			get
@@ -77,24 +59,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public Component Component
-		{
-			get
-			{
-				return Target;
-			}
-		}
+		public Component Component => Target;
 
-		/// <inheritdoc />
-		public Component[] Components
-		{
-			get
-			{
-				return targets;
-			}
-		}
+        /// <inheritdoc />
+		public Component[] Components => targets;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public GameObject gameObject
 		{
 			get
@@ -115,60 +85,24 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected sealed override float ToolbarIconsTopOffset
-		{
-			get
-			{
-				return ComponentToolbarIconsTopOffset;
-			}
-		}
+		protected sealed override float ToolbarIconsTopOffset => ComponentToolbarIconsTopOffset;
 
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconWidth
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconWidth;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconWidth => ComponentHeaderToolbarIconWidth;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsOffset
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconsOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsOffset => ComponentHeaderToolbarIconsOffset;
 
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconHeight
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconHeight;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconHeight => ComponentHeaderToolbarIconHeight;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsRightOffset
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconsRightOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsRightOffset => ComponentHeaderToolbarIconsRightOffset;
 
-		/// <inheritdoc/>
-		protected sealed override Color PrefixBackgroundColor
-		{
-			get
-			{
-				return HeaderMouseovered ? Preferences.theme.ComponentMouseoveredHeaderBackground : Preferences.theme.ComponentHeaderBackground;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override Color PrefixBackgroundColor => HeaderMouseovered ? Preferences.theme.ComponentMouseoveredHeaderBackground : Preferences.theme.ComponentHeaderBackground;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override MonoScript MonoScript
 		{
 			get
@@ -228,15 +162,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override bool IsComponent
-		{
-			get
-			{
-				return true;
-			}
-		}
-		
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+		protected override bool IsComponent => true;
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

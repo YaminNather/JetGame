@@ -56,24 +56,12 @@ namespace Sisus
 		
 
 		/// <inheritdoc/>
-		public override int AppendIndentLevel
-		{
-			get
-			{
-				return 0;
-			}
-		}
+		public override int AppendIndentLevel => 0;
 
-		/// <inheritdoc/>
-		public override bool Selectable
-		{
-			get
-			{
-				return passedLastFilterCheck && ShownInInspector;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool Selectable => passedLastFilterCheck && ShownInInspector;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override float HeaderHeight
 		{
 			get
@@ -87,27 +75,15 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get { return typeof(object[]); }
-		}
+		public override Type Type => typeof(object[]);
 
-		/// <inheritdoc/>
-		protected override bool RebuildingMembersAllowed
-		{
-			get { return false; }
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildingMembersAllowed => false;
 
-		/// <inheritdoc/>
-		public override float Unfoldedness
-		{
-			get
-			{
-				return unfoldedness;
-			}
-		}
+        /// <inheritdoc/>
+		public override float Unfoldedness => unfoldedness;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool Unfolded
 		{
 			get

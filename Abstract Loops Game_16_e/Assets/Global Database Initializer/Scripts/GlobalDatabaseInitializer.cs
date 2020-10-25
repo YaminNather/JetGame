@@ -60,13 +60,14 @@ public class GlobalDatabaseInitializer : MonoBehaviour
         yield return StartCoroutine(m_LoopsDatabase.LoadDatabase_F());
 
         AllLoaded = true;
+
     }
 }
 
 public abstract class DatabaseBase : MonoBehaviour
 {
     protected bool m_IsLoaded;
-    public bool IsLoaded { get => m_IsLoaded; }    
+    public bool IsLoaded => m_IsLoaded;
 
     public abstract IEnumerator LoadDatabase_F();
 }

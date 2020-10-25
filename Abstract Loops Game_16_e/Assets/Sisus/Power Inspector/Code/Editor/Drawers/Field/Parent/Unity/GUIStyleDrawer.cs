@@ -39,12 +39,9 @@ namespace Sisus
 		private static PropertyInfo stretchHeight;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get { return false; }
-		}
+		public override bool DrawInSingleRow => false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

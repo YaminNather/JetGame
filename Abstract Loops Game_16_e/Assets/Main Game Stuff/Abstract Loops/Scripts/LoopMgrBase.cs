@@ -9,7 +9,8 @@ public class LoopMgrBase : MonoBehaviour
     public bool IsSpawned { get => m_IsSpawned; set => m_IsSpawned = value; }
 
     private Hitbox[] m_LoopEndHitboxes;
-    public Hitbox[] LoopEndHitboxes { get => m_LoopEndHitboxes; }
+    public Hitbox[] LoopEndHitboxes => m_LoopEndHitboxes;
+
     #endregion
 
     protected virtual void Awake()

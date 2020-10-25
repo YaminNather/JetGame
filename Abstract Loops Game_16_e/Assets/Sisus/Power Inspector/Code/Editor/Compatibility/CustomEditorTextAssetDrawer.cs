@@ -11,60 +11,24 @@ namespace Sisus
 		private float viewportHeight;
 
 		/// <inheritdoc/>
-		public override float Height
-		{
-			get
-			{
-				return viewportHeight;
-			}
-		}
+		public override float Height => viewportHeight;
 
-		/// <inheritdoc/>
-		protected override Editor Editor
-		{
-			get
-			{
-				return DebugMode ? base.Editor : HeaderEditor;
-			}
-		}
+        /// <inheritdoc/>
+		protected override Editor Editor => DebugMode ? base.Editor : HeaderEditor;
 
-		/// <inheritdoc/>
-		public override bool PrefixResizingEnabledOverControl
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool PrefixResizingEnabledOverControl => false;
 
-		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Disabled;
-			}
-		}
+        /// <inheritdoc />
+		public override PrefixResizer PrefixResizer => PrefixResizer.Disabled;
 
-		/// <inheritdoc />
-		protected override bool HasReferenceIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool HasReferenceIcon => false;
 
-		/// <inheritdoc/>
-		protected override MonoScript MonoScript
-		{
-			get
-			{
-				return Target as MonoScript;
-			}
-		}
+        /// <inheritdoc/>
+		protected override MonoScript MonoScript => Target as MonoScript;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

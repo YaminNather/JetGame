@@ -18,23 +18,11 @@ namespace Sisus
 
 		private ITextSyntaxFormatter builder;
 
-		public int LineCount
-		{
-			get
-			{
-				return lines.Length;
-			}
-		}
+		public int LineCount => lines.Length;
 
-		public string this[int index]
-		{
-			get
-			{
-				return lines[index].formatted;
-			}
-		}
+        public string this[int index] => lines[index].formatted;
 
-		public Code(ITextSyntaxFormatter codeBuilder)
+        public Code(ITextSyntaxFormatter codeBuilder)
 		{
 			lines = new CodeLine[0];
 			builder = codeBuilder;
@@ -93,12 +81,6 @@ namespace Sisus
 			}
 		}
 
-		public string TextUnformatted
-		{
-			get
-			{
-				return builder.TextUnformatted;
-			}
-		}
-	}
+		public string TextUnformatted => builder.TextUnformatted;
+    }
 }

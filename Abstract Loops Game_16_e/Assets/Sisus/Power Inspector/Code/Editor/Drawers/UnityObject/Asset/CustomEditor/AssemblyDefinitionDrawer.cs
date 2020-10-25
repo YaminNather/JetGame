@@ -10,25 +10,13 @@ namespace Sisus
 	{
 		#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
 		/// <inheritdoc />
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
+		protected override bool HasPresetIcon => false;
+#endif
 
 		/// <inheritdoc />
-		protected override bool HasReferenceIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool HasReferenceIcon => false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

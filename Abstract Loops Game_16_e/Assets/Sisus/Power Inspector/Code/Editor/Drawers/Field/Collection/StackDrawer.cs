@@ -14,24 +14,12 @@ namespace Sisus
 	public class StackDrawer<T> : OneDimensionalCollectionDrawer<Stack<T>>
 	{
 		/// <inheritdoc />
-		protected override bool IsFixedSize
-		{
-			get
-			{
-				return false;
-			}
-		}
-				
-		/// <inheritdoc />
-		protected sealed override Type MemberType
-		{
-			get
-			{
-				return typeof(T);
-			}
-		}
+		protected override bool IsFixedSize => false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <inheritdoc />
+		protected sealed override Type MemberType => typeof(T);
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="stack"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

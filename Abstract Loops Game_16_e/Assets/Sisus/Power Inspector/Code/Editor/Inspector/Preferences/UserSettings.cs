@@ -7,67 +7,39 @@
 	{
 		public static bool PreviewAreaMinimized
 		{
-			get
-			{
-				return Platform.Active.GetPrefs("PI.PreviewAreaMinimized", true);
-			}
+			get => Platform.Active.GetPrefs("PI.PreviewAreaMinimized", true);
 
-			set
-			{
-				Platform.Active.SetPrefs("PI.PreviewAreaMinimized", value, true);
-			}
-		}
+            set => Platform.Active.SetPrefs("PI.PreviewAreaMinimized", value, true);
+        }
 
 		public static ShowPreviewArea ShowPreviewArea
 		{
-			get
-			{
-				return (ShowPreviewArea)Platform.Active.GetPrefs("PI.ShowPreviewArea", (int)ShowPreviewArea.Manual);
-			}
+			get => (ShowPreviewArea)Platform.Active.GetPrefs("PI.ShowPreviewArea", (int)ShowPreviewArea.Manual);
 
-			set
-			{
-				Platform.Active.SetPrefs("PI.ShowPreviewArea", (int)value, (int)ShowPreviewArea.Manual);
-			}
-		}
+            set => Platform.Active.SetPrefs("PI.ShowPreviewArea", (int)value, (int)ShowPreviewArea.Manual);
+        }
 
 		public static bool MergedMultiEditMode
 		{
-			get
-			{
-				return Platform.Active.GetPrefs("PI.MergedMultiEditMode", true);
-			}
+			get => Platform.Active.GetPrefs("PI.MergedMultiEditMode", true);
 
-			set
-			{
-				Platform.Active.SetPrefs("PI.MergedMultiEditMode", value, true);
-			}
-		}
+            set => Platform.Active.SetPrefs("PI.MergedMultiEditMode", value, true);
+        }
 
 		public static bool EditComponentsOneAtATime
 		{
-			get
-			{
-				return Platform.Active.GetPrefs("PI.EditComponentsOneAtATime", false);
-			}
+			get => Platform.Active.GetPrefs("PI.EditComponentsOneAtATime", false);
 
-			set
-			{
-				Platform.Active.SetPrefs("PI.EditComponentsOneAtATime", value, false);
-			}
-		}
+            set => Platform.Active.SetPrefs("PI.EditComponentsOneAtATime", value, false);
+        }
 
 		public static class Snapping
 		{
 			public static bool Enabled
 			{
-				get
-				{
+				get => Platform.Active.GetPrefs("PI.EnableSnapping", false);
 
-					return Platform.Active.GetPrefs("PI.EnableSnapping", false);
-				}
-
-				set
+                set
 				{
 					Platform.Active.SetPrefs("PI.EnableSnapping", value, false);
 
@@ -84,51 +56,27 @@
 
 			public static bool EnabledForMove
 			{
-				get
-				{
-
-					return Platform.Active.GetPrefs("PI.MoveSnapOn", false);
-				}
-				set
-				{
-					Platform.Active.SetPrefs("PI.MoveSnapOn", value, false);
-				}
-			}
+				get => Platform.Active.GetPrefs("PI.MoveSnapOn", false);
+                set => Platform.Active.SetPrefs("PI.MoveSnapOn", value, false);
+            }
 
 			public static bool EnabledForRotate
 			{
-				get
-				{
-
-					return Platform.Active.GetPrefs("PI.RotateSnapOn", false);
-				}
-				set
-				{
-					Platform.Active.SetPrefs("PI.RotateSnapOn", value, false);
-				}
-			}
+				get => Platform.Active.GetPrefs("PI.RotateSnapOn", false);
+                set => Platform.Active.SetPrefs("PI.RotateSnapOn", value, false);
+            }
 
 			public static bool EnabledForScale
 			{
-				get
-				{
-
-					return Platform.Active.GetPrefs("PI.ScaleSnapOn", false);
-				}
-				set
-				{
-					Platform.Active.SetPrefs("PI.ScaleSnapOn", value, false);
-				}
-			}
+				get => Platform.Active.GetPrefs("PI.ScaleSnapOn", false);
+                set => Platform.Active.SetPrefs("PI.ScaleSnapOn", value, false);
+            }
 
 			public static float MoveX
 			{
-				get
-				{
-					return Platform.Active.GetPrefs("MoveSnapX", 1f);
-				}
+				get => Platform.Active.GetPrefs("MoveSnapX", 1f);
 
-				set
+                set
 				{
 					if(value < 0.001f)
 					{
@@ -140,11 +88,8 @@
 
 			public static float MoveY
 			{
-				get
-				{
-					return Platform.Active.GetPrefs("MoveSnapY", 1f);
-				}
-				set
+				get => Platform.Active.GetPrefs("MoveSnapY", 1f);
+                set
 				{
 					if(value < 0.001f)
 					{
@@ -156,11 +101,8 @@
 
 			public static float MoveZ
 			{
-				get
-				{
-					return Platform.Active.GetPrefs("MoveSnapZ", 1f);
-				}
-				set
+				get => Platform.Active.GetPrefs("MoveSnapZ", 1f);
+                set
 				{
 					if(value < 0.001f)
 					{
@@ -172,12 +114,9 @@
 
 			public static float Rotation
 			{
-				get
-				{
-					return Platform.Active.GetPrefs("RotationSnap", 90f);
-				}
+				get => Platform.Active.GetPrefs("RotationSnap", 90f);
 
-				set
+                set
 				{
 					if(value < 0.001f)
 					{
@@ -189,11 +128,8 @@
 
 			public static float Scale
 			{
-				get
-				{
-					return Platform.Active.GetPrefs("ScaleSnap", 0.1f);
-				}
-				set
+				get => Platform.Active.GetPrefs("ScaleSnap", 0.1f);
+                set
 				{
 					if(value < 0.001f)
 					{

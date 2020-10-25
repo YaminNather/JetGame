@@ -26,12 +26,6 @@ namespace Sisus.Attributes
 		}
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return Target.Members;
-			}
-		}
-	}
+		public Target Target => Target.Members;
+    }
 }

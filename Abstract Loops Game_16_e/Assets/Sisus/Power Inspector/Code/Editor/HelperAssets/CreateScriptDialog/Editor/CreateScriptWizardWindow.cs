@@ -79,15 +79,9 @@ namespace Sisus
 		[NonSerialized]
 		private bool setupDone;
 
-		private NewScriptWindowSettings Settings
-		{
-			get
-			{
-				return preferencesAsset.createScriptWizard;
-			}
-		}
+		private NewScriptWindowSettings Settings => preferencesAsset.createScriptWizard;
 
-		private string GetBuiltinTemplateFullPath()
+        private string GetBuiltinTemplateFullPath()
 		{
 			return Path.Combine(EditorApplication.applicationContentsPath, ResourcesTemplatePath);
 		}

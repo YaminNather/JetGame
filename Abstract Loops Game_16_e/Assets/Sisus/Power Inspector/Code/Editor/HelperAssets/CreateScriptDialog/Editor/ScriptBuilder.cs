@@ -31,11 +31,8 @@ namespace UnityEditor
 
 		private int IndentLevel
 		{
-			get
-			{
-				return indentLevel;
-			}
-			set
+			get => indentLevel;
+            set
 			{
 				indentLevel = value;
 				indentation = string.Empty;

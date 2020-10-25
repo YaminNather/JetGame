@@ -34,78 +34,34 @@ namespace Sisus
 		private bool drawInSingleRow;
 
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return memberInfo.PropertyInfo.PropertyType;
-			}
-		}
+		public override Type Type => memberInfo.PropertyInfo.PropertyType;
 
-		/// <inheritdoc />
-		public override object Value
-		{
-			get
-			{
-				return GetValue(0);
-			}
-		}
+        /// <inheritdoc />
+		public override object Value => GetValue(0);
 
-		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc/>
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				return backgroundRect;
-			}
-		}
+        /// <inheritdoc/>
+		public override Rect ClickToSelectArea => backgroundRect;
 
-		/// <inheritdoc/>
-		public override bool CanReadFromFieldWithoutSideEffects
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool CanReadFromFieldWithoutSideEffects => false;
 
-		private bool ShowSetButton
-		{
-			get
-			{
-				// We could hide the set button when there's no result, but then it would
-				// force the user to press the get button at least once before pressing the
-				// set button, and this could sometimes be unsafe / impossible (result in an error).
-				// Additionally it can be useful to see whether a field is readonly or not at a glance.
-				return canWrite && !autoUpdate;
-			}
-		}
+        private bool ShowSetButton =>
+            // We could hide the set button when there's no result, but then it would
+            // force the user to press the get button at least once before pressing the
+            // set button, and this could sometimes be unsafe / impossible (result in an error).
+            // Additionally it can be useful to see whether a field is readonly or not at a glance.
+            canWrite && !autoUpdate;
 
-		private PropertyInfo PropertyInfo
-		{
-			get
-			{
-				return memberInfo.PropertyInfo;
-			}
-		}
+        private PropertyInfo PropertyInfo => memberInfo.PropertyInfo;
 
-		private ParameterDrawer IndexParameterDrawer
+        private ParameterDrawer IndexParameterDrawer
 		{
-			get
-			{
-				return members[0] as ParameterDrawer;
-			}
+			get => members[0] as ParameterDrawer;
 
-			set
+            set
 			{
 				int index = 0;
 				if(members.Length <= index)

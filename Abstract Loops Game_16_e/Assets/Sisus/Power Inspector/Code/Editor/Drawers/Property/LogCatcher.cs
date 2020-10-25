@@ -6,15 +6,9 @@ namespace Sisus
 {
 	public class LogCatcher : IDisposable
 	{
-		public bool HasMessage
-		{
-			get
-			{
-				return Message != null;
-			}
-		}
+		public bool HasMessage => Message != null;
 
-		[CanBeNull]
+        [CanBeNull]
 		public string Message
 		{
 			get;

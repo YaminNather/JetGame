@@ -70,215 +70,83 @@ namespace Sisus
 		[SerializeField]
 		internal GUIContent startCoroutine = new GUIContent("Start");
 
-		public static InspectorLabels Current
+		public static InspectorLabels Current => InspectorUtility.Preferences.labels;
+
+
+        public SkinnedLabel SplitViewIcon => splitViewIcon;
+
+        public SkinnedLabel CloseSplitViewIcon => closeSplitViewIcon;
+
+        public SkinnedLabel ViewMenu => viewMenu;
+
+        public SkinnedLabel EnableLockView => enableLockView;
+
+        public SkinnedLabel DisableLockView => disableLockView;
+
+        public GUIContent MergedMultiEditing => mergedMultiEditing;
+
+        public GUIContent StackedMultiEditing => stackedMultiEditing;
+
+        public GUIContent Open => GUIContentPool.Create(open);
+
+        public GUIContent StartEditing => GUIContentPool.Create(startEditing);
+
+        public GUIContent StopEditing => GUIContentPool.Create(stopEdit);
+
+        public GUIContent ShowInExplorer => GUIContentPool.Create(showInExplorer);
+
+        public GUIContent Formatted => GUIContentPool.Create(formatted);
+
+        public GUIContent Unformatted => GUIContentPool.Create(unformatted);
+
+
+        public GUIContent ContextMenu => GUIContentPool.Create(contextMenu);
+
+        public GUIContent Position
 		{
-			get
-			{
-				return InspectorUtility.Preferences.labels;
-			}
-		}
+			get => GUIContentPool.Create(position);
 
-
-		public SkinnedLabel SplitViewIcon
-		{
-			get
-			{
-				return splitViewIcon;
-			}
-		}
-
-		public SkinnedLabel CloseSplitViewIcon
-		{
-			get
-			{
-				return closeSplitViewIcon;
-			}
-		}
-
-		public SkinnedLabel ViewMenu
-		{
-			get
-			{
-				return viewMenu;
-			}
-		}
-
-		public SkinnedLabel EnableLockView
-		{
-			get
-			{
-				return enableLockView;
-			}
-		}
-
-		public SkinnedLabel DisableLockView
-		{
-			get
-			{
-				return disableLockView;
-			}
-		}
-
-		public GUIContent MergedMultiEditing
-		{
-			get
-			{
-				return mergedMultiEditing;
-			}
-		}
-
-		public GUIContent StackedMultiEditing
-		{
-			get
-			{
-				return stackedMultiEditing;
-			}
-		}
-
-		public GUIContent Open
-		{
-			get
-			{
-				return GUIContentPool.Create(open);
-			}
-		}
-
-		public GUIContent StartEditing
-		{
-			get
-			{
-				return GUIContentPool.Create(startEditing);
-			}
-		}
-
-		public GUIContent StopEditing
-		{
-			get
-			{
-				return GUIContentPool.Create(stopEdit);
-			}
-		}
-
-		public GUIContent ShowInExplorer
-		{
-			get
-			{
-				return GUIContentPool.Create(showInExplorer);
-			}
-		}	
-
-		public GUIContent Formatted
-		{
-			get
-			{
-				return GUIContentPool.Create(formatted);
-			}
-		}
-		
-		public GUIContent Unformatted
-		{
-			get
-			{
-				return GUIContentPool.Create(unformatted);
-			}
-		}
-
-
-		public GUIContent ContextMenu
-		{
-			get
-			{
-				return GUIContentPool.Create(contextMenu);
-			}
-		}
-
-		public GUIContent Position
-		{
-			get
-			{
-				return GUIContentPool.Create(position);
-			}
-
-			internal set
-			{
-				Set(ref position, value, "Position Label: {0}");
-			}
-		}
+            internal set => Set(ref position, value, "Position Label: {0}");
+        }
 
 		public GUIContent Rotation
 		{
-			get
-			{
-				return GUIContentPool.Create(rotation);
-			}
+			get => GUIContentPool.Create(rotation);
 
-			internal set
-			{
-				Set(ref rotation, value, "Rotation Label: {0}");
-			}
-		}
+            internal set => Set(ref rotation, value, "Rotation Label: {0}");
+        }
 
 		public GUIContent Scale
 		{
-			get
-			{
-				return GUIContentPool.Create(scale);
-			}
+			get => GUIContentPool.Create(scale);
 
-			internal set
-			{
-				Set(ref scale, value, "Scale Label: {0}");
-			}
-		}
+            internal set => Set(ref scale, value, "Scale Label: {0}");
+        }
 
 		public GUIContent X
 		{
-			get
-			{
-				return GUIContentPool.Create(x);
-			}
+			get => GUIContentPool.Create(x);
 
-			internal set
-			{
-				Set(ref x, value, "X Label: {0}");
-			}
-		}
+            internal set => Set(ref x, value, "X Label: {0}");
+        }
 
 		public GUIContent Y
 		{
-			get
-			{
-				return GUIContentPool.Create(y);
-			}
+			get => GUIContentPool.Create(y);
 
-			internal set
-			{
-				Set(ref y, value, "Y Label: {0}");
-			}
-		}
+            internal set => Set(ref y, value, "Y Label: {0}");
+        }
 
 		public GUIContent Z
 		{
-			get
-			{
-				return GUIContentPool.Create(z);
-			}
+			get => GUIContentPool.Create(z);
 
-			internal set
-			{
-				Set(ref z, value, "Z Label: {0}");
-			}
-		}
+            internal set => Set(ref z, value, "Z Label: {0}");
+        }
 
-		public GUIContent InvokeMethod
-		{
-			get
-			{
-				return GUIContentPool.Create(invokeMethod);
-			}
-		}
+		public GUIContent InvokeMethod => GUIContentPool.Create(invokeMethod);
 
-		private void Set<T>(ref T subject, [NotNull]T value, string undoMessage)
+        private void Set<T>(ref T subject, [NotNull]T value, string undoMessage)
 		{
 			if(!value.Equals(subject))
 			{

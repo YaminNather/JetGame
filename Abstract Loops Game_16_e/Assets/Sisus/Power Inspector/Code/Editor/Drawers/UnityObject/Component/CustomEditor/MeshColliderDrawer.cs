@@ -9,15 +9,9 @@ namespace Sisus
 	public class MeshColliderDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		protected override float EstimatedUnfoldedHeight
-		{
-			get
-			{
-				return 112f;
-			}
-		}
+		protected override float EstimatedUnfoldedHeight => 112f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override float GetOptimalPrefixLabelWidthForEditor(int indentLevel)
 		{
 			return 114f;

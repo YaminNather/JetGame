@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelsMgr : MonoBehaviour
 {
@@ -87,7 +89,8 @@ public class LevelsMgr : MonoBehaviour
         {
             MainGameMgr.DifficultyEN.Easy => m_EasyLevels,
             MainGameMgr.DifficultyEN.Normal => m_NormalLevels,
-            MainGameMgr.DifficultyEN.Hard => m_HardLevels
+            MainGameMgr.DifficultyEN.Hard => m_HardLevels,
+            _ => throw new ArgumentOutOfRangeException(nameof(difficulty), difficulty, null)
         };
 
         int index = 0, levelLength = levels.Length;

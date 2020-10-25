@@ -65,75 +65,33 @@ namespace Sisus
 			private set;
 		}
 
-		public ReadOnlyCollection<string> FiltersGeneric
-		{
-			get
-			{
-				return new ReadOnlyCollection<string>(filtersGeneric);
-			}
-		}
+		public ReadOnlyCollection<string> FiltersGeneric => new ReadOnlyCollection<string>(filtersGeneric);
 
-		/// <summary> Gets value indicating whether the filter field currently has text input. </summary>
+        /// <summary> Gets value indicating whether the filter field currently has text input. </summary>
 		/// <value> True if filter field has text, false it it's empty. </value>
-		public bool HasFilter
-		{
-			get
-			{
-				return hasFilter;
-			}
-		}
+		public bool HasFilter => hasFilter;
 
-		/// <summary> Filter string in its raw input form, containing original casing etc. </summary>
+        /// <summary> Filter string in its raw input form, containing original casing etc. </summary>
 		/// <value> The raw text input. </value>
-		public string RawInput
-		{
-			get
-			{
-				return rawInput;
-			}
-		}
+		public string RawInput => rawInput;
 
-		/// <summary> Filter by type. E.g. "t:vector3" </summary>
+        /// <summary> Filter by type. E.g. "t:vector3" </summary>
 		/// <value> The type filter. </value>
-		public string FilterType
-		{
-			get
-			{
-				return filterType;
-			}
-		}
+		public string FilterType => filterType;
 
-		/// <summary> Filter by field label. E.g. "l:position.x" </summary>
+        /// <summary> Filter by field label. E.g. "l:position.x" </summary>
 		/// <value> The label filter. </value>
-		public string FilterFieldLabel
-		{
-			get
-			{
-				return filterLabel;
-			}
-		}
+		public string FilterFieldLabel => filterLabel;
 
-		/// <summary> Filter by field value. E.g. "v:True" </summary>
+        /// <summary> Filter by field value. E.g. "v:True" </summary>
 		/// <value> The value filter. </value>
-		public string FilterFieldValue
-		{
-			get
-			{
-				return filterFieldValue;
-			}
-		}
+		public string FilterFieldValue => filterFieldValue;
 
-		/// <summary> Generic filter. This is the default filter type used when the user did not input a specific filtering type prefix.
+        /// <summary> Generic filter. This is the default filter type used when the user did not input a specific filtering type prefix.
 		/// This will result in filtering done against type, field label AND field value.  </summary>
-		public string FilterGeneric
-		{
-			get
-			{
-				return filterGeneric;
-			}
-		}
+		public string FilterGeneric => filterGeneric;
 
-		public bool DeterminesInspectedTarget()
+        public bool DeterminesInspectedTarget()
 		{
 			switch(FilteringMethod)
 			{

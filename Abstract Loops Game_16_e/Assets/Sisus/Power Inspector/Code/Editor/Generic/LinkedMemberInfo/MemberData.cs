@@ -30,32 +30,17 @@ namespace Sisus
 		/// <summary> Returns the delegate that is used internally for getting the value of the represented class member. </summary>
 		/// <value> The delegate used for getting the value. </value>
 		[CanBeNull]
-		public virtual MulticastDelegate GetDelegate
-		{
-			get
-			{
-				return null;
-			}
-		}
+		public virtual MulticastDelegate GetDelegate => null;
 
-		/// <summary> Returns the delegate that is used internally for setting the value of the represented class member. </summary>
+        /// <summary> Returns the delegate that is used internally for setting the value of the represented class member. </summary>
 		/// <value> The delegate used for setting the value. </value>
 		[CanBeNull]
-		public virtual MulticastDelegate SetDelegate
-		{
-			get
-			{
-				return null;
-			}
-		}
+		public virtual MulticastDelegate SetDelegate => null;
 
-		[CanBeNull]
-		public virtual ICustomAttributeProvider AttributeProvider
-		{
-			get { return MemberInfo; }
-		}
+        [CanBeNull]
+		public virtual ICustomAttributeProvider AttributeProvider => MemberInfo;
 
-		/// <summary> Gets the type of the class member. </summary>
+        /// <summary> Gets the type of the class member. </summary>
 		/// <value> The type. This will never be null. </value>
 		[NotNull]
 		public abstract Type Type { get; }
@@ -106,27 +91,15 @@ namespace Sisus
 		/// <value> True if this does not represent an instance target, false if it does. </value>
 		public abstract bool IsStatic { get; }
 
-		public virtual int CollectionIndex
-		{
-			get
-			{
-				return -1;
-			}
-		}
+		public virtual int CollectionIndex => -1;
 
-		[CanBeNull]
+        [CanBeNull]
 		public virtual object[] IndexParameters
 		{
-			get
-			{
-				return null;
-			}
-				
-			set
-			{
-				throw new NotSupportedException();
-			}
-		}
+			get => null;
+
+            set => throw new NotSupportedException();
+        }
 
 		/// <summary>
 		/// Does this refer to same target member as MemberData (ignoring reflected type)?

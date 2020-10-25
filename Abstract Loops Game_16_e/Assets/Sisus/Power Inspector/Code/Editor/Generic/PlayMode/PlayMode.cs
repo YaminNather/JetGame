@@ -45,16 +45,10 @@ namespace Sisus
 
 		public static PlayModeState CurrentState
 		{
-			get
-			{
-				return StateHolder.state;
-			}
+			get => StateHolder.state;
 
-			private set
-			{
-				StateHolder.state = value;
-			}
-		}
+            private set => StateHolder.state = value;
+        }
 
 		public static bool NowChangingState
 		{

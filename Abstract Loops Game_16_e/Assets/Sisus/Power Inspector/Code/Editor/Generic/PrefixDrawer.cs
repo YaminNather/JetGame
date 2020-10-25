@@ -342,7 +342,9 @@ namespace Sisus
 	[Serializable]
 	public sealed class IdlePrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; }  set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 
 		public static IdlePrefixDrawer Create(GUIContent label)
 		{
@@ -367,7 +369,9 @@ namespace Sisus
 	[Serializable]
 	public sealed class SelectedPrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; }  set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 
 		public static SelectedPrefixDrawer Create(GUIContent label)
 		{
@@ -392,7 +396,9 @@ namespace Sisus
 	[Serializable]
 	public sealed class MouseoveredPrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; } set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 
 		public static MouseoveredPrefixDrawer Create(GUIContent label)
 		{
@@ -417,7 +423,9 @@ namespace Sisus
 	[Serializable]
 	public sealed class ModifiedPrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; }  set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 		
 		public static ModifiedPrefixDrawer Create(GUIContent label)
 		{
@@ -441,7 +449,9 @@ namespace Sisus
 
 	public sealed class SelectedModifiedPrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; }  set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 
 		public static SelectedModifiedPrefixDrawer Create(GUIContent label)
 		{
@@ -465,7 +475,9 @@ namespace Sisus
 
 	public sealed class MouseoveredModifiedPrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; } set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 		
 		public static MouseoveredModifiedPrefixDrawer Create(GUIContent label)
 		{
@@ -498,22 +510,13 @@ namespace Sisus
 
 		public override bool Unfolded
 		{
-			get { return unfolded; }
-			set
-			{
-				unfolded = value;
-			}
-		}
+			get => unfolded;
+            set => unfolded = value;
+        }
 
-		public GUIStyle GUIStyle
-		{
-			get
-			{
-				return style;
-			}
-		}
+		public GUIStyle GUIStyle => style;
 
-		public static FoldoutDrawer Create(GUIContent label, bool selected, bool mouseovered, bool unappliedChanges, bool textClipping, GUIStyle guiStyle = null)
+        public static FoldoutDrawer Create(GUIContent label, bool selected, bool mouseovered, bool unappliedChanges, bool textClipping, GUIStyle guiStyle = null)
 		{
 			FoldoutDrawer result;
 			if(pool.TryGet(out result))
@@ -604,7 +607,9 @@ namespace Sisus
 	[Serializable]
 	public sealed class EmptyPrefixDrawer : PrefixDrawer
 	{
-		public override bool Unfolded { get { return true; }  set { throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer"); } }
+		public override bool Unfolded { get => true;
+            set => throw new InvalidOperationException("Can't set unfolded state of PrefixDrawer");
+        }
 
 		public static EmptyPrefixDrawer Create()
 		{

@@ -12,24 +12,12 @@ namespace Sisus
 		private readonly Type[] nullableTypeInArray = new Type[1];
 		
 		/// <inheritdoc />
-		protected override bool CanBeUnityObject
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool CanBeUnityObject => false;
 
-		/// <inheritdoc />
-		protected override Type[] NonUnityObjectTypes
-		{
-			get
-			{
-				return nullableTypeInArray;
-			}
-		}
+        /// <inheritdoc />
+		protected override Type[] NonUnityObjectTypes => nullableTypeInArray;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The initial cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the class member that the created drawer represents. Can be null. </param>
 		/// <param name="nullableType"> The underlying type of the Nullable type. </param>

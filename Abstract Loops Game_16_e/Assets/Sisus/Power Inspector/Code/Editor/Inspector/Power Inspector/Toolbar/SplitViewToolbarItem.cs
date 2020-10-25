@@ -16,33 +16,15 @@ namespace Sisus
 		private ISplittableInspectorDrawer splittableDrawer;
 
 		/// <inheritdoc/>
-		public override float MinWidth
-		{
-			get
-			{
-				return Width;
-			}
-		}
+		public override float MinWidth => Width;
 
-		/// <inheritdoc/>
-		public override float MaxWidth
-		{
-			get
-			{
-				return Width;
-			}
-		}
+        /// <inheritdoc/>
+		public override float MaxWidth => Width;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetFeatureUrl("split-view");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetFeatureUrl("split-view");
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup()
 		{
 			labels = inspector.Preferences.labels;

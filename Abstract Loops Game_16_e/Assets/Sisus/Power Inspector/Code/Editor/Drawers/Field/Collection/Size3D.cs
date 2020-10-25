@@ -17,15 +17,9 @@ namespace Sisus
 		/// Returns element count for 3D collection where height is width and width is height.
 		/// </summary>
 		/// <value> Element count of 3D Collection. </value>
-		public int Count
-		{
-			get
-			{
-				return height * width * depth;
-			}
-		}
-		
-		public int this[int index]
+		public int Count => height * width * depth;
+
+        public int this[int index]
 		{
 			get
 			{

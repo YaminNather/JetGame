@@ -20,23 +20,11 @@ namespace Sisus
 		/// <summary>
 		/// 
 		/// </summary>
-		public override float Height
-		{
-			get
-			{
-				return ViewingYaml() ? yamlViewportHeight : base.Height;
-			}
-		}
+		public override float Height => ViewingYaml() ? yamlViewportHeight : base.Height;
 
-		private float YamlContentHeight
-		{
-			get
-			{
-				return yamlContentHeight;
-			}
-		}
+        private float YamlContentHeight => yamlContentHeight;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override void OnInspectorWidthChanged()
 		{
 			base.OnChildLayoutChanged();

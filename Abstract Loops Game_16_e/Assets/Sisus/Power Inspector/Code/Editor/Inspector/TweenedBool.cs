@@ -18,23 +18,11 @@ namespace Sisus
 		private Action<bool> onTweenFinished;
 		private static int tweeningCount = 0;
 
-		public static bool AnyTweening
-		{
-			get
-			{
-				return tweeningCount > 0;
-			}
-		}
+		public static bool AnyTweening => tweeningCount > 0;
 
-		public bool NowTweening
-		{
-			get
-			{
-				return inspectorDrawer != null;
-			}
-		}
+        public bool NowTweening => inspectorDrawer != null;
 
-		public TweenedBool()
+        public TweenedBool()
 		{
 			tweenSpeed = InspectorUtility.Preferences.foldingAnimationSpeed;
 		}

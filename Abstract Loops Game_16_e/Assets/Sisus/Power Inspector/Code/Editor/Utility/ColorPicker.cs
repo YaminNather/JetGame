@@ -35,23 +35,11 @@ namespace Sisus
 		private static EditorWindow colorSelectorWindow;
 		private static FieldInfo lastPickedColorField;
 
-		public static bool UsingEyeDropper
-		{
-			get
-			{
-				return usingEyeDropper;
-			}
-		}
+		public static bool UsingEyeDropper => usingEyeDropper;
 
-		public static bool IsOpen
-		{
-			get
-			{
-				return isOpen;
-			}
-		}
+        public static bool IsOpen => isOpen;
 
-		private static Type ColorPickerType
+        private static Type ColorPickerType
 		{
 			get
 			{

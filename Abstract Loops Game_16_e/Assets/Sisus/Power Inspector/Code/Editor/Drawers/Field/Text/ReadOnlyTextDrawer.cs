@@ -7,15 +7,9 @@ namespace Sisus
 	public class ReadOnlyTextDrawer : PrefixControlComboDrawer<string>
 	{
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(string);
-			}
-		}
+		public override Type Type => typeof(string);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool SetValue(object newValue)
 		{
 			CantSetValueError();

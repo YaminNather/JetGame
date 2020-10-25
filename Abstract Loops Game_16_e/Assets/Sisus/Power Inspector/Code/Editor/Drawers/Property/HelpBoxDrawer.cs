@@ -24,42 +24,18 @@ namespace Sisus
 		private GUIStyle guiStyle;
 
 		/// <inheritdoc/>
-		public override bool PrefixResizingEnabledOverControl
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool PrefixResizingEnabledOverControl => false;
 
-		/// <inheritdoc/>
-		public override bool RequiresDecoratorDrawerType
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool RequiresDecoratorDrawerType => false;
 
-		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Selectable" />
+		public override bool Selectable => false;
 
-		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return height;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Height" />
+		public override float Height => height;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override void SetupInterface(object setValue, Type setValueType, LinkedMemberInfo setMemberInfo, IParentDrawer setParent, GUIContent setLabel, bool setReadOnly)
 		{
 			throw new NotSupportedException("Please use the other SetupInterface method.");

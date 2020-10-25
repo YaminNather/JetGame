@@ -175,65 +175,30 @@ namespace Sisus
 		/// <summary> Gets a value indicating whether drawing the prefix should be skipped when Draw is
 		/// called. </summary>
 		/// <value> True if headless mode, false if not. </value>
-		protected static bool HeadlessMode
-		{
-			get
-			{
-				return UnityObjectDrawerUtility.HeadlessMode;
-			}
-		}
+		protected static bool HeadlessMode => UnityObjectDrawerUtility.HeadlessMode;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.MemberHierarchy" />
-		public sealed override LinkedMemberHierarchy MemberHierarchy
-		{
-			get
-			{
-				return linkedMemberHierarchy;
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.MemberHierarchy" />
+		public sealed override LinkedMemberHierarchy MemberHierarchy => linkedMemberHierarchy;
 
-		/// <inheritdoc cref="IDrawer.ClickToSelectArea" />
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				// UPDATE: now can click anywhere on the component to select it.
-				// Previously clicking in the space between members would cause
-				// nothing to get selected. However, this did not work intuitively
-				// with CustomEditor-based UnityObjects for one.
-				return Bounds;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.ClickToSelectArea" />
+		public override Rect ClickToSelectArea =>
+            // UPDATE: now can click anywhere on the component to select it.
+            // Previously clicking in the space between members would cause
+            // nothing to get selected. However, this did not work intuitively
+            // with CustomEditor-based UnityObjects for one.
+            Bounds;
 
-		/// <summary> Gets a value indicating whether the mouse down over reorder area. </summary>
+        /// <summary> Gets a value indicating whether the mouse down over reorder area. </summary>
 		/// <value> True if mouse down over reorder area, false if not. </value>
-		public bool MouseDownOverReorderArea
-		{
-			get
-			{
-				return selectedPart == HeaderPart.Base;
-			}
-		}
+		public bool MouseDownOverReorderArea => selectedPart == HeaderPart.Base;
 
-		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return (!HeadlessMode || CanBeSelectedWithoutHeaderBeingSelected) && ShownInInspector;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Selectable" />
+		public override bool Selectable => (!HeadlessMode || CanBeSelectedWithoutHeaderBeingSelected) && ShownInInspector;
 
-		/// <inheritdoc cref="IDrawer.DebugMode" />
-		public override bool DebugMode
-		{
-			get
-			{
-				return debugMode;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.DebugMode" />
+		public override bool DebugMode => debugMode;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override Rect SelectionRect
 		{
 			get
@@ -247,24 +212,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IParentDrawer.DrawInSingleRow" />
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool DrawInSingleRow => false;
 
-		/// <inheritdoc cref="IParentDrawer.Unfoldedness" />
-		public override float Unfoldedness
-		{
-			get
-			{
-				return unfoldedness;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.Unfoldedness" />
+		public override float Unfoldedness => unfoldedness;
 
-		/// <inheritdoc cref="IParentDrawer.Unfolded" />
+        /// <inheritdoc cref="IParentDrawer.Unfolded" />
 		public override bool Unfolded
 		{
 			get
@@ -315,24 +268,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.UnityObject" />
-		public override Object UnityObject
-		{
-			get
-			{
-				return Target;
-			}
-		}
+		public override Object UnityObject => Target;
 
-		/// <inheritdoc cref="IDrawer.UnityObjects" />
-		public override Object[] UnityObjects
-		{
-			get
-			{
-				return targets;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.UnityObjects" />
+		public override Object[] UnityObjects => targets;
 
-		/// <summary> Gets or sets the width of the prefix label. </summary>
+        /// <summary> Gets or sets the width of the prefix label. </summary>
 		/// <value> The width of the prefix label. </value>
 		public float PrefixLabelWidth
 		{
@@ -384,34 +325,16 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IUnityObjectDrawer.HeaderHeight" />
-		public override float HeaderHeight
-		{
-			get
-			{
-				return HeadlessMode ? 0f : DrawGUI.Active.InspectorTitlebarHeight;
-			}
-		}
+		public override float HeaderHeight => HeadlessMode ? 0f : DrawGUI.Active.InspectorTitlebarHeight;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.AppendIndentLevel" />
-		public override int AppendIndentLevel
-		{
-			get
-			{
-				return 0;
-			}
-		}
-		
-		/// <summary> Gets the prefix resizer. </summary>
+        /// <inheritdoc cref="IUnityObjectDrawer.AppendIndentLevel" />
+		public override int AppendIndentLevel => 0;
+
+        /// <summary> Gets the prefix resizer. </summary>
 		/// <value> The prefix resizer. </value>
-		public virtual PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return prefixResizer;
-			}
-		}
+		public virtual PrefixResizer PrefixResizer => prefixResizer;
 
-		/// <summary> Returns dimensions for a rectangle at the bottom of this control where another
+        /// <summary> Returns dimensions for a rectangle at the bottom of this control where another
 		/// Component can be drag n dropped to trigger a reordering event. </summary>
 		/// <value> The reorder drop rectangle. </value>
 		public Rect ReorderDropRect
@@ -429,44 +352,20 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override Part MouseoveredPart
-		{
-			get
-			{
-				return !Mouseovered ? Part.None : HeaderMouseovered ? (Part)(HeaderPart)mouseoveredPart : Part.Body;
-			}
-		}
+		public override Part MouseoveredPart => !Mouseovered ? Part.None : HeaderMouseovered ? (Part)(HeaderPart)mouseoveredPart : Part.Body;
 
-		/// <inheritdoc/>
-		public override Part SelectedPart
-		{
-			get
-			{
-				return !Selected ? Part.None : HeaderIsSelected ? (Part)(HeaderPart)selectedPart : Part.Body;
-			}
-		}
+        /// <inheritdoc/>
+		public override Part SelectedPart => !Selected ? Part.None : HeaderIsSelected ? (Part)(HeaderPart)selectedPart : Part.Body;
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		/// <inheritdoc cref="IDrawer.HasUnappliedChanges" />
-		public override bool HasUnappliedChanges
-		{
-			get
-			{
-				return MemberHierarchy.HasUnappliedChanges();
-			}
-		}
-		#endif
+		public override bool HasUnappliedChanges => MemberHierarchy.HasUnappliedChanges();
+#endif
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("unity-object-drawer");
-			}
-		}
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("unity-object-drawer");
 
-		/// <summary>
+        /// <summary>
 		/// Gets parent or parent of parent that implements IGameObjectDrawer.
 		/// </summary>
 		[CanBeNull]
@@ -497,77 +396,35 @@ namespace Sisus
 		/// </summary>
 		///  <value> Object array containing Unity Object targets. </value>
 		[NotNull]
-		protected virtual TTarget[] EditorTargets
-		{
-			get
-			{
-				return targets;
-			}
-		}
+		protected virtual TTarget[] EditorTargets => targets;
 
-		/// <summary> Is unfoldedness state currently being tweened. </summary>
+        /// <summary> Is unfoldedness state currently being tweened. </summary>
 		/// <value> True if currenly in the process of being folded or unfolded, false if not. </value>
-		protected bool NowTweeningUnfoldedness
-		{
-			get
-			{
-				return unfoldedness.NowTweening;
-			}
-		}
+		protected bool NowTweeningUnfoldedness => unfoldedness.NowTweening;
 
-		/// <summary>
+        /// <summary>
 		/// Gets maximum height for the prefix resizer when drawn vertically, or zero if there's no cap.
 		/// </summary>
 		/// <value> Maximum height for a vertical prefix resizer. </value>
-		protected virtual float PrefixResizerMaxHeight
-		{
-			get
-			{
-				return 0f;
-			}
-		}
+		protected virtual float PrefixResizerMaxHeight => 0f;
 
-		/// <summary> Gets the height used by the prefix resizer drag handle between the header and the body of the drawer. </summary>
+        /// <summary> Gets the height used by the prefix resizer drag handle between the header and the body of the drawer. </summary>
 		/// <value> Height of the prefix resizer drag handle located at the top. </value>
-		protected virtual float PrefixResizerDragHandleHeight
-		{
-			get
-			{
-				return PrefixResizer == PrefixResizer.TopOnly ? PrefixResizeUtility.TopOnlyPrefixResizerHeight : 0f;
-			}
-		}
+		protected virtual float PrefixResizerDragHandleHeight => PrefixResizer == PrefixResizer.TopOnly ? PrefixResizeUtility.TopOnlyPrefixResizerHeight : 0f;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether an Editor (rather than the visible member drawers) is used for drawing the body of the drawer.
 		/// </summary>
 		/// <value> True if the an Editor is currently used for drawing the body, false if not. </value>
-		protected virtual bool UsesEditorForDrawingBody
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected virtual bool UsesEditorForDrawingBody => false;
 
-		/// <summary> Gets text for the context menu item used for Copying the target(s). </summary>
-		protected virtual string CopyContextMenuText
-		{
-			get
-			{
-				return "Copy";
-			}
-		}
+        /// <summary> Gets text for the context menu item used for Copying the target(s). </summary>
+		protected virtual string CopyContextMenuText => "Copy";
 
-		/// <summary> Gets text for the context menu item used for pasting copied value on the target(s). </summary>
-		protected virtual string PasteContextMenuText
-		{
-			get
-			{
-				return "Paste Values";
-			}
-		}
+        /// <summary> Gets text for the context menu item used for pasting copied value on the target(s). </summary>
+		protected virtual string PasteContextMenuText => "Paste Values";
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		/// <summary> Gets a value indicating whether this object is an asset. </summary>
 		/// <value> True if this object is an asset, false if not. </value>
 		protected abstract bool IsAsset
@@ -578,25 +435,13 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the reordering. </summary>
 		/// <value> True if reordering, false if not. </value>
-		protected virtual bool Reordering
-		{
-			get
-			{
-				return this == Manager.MouseDownInfo.Reordering.Drawer && DrawGUI.IsUnityObjectDrag;
-			}
-		}
+		protected virtual bool Reordering => this == Manager.MouseDownInfo.Reordering.Drawer && DrawGUI.IsUnityObjectDrag;
 
-		/// <summary> Gets a value indicating whether we can be selected without header being selected. </summary>
+        /// <summary> Gets a value indicating whether we can be selected without header being selected. </summary>
 		/// <value> True if we can be selected without header being selected, false if not. </value>
-		protected virtual bool CanBeSelectedWithoutHeaderBeingSelected
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected virtual bool CanBeSelectedWithoutHeaderBeingSelected => true;
 
-		/// <summary> Gets the color of the prefix background. </summary>
+        /// <summary> Gets the color of the prefix background. </summary>
 		/// <value> The color of the prefix background. </value>
 		protected abstract Color PrefixBackgroundColor
 		{
@@ -606,15 +451,9 @@ namespace Sisus
 		/// <summary> Gets the first UnityEngine.Object Target. </summary>
 		/// <value> Target UnityEngine.Object. </value>
 		[CanBeNull]
-		protected TTarget Target
-		{
-			get
-			{
-				return targets.Length == 0 ? null : targets[0];
-			}
-		}
-		
-		#if UNITY_EDITOR
+		protected TTarget Target => targets.Length == 0 ? null : targets[0];
+
+#if UNITY_EDITOR
 		/// <summary> Gets the MonoScript associated with the target (if any). </summary>
 		/// <value> MonoScript associated with the target; null if not applicable. </value>
 		[CanBeNull]
@@ -626,15 +465,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether this object has enabled flag. </summary>
 		/// <value> True if this object has enabled flag, false if not. </value>
-		protected virtual bool HasEnabledFlag
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected virtual bool HasEnabledFlag => false;
 
-		/// <summary> Gets a value indicating whether this object has debug mode icon. </summary>
+        /// <summary> Gets a value indicating whether this object has debug mode icon. </summary>
 		/// <value> True if this object has debug mode icon, false if not. </value>
 		protected virtual bool HasDebugModeIcon
 		{
@@ -656,37 +489,19 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether this object has execute method icon. </summary>
 		/// <value> True if this object has execute method icon, false if not. </value>
-		protected virtual bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return (inspector.Preferences.drawQuickInvokeIcon || DebugMode) && !HeadlessMode;
-			}
-		}
+		protected virtual bool HasExecuteMethodIcon => (inspector.Preferences.drawQuickInvokeIcon || DebugMode) && !HeadlessMode;
 
-		#if UNITY_2018_1_OR_NEWER && UNITY_EDITOR
+#if UNITY_2018_1_OR_NEWER && UNITY_EDITOR
 		/// <summary> Gets a value indicating whether this object has preset icon. </summary>
 		/// <value> True if this object has preset icon, false if not. </value>
-		protected virtual bool HasPresetIcon
-		{
-			get
-			{
-				return !HeadlessMode && !excludedFromPreset && Editable;
-			}
-		}
-		#endif
+		protected virtual bool HasPresetIcon => !HeadlessMode && !excludedFromPreset && Editable;
+#endif
 
 		/// <summary> Gets a value indicating whether this object has the context menu icon. </summary>
 		/// <value> True if this object has the context menu icon, false if not. </value>
-		protected virtual bool HasContextMenuIcon
-		{
-			get
-			{
-				return !HeadlessMode;
-			}
-		}
+		protected virtual bool HasContextMenuIcon => !HeadlessMode;
 
-		/// <summary> Gets the enabled flag position. </summary>
+        /// <summary> Gets the enabled flag position. </summary>
 		/// <value> The enabled flag position. </value>
 		protected Rect EnabledFlagPosition
 		{
@@ -710,15 +525,9 @@ namespace Sisus
 		/// be overriden for specific cases.
 		/// </summary>
 		/// <value> True if should draw greyed out, false if not. </value>
-		protected virtual bool DrawGreyedOut
-		{
-			get
-			{
-				return (!Enabled && inspector.Preferences.drawDisabledGreyedOut != GreyOut.None) || !Editable || (Target != null && HasHideFlag(HideFlags.HideInInspector));
-			}
-		}
+		protected virtual bool DrawGreyedOut => (!Enabled && inspector.Preferences.drawDisabledGreyedOut != GreyOut.None) || !Editable || (Target != null && HasHideFlag(HideFlags.HideInInspector));
 
-		/// <summary> Gets a value indicating whether this object is enabled. </summary>
+        /// <summary> Gets a value indicating whether this object is enabled. </summary>
 		/// <value> True if enabled, false if not. </value>
 		protected virtual bool Enabled
 		{
@@ -780,33 +589,15 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.ReadOnly" />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return !Editable;
-			}
-		}
+		public override bool ReadOnly => !Editable;
 
-		/// <inheritdoc/>
-		public virtual float MinPrefixLabelWidth
-		{
-			get
-			{
-				return DrawGUI.MinPrefixLabelWidth;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual float MinPrefixLabelWidth => DrawGUI.MinPrefixLabelWidth;
 
-		/// <inheritdoc/>
-		public virtual float MaxPrefixLabelWidth
-		{
-			get
-			{
-				return DrawGUI.InspectorWidth - DrawGUI.MinControlFieldWidth;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual float MaxPrefixLabelWidth => DrawGUI.InspectorWidth - DrawGUI.MinControlFieldWidth;
 
-		/// <summary> Gets the width of the minimum automatic sized prefix label. </summary>
+        /// <summary> Gets the width of the minimum automatic sized prefix label. </summary>
 		/// <value> The width of the minimum automatic sized prefix label. </value>
 		protected float MinAutoSizedPrefixLabelWidth
 		{
@@ -824,15 +615,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the mouse is over header. </summary>
 		/// <value> True if mouse is over header, false if not. </value>
-		protected bool HeaderMouseovered
-		{
-			get
-			{
-				return mouseoveredPart != HeaderPart.None || mouseovereredHeaderButton != null;
-			}
-		}
+		protected bool HeaderMouseovered => mouseoveredPart != HeaderPart.None || mouseovereredHeaderButton != null;
 
-		/// <summary> Gets or sets the mouse over header part. </summary>
+        /// <summary> Gets or sets the mouse over header part. </summary>
 		/// <value> The mouse over header part. </value>
 		protected HeaderPartDrawer MouseoveredHeaderPart
 		{
@@ -878,33 +663,15 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether this object is component. </summary>
 		/// <value> True if this object is component, false if not. </value>
-		protected virtual bool IsComponent
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected virtual bool IsComponent => false;
 
-		/// <inheritdoc/>
-		public bool PrefixResizerMouseovered
-		{
-			get
-			{
-				return prefixResizerMouseovered && PrefixResizer != PrefixResizer.Disabled;
-			}
-		}
+        /// <inheritdoc/>
+		public bool PrefixResizerMouseovered => prefixResizerMouseovered && PrefixResizer != PrefixResizer.Disabled;
 
-		/// <inheritdoc/>
-		public bool HeaderIsSelected
-		{
-			get
-			{
-				return selectedPart != HeaderPart.None;
-			}
-		}
+        /// <inheritdoc/>
+		public bool HeaderIsSelected => selectedPart != HeaderPart.None;
 
-		/// <summary> Gets a value indicating whether this object has reference icon. </summary>
+        /// <summary> Gets a value indicating whether this object has reference icon. </summary>
 		/// <value> True if this object has reference icon, false if not. </value>
 		protected virtual bool HasReferenceIcon
 		{
@@ -929,15 +696,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether all targets are of same type. </summary>
 		/// <value> True if all targets are same type, false if not. </value>
-		protected virtual bool AllTargetsAreSameType
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected virtual bool AllTargetsAreSameType => true;
 
-		/// <summary> Gets the execute method icon position. </summary>
+        /// <summary> Gets the execute method icon position. </summary>
 		/// <value> The execute method icon position. </value>
 		protected Rect ExecuteMethodIconPosition
 		{
@@ -960,16 +721,10 @@ namespace Sisus
 		
 		/// <summary> Gets the identifier of the enabled flag control. </summary>
 		/// <value> The identifier of the enabled flag control. </value>
-		private int EnabledFlagControlId
-		{
-			get
-			{
-				return beforeHeaderControlId;
-			}
-		}
+		private int EnabledFlagControlId => beforeHeaderControlId;
 
 
-		#if UNITY_EDITOR && DEV_MODE && ENABLE_COMPONENTS_DISPLAY_NAMES
+#if UNITY_EDITOR && DEV_MODE && ENABLE_COMPONENTS_DISPLAY_NAMES
 		private bool EditingComponentDisplayName
 		{
 			get

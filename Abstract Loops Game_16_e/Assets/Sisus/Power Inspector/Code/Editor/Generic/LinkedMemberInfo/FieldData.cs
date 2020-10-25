@@ -34,16 +34,10 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return serializedProperty;
-			}
-				
-			set
-			{
-				serializedProperty = value;
-			}
-		}
+			get => serializedProperty;
+
+            set => serializedProperty = value;
+        }
 		#endif
 
 		public override string Name
@@ -61,62 +55,23 @@ namespace Sisus
 			}
 		}
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Field; }
-		}
+		public override MemberTypes MemberType => MemberTypes.Field;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.Field;
-			}
-		}
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.Field;
 
-		public override MemberInfo MemberInfo
-		{
-			get { return fieldInfo; }
-		}
+        public override MemberInfo MemberInfo => fieldInfo;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo SecondMemberInfo => null;
 
-		public override bool IsStatic
-		{
-			get
-			{
-				return fieldInfo.IsStatic;
-			}
-		}
+        public override bool IsStatic => fieldInfo.IsStatic;
 
-		public override Type Type
-		{
-			get
-			{
-				return fieldInfo.FieldType;
-			}
-		}
+        public override Type Type => fieldInfo.FieldType;
 
-		public override bool CanRead
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanRead => true;
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanReadWithoutSideEffects => true;
 
-		public override bool CanWrite
+        public override bool CanWrite
 		{
 			get
 			{

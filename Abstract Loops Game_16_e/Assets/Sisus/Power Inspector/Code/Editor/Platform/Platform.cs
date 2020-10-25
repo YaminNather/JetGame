@@ -39,15 +39,9 @@ namespace Sisus
 		public static readonly EditorGUIDrawer GUIDrawer = new EditorGUIDrawer();
 		public static readonly RuntimeGUIDrawer RuntimeGUIDrawer = new RuntimeGUIDrawer();
 
-		public static Platform Editor
-		{
-			get
-			{
-				return Active;
-			}
-		}
+		public static Platform Editor => Active;
 
-		public void SetPrefs(string key, int value, int defaultValue)
+        public void SetPrefs(string key, int value, int defaultValue)
 		{
 			if(value.Equals(defaultValue))
 			{
@@ -85,23 +79,11 @@ namespace Sisus
 
 		
 		
-		public DrawGUI GUI
-		{
-			get
-			{
-				return GUIDrawer;
-			}
-		}
+		public DrawGUI GUI => GUIDrawer;
 
-		public bool IsPlayingOrWillChangePlaymode
-		{
-			get
-			{
-				return EditorApplication.isPlayingOrWillChangePlaymode;
-			}
-		}
+        public bool IsPlayingOrWillChangePlaymode => EditorApplication.isPlayingOrWillChangePlaymode;
 
-		public string GetPrefs(string key, string defaultValue)
+        public string GetPrefs(string key, string defaultValue)
 		{
 			return EditorPrefs.GetString(key, defaultValue);
 		}

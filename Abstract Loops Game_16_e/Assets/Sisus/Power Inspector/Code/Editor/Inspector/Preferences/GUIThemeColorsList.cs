@@ -35,15 +35,9 @@ namespace Sisus
 			#endif
 		}
 
-		public GUIThemeColors Active
-		{
-			get
-			{
-				return DrawGUI.IsProSkin ? Pro : Personal;
-			}
-		}
+		public GUIThemeColors Active => DrawGUI.IsProSkin ? Pro : Personal;
 
-		public GUIThemeColors Personal
+        public GUIThemeColors Personal
 		{
 			get
 			{
@@ -67,71 +61,23 @@ namespace Sisus
 			}
 		}
 
-		public GUIThemeColors Classic
-		{
-			get
-			{
-				return DrawGUI.IsProSkin ? ProClassic : PersonalClassic;
-			}
-		}
+		public GUIThemeColors Classic => DrawGUI.IsProSkin ? ProClassic : PersonalClassic;
 
-		public GUIThemeColors Modern
-		{
-			get
-			{
-				return DrawGUI.IsProSkin ? ProModern : PersonalModern;
-			}
-		}
+        public GUIThemeColors Modern => DrawGUI.IsProSkin ? ProModern : PersonalModern;
 
-		public GUIThemeColors PersonalClassic
-		{
-			get
-			{
-				return themes.Length > 0 ? themes[0] : null;
-			}
-		}
+        public GUIThemeColors PersonalClassic => themes.Length > 0 ? themes[0] : null;
 
-		public GUIThemeColors PersonalModern
-		{
-			get
-			{
-				return themes.Length > 1 ? themes[1] : null;
-			}
-		}
+        public GUIThemeColors PersonalModern => themes.Length > 1 ? themes[1] : null;
 
-		public GUIThemeColors ProClassic
-		{
-			get
-			{
-				return themes.Length > 2 ? themes[2] : null;
-			}
-		}
+        public GUIThemeColors ProClassic => themes.Length > 2 ? themes[2] : null;
 
-		public GUIThemeColors ProModern
-		{
-			get
-			{
-				return themes.Length > 3 ? themes[3] : null;
-			}
-		}
+        public GUIThemeColors ProModern => themes.Length > 3 ? themes[3] : null;
 
-		public int Count
-		{
-			get
-			{
-				return themes.Length;
-			}
-		}
+        public int Count => themes.Length;
 
-		public bool IsReadOnly
-		{
-			get
-			{
-				return false;
-			}
-		}
+        public bool IsReadOnly => false;
 
-		public bool TryGet(string themeName, out GUIThemeColors result)
+        public bool TryGet(string themeName, out GUIThemeColors result)
 		{
 			for(int n = 0, count = themes.Length; n < count; n++)
 			{

@@ -29,53 +29,23 @@ namespace Sisus
 		private GUIContent[] assetLabelsOnlyOnSomeTargets;
 
 		/// <inheritdoc/>
-		public virtual bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool WantsSearchBoxDisabled => false;
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		/// <inheritdoc />
-		public GUIContent[] AssetLabels
-		{
-			get
-			{
-				return assetLabels;
-			}
-		}
+		public GUIContent[] AssetLabels => assetLabels;
 
-		/// <inheritdoc />
-		public GUIContent[] AssetLabelsOnlyOnSomeTargets
-		{
-			get
-			{
-				return assetLabelsOnlyOnSomeTargets;
-			}
-		}
-		#endif
+        /// <inheritdoc />
+		public GUIContent[] AssetLabelsOnlyOnSomeTargets => assetLabelsOnlyOnSomeTargets;
+#endif
 
 		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconWidth
-		{
-			get
-			{
-				return AssetHeaderToolbarIconWidth;
-			}
-		}
+		protected sealed override float HeaderToolbarIconWidth => AssetHeaderToolbarIconWidth;
 
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconHeight
-		{
-			get
-			{
-				return AssetHeaderToolbarIconHeight;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconHeight => AssetHeaderToolbarIconHeight;
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		/// <inheritdoc />
 		protected override MonoScript MonoScript
 		{
@@ -89,101 +59,44 @@ namespace Sisus
 		
 		#if UNITY_EDITOR
 		/// <inheritdoc />
-		protected override bool IsAsset
-		{
-			get
-			{
-				return true;
-			}
-		}
-		#endif
+		protected override bool IsAsset => true;
+#endif
 
 		/// <inheritdoc cref="IUnityObjectDrawer.HeaderHeight" />
-		public override float HeaderHeight
-		{
-			get
-			{
-				return headerHeight;
-			}
-		}
+		public override float HeaderHeight => headerHeight;
 
-		/// <inheritdoc cref="IParentDrawer.Foldable" />
-		public override bool Foldable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.Foldable" />
+		public override bool Foldable => false;
 
-		/// <inheritdoc cref="IParentDrawer.Unfoldedness" />
-		public override float Unfoldedness
-		{
-			get
-			{
-				return 1f;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.Unfoldedness" />
+		public override float Unfoldedness => 1f;
 
-		/// <inheritdoc cref="IParentDrawer.Unfolded" />
+        /// <inheritdoc cref="IParentDrawer.Unfolded" />
 		public override bool Unfolded
 		{
-			get
-			{
-				return true;
-			}
+			get => true;
 
-			set { throw new NotSupportedException("Unfolded state of assets can't be altered"); }
-		}
+            set => throw new NotSupportedException("Unfolded state of assets can't be altered");
+        }
 
 		/// <inheritdoc />
-		protected override Color PrefixBackgroundColor
-		{
-			get
-			{
-				return inspector.Preferences.theme.AssetHeaderBackground;
-			}
-		}
+		protected override Color PrefixBackgroundColor => inspector.Preferences.theme.AssetHeaderBackground;
 
-		/// <inheritdoc />
-		protected override float ToolbarIconsTopOffset
-		{
-			get
-			{
-				return AssetToolbarIconsTopOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected override float ToolbarIconsTopOffset => AssetToolbarIconsTopOffset;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsRightOffset
-		{
-			get
-			{
-				return AssetHeaderToolbarIconsRightOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsRightOffset => AssetHeaderToolbarIconsRightOffset;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsOffset
-		{
-			get
-			{
-				return AssetHeaderToolbarIconsOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsOffset => AssetHeaderToolbarIconsOffset;
 
-		/// <summary>
+        /// <summary>
 		/// Should the initial asset header height estimate be based on headeer that contains two rows of buttons?
 		/// </summary>
-		protected virtual bool HeaderHasTwoRowsOfButtons
-		{
-			get
-			{
-				return AddressablesUtility.IsInstalled;
-			}
-		}
+		protected virtual bool HeaderHasTwoRowsOfButtons => AddressablesUtility.IsInstalled;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawers represent. Can not be null. </param>
 		/// <param name="parent"> The parent drawers of the created drawers. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

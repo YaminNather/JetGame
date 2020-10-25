@@ -13,15 +13,9 @@ namespace Sisus
 		private static Type[] visibleEnumTypes;
 
 		/// <inheritdoc />
-		protected override bool CanBeUnityObject
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		/// <inheritdoc />
+		protected override bool CanBeUnityObject => false;
+
+        /// <inheritdoc />
 		protected override Type[] NonUnityObjectTypes
 		{
 			get

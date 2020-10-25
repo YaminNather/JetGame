@@ -11,40 +11,23 @@ namespace Sisus
 		private static readonly int[] DraggingMembers = {0, 1, 2};
 
 		/// <inheritdoc/>
-		protected override int[] DraggingTargetsMembers
-		{
-			get
-			{
-				return DraggingMembers;
-			}
-		}
+		protected override int[] DraggingTargetsMembers => DraggingMembers;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool SnappingEnabled
 		{
-			get
-			{
-				return UserSettings.Snapping.Enabled && UserSettings.Snapping.EnabledForScale;
-			}
-			
-			set
-			{
-				UserSettings.Snapping.EnabledForScale = value;
-			}
-		}
+			get => UserSettings.Snapping.Enabled && UserSettings.Snapping.EnabledForScale;
+
+            set => UserSettings.Snapping.EnabledForScale = value;
+        }
 
 		/// <inheritdoc cref="IDrawer.ReadOnly" />
-		public override bool ReadOnly
-		{
-			get
-			{
-				// LinkedMemberInfo target lossyScale property is get-only, so ReadOnly is by default set to false.
-				// We however handle writing manually in this class, so we can override this.
-				return parent == null ? false : parent.ReadOnly;
-			}
-		}
+		public override bool ReadOnly =>
+            // LinkedMemberInfo target lossyScale property is get-only, so ReadOnly is by default set to false.
+            // We however handle writing manually in this class, so we can override this.
+            parent == null ? false : parent.ReadOnly;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override float GetSnapStep(int memberIndex)
 		{
 			return UserSettings.Snapping.Scale;

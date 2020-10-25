@@ -13,30 +13,18 @@ namespace Sisus.Attributes
 		public readonly GUIContent label;
 
 		/// <inheritdoc/>
-		public GUIContent Label
-		{
-			get
-			{
-				return label;
-			}
-		}
+		public GUIContent Label => label;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public Type GetDrawerType(IDrawerByNameProvider drawerByNameProvider)
 		{
 			return drawerByNameProvider.GetFieldDrawerTypeByName("CustomDataSetDrawer");
 		}
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return Target.This;
-			}
-		}
+		public Target Target => Target.This;
 
-		/// <summary> Causes target member to be drawn inside a custom foldout group. </summary>
+        /// <summary> Causes target member to be drawn inside a custom foldout group. </summary>
 		/// <param name="groupLabel"> Prefix label for group foldout. </param>
 		public FoldoutGroupAttribute(string groupLabel)
 		{

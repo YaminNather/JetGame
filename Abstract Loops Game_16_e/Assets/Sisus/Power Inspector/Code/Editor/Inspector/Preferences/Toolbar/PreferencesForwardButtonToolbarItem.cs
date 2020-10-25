@@ -8,15 +8,9 @@ namespace Sisus
 	public class PreferencesForwardButtonToolbarItem : ForwardButtonToolbarItem
 	{
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return "";
-			}
-		}
+		public override string DocumentationPageUrl => "";
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override bool OnActivated(Event inputEvent, bool isClick)
 		{
 			if(!CanBeActivated())

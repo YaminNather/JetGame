@@ -20,41 +20,17 @@ namespace Sisus
 		private Type keyType;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return keyType;
-			}
-		}
+        /// <inheritdoc/>
+		public override Type Type => keyType;
 
-		/// <inheritdoc/>
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildDrawersIfValueChanged => false;
 
-		private IDrawer KeyDrawer
-		{
-			get
-			{
-				return members[0];
-			}
-		}
+        private IDrawer KeyDrawer => members[0];
 
-		/// <summary>
+        /// <summary>
 		/// Sets up the drawer so that it is ready to be used.
 		/// LateSetup should be called right after this.
 		/// </summary>

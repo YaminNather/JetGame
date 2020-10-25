@@ -28,66 +28,33 @@ namespace Sisus
 		private CalculatePosition overrideCalculatePosition;
 
 		[CanBeNull]
-		public CalculatePosition OverrideCalculatePosition
-		{
-			get
-			{
-				return overrideCalculatePosition;
-			}
-		}
+		public CalculatePosition OverrideCalculatePosition => overrideCalculatePosition;
 
-		public HeaderPart Part
-		{
-			get
-			{
-				return part;
-			}
-		}
+        public HeaderPart Part => part;
 
-		public Rect Rect
+        public Rect Rect
 		{
-			get
-			{
-				return rect;
-			}
+			get => rect;
 
-			set
-			{
-				rect = value;
-			}
-		}
+            set => rect = value;
+        }
 
 		public Texture Texture
 		{
-			get
-			{
-				return texture;
-			}
+			get => texture;
 
-			set
+            set
 			{
 				texture = value;
 				label.image = value;
 			}
 		}
 
-		public bool DrawMouseoverRect
-		{
-			get
-			{
-				return drawMouseoverRect;
-			}
-		}
+		public bool DrawMouseoverRect => drawMouseoverRect;
 
-		public bool Selectable
-		{
-			get
-			{
-				return selectable;
-			}
-		}
+        public bool Selectable => selectable;
 
-		public void SetGUIColor(Color color)
+        public void SetGUIColor(Color color)
 		{
 			guiColor = color;
 		}

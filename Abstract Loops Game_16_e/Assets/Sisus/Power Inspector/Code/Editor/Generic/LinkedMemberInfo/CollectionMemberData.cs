@@ -27,140 +27,60 @@ namespace Sisus
 		/// <inheritdoc />
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return serializedProperty;
-			}
+			get => serializedProperty;
 
-			set
-			{
-				serializedProperty = value;
-			}
-		}
+            set => serializedProperty = value;
+        }
 		#endif
 
 		/// <inheritdoc />
-		public override MulticastDelegate GetDelegate
-		{
-			get
-			{
-				return get;
-			}
-		}
+		public override MulticastDelegate GetDelegate => get;
 
-		/// <inheritdoc />
-		public override MulticastDelegate SetDelegate
-		{
-			get
-			{
-				return set;
-			}
-		}
+        /// <inheritdoc />
+		public override MulticastDelegate SetDelegate => set;
 
-		/// <inheritdoc />
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Method; }
-		}
+        /// <inheritdoc />
+		public override MemberTypes MemberType => MemberTypes.Method;
 
-		/// <inheritdoc />
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.CollectionMember;
-			}
-		}
+        /// <inheritdoc />
+		public override LinkedMemberType LinkedMemberType => LinkedMemberType.CollectionMember;
 
-		/// <inheritdoc />
-		public override string Name
-		{
-			get
-			{
-				return "CollectionMember["+collectionIndex+"]";
-			}
-		}
+        /// <inheritdoc />
+		public override string Name => "CollectionMember["+collectionIndex+"]";
 
-		/// <inheritdoc />
-		public override bool IsStatic
-		{
-			get
-			{
-				// Even if getSize / setSize actually refer to static methods,
-				// we want want to treat the CollectionResizerData as non-static,
-				// so that GetValue is called with fieldOwner value containing
-				// the value of the collection.
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		public override bool IsStatic =>
+            // Even if getSize / setSize actually refer to static methods,
+            // we want want to treat the CollectionResizerData as non-static,
+            // so that GetValue is called with fieldOwner value containing
+            // the value of the collection.
+            false;
 
-		/// <inheritdoc />
-		public override MemberInfo MemberInfo
-		{
-			get { return null; }
-		}
+        /// <inheritdoc />
+		public override MemberInfo MemberInfo => null;
 
-		/// <inheritdoc />
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return null; }
-		}
+        /// <inheritdoc />
+		public override MemberInfo SecondMemberInfo => null;
 
-		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				return type;
-			}
-		}
+        /// <inheritdoc />
+		public override Type Type => type;
 
-		/// <inheritdoc />
-		public override bool CanRead
-		{
-			get
-			{
-				return get != null;
-			}
-		}
+        /// <inheritdoc />
+		public override bool CanRead => get != null;
 
-		/// <inheritdoc />
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return get != null;
-			}
-		}
+        /// <inheritdoc />
+		public override bool CanReadWithoutSideEffects => get != null;
 
-		/// <inheritdoc />
-		public override bool CanWrite
-		{
-			get
-			{
-				return set != null;
-			}
-		}
+        /// <inheritdoc />
+		public override bool CanWrite => set != null;
 
-		/// <inheritdoc />
-		public override int CollectionIndex
-		{
-			get
-			{
-				return collectionIndex;
-			}
-		}
+        /// <inheritdoc />
+		public override int CollectionIndex => collectionIndex;
 
-		/// <inheritdoc />
-		public override object[] IndexParameters
-		{
-			get
-			{
-				return ArrayPool<object>.CreateWithContent(collectionIndex);
-			}
-		}
+        /// <inheritdoc />
+		public override object[] IndexParameters => ArrayPool<object>.CreateWithContent(collectionIndex);
 
-		public void Setup(int inCollectionIndex, [NotNull]Type inType, GetCollectionMember inGetDelegate, SetCollectionMember inSetDelegate)
+        public void Setup(int inCollectionIndex, [NotNull]Type inType, GetCollectionMember inGetDelegate, SetCollectionMember inSetDelegate)
 		{
 			#if DEV_MODE && PI_ASSERTATIONS
 			Debug.Assert(inType != null);

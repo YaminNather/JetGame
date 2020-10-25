@@ -31,12 +31,9 @@ namespace Sisus
 		private static PropertyInfo propertyTextColor;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get { return false; }
-		}
+		public override bool DrawInSingleRow => false;
 
-		/// <summary> Creates a new instance of GUIStyleStateDrawer or returns a reusable instance from
+        /// <summary> Creates a new instance of GUIStyleStateDrawer or returns a reusable instance from
 		/// the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the created drawer represents. Can be null. </param>

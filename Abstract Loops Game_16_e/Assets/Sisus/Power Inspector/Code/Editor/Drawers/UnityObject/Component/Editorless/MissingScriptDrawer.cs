@@ -31,80 +31,32 @@ namespace Sisus
 		#endif
 
 		/// <inheritdoc/>
-		public override bool Foldable
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool Foldable => true;
+
+        /// <inheritdoc/>
+		protected override bool HasEnabledFlag => false;
+
+        /// <inheritdoc/>
+		protected override bool Reordering => this == InspectorUtility.ActiveManager.MouseDownInfo.Reordering.Drawer;
+
+        /// <inheritdoc/>
+		protected override bool HasReferenceIcon => false;
+
+#if UNITY_2018_1_OR_NEWER && UNITY_EDITOR
+		/// <inheritdoc/>
+		protected override bool HasPresetIcon => false;
+#endif
 
 		/// <inheritdoc/>
-		protected override bool HasEnabledFlag
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool HasExecuteMethodIcon => false;
 
-		/// <inheritdoc/>
-		protected override bool Reordering
-		{
-			get
-			{
-				return this == InspectorUtility.ActiveManager.MouseDownInfo.Reordering.Drawer;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool HasDebugModeIcon => false;
 
-		/// <inheritdoc/>
-		protected override bool HasReferenceIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool Editable => false;
 
-		#if UNITY_2018_1_OR_NEWER && UNITY_EDITOR
-		/// <inheritdoc/>
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
-
-		/// <inheritdoc/>
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		/// <inheritdoc/>
-		protected override bool HasDebugModeIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		/// <inheritdoc/>
-		protected override bool Editable
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		private static bool ScriptCompilationFailed
+        private static bool ScriptCompilationFailed
 		{
 			get
 			{

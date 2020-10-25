@@ -15,24 +15,12 @@ namespace Sisus.Attributes
 
 		/// <inheritdoc/>
 		[NotNull]
-		public override Type Target
-		{
-			get
-			{
-				return type;
-			}
-		}
+		public override Type Target => type;
 
-		/// <inheritdoc/>
-		public override bool TargetExtendingTypes
-		{
-			get
-			{
-				return targetExtendingClasses;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool TargetExtendingTypes => targetExtendingClasses;
 
-		public DrawerForFieldAttribute(Type setType, bool setUseForExtendingClasses = true) : base(false)
+        public DrawerForFieldAttribute(Type setType, bool setUseForExtendingClasses = true) : base(false)
 		{
 			type = setType;
 			targetExtendingClasses = setUseForExtendingClasses && !setType.IsValueType;

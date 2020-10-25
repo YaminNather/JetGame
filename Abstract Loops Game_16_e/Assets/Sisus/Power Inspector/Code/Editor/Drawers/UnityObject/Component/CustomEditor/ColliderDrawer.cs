@@ -22,13 +22,7 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override bool Enabled
-		{
-			get
-			{
-				return (Target as Collider).enabled;
-			}
-		}
-	}
+		protected override bool Enabled => (Target as Collider).enabled;
+    }
 }
 #endif

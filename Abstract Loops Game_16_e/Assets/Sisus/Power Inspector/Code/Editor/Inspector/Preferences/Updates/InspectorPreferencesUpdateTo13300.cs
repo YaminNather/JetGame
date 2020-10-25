@@ -11,15 +11,9 @@ namespace Sisus
 		private const int FromVersion = 13000;
 
 		/// <inheritdoc/>
-		public override int ToVersion
-		{
-			get
-			{
-				return 13300; // 1.3.3
-			}
-		}
+		public override int ToVersion => 13300; // 1.3.3
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool ShouldApplyNext(int currentVersion)
 		{
 			return currentVersion < ToVersion && currentVersion >= FromVersion;

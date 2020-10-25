@@ -78,15 +78,9 @@ namespace Sisus
 		/// </summary>
 		/// <value> Cursor position in screen space.
 		/// </value>
-		public static Vector2 ScreenPosition
-		{
-			get
-			{
-				return screenPosition;
-			}
-		}
+		public static Vector2 ScreenPosition => screenPosition;
 
-		/// <summary>
+        /// <summary>
 		/// If can request cursor local GUILayout position from current context then
 		/// sets parameter cursorLocalPosition to the local position and returns true.
 		/// If can't request it now, sets cursorLocalPosition to Cursor.InvalidPosition

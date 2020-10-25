@@ -21,24 +21,12 @@ namespace Sisus
 		private Type[] implementingUnityObjectTypes;
 
 		/// <inheritdoc />
-		protected override bool CanBeUnityObject
-		{
-			get
-			{
-				return canBeUnityObject;
-			}
-		}
+		protected override bool CanBeUnityObject => canBeUnityObject;
 
-		/// <inheritdoc />
-		protected override Type[] NonUnityObjectTypes
-		{
-			get
-			{
-				return implementingNonUnityObjectTypes;
-			}
-		}
+        /// <inheritdoc />
+		protected override Type[] NonUnityObjectTypes => implementingNonUnityObjectTypes;
 
-		public static AbstractDrawer Create(object value, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool setReadOnly)
+        public static AbstractDrawer Create(object value, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool setReadOnly)
 		{
 			AbstractDrawer result;
 			if(!DrawerPool.TryGet(out result))

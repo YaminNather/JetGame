@@ -17,15 +17,9 @@ namespace Sisus.Attributes
 		public readonly Target target = Target.This;
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return target;
-			}
-		}
+		public Target Target => target;
 
-		public ValueValidatorAttribute() { }
+        public ValueValidatorAttribute() { }
 
 		public ValueValidatorAttribute(Target attributeTarget)
 		{

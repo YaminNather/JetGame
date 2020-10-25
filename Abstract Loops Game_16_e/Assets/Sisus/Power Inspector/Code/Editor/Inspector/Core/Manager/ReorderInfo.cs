@@ -17,52 +17,22 @@ namespace Sisus
 		private readonly ReorderDropTarget mouseoveredDropTarget = new ReorderDropTarget();
 
 		
-		public IReorderable Drawer
-		{
-			get
-			{
-				return drawer;
-			}
-		}
+		public IReorderable Drawer => drawer;
 
-		public IReorderableParent Parent
-		{
-			get
-			{
-				return parent;
-			}
-		}
+        public IReorderableParent Parent => parent;
 
-		public ReorderDropTarget MouseoveredDropTarget
-		{
-			get
-			{
-				return mouseoveredDropTarget;
-			}
-		}
+        public ReorderDropTarget MouseoveredDropTarget => mouseoveredDropTarget;
 
-		public int MemberIndex
-		{
-			get
-			{
-				return controlIndexInParent;
-			}
-		}
+        public int MemberIndex => controlIndexInParent;
 
-		/// <summary>
+        /// <summary>
 		/// Determines whether or not currently reordering a drawer that represents an Object (not counting Object reference fields).
 		/// 
 		/// Can be useful in differentiating
 		/// </summary>
-		public bool IsUnityObjectHeaderDrag
-		{
-			get
-			{
-				return isUnityObjectHeaderDrag;
-			}
-		}
-		
-		public void OnReorderableDragStarted([NotNull]IReorderable reorderedControl, [NotNull]IReorderableParent reorderedControlParent, [NotNull]IInspector inspector)
+		public bool IsUnityObjectHeaderDrag => isUnityObjectHeaderDrag;
+
+        public void OnReorderableDragStarted([NotNull]IReorderable reorderedControl, [NotNull]IReorderableParent reorderedControlParent, [NotNull]IInspector inspector)
 		{
 			#if DEV_MODE && DEBUG_DRAG_STARTED
 			Debug.Log("OnReorderableDragStarted(control=" + StringUtils.ToString(reorderedControl) +", parent="+ StringUtils.ToString(reorderedControlParent) +")");

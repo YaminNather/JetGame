@@ -15,104 +15,39 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return null;
-			}
+			get => null;
 
-			set
-			{
-				throw new NotSupportedException();
-			}
-		}
+            set => throw new NotSupportedException();
+        }
 		#endif
 
-		public override string Name
-		{
-			get
-			{
-				return genericTypeArgument.Name;
-			}
-		}
+		public override string Name => genericTypeArgument.Name;
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Custom; }
-		}
+        public override MemberTypes MemberType => MemberTypes.Custom;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.Parameter;
-			}
-		}
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.Parameter;
 
-		public override MemberInfo MemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo MemberInfo => null;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo SecondMemberInfo => null;
 
-		public override int CollectionIndex
-		{
-			get
-			{
-				return argumentIndex;
-			}
-		}
+        public override int CollectionIndex => argumentIndex;
 
-		public override ICustomAttributeProvider AttributeProvider
-		{
-			get { return genericTypeArgument; }
-		}
+        public override ICustomAttributeProvider AttributeProvider => genericTypeArgument;
 
-		public override bool IsStatic
-		{
-			get
-			{
-				//new test: true, because parent values are not actually needed for fetching value?
-				return true;
-			}
-		}
+        public override bool IsStatic =>
+            //new test: true, because parent values are not actually needed for fetching value?
+            true;
 
-		public override Type Type
-		{
-			get
-			{
-				return Types.Type;
-			}
-		}
+        public override Type Type => Types.Type;
 
-		public override bool CanRead
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanRead => true;
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanReadWithoutSideEffects => true;
 
-		public override bool CanWrite
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanWrite => true;
 
-		public void Setup(Type setGenericTypeArgument, int setArgumentIndex)
+        public void Setup(Type setGenericTypeArgument, int setArgumentIndex)
 		{
 			genericTypeArgument = setGenericTypeArgument;
 			argumentIndex = setArgumentIndex;

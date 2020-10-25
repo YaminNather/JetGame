@@ -8,15 +8,9 @@ namespace Sisus
 	public class RendererDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc/>
-		protected override bool Enabled
-		{
-			get
-			{
-				return (Target as Renderer).enabled;
-			}
-		}
+		protected override bool Enabled => (Target as Renderer).enabled;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool DrawBody(Rect position)
 		{
 			bool guiChangedWas = GUI.changed;

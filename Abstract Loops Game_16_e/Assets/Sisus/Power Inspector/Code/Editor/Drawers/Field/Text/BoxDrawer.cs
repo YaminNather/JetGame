@@ -15,24 +15,12 @@ namespace Sisus
 		private MessageType messageType;
 
 		/// <inheritdoc/>
-		public override bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool Selectable => false;
 
-		/// <inheritdoc/>
-		public override float Height
-		{
-			get
-			{
-				return height + 2f; //add padding
-			}
-		}
-		
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <inheritdoc/>
+		public override float Height => height + 2f; //add padding
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="label"> Label with the text to shown in the box. </param>
 		/// <param name="messageType"> Type of the message. </param>

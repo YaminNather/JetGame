@@ -32,24 +32,12 @@ namespace Sisus
 		private IInspector inspector;
 
 		/// <inheritdoc />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool ReadOnly => true;
 
-		/// <inheritdoc />
-		public override bool Selectable
-		{
-			get
-			{
-				return ShownInInspector;
-			}
-		}
+        /// <inheritdoc />
+		public override bool Selectable => ShownInInspector;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override Rect SelectionRect
 		{
 			get
@@ -61,47 +49,24 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				return buttonRect;
-			}
-		}
+		public override Rect ClickToSelectArea => buttonRect;
 
-		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				//so can copy paste the filter
-				return typeof(string);
-			}
-		}
+        /// <inheritdoc />
+		public override Type Type =>
+            //so can copy paste the filter
+            typeof(string);
 
-		private static string FilterString
+        private static string FilterString
 		{
-			get
-			{
-				return Platform.Active.GetPrefs("AddComponent.FilterString", "");
-			}
+			get => Platform.Active.GetPrefs("AddComponent.FilterString", "");
 
-			set
-			{
-				Platform.Active.SetPrefs("AddComponent.FilterString", value);
-			}
-		}
+            set => Platform.Active.SetPrefs("AddComponent.FilterString", value);
+        }
 		
 		/// <inheritdoc />
-		public override float Height
-		{
-			get
-			{
-				return TotalHeightClosed;
-			}
-		}
+		public override float Height => TotalHeightClosed;
 
-		public static bool OpenSelectedOrFirstFoundInstance(IInspector selectedInspector)
+        public static bool OpenSelectedOrFirstFoundInstance(IInspector selectedInspector)
 		{
 			var selectedControl = selectedInspector.FocusedDrawer;
 			

@@ -13,15 +13,9 @@ namespace Sisus
 		private readonly StringBuilder sb = new StringBuilder();
 		private bool logResultsCalled;
 
-		public bool HasResultsToReport
-		{
-			get
-			{
-				return timerStack.Count == 0 && intervalTimes.Count > 0;
-			}
-		}
+		public bool HasResultsToReport => timerStack.Count == 0 && intervalTimes.Count > 0;
 
-		/// <summary> Clears the existing timer stack and starts a new timer with the given label. </summary>
+        /// <summary> Clears the existing timer stack and starts a new timer with the given label. </summary>
 		/// <param name="label"> The label for the timer. </param>
 		public void Start(string label)
 		{
@@ -123,15 +117,9 @@ namespace Sisus
 				}
 			}
 
-			public string Label
-			{
-				get
-				{
-					return string.Concat(label.Length > 0 ? label : "Interval", " - Time: ", TimeSecondsAsString);
-				}
-			}
+			public string Label => string.Concat(label.Length > 0 ? label : "Interval", " - Time: ", TimeSecondsAsString);
 
-			public TimedPart(string setLabel)
+            public TimedPart(string setLabel)
 			{
 				label = setLabel;
 				timer = new Stopwatch();

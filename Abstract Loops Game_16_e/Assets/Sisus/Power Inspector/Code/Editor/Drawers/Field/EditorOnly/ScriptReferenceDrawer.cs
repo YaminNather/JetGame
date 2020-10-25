@@ -10,32 +10,14 @@ namespace Sisus
 	public class ScriptReferenceDrawer : ParentFieldDrawer<MonoScript>
 	{
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool DrawInSingleRow => true;
 
-		private IDrawer ObjectFieldDrawer
-		{
-			get
-			{
-				return members[0];
-			}
-		}
+        private IDrawer ObjectFieldDrawer => members[0];
 
-		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(MonoScript);
-			}
-		}
+        /// <inheritdoc/>
+		public override Type Type => typeof(MonoScript);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override OnValueChanged OnValueChanged
 		{
 			get
@@ -62,25 +44,13 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override bool ReadOnly
-		{
-			get
-			{
-				return Value != null || base.ReadOnly;
-			}
-		}
+		public override bool ReadOnly => Value != null || base.ReadOnly;
 
 
-		/// <inheritdoc/>
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildDrawersIfValueChanged => false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="monoScript"> The MonoScript which the drawer points to. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="readOnly"> True if control should be read only. </param>

@@ -21,158 +21,65 @@ namespace Sisus
 		private GUIContent headerSubtitle = new GUIContent();
 
 		/// <inheritdoc/>
-		public virtual bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool WantsSearchBoxDisabled => false;
 
-		/// <inheritdoc/>
-		protected sealed override float ToolbarIconsTopOffset
-		{
-			get
-			{
-				return ComponentToolbarIconsTopOffset;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float ToolbarIconsTopOffset => ComponentToolbarIconsTopOffset;
 
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconWidth
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconWidth;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconWidth => ComponentHeaderToolbarIconWidth;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsRightOffset
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconsRightOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsRightOffset => ComponentHeaderToolbarIconsRightOffset;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsOffset
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconsOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsOffset => ComponentHeaderToolbarIconsOffset;
 
-		#if UNITY_EDITOR
-		protected override MonoScript MonoScript
-		{
-			get
-			{
-				return FileUtility.FindScriptFile(classType);
-			}
-		}
-		#endif
+#if UNITY_EDITOR
+		protected override MonoScript MonoScript => FileUtility.FindScriptFile(classType);
+#endif
 
 		#if UNITY_EDITOR
 		/// <inheritdoc />
-		protected override bool IsAsset
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
+		protected override bool IsAsset => false;
+#endif
 
 		/// <inheritdoc cref="IDrawer.Type" />
-		public override Type Type
-		{
-			get
-			{
-				return classType;
-			}
-		}
+		public override Type Type => classType;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.HeaderHeight" />
-		public override float HeaderHeight
-		{
-			get
-			{
-				return 45f; //AssetTitlebarHeight without any buttons
-				//return DrawGUI.Active.AssetTitlebarHeight(false);
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.HeaderHeight" />
+		public override float HeaderHeight => 45f; //AssetTitlebarHeight without any buttons
 
-		/// <inheritdoc cref="IUnityObjectDrawer.Expandable" />
-		public override bool Foldable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        //return DrawGUI.Active.AssetTitlebarHeight(false);
+        /// <inheritdoc cref="IUnityObjectDrawer.Expandable" />
+		public override bool Foldable => false;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.Unfolded" />
+        /// <inheritdoc cref="IUnityObjectDrawer.Unfolded" />
 		public override bool Unfolded
 		{
-			get
-			{
-				return true;
-			}
+			get => true;
 
-			set { throw new NotSupportedException("Type Unfolded state can't be altered"); }
-		}
+            set => throw new NotSupportedException("Type Unfolded state can't be altered");
+        }
 
 		/// <inheritdoc />
-		protected override Color PrefixBackgroundColor
-		{
-			get
-			{
-				return inspector.Preferences.theme.ComponentHeaderBackground;
-			}
-		}
+		protected override Color PrefixBackgroundColor => inspector.Preferences.theme.ComponentHeaderBackground;
+
+        /// <inheritdoc />
+		protected override float HeaderToolbarIconHeight => 17f;
+
+        /// <inheritdoc />
+		protected override bool HasReferenceIcon => false;
+
+#if UNITY_2018_1_OR_NEWER && UNITY_EDITOR
+		/// <inheritdoc />
+		protected override bool HasPresetIcon => false;
+#endif
 
 		/// <inheritdoc />
-		protected override float HeaderToolbarIconHeight
-		{
-			get
-			{
-				return 17f;
-			}
-		}
+		protected override bool HasContextMenuIcon => false;
 
-		/// <inheritdoc />
-		protected override bool HasReferenceIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		#if UNITY_2018_1_OR_NEWER && UNITY_EDITOR
-		/// <inheritdoc />
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
-
-		/// <inheritdoc />
-		protected override bool HasContextMenuIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="setClassType"> The type of the class that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>
@@ -457,19 +364,8 @@ namespace Sisus
 			#endif
 		}
 
-		public GUIContent[] AssetLabels
-		{
-			get
-			{
-				return ArrayPool<GUIContent>.ZeroSizeArray;
-			}
-		}
-		public GUIContent[] AssetLabelsOnlyOnSomeTargets
-		{
-			get
-			{
-				return ArrayPool<GUIContent>.ZeroSizeArray;
-			}
-		}
-	}
+		public GUIContent[] AssetLabels => ArrayPool<GUIContent>.ZeroSizeArray;
+
+        public GUIContent[] AssetLabelsOnlyOnSomeTargets => ArrayPool<GUIContent>.ZeroSizeArray;
+    }
 }

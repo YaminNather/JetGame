@@ -12,23 +12,11 @@ namespace Sisus
 
 		public Action<Buttons> onButtonRectsChanged;
 
-		public Button this[int index]
-		{
-			get
-			{
-				return buttons[index];
-			}
-		}
+		public Button this[int index] => buttons[index];
 
-		public int Count
-		{
-			get
-			{
-				return buttons.Count;
-			}
-		}
+        public int Count => buttons.Count;
 
-		public Rect Bounds
+        public Rect Bounds
 		{
 			get
 			{

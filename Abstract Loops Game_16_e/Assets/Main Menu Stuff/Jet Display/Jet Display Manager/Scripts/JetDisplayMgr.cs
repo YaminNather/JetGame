@@ -15,9 +15,9 @@ public class JetDisplayMgr : MonoBehaviour
     private Animator m_Animator;
 
     private Dictionary<string, JetData> m_Jets;
-    public Dictionary<string, JetData> Jets { get => m_Jets; }
+    public Dictionary<string, JetData> Jets => m_Jets;
     private JetData m_JetCur;
-    public JetData JetCur { get => m_JetCur; }
+    public JetData JetCur => m_JetCur;
 
     [SerializeField] private Transform VolumetricLight_Trans;
     [SerializeField]private Transform JetHolder_Trans;    

@@ -60,16 +60,10 @@ namespace Sisus
 		/// <inheritdoc/>
 		public SelectionChange OnSelectionChanged
 		{
-			get
-			{
-				return selected.OnSelectionChanged;
-			}
+			get => selected.OnSelectionChanged;
 
-			set
-			{
-				selected.OnSelectionChanged = value;
-			}
-		}
+            set => selected.OnSelectionChanged = value;
+        }
 
 		/// <inheritdoc/>
 		public bool IgnoreAllMouseInputs
@@ -120,25 +114,13 @@ namespace Sisus
 
 		/// <inheritdoc/>
 		[NotNull]
-		public List<IInspector> ActiveInstances
-		{
-			get
-			{
-				return activeInstances;
-			}
-		}
+		public List<IInspector> ActiveInstances => activeInstances;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[CanBeNull]
-		public IInspector FirstInspector
-		{
-			get
-			{
-				return activeInstances.Count > 0 ? activeInstances[0] : null;
-			}
-		}
+		public IInspector FirstInspector => activeInstances.Count > 0 ? activeInstances[0] : null;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[CanBeNull]
 		public IInspector LastInspector
 		{
@@ -151,135 +133,51 @@ namespace Sisus
 
 		/// <inheritdoc/>
 		[CanBeNull]
-		public IInspectorDrawer FirstInspectorDrawer
-		{
-			get
-			{
-				return activeInstances.Count > 0 ? activeInstances[0].InspectorDrawer : null;
-			}
-		}
+		public IInspectorDrawer FirstInspectorDrawer => activeInstances.Count > 0 ? activeInstances[0].InspectorDrawer : null;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[NotNull]
-		public List<string> InstanceUniqueNames
-		{
-			get
-			{
-				return instanceUniqueNames;
-			}
-		}
+		public List<string> InstanceUniqueNames => instanceUniqueNames;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[CanBeNull]
-		public IDrawer FocusedControl
-		{
-			get
-			{
-				return selected.FocusedDrawer;
-			}
-		}
+		public IDrawer FocusedControl => selected.FocusedDrawer;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[NotNull]
-		public List<IDrawer> MultiSelectedControls
-		{
-			get
-			{
-				return selected.MultiSelection;
-			}
-		}
+		public List<IDrawer> MultiSelectedControls => selected.MultiSelection;
 
-		/// <inheritdoc/>
-		public bool HasMultiSelectedControls
-		{
-			get
-			{
-				return selected.IsMultiSelection;
-			}
-		}
+        /// <inheritdoc/>
+		public bool HasMultiSelectedControls => selected.IsMultiSelection;
 
-		/// <inheritdoc/>
-		public IInspector SelectedInspector
-		{
-			get
-			{
-				return selected.Inspector;
-			}
-		}
+        /// <inheritdoc/>
+		public IInspector SelectedInspector => selected.Inspector;
 
-		/// <inheritdoc/>
-		public IInspector LastSelectedInspector
-		{
-			get
-			{
-				return selected.LastSelectedInspector;
-			}
-		}
+        /// <inheritdoc/>
+		public IInspector LastSelectedInspector => selected.LastSelectedInspector;
 
-		/// <inheritdoc/>
-		public InspectorPart SelectedInspectorPart
-		{
-			get
-			{
-				return selected.InspectorPart;
-			}
-		}
+        /// <inheritdoc/>
+		public InspectorPart SelectedInspectorPart => selected.InspectorPart;
 
-		/// <inheritdoc/>
-		public IDrawer MouseoveredSelectable
-		{
-			get
-			{
-				return mouseovered.Selectable;
-			}
-		}
+        /// <inheritdoc/>
+		public IDrawer MouseoveredSelectable => mouseovered.Selectable;
 
-		/// <inheritdoc/>
-		public IDrawer MouseoveredRightClickable
-		{
-			get
-			{
-				return mouseovered.RightClickable;
-			}
-		}
+        /// <inheritdoc/>
+		public IDrawer MouseoveredRightClickable => mouseovered.RightClickable;
 
-		/// <inheritdoc/>
-		public IInspector MouseoveredInspector
-		{
-			get
-			{
-				return mouseovered.Inspector;
-			}
-		}
+        /// <inheritdoc/>
+		public IInspector MouseoveredInspector => mouseovered.Inspector;
 
-		/// <inheritdoc/>
-		public InspectorPart MouseoveredInspectorPart
-		{
-			get
-			{
-				return mouseovered.InspectorPart;
-			}
-		}
+        /// <inheritdoc/>
+		public InspectorPart MouseoveredInspectorPart => mouseovered.InspectorPart;
 
-		/// <inheritdoc/>
-		public MouseDownInfo MouseDownInfo
-		{
-			get
-			{
-				return mouseDownInfo;
-			}
-		}
+        /// <inheritdoc/>
+		public MouseDownInfo MouseDownInfo => mouseDownInfo;
 
-		/// <inheritdoc/>
-		public RightClickInfo RightClickInfo
-		{
-			get
-			{
-				return rightClickInfo;
-			}
-		}
+        /// <inheritdoc/>
+		public RightClickInfo RightClickInfo => rightClickInfo;
 
-		public InspectorManager()
+        public InspectorManager()
 		{
 			if(instance == null)
 			{

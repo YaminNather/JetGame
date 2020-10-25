@@ -25,31 +25,13 @@ namespace Sisus
 		private static IInspector lastmenuOpenedForInspector;
 		private static IDrawer lastmenuOpenedForDrawer;
 
-		public static bool IsOpen
-		{
-			get
-			{
-				return PopupMenu.isOpen;
-			}
-		}
+		public static bool IsOpen => PopupMenu.isOpen;
 
-		public static IInspector LastmenuOpenedForInspector
-		{
-			get
-			{
-				return lastmenuOpenedForInspector;
-			}
-		}
+        public static IInspector LastmenuOpenedForInspector => lastmenuOpenedForInspector;
 
-		public static IDrawer LastmenuOpenedForDrawer
-		{
-			get
-			{
-				return lastmenuOpenedForDrawer;
-			}
-		}
+        public static IDrawer LastmenuOpenedForDrawer => lastmenuOpenedForDrawer;
 
-		public static void RegisterPopupMenuDrawer(IPopupMenuAttacher attacher)
+        public static void RegisterPopupMenuDrawer(IPopupMenuAttacher attacher)
 		{
 			openMenu += attacher.OnRequestingOpen;
 			selectItem += attacher.OnRequestingSelectItem;

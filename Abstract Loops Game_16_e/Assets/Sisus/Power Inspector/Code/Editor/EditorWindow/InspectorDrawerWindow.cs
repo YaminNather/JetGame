@@ -104,136 +104,53 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public bool UpdateAnimationsNow
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool UpdateAnimationsNow => true;
 
-		/// <inheritdoc />
-		public float AnimationDeltaTime
-		{
-			get
-			{
-				return onGUIDeltaTime;
-			}
-		}
+        /// <inheritdoc />
+		public float AnimationDeltaTime => onGUIDeltaTime;
 
-		/// <inheritdoc />
-		public Object UnityObject
-		{
-			get
-			{
-				return this;
-			}
-		}
+        /// <inheritdoc />
+		public Object UnityObject => this;
 
-		/// <inheritdoc />
-		public bool HasFocus
-		{
-			get
-			{
-				return focusedWindow == this && !nowLosingFocus;
-			}
-		}
+        /// <inheritdoc />
+		public bool HasFocus => focusedWindow == this && !nowLosingFocus;
 
-		/// <inheritdoc/>
-		public IInspectorManager Manager
-		{
-			get
-			{
-				return inspectorManager; 
-			}
-		}
+        /// <inheritdoc/>
+		public IInspectorManager Manager => inspectorManager;
 
-		/// <inheritdoc/>
-		public bool ViewIsSplit
-		{
-			get
-			{
-				return viewIsSplit;
-			}
-		}
+        /// <inheritdoc/>
+		public bool ViewIsSplit => viewIsSplit;
 
-		/// <summary> Returns true if cursor is currently over the window's viewport
+        /// <summary> Returns true if cursor is currently over the window's viewport
 		/// </summary>
 		/// <value> True if mouse is over window, false if not. </value>
-		public bool MouseIsOver
-		{
-			get
-			{
-				//Using if(mouseOverWindow == this) doesn't seem to be a reliable method.
-				//It seemed to be null sometimes when dragging Object references over the window.
-				//Also it's set even when mouseovering Window borders or the top Tab.
-				return ReferenceEquals(mouseoveredInstance, this);
-			}
-		}
+		public bool MouseIsOver =>
+            //Using if(mouseOverWindow == this) doesn't seem to be a reliable method.
+            //It seemed to be null sometimes when dragging Object references over the window.
+            //Also it's set even when mouseovering Window borders or the top Tab.
+            ReferenceEquals(mouseoveredInstance, this);
 
-		/// <inheritdoc/>
-		public IInspector MainView
-		{
-			get
-			{
-				return mainView;
-			}
-		}
+        /// <inheritdoc/>
+		public IInspector MainView => mainView;
 
-		/// <inheritdoc/>
-		public IInspector SplitView
-		{
-			get
-			{
-				return splitView;
-			}
-		}
+        /// <inheritdoc/>
+		public IInspector SplitView => splitView;
 
-		/// <inheritdoc/>
-		public InspectorTargetingMode InspectorTargetingMode
-		{
-			get
-			{
-				return inspectorTargetingMode;
-			}
-		}
+        /// <inheritdoc/>
+		public InspectorTargetingMode InspectorTargetingMode => inspectorTargetingMode;
 
-		/// <summary> Gets the title text displayed on the tab of the EditorWindow. </summary>
+        /// <summary> Gets the title text displayed on the tab of the EditorWindow. </summary>
 		/// <value> The title text. </value>
-		protected virtual string TitleText
-		{
-			get
-			{
-				return "Inspector";
-			}
-		}
+		protected virtual string TitleText => "Inspector";
 
-		private bool SetupDone
-		{
-			get
-			{
-				return mainView != null && mainView.SetupDone;
-			}
-		}
-		
-		public bool NowClosing
-		{
-			get
-			{
-				return nowClosing;
-			}
-		}
+        private bool SetupDone => mainView != null && mainView.SetupDone;
 
-		/// <inheritdoc/>
-		public Editors Editors
-		{
-			get
-			{
-				return editors;
-			}
-		}
+        public bool NowClosing => nowClosing;
 
-		[NotNull]
+        /// <inheritdoc/>
+		public Editors Editors => editors;
+
+        [NotNull]
 		protected static T CreateNewWithoutShowing<T>(bool addAsTab) where T : TInspectorDrawer
 		{
 			var manager = InspectorUtility.ActiveManager;

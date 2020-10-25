@@ -27,7 +27,8 @@ public class ReviveMgr : MonoBehaviour
     public System.Action<bool> m_OnReviveEndE;
 
     private RewardedAdWrapper m_RewardedAd;
-    public bool IsAdLoaded { get => m_RewardedAd != null; }
+    public bool IsAdLoaded => m_RewardedAd != null;
+
     #endregion
 
     private void Awake()

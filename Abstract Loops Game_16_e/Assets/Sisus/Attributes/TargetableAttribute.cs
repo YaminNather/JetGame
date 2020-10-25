@@ -16,15 +16,9 @@ namespace Sisus.Attributes
 		public readonly Target target = Target.Default;
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return target;
-			}
-		}
+		public Target Target => target;
 
-		protected TargetableAttribute() { }
+        protected TargetableAttribute() { }
 
 		/// <summary>
 		/// Attribute that supports specifying whether it applies to the element that follows it, or the members of that element.

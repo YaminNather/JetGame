@@ -34,34 +34,16 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("dictionary-drawer");
-			}
-		}
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("dictionary-drawer");
 
-		
-		/// <inheritdoc/>
-		protected override Type MemberType
-		{
-			get
-			{
-				return Types.DictionaryEntry;
-			}
-		}
 
-		/// <inheritdoc/>
-		protected override bool CanContainDuplicates
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		protected override Type MemberType => Types.DictionaryEntry;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <inheritdoc/>
+		protected override bool CanContainDuplicates => false;
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

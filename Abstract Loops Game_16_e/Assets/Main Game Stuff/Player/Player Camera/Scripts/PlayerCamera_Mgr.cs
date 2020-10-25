@@ -11,7 +11,7 @@ public class PlayerCamera_Mgr : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera m_MaxFOVCVC;
 
     private Pawn m_Player;
-    private bool IsPossessed { get => m_Player != null; }
+    private bool IsPossessed => m_Player != null;
 
     private JetMovementComponent jmc;
     #endregion

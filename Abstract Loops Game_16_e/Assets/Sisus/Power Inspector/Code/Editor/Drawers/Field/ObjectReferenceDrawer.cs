@@ -60,46 +60,22 @@ namespace Sisus
 		private Rect objectFieldRectExcludingPicker;
 
 		/// <inheritdoc/>
-		public override Part MouseoveredPart
-		{
-			get
-			{
-				return objectPickerButtonMouseovered ? Part.Picker : eyedropperMouseovered ? Part.Eyedropper : base.MouseoveredPart;
-			}
-		}
+		public override Part MouseoveredPart => objectPickerButtonMouseovered ? Part.Picker : eyedropperMouseovered ? Part.Eyedropper : base.MouseoveredPart;
 
-		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return type;
-			}
-		}
+        /// <inheritdoc/>
+		public override Type Type => type;
 
-		/// <inheritdoc/>
-		protected override bool CanBeNull
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool CanBeNull => true;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the draw position and dimensions of the drag-n-drop region of the control.
 		/// This is the control's bounds, without the object picker icon.
 		/// </summary>
 		/// <value> The object field position. </value>
-		private Rect DragNDropAreaPosition
-		{
-			get
-			{
-				return objectFieldRectExcludingPicker;
-			}
-		}
+		private Rect DragNDropAreaPosition => objectFieldRectExcludingPicker;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="type"> The type constraint for the UnityEngine.Objects that can be dragged to the field. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

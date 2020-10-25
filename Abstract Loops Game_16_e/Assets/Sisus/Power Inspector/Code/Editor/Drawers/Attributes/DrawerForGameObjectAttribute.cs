@@ -17,24 +17,12 @@ namespace Sisus.Attributes
 
 		/// <inheritdoc/>
 		[NotNull]
-		public override Type Target
-		{
-			get
-			{
-				return typeof(GameObject);
-			}
-		}
+		public override Type Target => typeof(GameObject);
 
-		/// <inheritdoc/>
-		public override bool TargetExtendingTypes
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool TargetExtendingTypes => false;
 
-		public DrawerForGameObjectAttribute(bool categorizedGameObjectDrawer) : base(false)
+        public DrawerForGameObjectAttribute(bool categorizedGameObjectDrawer) : base(false)
 		{
 			isCategorizedGameObjectDrawer = categorizedGameObjectDrawer;
 		}

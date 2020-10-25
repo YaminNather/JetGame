@@ -13,15 +13,9 @@ namespace Sisus
 	[Serializable]
 	public sealed class DebugModeDisplaySettingsDrawer : ParentFieldDrawer<DebugModeDisplaySettings>
 	{
-		public override bool DrawInSingleRow 
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool DrawInSingleRow => true;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="parent"> The parent drawer of the created drawer. Can not be null. </param>
 		/// <returns> The instance, ready to be used. </returns>
 		public static DebugModeDisplaySettingsDrawer Create<TParent>([NotNull]TParent parent) where TParent : IDebuggable, IUnityObjectDrawer

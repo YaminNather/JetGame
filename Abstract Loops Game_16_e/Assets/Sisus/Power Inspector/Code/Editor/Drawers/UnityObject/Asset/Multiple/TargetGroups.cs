@@ -11,23 +11,11 @@ namespace Sisus
 		private readonly List<TargetGroup> groups = new List<TargetGroup>(2);
 		private int count;
 
-		public TargetGroup this[int index]
-		{
-			get
-			{
-				return groups[index];
-			}
-		}
-		
-		public int Count
-		{
-			get
-			{
-				return count;
-			}
-		}
+		public TargetGroup this[int index] => groups[index];
 
-		public void Setup(Object[] targets)
+        public int Count => count;
+
+        public void Setup(Object[] targets)
 		{
 			Clear();
 

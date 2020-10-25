@@ -53,33 +53,15 @@ namespace Sisus
 		protected bool isUnityObjectCollection;
 
 		/// <inheritdoc cref="IParentDrawer.DrawInSingleRow" />
-		public sealed override bool DrawInSingleRow
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public sealed override bool DrawInSingleRow => false;
 
-		/// <inheritdoc cref="IParentDrawer.RequiresConstantRepaint" />
-		public sealed override bool RequiresConstantRepaint
-		{
-			get
-			{
-				return InspectorUtility.ActiveManager.MouseDownInfo.NowReordering;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.RequiresConstantRepaint" />
+		public sealed override bool RequiresConstantRepaint => InspectorUtility.ActiveManager.MouseDownInfo.NowReordering;
 
-		/// <inheritdoc />
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("collection-drawer");
-			}
-		}
+        /// <inheritdoc />
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("collection-drawer");
 
-		/// <summary>
+        /// <summary>
 		/// How many dimensions does the collection have; the array rank.
 		/// </summary>
 		/// <value>
@@ -89,15 +71,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the collection these drawers represent can contain multiple instances of the same element. </summary>
 		/// <value> True if collection can contain duplicate elements, false if not. </value>
-		protected virtual bool CanContainDuplicates
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected virtual bool CanContainDuplicates => true;
 
-		/// <summary> Gets a value indicating whether the collection these drawers represent is of fixed size and can't be resized after created. </summary>
+        /// <summary> Gets a value indicating whether the collection these drawers represent is of fixed size and can't be resized after created. </summary>
 		/// <value> True if collection is fixed size, false if resizable. </value>
 		protected abstract bool IsFixedSize
 		{
@@ -106,25 +82,13 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the collection these drawers represent is a read only collection. </summary>
 		/// <value> True if this collection is a read only collection, false if not. </value>
-		protected virtual bool IsReadOnlyCollection
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected virtual bool IsReadOnlyCollection => false;
 
-		/// <summary> Gets the drawers of the field for resizing the collection or adding to it / removing items from it. </summary>
+        /// <summary> Gets the drawers of the field for resizing the collection or adding to it / removing items from it. </summary>
 		/// <value> Drawer responsible for adding to and removing from collection. </value>
-		protected IDrawer Resizer
-		{
-			get
-			{
-				return members[0];
-			}
-		}
+		protected IDrawer Resizer => members[0];
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public Rect FirstReorderableDropTargetRect
 		{
 			get
@@ -163,42 +127,18 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual int FirstCollectionMemberIndexOffset
-		{
-			get
-			{
-				return 1;
-			}
-		}
+		public virtual int FirstCollectionMemberIndexOffset => 1;
 
-		/// <inheritdoc cref="ICollectionDrawer.LastCollectionMemberCountOffset" />
-		public virtual int LastCollectionMemberCountOffset
-		{
-			get
-			{
-				return 1;
-			}
-		}
+        /// <inheritdoc cref="ICollectionDrawer.LastCollectionMemberCountOffset" />
+		public virtual int LastCollectionMemberCountOffset => 1;
 
-		/// <inheritdoc cref="ICollectionDrawer.FirstCollectionMemberIndex" />
-		public int FirstCollectionMemberIndex
-		{
-			get
-			{
-				return members.Length <= FirstCollectionMemberIndexOffset ? -1 : FirstCollectionMemberIndexOffset;
-			}
-		}
+        /// <inheritdoc cref="ICollectionDrawer.FirstCollectionMemberIndex" />
+		public int FirstCollectionMemberIndex => members.Length <= FirstCollectionMemberIndexOffset ? -1 : FirstCollectionMemberIndexOffset;
 
-		/// <inheritdoc cref="ICollectionDrawer.LastCollectionMemberIndex" />
-		public int LastCollectionMemberIndex
-		{
-			get
-			{
-				return members.Length <= FirstCollectionMemberIndexOffset ? -1 : members.Length - LastCollectionMemberCountOffset;
-			}
-		}
+        /// <inheritdoc cref="ICollectionDrawer.LastCollectionMemberIndex" />
+		public int LastCollectionMemberIndex => members.Length <= FirstCollectionMemberIndexOffset ? -1 : members.Length - LastCollectionMemberCountOffset;
 
-		/// <inheritdoc cref="ICollectionDrawer.FirstVisibleCollectionMemberIndex" />
+        /// <inheritdoc cref="ICollectionDrawer.FirstVisibleCollectionMemberIndex" />
 		public int FirstVisibleCollectionMemberIndex
 		{
 			get
@@ -232,25 +172,13 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return ReorderableParentDrawerUtility.CalculateHeight(this);
-			}
-		}
+		public override float Height => ReorderableParentDrawerUtility.CalculateHeight(this);
 
-		/// <summary> Gets LinkedMemberInfo for the collection resizer drawers. </summary>
+        /// <summary> Gets LinkedMemberInfo for the collection resizer drawers. </summary>
 		/// <value> Collection resizer LinkedMemberInfo. </value>
-		protected LinkedMemberInfo ResizerMemberInfo
-		{
-			get
-			{
-				return memberBuildList[0];
-			}
-		}
+		protected LinkedMemberInfo ResizerMemberInfo => memberBuildList[0];
 
-		/// <summary>
+        /// <summary>
 		/// Returns the element type of this collection, i.e. the type of members of these Drawer.
 		/// E.g. If this type is T[][], then returns T[], since a jagged array is an array of arrays.
 		/// For T[,], T[] and List&lt;T&gt; return T.
@@ -265,24 +193,12 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether collection sizes on targets are not all the same. </summary>
 		/// <value> True if target collections don't all have the same size, false if they all do. </value>
-		protected bool MixedSize
-		{
-			get
-			{
-				return elementCount == -1;
-			}
-		}
+		protected bool MixedSize => elementCount == -1;
 
-		/// <inheritdoc/>
-		protected sealed override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override bool RebuildDrawersIfValueChanged => true;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override void Setup(TValue setValue, Type setValueType, LinkedMemberInfo setMemberInfo, IParentDrawer setParent, GUIContent setLabel, bool setReadOnly)
 		{
 			#if DEV_MODE

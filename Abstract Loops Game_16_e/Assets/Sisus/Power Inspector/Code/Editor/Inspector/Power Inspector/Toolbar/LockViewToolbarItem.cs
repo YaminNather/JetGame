@@ -17,33 +17,15 @@ namespace Sisus
 		private ISplittableInspectorDrawer splittableDrawer;
 
 		/// <inheritdoc/>
-		public override float MinWidth
-		{
-			get
-			{
-				return size;
-			}
-		}
+		public override float MinWidth => size;
 
-		/// <inheritdoc/>
-		public override float MaxWidth
-		{
-			get
-			{
-				return size;
-			}
-		}
+        /// <inheritdoc/>
+		public override float MaxWidth => size;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetTerminologyUrl("lock-mode");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetTerminologyUrl("lock-mode");
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup()
 		{
 			var calcSize = InspectorPreferences.Styles.LockButton.CalcSize(GUIContent.none);

@@ -69,15 +69,9 @@ namespace Sisus
 			}
 		}
 
-		protected virtual HashSet<Type> DecoratorDrawerDrawerBlacklist
-		{
-			get
-			{
-				return decoratorDrawerDrawerBlacklist;
-			}
-		}
+		protected virtual HashSet<Type> DecoratorDrawerDrawerBlacklist => decoratorDrawerDrawerBlacklist;
 
-		public DrawerProviderBase()
+        public DrawerProviderBase()
 		{
 			#if DEV_MODE
 			Debug.Log(GetType().Name + " constructor");

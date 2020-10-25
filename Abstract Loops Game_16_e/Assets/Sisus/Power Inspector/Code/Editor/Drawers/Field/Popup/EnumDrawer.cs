@@ -18,15 +18,9 @@ namespace Sisus
 		private bool hasFlagsAttribute;
 
 		/// <inheritdoc />
-		protected override bool CanTickMultipleItems
-		{
-			get
-			{
-				return hasFlagsAttribute;
-			}
-		}
+		protected override bool CanTickMultipleItems => hasFlagsAttribute;
 
-		private Type UnderlyingType
+        private Type UnderlyingType
 		{
 			get
 			{
@@ -43,15 +37,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("enum-drawer");
-			}
-		}
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("enum-drawer");
 
-		private bool AddClearAllMenuItem()
+        private bool AddClearAllMenuItem()
 		{
 			if(!hasFlagsAttribute)
 			{

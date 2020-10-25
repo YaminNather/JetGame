@@ -158,30 +158,15 @@ namespace Sisus
 			}
 		}
 		
-		public IDrawer MouseDownOverDrawer
-		{
-			get
-			{
-				return mouseDownOverDrawer;
-			}
-		}
+		public IDrawer MouseDownOverDrawer => mouseDownOverDrawer;
 
-		public IDraggablePrefix DraggingPrefixOfDrawer
-		{
-			get
-			{
-				return draggingPrefixOfDrawer;
-			}
-		}
+        public IDraggablePrefix DraggingPrefixOfDrawer => draggingPrefixOfDrawer;
 
-		public IInspector Inspector
+        public IInspector Inspector
 		{
-			get
-			{
-				return inspector;
-			}
+			get => inspector;
 
-			private set
+            private set
 			{
 				if(inspector != value)
 				{
@@ -202,52 +187,22 @@ namespace Sisus
 		/// <summary>
 		/// Reorderable currently being dragged
 		/// </summary>
-		public ReorderInfo Reordering
+		public ReorderInfo Reordering => reordering;
+
+        public bool NowReordering => !isClick && reordering.Drawer != null;
+
+        public bool NowDraggingPrefix => draggingPrefixOfDrawer != null;
+
+        public Vector2 MouseDownPos
 		{
-			get
-			{
-				return reordering;
-			}
-		}
+			get => GUIUtility.ScreenToGUIPoint(mouseDownPos);
 
-		public bool NowReordering
-		{
-			get
-			{
-				return !isClick && reordering.Drawer != null;
-			}
-		}
+            private set => mouseDownPos = GUIUtility.GUIToScreenPoint(value);
+        }
 
-		public bool NowDraggingPrefix
-		{
-			get
-			{
-				return draggingPrefixOfDrawer != null;
-			}
-		}
+		public object MouseDownOverDrawerValue => MouseDownOverDrawerValues.Length > 0 ? MouseDownOverDrawerValues[0] : null;
 
-		public Vector2 MouseDownPos
-		{
-			get
-			{
-				return GUIUtility.ScreenToGUIPoint(mouseDownPos);
-			}
-
-			private set
-			{
-				mouseDownPos = GUIUtility.GUIToScreenPoint(value);
-			}
-		}
-
-		public object MouseDownOverDrawerValue
-		{
-			get
-			{
-				return MouseDownOverDrawerValues.Length > 0 ? MouseDownOverDrawerValues[0] : null;
-			}
-		}
-
-		public object[] MouseDownOverDrawerValues
+        public object[] MouseDownOverDrawerValues
 		{
 			get;
 			private set;

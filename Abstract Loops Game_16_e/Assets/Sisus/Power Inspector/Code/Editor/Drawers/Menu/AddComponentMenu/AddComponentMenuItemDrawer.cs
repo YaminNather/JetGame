@@ -17,23 +17,11 @@ namespace Sisus
 		public bool nameBy;
 
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return item.type;
-			}
-		}
+		public override Type Type => item.type;
 
-		public AddComponentMenuItem Item
-		{
-			get
-			{
-				return item;
-			}
-		}
+        public AddComponentMenuItem Item => item;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="item"> Information about the menu item. </param>
 		/// <returns> The drawer instance, ready to be used. </returns>
 		public static AddComponentMenuItemDrawer Create(AddComponentMenuItem item)

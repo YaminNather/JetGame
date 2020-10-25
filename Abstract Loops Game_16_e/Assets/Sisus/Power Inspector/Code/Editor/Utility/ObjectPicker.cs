@@ -30,15 +30,9 @@ namespace Sisus
 		private static MethodInfo getInitialObjectMethod;
 		private static EditorWindow objectSelectorWindow;
 
-		public static bool IsOpen
-		{
-			get
-			{
-				return isOpen;
-			}
-		}
+		public static bool IsOpen => isOpen;
 
-		private static Type ObjectSelectorType
+        private static Type ObjectSelectorType
 		{
 			get
 			{

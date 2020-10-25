@@ -16,33 +16,15 @@ namespace Sisus
 		protected Rect iconRect = new Rect(7f, 3f, 8f, 12f);
 
 		/// <inheritdoc/>
-		public override float MinWidth
-		{
-			get
-			{
-				return Width;
-			}
-		}
+		public override float MinWidth => Width;
 
-		/// <inheritdoc/>
-		public override float MaxWidth
-		{
-			get
-			{
-				return Width;
-			}
-		}
+        /// <inheritdoc/>
+		public override float MaxWidth => Width;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetFeatureUrl("back-and-forward-buttons");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetFeatureUrl("back-and-forward-buttons");
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup()
 		{
 			var preferences = inspector.Preferences;

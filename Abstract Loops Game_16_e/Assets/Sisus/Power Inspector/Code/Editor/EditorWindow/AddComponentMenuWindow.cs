@@ -22,15 +22,9 @@ namespace Sisus
 		private Action onClosed;
 		private int isDirty;
 
-		public static bool IsOpen
-		{
-			get
-			{
-				return instance != null;
-			}
-		}
+		public static bool IsOpen => instance != null;
 
-		/// <summary>
+        /// <summary>
 		/// Creates the Add Component Menu Window if in editor mode.
 		/// This is attached to the Add Component button being clicked.
 		/// </summary>

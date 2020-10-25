@@ -20,15 +20,9 @@ namespace Sisus
 		private PreviewDrawer previewDrawer;
 		
 		/// <inheritdoc />
-		protected override PreviewDrawer PreviewDrawer
-		{
-			get
-			{
-				return previewDrawer;
-			}
-		}
+		protected override PreviewDrawer PreviewDrawer => previewDrawer;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override void Setup(IInspectorDrawer drawer, InspectorPreferences setPreferences, Object[] inspected, Vector2 scrollPos, bool viewIsLocked)
 		{
 			#if DEV_MODE && DEBUG_SETUP_TIME

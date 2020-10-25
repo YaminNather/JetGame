@@ -29,15 +29,9 @@ namespace Sisus.Attributes
 		/// <param name="color">Specify the font color to use for the header. For example "red" or "#ff0000ff".</param>
 		public PHeaderAttribute(string header, int fontSize, string color) : base(fontSize > 0 ? string.Concat("<size=", fontSize, "><color=", color, ">", header, "</em></size>") : string.Concat("<color=", color, ">", header, "</em>")) { }
 
-		public Target Target
-		{
-			get
-			{
-				return Target.This;
-			}
-		}
+		public Target Target => Target.This;
 
-		private static string ReplaceEmWithColorTags(string header)
+        private static string ReplaceEmWithColorTags(string header)
 		{
 			#if UNITY_EDITOR
 			bool pro = UnityEditor.EditorGUIUtility.isProSkin;

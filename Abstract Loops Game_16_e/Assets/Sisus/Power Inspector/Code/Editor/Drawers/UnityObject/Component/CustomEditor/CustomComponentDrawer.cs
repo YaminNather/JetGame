@@ -12,17 +12,12 @@ namespace Sisus
 	public class CustomComponentDrawer : ComponentDrawer
 	{
 		/// <inheritdoc/>
-		protected override bool RebuildingMembersAllowed
-		{
-			get
-			{
-				// rebuilding members is never allowed, because they are set using
-				// the SetMembers method, and there's no logic for rebuilding them.
-				return false;
-			}
-		}
+		protected override bool RebuildingMembersAllowed =>
+            // rebuilding members is never allowed, because they are set using
+            // the SetMembers method, and there's no logic for rebuilding them.
+            false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

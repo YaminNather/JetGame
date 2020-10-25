@@ -56,12 +56,9 @@ namespace Sisus
 
 		public int UndoIndex
 		{
-			get
-			{
-				return undoIndexNonSerialized;
-			}
+			get => undoIndexNonSerialized;
 
-			set
+            set
 			{
 				undoIndexSerialized = value;
 				undoIndexNonSerialized = value;
@@ -96,15 +93,9 @@ namespace Sisus
 			return instance;
 		}
 
-		public static bool Enabled
-		{
-			get
-			{
-				return !disabled;
-			}
-		}
-		
-		private void Clear()
+		public static bool Enabled => !disabled;
+
+        private void Clear()
 		{
 			#if DEV_MODE && DEBUG_UNDO
 			Debug.Log("UndoHandler.Clear()");

@@ -27,15 +27,9 @@ namespace Sisus.Compatibility
 		}
 
 		/// <inheritdoc/>
-		public override bool IsActive
-		{
-			get
-			{
-				return ScriptInspectorType != null;
-			}
-		}
-		
-		/// <inheritdoc/>
+		public override bool IsActive => ScriptInspectorType != null;
+
+        /// <inheritdoc/>
 		public override void AddAssetDrawer(Dictionary<Type, Type> assetDrawerByType, Dictionary<string, Type> assetDrawerByExtension)
 		{
 			#if DEV_MODE && PI_ASSERTATIONS

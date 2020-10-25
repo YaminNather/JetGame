@@ -8,13 +8,7 @@ namespace Sisus
 	public class AnyStateNodeDrawer : CustomEditorAssetDrawer
 	{
 		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Disabled;
-			}
-		}
-	}
+		public override PrefixResizer PrefixResizer => PrefixResizer.Disabled;
+    }
 }
 #endif

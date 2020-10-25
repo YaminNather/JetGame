@@ -48,26 +48,14 @@ namespace Sisus
 
 		public bool AutoMinimize
 		{
-			get
-			{
-				return autoMinimize;
-			}
+			get => autoMinimize;
 
-			set
-			{
-				autoMinimize = value;
-			}
-		}
+            set => autoMinimize = value;
+        }
 
-		public bool Minimized
-		{
-			get
-			{
-				return minimized;
-			}
-		}
+		public bool Minimized => minimized;
 
-		public EditorWindowMinimizer() { }
+        public EditorWindowMinimizer() { }
 
 		/// <summary> This should be called from OnEnable of the EditorWindow during each Layout event. </summary>
 		public EditorWindowMinimizer([NotNull]EditorWindow targetWindow, [CanBeNull]ISelectionManager windowSelectionManager, bool doAutoMinimize)

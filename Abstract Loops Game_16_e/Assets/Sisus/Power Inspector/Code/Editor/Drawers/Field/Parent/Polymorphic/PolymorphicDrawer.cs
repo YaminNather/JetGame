@@ -89,27 +89,15 @@ namespace Sisus
 		/// Type of the current value that the drwaer has. If value is null, this is also null.
 		/// </summary>
 		[CanBeNull]
-		protected Type InstanceType
-		{
-			get
-			{
-				return instanceType;
-			}
-		}
+		protected Type InstanceType => instanceType;
 
-		/// <summary>
+        /// <summary>
 		/// Specific type that user explicitly selected from popup to be used for the value of this drawer, or the only possible type for values of this field if has only one option.
 		/// </summary>
 		[CanBeNull]
-		protected Type UserSelectedType
-		{
-			get
-			{
-				return userSelectedType;
-			}
-		}
+		protected Type UserSelectedType => userSelectedType;
 
-		/// <summary>
+        /// <summary>
 		/// Type of current value or specific type that user explicitly selected from popup to be used for the value of this drawer,
 		/// or the only possible type for values of this field if has only one option.
 		/// Otherwise null.
@@ -132,24 +120,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public sealed override bool MembersAreVisible
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public sealed override bool MembersAreVisible => true;
 
-		/// <inheritdoc />
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+        /// <inheritdoc />
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc cref="IDrawer.Height" />
+        /// <inheritdoc cref="IDrawer.Height" />
 		public override float Height
 		{
 			get
@@ -163,24 +139,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override bool CanBeNull
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool CanBeNull => true;
 
-		/// <inheritdoc/>
-		protected override bool PrefixLabelClippedToColumnWidth
-		{
-			get
-			{
-				return base.PrefixLabelClippedToColumnWidth || DrawToggleNullButton;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool PrefixLabelClippedToColumnWidth => base.PrefixLabelClippedToColumnWidth || DrawToggleNullButton;
 
-		[CanBeNull]
+        [CanBeNull]
 		protected ObjectReferenceDrawer ObjectDrawer
 		{
 			get
@@ -220,49 +184,25 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		protected sealed override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return false; // only rebuilding when specifically instructed
-			}
-		}
+		protected sealed override bool RebuildDrawersIfValueChanged => false; // only rebuilding when specifically instructed
 
-		/// <summary>
+        /// <summary>
 		/// Returns true if should currently drwa the the toggle null button.
 		/// </summary>
-		protected bool DrawToggleNullButton
-		{
-			get
-			{
-				return drawToggleNullButton;
-			}
-		}
+		protected bool DrawToggleNullButton => drawToggleNullButton;
 
-		/// <summary>
+        /// <summary>
 		/// Returns true if current value is null.
 		/// </summary>
-		protected bool IsNull
-		{
-			get
-			{
-				return Value == null;
-			}
-		}
+		protected bool IsNull => Value == null;
 
-		/// <summary>
+        /// <summary>
 		/// Returns true if an explicit non-abstract type has been specified for the value of this drawer.
 		/// If drawer has a non-null value, or user has selected a specific type from the popup list, then this returns true.
 		/// </summary>
-		protected bool HasExplicitType
-		{
-			get
-			{
-				return TypeForValue != null;
-			}
-		}
+		protected bool HasExplicitType => TypeForValue != null;
 
-		/// <summary>
+        /// <summary>
 		/// Returns member drawer responsible drawing the current value instance.
 		/// Null if currently has no drawer for value.
 		/// </summary>

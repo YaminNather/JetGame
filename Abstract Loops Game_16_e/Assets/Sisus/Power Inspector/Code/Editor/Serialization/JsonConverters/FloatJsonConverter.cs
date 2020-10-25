@@ -6,23 +6,11 @@ namespace Sisus
 {
 	public class FloatJsonConverter : JsonConverter
 	{
-		public override bool CanWrite
-		{
-			get
-			{
-				return true;
-			}
-		}
-		
-		public override bool CanRead
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool CanWrite => true;
 
-		public override bool CanConvert(Type objectType)
+        public override bool CanRead => false;
+
+        public override bool CanConvert(Type objectType)
 		{
 			return objectType == Types.Float;
 		}

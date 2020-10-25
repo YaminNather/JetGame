@@ -44,15 +44,9 @@ namespace Sisus
 			}
 		}
 
-		public IInspector Inspector
-		{
-			get
-			{
-				return inspector;
-			}
-		}
+		public IInspector Inspector => inspector;
 
-		/// <summary>
+        /// <summary>
 		/// Gets index of dragged IReorderable in the VisibleMembers array of parent
 		/// </summary>
 		/// <returns>

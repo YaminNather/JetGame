@@ -8,15 +8,9 @@ namespace Sisus
 	public sealed class DoubleDrawer : NumericDrawer<double>
 	{
 		/// <inheritdoc />
-		protected override double ValueDuringMixedContent
-		{
-			get
-			{
-				return 62398592365817936598231245708234d;
-			}
-		}
+		protected override double ValueDuringMixedContent => 62398592365817936598231245708234d;
 
-		public static DoubleDrawer Create(double value, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool readOnly)
+        public static DoubleDrawer Create(double value, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool readOnly)
 		{
 			DoubleDrawer result;
 			if(!DrawerPool.TryGet(out result))

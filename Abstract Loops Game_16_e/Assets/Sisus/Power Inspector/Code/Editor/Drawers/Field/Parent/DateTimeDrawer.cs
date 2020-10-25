@@ -19,98 +19,32 @@ namespace Sisus
 		private string asString;
 		private Rect stringRect;
 
-		private int Year
-		{
-			get
-			{
-				return Value.Year;
-			}
-		}
+		private int Year => Value.Year;
 
-		private int Month
-		{
-			get
-			{
-				return Value.Month;
-			}
-		}
+        private int Month => Value.Month;
 
-		private int Day
-		{
-			get
-			{
-				return Value.Day;
-			}
-		}
+        private int Day => Value.Day;
 
-		private int Hour
-		{
-			get
-			{
-				return Value.Hour;
-			}
-		}
+        private int Hour => Value.Hour;
 
-		private int Minute
-		{
-			get
-			{
-				return Value.Minute;
-			}
-		}
+        private int Minute => Value.Minute;
 
-		private float SecondWithFractions
-		{
-			get
-			{
-				return Second + Millisecond * 0.001f;
-			}
-		}
+        private float SecondWithFractions => Second + Millisecond * 0.001f;
 
-		private int Second
-		{
-			get
-			{
-				return Value.Second;
-			}
-		}
+        private int Second => Value.Second;
 
-		private int Millisecond
-		{
-			get
-			{
-				return Value.Millisecond;
-			}
-		}
+        private int Millisecond => Value.Millisecond;
 
-		/// <inheritdoc />
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return ReadOnly;
-			}
-		}
+        /// <inheritdoc />
+		public override bool DrawInSingleRow => ReadOnly;
 
-		/// <inheritdoc />
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool RebuildDrawersIfValueChanged => true;
 
-		/// <inheritdoc/>
-		protected override bool PrefixLabelClippedToColumnWidth
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool PrefixLabelClippedToColumnWidth => true;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public override float GetOptimalPrefixLabelWidth(int indentLevel)
 		{
 			if(HasUnappliedChanges)

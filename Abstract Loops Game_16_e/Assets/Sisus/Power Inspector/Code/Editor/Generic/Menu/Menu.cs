@@ -48,15 +48,9 @@ namespace Sisus
 
 		private List<ItemInfo> items;
 		
-		public int Count
-		{
-			get
-			{
-				return items.Count;
-			}
-		}
+		public int Count => items.Count;
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		/// <summary>
 		/// Generates FieldInfos for various fields related to GenericMenu.MenuItem,
 		/// which can't be directly accessed due to it being a private class.
@@ -706,39 +700,15 @@ namespace Sisus
 			private GUIContent label;
 			private object methodOwner;
 
-			public string Text
-			{
-				get
-				{
-					return label.text;
-				}
-			}
+			public string Text => label.text;
 
-			public bool IsSeparator
-			{
-				get
-				{
-					return isSeparator;
-				}
-			}
+            public bool IsSeparator => isSeparator;
 
-			public GUIContent Label
-			{
-				get
-				{
-					return label;
-				}
-			}
+            public GUIContent Label => label;
 
-			public OnActivateItem Effect
-			{
-				get
-				{
-					return effect;
-				}
-			}
+            public OnActivateItem Effect => effect;
 
-			public ItemInfo() { }
+            public ItemInfo() { }
 
 			public void Setup(string setLabel, string methodName, object setMethodOwner)
 			{

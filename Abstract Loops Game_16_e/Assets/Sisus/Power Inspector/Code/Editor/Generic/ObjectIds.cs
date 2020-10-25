@@ -27,15 +27,9 @@ namespace Sisus
 		
 		private Dictionary<Scene, BiDictionary<int, Object>> instanceIdsByScene;
 		
-		int? IBinarySerializable.DeserializationOrder
-		{
-			get
-			{
-				return PersistentSingletonSerialized.DefaultDeserializationOrder - 100;
-			}
-		}
+		int? IBinarySerializable.DeserializationOrder => PersistentSingletonSerialized.DefaultDeserializationOrder - 100;
 
-		private static ObjectIds Instance()
+        private static ObjectIds Instance()
 		{
 			if(instance == null)
 			{

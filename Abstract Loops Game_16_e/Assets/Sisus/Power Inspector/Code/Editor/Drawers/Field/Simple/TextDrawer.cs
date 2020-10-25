@@ -30,59 +30,23 @@ namespace Sisus
 		private bool delayed = false;
 
 		/// <inheritdoc/>
-		public bool RequiresPropertyDrawerType
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool RequiresPropertyDrawerType => false;
 
-		private static float MaxHeight
-		{
-			get
-			{
-				return MaxRows * DrawGUI.SingleLineHeight;
-			}
-		}
+        private static float MaxHeight => MaxRows * DrawGUI.SingleLineHeight;
 
-		private static float SwitchToAreaModeThreshold
-		{
-			get
-			{
-				return 4f * DrawGUI.SingleLineHeight;
-			}
-		}
+        private static float SwitchToAreaModeThreshold => 4f * DrawGUI.SingleLineHeight;
 
-		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return height;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Height" />
+		public override float Height => height;
 
-		private float MinHeight
-		{
-			get
-			{
-				return textArea ? TextAreaMinRows * DrawGUI.SingleLineHeight : DrawGUI.SingleLineHeight;
-			}
-		}
+        private float MinHeight => textArea ? TextAreaMinRows * DrawGUI.SingleLineHeight : DrawGUI.SingleLineHeight;
 
-		private TextFieldHeightDeterminant HeightDeterminant
+        private TextFieldHeightDeterminant HeightDeterminant
 		{
-			get
-			{
-				return textArea ? TextFieldHeightDeterminant.WordWrapping : textFieldHeight;
-			}
+			get => textArea ? TextFieldHeightDeterminant.WordWrapping : textFieldHeight;
 
-			set
-			{
-				textFieldHeight = value;
-			}
-		}
+            set => textFieldHeight = value;
+        }
 
 		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>

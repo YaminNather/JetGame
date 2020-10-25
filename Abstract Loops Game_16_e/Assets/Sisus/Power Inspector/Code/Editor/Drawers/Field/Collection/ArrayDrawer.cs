@@ -15,24 +15,12 @@ namespace Sisus
 	public class ArrayDrawer : OneDimensionalCollectionDrawer<Array>
 	{
 		/// <inheritdoc />
-		protected override bool IsFixedSize
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool IsFixedSize => true;
 
-		/// <inheritdoc />
-		protected override Type MemberType
-		{
-			get
-			{
-				return Type.GetElementType();
-			}
-		}
+        /// <inheritdoc />
+		protected override Type MemberType => Type.GetElementType();
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

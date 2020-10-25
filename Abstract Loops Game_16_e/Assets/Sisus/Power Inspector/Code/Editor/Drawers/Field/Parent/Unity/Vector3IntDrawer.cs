@@ -26,12 +26,9 @@ namespace Sisus
 		private static FieldInfo fieldInfoZ;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get { return true; }
-		}
+		public override bool DrawInSingleRow => true;
 
-		/// <summary> Creates a new Vector3IntDrawer. </summary>
+        /// <summary> Creates a new Vector3IntDrawer. </summary>
 		/// <param name="value"> The value. </param>
 		/// <param name="memberInfo"> Information describing the member. </param>
 		/// <param name="parent"> The parent. </param>

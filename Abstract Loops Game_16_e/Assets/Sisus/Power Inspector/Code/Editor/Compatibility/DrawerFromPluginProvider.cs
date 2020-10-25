@@ -45,15 +45,9 @@ namespace Sisus.Compatibility
 
 		/// <summary> Priority of this provider compared against other providers. Providers with higher numbers are prioritized before ones with lower numbers. </summary>
 		/// <value> The priority number of this provider. </value>
-		protected virtual int Priority
-		{
-			get
-			{
-				return 0;
-			}
-		}
+		protected virtual int Priority => 0;
 
-		/// <summary> Is the plugin currently installed and active? </summary>
+        /// <summary> Is the plugin currently installed and active? </summary>
 		/// <value> True if plugin is installed and active, false if not. </value>
 		public abstract bool IsActive { get; }
 

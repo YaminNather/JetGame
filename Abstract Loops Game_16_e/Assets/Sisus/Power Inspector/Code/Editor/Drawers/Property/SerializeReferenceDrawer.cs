@@ -10,35 +10,17 @@ namespace Sisus
 	public class SerializeReferenceDrawer : PolymorphicDrawer, IPropertyDrawerDrawer
 	{
 		/// <inheritdoc/>
-		public bool RequiresPropertyDrawerType
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool RequiresPropertyDrawerType => false;
 
-		private readonly Type[] typeInArray = new Type[1];
+        private readonly Type[] typeInArray = new Type[1];
 		
 		/// <inheritdoc />
-		protected override bool CanBeUnityObject
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool CanBeUnityObject => false;
 
-		/// <inheritdoc />
-		protected override Type[] NonUnityObjectTypes
-		{
-			get
-			{
-				return typeInArray;
-			}
-		}
+        /// <inheritdoc />
+		protected override Type[] NonUnityObjectTypes => typeInArray;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The initial cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the class member that the created drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

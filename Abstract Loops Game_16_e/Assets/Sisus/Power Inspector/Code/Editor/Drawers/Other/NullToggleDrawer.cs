@@ -19,54 +19,24 @@ namespace Sisus
 		private bool readOnly;
 		
 		/// <inheritdoc />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return readOnly;
-			}
-		}
+		public override bool ReadOnly => readOnly;
 
-		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				return typeof(bool);
-			}
-		}
+        /// <inheritdoc />
+		public override Type Type => typeof(bool);
 
-		/// <inheritdoc />
-		public override bool Clickable
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc />
+		public override bool Clickable => true;
 
-		/// <inheritdoc />
-		public override bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		public override bool Selectable => false;
 
-		/// <summary>
+        /// <summary>
 		/// The active state of the toggle control, as determined by whether or not the value of the parent drawers is null or not.
 		/// </summary>
 		/// <value> True if active, false if inactive. </value>
-		private bool State
-		{
-			get
-			{
-				return parent.GetValue() != null;
-			}
-		}
+		private bool State => parent.GetValue() != null;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override object GetValue(int index)
 		{
 			return parent.GetValue(index) != null;

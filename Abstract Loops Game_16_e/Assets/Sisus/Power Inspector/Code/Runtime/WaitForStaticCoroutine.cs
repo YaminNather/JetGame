@@ -13,15 +13,9 @@ namespace Sisus
 		private IEnumerator waitingForCoroutine;
 		private string waitingForMethodByName;
 
-		public override bool keepWaiting
-		{
-			get
-			{
-				return StaticCoroutine.IsInvoking(waitingForCoroutine, waitingForMethodByName);
-			}
-		}
+		public override bool keepWaiting => StaticCoroutine.IsInvoking(waitingForCoroutine, waitingForMethodByName);
 
-		public WaitForStaticCoroutine(IEnumerator waitForCoroutine)
+        public WaitForStaticCoroutine(IEnumerator waitForCoroutine)
 		{
 			waitingForCoroutine = waitForCoroutine;
 			waitingForMethodByName = null;

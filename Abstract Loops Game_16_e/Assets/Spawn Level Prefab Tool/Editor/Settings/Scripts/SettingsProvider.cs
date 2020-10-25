@@ -70,7 +70,7 @@ namespace SpawnLevelPrefabsTool
     public class ToolSettings : ScriptableObject
     {
         [SerializeField] private string m_BlocksPath;
-        public string BlocksPath { get => m_BlocksPath; }
+        public string BlocksPath => m_BlocksPath;
 
         static internal ToolSettings NewToolSettingsCreate_F()
         {

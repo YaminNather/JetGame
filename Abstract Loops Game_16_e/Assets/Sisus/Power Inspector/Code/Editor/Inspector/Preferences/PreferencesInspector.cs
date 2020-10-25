@@ -20,15 +20,9 @@ namespace Sisus
 		private static InspectorPreferences preferencesCached;
 		
 		/// <inheritdoc />
-		protected override PreviewDrawer PreviewDrawer
-		{
-			get
-			{
-				return null;
-			}
-		}
-		
-		/// <summary> Initializes the PreferencesInspector instance. </summary>
+		protected override PreviewDrawer PreviewDrawer => null;
+
+        /// <summary> Initializes the PreferencesInspector instance. </summary>
 		/// <param name="inspector"> The inspector. </param>
 		/// <param name="preferences"> inspector preferences. </param>
 		/// <param name="drawer"> The drawer. </param>

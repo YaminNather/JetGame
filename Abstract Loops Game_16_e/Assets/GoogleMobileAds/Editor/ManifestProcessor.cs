@@ -29,7 +29,7 @@ public class ManifestProcessor : IPreprocessBuild
 
     private XNamespace ns = "http://schemas.android.com/apk/res/android";
 
-    public int callbackOrder { get { return 0; } }
+    public int callbackOrder => 0;
 
 #if UNITY_2018_1_OR_NEWER
     public void OnPreprocessBuild(BuildReport report)

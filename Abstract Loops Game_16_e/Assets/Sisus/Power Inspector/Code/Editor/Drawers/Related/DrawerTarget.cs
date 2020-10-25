@@ -18,15 +18,9 @@ namespace Sisus
 		private readonly int instanceId;
 
 		[CanBeNull]
-		public IDrawer Target
-		{
-			get
-			{
-				return HasValidInstanceReference() ? drawer : null;
-			}
-		}
-		
-		public DrawerTarget([CanBeNull]IDrawer target)
+		public IDrawer Target => HasValidInstanceReference() ? drawer : null;
+
+        public DrawerTarget([CanBeNull]IDrawer target)
 		{
 			drawer = target;
 

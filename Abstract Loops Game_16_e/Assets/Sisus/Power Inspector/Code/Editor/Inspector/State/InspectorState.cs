@@ -81,23 +81,11 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the current drawers are requesting that any search boxes that might exist on the toolbar are disabled. </summary>
 		/// <value> True if toolbar search box should be disabled, false if not. </value>
-		public bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return drawers.WantsSearchBoxDisabled;
-			}
-		}
+		public bool WantsSearchBoxDisabled => drawers.WantsSearchBoxDisabled;
 
-		public SearchFilter SearchFilter
-		{
-			get
-			{
-				return filter;
-			}
-		}
+        public SearchFilter SearchFilter => filter;
 
-		public bool ViewIsLocked
+        public bool ViewIsLocked
 		{
 			get
 			{
@@ -124,12 +112,9 @@ namespace Sisus
 
 		public Vector2 ScrollPos
 		{
-			get
-			{
-				return scrollPos;
-			}
+			get => scrollPos;
 
-			set
+            set
 			{
 				if(scrollPos != value)
 				{
@@ -187,15 +172,9 @@ namespace Sisus
 
 		/// <summary> Gets rectangle describing the dimensions of the inspector window, with x and y values always be at zero. </summary>
 		/// <value> The size of the inspector window. </value>
-		public Rect WindowRect
-		{
-			get
-			{
-				return windowRect;
-			}
-		}
+		public Rect WindowRect => windowRect;
 
-		/// <summary> Gets rectangle describing the screen-space position and size of the inspector window. </summary>
+        /// <summary> Gets rectangle describing the screen-space position and size of the inspector window. </summary>
 		/// <value> The size and position of the inspector window. </value>
 		public Rect ScreenSpaceWindowRect
 		{

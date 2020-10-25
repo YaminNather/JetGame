@@ -17,15 +17,9 @@ namespace Sisus
 		private string[] items = new string[0];
 
 		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				return Types.Int;
-			}
-		}
-		
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+		public override Type Type => Types.Int;
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="selectedIndex"> The selected index in items. </param>
 		/// <param name="items"> The item options to display in the popup menu when the field is clicked. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>

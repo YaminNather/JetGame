@@ -26,40 +26,16 @@ namespace Sisus
 		private bool hasExecuteMethodItems;
 		private bool expandable;
 
-		public Vector2 MouseDownCursorTopLeftCornerOffset
-		{
-			get
-			{
-				return Vector2.zero;
-			}
-		}
+		public Vector2 MouseDownCursorTopLeftCornerOffset => Vector2.zero;
 
-		public Component Component
-		{
-			get
-			{
-				return Target;
-			}
-		}
+        public Component Component => Target;
 
-		public Component[] Components
-		{
-			get
-			{
-				return targets;
-			}
-		}
+        public Component[] Components => targets;
 
-		/// <inheritdoc cref="IParentDrawer.Foldable" />
-		public override bool Foldable
-		{
-			get
-			{
-				return expandable;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.Foldable" />
+		public override bool Foldable => expandable;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override MonoScript MonoScript
 		{
 			get
@@ -88,96 +64,36 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override float ToolbarIconsTopOffset
-		{
-			get
-			{
-				return ComponentToolbarIconsTopOffset;
-			}
-		}
+		protected override float ToolbarIconsTopOffset => ComponentToolbarIconsTopOffset;
 
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconWidth
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconWidth;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconWidth => ComponentHeaderToolbarIconWidth;
 
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconHeight
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconHeight;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconHeight => ComponentHeaderToolbarIconHeight;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsRightOffset
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconsRightOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsRightOffset => ComponentHeaderToolbarIconsRightOffset;
 
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsOffset
-		{
-			get
-			{
-				return ComponentHeaderToolbarIconsOffset;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsOffset => ComponentHeaderToolbarIconsOffset;
 
-		/// <inheritdoc/>
-		protected sealed override Color PrefixBackgroundColor
-		{
-			get
-			{
-				return HeaderMouseovered ? Preferences.theme.ComponentMouseoveredHeaderBackground : Preferences.theme.ComponentHeaderBackground;
-			}
-		}
+        /// <inheritdoc/>
+		protected sealed override Color PrefixBackgroundColor => HeaderMouseovered ? Preferences.theme.ComponentMouseoveredHeaderBackground : Preferences.theme.ComponentHeaderBackground;
 
-		/// <inheritdoc />
-		protected override bool IsAsset
-		{
-			get
-			{
-				return Target.IsPrefab();
-			}
-		}
+        /// <inheritdoc />
+		protected override bool IsAsset => Target.IsPrefab();
 
-		/// <inheritdoc/>
-		protected override bool HasEnabledFlag
-		{
-			get
-			{
-				return hasEnabledFlag;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool HasEnabledFlag => hasEnabledFlag;
 
-		/// <inheritdoc/>
-		protected override bool IsComponent
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool IsComponent => true;
 
-		/// <inheritdoc/>
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return hasExecuteMethodItems;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool HasExecuteMethodIcon => hasExecuteMethodItems;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public GameObject gameObject
 		{
 			get

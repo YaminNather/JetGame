@@ -32,16 +32,10 @@ namespace Sisus
 		[ShowInInspector]
 		private bool Shift
 		{
-			get
-			{
-				return shift;
-			}
+			get => shift;
 
-			set
-			{
-				shift = value;
-			}
-		}
+            set => shift = value;
+        }
 
 		[ShowInInspector]
 		#if UNITY_EDITOR_OSX
@@ -64,16 +58,10 @@ namespace Sisus
 		[ShowInInspector]
 		private bool Alt
 		{
-			get
-			{
-				return alt;
-			}
+			get => alt;
 
-			set
-			{
-				alt = value;
-			}
-		}
+            set => alt = value;
+        }
 
 		public KeyConfig(KeyCode keyCode)
 		{

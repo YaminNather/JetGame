@@ -52,33 +52,15 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public override float Width
-		{
-			get
-			{
-				return lastDrawPosition.width;
-			}
-		}
+		public override float Width => lastDrawPosition.width;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("transform-drawer");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("transform-drawer");
 
-		/// <inheritdoc />
-		protected override float ValueDuringMixedContent
-		{
-			get
-			{
-				return 7921058762891625713f;
-			}
-		}
+        /// <inheritdoc />
+		protected override float ValueDuringMixedContent => 7921058762891625713f;
 
-		/// <summary>
+        /// <summary>
 		/// Smallest value before Transform editor starts displaying warnings.
 		/// Also used for randomization
 		/// </summary>

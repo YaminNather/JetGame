@@ -27,52 +27,22 @@ namespace Sisus
 		private bool updateToolbarItemBounds = true;
 
 		/// <inheritdoc/>
-		public IInspectorToolbarItem SelectedItem
-		{
-			get
-			{
-				return selectedItemIndex == -1 ? null : items[selectedItemIndex];
-			}
-		}
-		
-		protected int SelectedVisibleItemIndex
-		{
-			get
-			{
-				return selectedItemIndex == -1 ? -1 : Array.IndexOf(visibleItems, items[selectedItemIndex]);
-			}
-		}
+		public IInspectorToolbarItem SelectedItem => selectedItemIndex == -1 ? null : items[selectedItemIndex];
 
-		/// <inheritdoc/>
-		public IInspectorToolbarItem[] Items
-		{
-			get
-			{
-				return items;
-			}
-		}
+        protected int SelectedVisibleItemIndex => selectedItemIndex == -1 ? -1 : Array.IndexOf(visibleItems, items[selectedItemIndex]);
 
-		/// <summary> Gets a value indicating whether the toolbar has currently keyboard focus. </summary>
+        /// <inheritdoc/>
+		public IInspectorToolbarItem[] Items => items;
+
+        /// <summary> Gets a value indicating whether the toolbar has currently keyboard focus. </summary>
 		/// <value> True if toolbar is selected, false if not. </value>
-		private bool IsSelected
-		{
-			get
-			{
-				return inspector.Manager.SelectedInspectorPart == InspectorPart.Toolbar;
-			}
-		}
+		private bool IsSelected => inspector.Manager.SelectedInspectorPart == InspectorPart.Toolbar;
 
-		/// <summary> Gets the inspector that contains the toolbar. </summary>
+        /// <summary> Gets the inspector that contains the toolbar. </summary>
 		/// <value> The containing inspector. </value>
-		protected IInspector Inspector
-		{
-			get
-			{
-				return inspector;
-			}
-		}
+		protected IInspector Inspector => inspector;
 
-		/// <summary> Gets the current height of the toolbar. </summary>
+        /// <summary> Gets the current height of the toolbar. </summary>
 		/// <value> Toolbar height. </value>
 		public abstract float Height { get; }
 		
@@ -463,15 +433,9 @@ namespace Sisus
 		/// Gets the style used when drawing the background of the toolbar and the background of each button on the toolbar by default.
 		/// </summary>
 		[NotNull]
-		protected virtual GUIStyle BackgroundStyle
-		{
-			get
-			{
-				return InspectorPreferences.Styles.Toolbar;
-			}
-		}
+		protected virtual GUIStyle BackgroundStyle => InspectorPreferences.Styles.Toolbar;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public virtual void Draw(Rect toolbarPosition)
 		{
 			var e = Event.current;

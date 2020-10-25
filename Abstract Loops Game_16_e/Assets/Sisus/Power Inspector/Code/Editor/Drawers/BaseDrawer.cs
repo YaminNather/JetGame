@@ -111,33 +111,15 @@ namespace Sisus
 		protected Vector2 localDrawAreaOffset;
 
 		/// <inheritdoc/>
-		public int ControlID
-		{
-			get
-			{
-				return controlId;
-			}
-		}
+		public int ControlID => controlId;
 
-		/// <inheritdoc/>
-		public int InstanceId
-		{
-			get
-			{
-				return instanceId;
-			}
-		}
+        /// <inheritdoc/>
+		public int InstanceId => instanceId;
 
-		/// <inheritdoc/>
-		public virtual string FullClassName
-		{
-			get
-			{
-				return Name;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual string FullClassName => Name;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public Func<object[], bool> OverrideValidateValue
 		{
 			set
@@ -152,70 +134,34 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual bool CachedValuesNeedUpdating
-		{
-			get
-			{
-				return ShouldConstantlyUpdateCachedValues();
-			}
-		}
+		public virtual bool CachedValuesNeedUpdating => ShouldConstantlyUpdateCachedValues();
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public KeyboardInputBeingGiven OnKeyboardInputBeingGiven
 		{
-			get
-			{
-				return onKeyboardInputBeingGiven;
-			}
+			get => onKeyboardInputBeingGiven;
 
-			set
-			{
-				onKeyboardInputBeingGiven = value;
-			}
-		}
+            set => onKeyboardInputBeingGiven = value;
+        }
 
 		/// <inheritdoc/>
-		public virtual bool IsAnimated
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool IsAnimated => false;
 
-		/// <inheritdoc/>
-		public virtual bool RequiresConstantRepaint
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual bool RequiresConstantRepaint => false;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public virtual bool HasUnappliedChanges
 		{
-			get
-			{
-				return false;
-			}
+			get => false;
 
-			protected set
-			{
-				throw new InvalidOperationException("Can't set HasUnappliedChanges for "+ToString());
-			}
-		}
+            protected set => throw new InvalidOperationException("Can't set HasUnappliedChanges for "+ToString());
+        }
 
 		/// <inheritdoc/>
-		public virtual bool IsReorderable
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool IsReorderable => false;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public virtual bool ReadOnly
 		{
 			get
@@ -232,57 +178,27 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual bool PrefixResizingEnabledOverControl
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public virtual bool PrefixResizingEnabledOverControl => true;
 
-		/// <summary> Gets the last draw position of the control component of these drawers (as
+        /// <summary> Gets the last draw position of the control component of these drawers (as
 		/// opposed to the prefix label/header component). If these drawers don't contain separate
 		/// control and prefix components, this should return the  whole bounds of the control. </summary>
 		/// <value> The control position. </value>
-		public virtual Rect ControlPosition
-		{
-			get
-			{
-				return lastDrawPosition;
-			}
-		}
+		public virtual Rect ControlPosition => lastDrawPosition;
 
-		/// <inheritdoc/>
-		public virtual Part MouseoveredPart
-		{
-			get
-			{
-				return Mouseovered ? Part.Base : Part.None;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual Part MouseoveredPart => Mouseovered ? Part.Base : Part.None;
 
-		/// <inheritdoc/>
-		public virtual Part SelectedPart
-		{
-			get
-			{
-				return Selected ? Part.Base : Part.None;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual Part SelectedPart => Selected ? Part.Base : Part.None;
 
-		/// <summary> Gets the last draw position of the prefix label or header component of these
+        /// <summary> Gets the last draw position of the prefix label or header component of these
 		/// drawers (as opposed to the control component). If these drawers don't contain
 		/// separate control and prefix components, this should return the  whole bounds of the control. </summary>
 		/// <value> The prefix label position. </value>
-		protected virtual Rect PrefixLabelPosition
-		{
-			get
-			{
-				return lastDrawPosition;
-			}
-		}
+		protected virtual Rect PrefixLabelPosition => lastDrawPosition;
 
-		/// <summary>
+        /// <summary>
 		/// Should menu items for context menu be added starting from root base class or from leaf
 		/// extending class?
 		/// class. </summary>
@@ -290,25 +206,13 @@ namespace Sisus
 		/// True if context menu items should be added base-class first, false if they should
 		/// be added extending class first.
 		/// </value>
-		protected virtual bool BuildContextMenuItemsStartingFromBaseClass
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected virtual bool BuildContextMenuItemsStartingFromBaseClass => true;
 
-		/// <summary> Is GUI currently enabled for user interactions? </summary>
+        /// <summary> Is GUI currently enabled for user interactions? </summary>
 		/// <value> False if GUI.enabled has been set to false, otherwise true. </value>
-		protected bool GuiEnabled
-		{
-			get
-			{
-				return guiEnabled;
-			}
-		}
+		protected bool GuiEnabled => guiEnabled;
 
-		/// <summary> Rect for box that is drawn when control is selected. </summary>
+        /// <summary> Rect for box that is drawn when control is selected. </summary>
 		/// <value> The selection rectangle. </value>
 		[JsonIgnore]
 		protected virtual Rect SelectionRect
@@ -340,41 +244,20 @@ namespace Sisus
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public virtual float Height
-		{
-			get
-			{
-				return DrawGUI.SingleLineHeight;
-			}
-		}
+		public virtual float Height => DrawGUI.SingleLineHeight;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public virtual float Width
-		{
-			get
-			{
-				return lastDrawPosition.width;
-			}
-		}
+		public virtual float Width => lastDrawPosition.width;
 
-		/// <inheritdoc/>
-		public bool Inactive
-		{
-			get
-			{
-				return inactive;
-			}
-		}
+        /// <inheritdoc/>
+		public bool Inactive => inactive;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public IParentDrawer Parent
-		{
-			get{ return parent; }
-		}
+		public IParentDrawer Parent => parent;
 
-		public IUnityObjectDrawer UnityObjectDrawer
+        public IUnityObjectDrawer UnityObjectDrawer
 		{
 			get
 			{
@@ -388,20 +271,14 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual LinkedMemberInfo MemberInfo
-		{
-			get
-			{
-				return null;
-			}
-		}
+		public virtual LinkedMemberInfo MemberInfo => null;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public GUIContent Label
 		{
-			get { return label; }
-			
-			set
+			get => label;
+
+            set
 			{
 				if(label != value)
 				{
@@ -416,44 +293,26 @@ namespace Sisus
 		}
 		
 		/// <inheritdoc/>
-		public virtual string Name
-		{
-			get
-			{
-				return name;
-			}
-		}
+		public virtual string Name => name;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public virtual string Tooltip
 		{
-			get
-			{
-				return label.tooltip;
-			}
+			get => label.tooltip;
 
-			set
-			{
-				label.tooltip = value;
-			}
-		}
+            set => label.tooltip = value;
+        }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public virtual bool ShouldShowInInspector
-		{ 
-			get
-			{
-				return passedLastFilterCheck;
-			}
-		}
-		
-		/// <inheritdoc/>
+		public virtual bool ShouldShowInInspector => passedLastFilterCheck;
+
+        /// <inheritdoc/>
 		public virtual OnValueChanged OnValueChanged
 		{
-			get { return onValueChanged; }
-			set { onValueChanged = value; }
-		}
+			get => onValueChanged;
+            set => onValueChanged = value;
+        }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
@@ -575,36 +434,18 @@ namespace Sisus
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public bool DataIsValid
-		{
-			get
-			{
-				return dataIsValid;
-			}
-		}
+		public bool DataIsValid => dataIsValid;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public virtual bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool Selectable => false;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public virtual bool Clickable
-		{
-			get
-			{
-				return Selectable;
-			}
-		}
+		public virtual bool Clickable => Selectable;
 
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
 		public Rect Bounds
 		{
@@ -635,44 +476,20 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public Vector2 LocalDrawAreaOffset
-		{
-			get
-			{
-				return localDrawAreaOffset;
-			}
-		}
-		
+		public Vector2 LocalDrawAreaOffset => localDrawAreaOffset;
 
-		/// <inheritdoc/>
+
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public virtual Rect RightClickArea
-		{
-			get
-			{
-				return lastDrawPosition;
-			}
-		}
+		public virtual Rect RightClickArea => lastDrawPosition;
 
-		protected bool SelectedAndInspectorHasFocus
-		{
-			get
-			{
-				return Selected && Inspector.InspectorDrawer.HasFocus;
-			}
-		}
+        protected bool SelectedAndInspectorHasFocus => Selected && Inspector.InspectorDrawer.HasFocus;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public bool Selected
-		{
-			get
-			{
-				return Manager.IsSelected(this);
-			}
-		}
+		public bool Selected => Manager.IsSelected(this);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
 		public virtual IInspector Inspector
 		{
@@ -712,23 +529,11 @@ namespace Sisus
 			}
 		}
 
-		protected IInspectorManager Manager
-		{
-			get
-			{
-				return InspectorUtility.ActiveManager;
-			}
-		}
-		
-		protected InspectorPreferences Preferences
-		{
-			get
-			{
-				return InspectorUtility.Preferences;
-			}
-		}
+		protected IInspectorManager Manager => InspectorUtility.ActiveManager;
 
-		/// <summary> Gets the linked member hierarchy for target UnityEngine.Object(s) </summary>
+        protected InspectorPreferences Preferences => InspectorUtility.Preferences;
+
+        /// <summary> Gets the linked member hierarchy for target UnityEngine.Object(s) </summary>
 		/// <value> The linked member hierarchy. </value>
 		[JsonIgnore]
 		public virtual LinkedMemberHierarchy MemberHierarchy
@@ -777,48 +582,27 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetTerminologyUrl("drawer");
-			}
-		}
+		public virtual string DocumentationPageUrl => PowerInspectorDocumentation.GetTerminologyUrl("drawer");
 
-		/// <summary>
+        /// <summary>
 		/// Returns value indicating whether or not this drawer is currently shown in the inspector.
 		/// 
 		/// This is done by checking if parent visible members array contains this drawer.
 		/// </summary>
-		protected virtual bool ShownInInspector
-		{
-			get
-			{
-				return parent == null || Array.IndexOf(parent.VisibleMembers, this) != -1;
-			}
-		}
+		protected virtual bool ShownInInspector => parent == null || Array.IndexOf(parent.VisibleMembers, this) != -1;
 
-		/// <summary>
+        /// <summary>
 		/// Returns value indicating whether or not this drawer has a documentation page set up for it.
 		/// </summary>
-		protected bool HasDocumentationPage
-		{
-			get
-			{
-				return DocumentationPageUrl.Length > 0;
-			}
-		}
+		protected bool HasDocumentationPage => DocumentationPageUrl.Length > 0;
 
-		/// <summary> Gets or sets a value indicating whether the right click area mouseovered. </summary>
+        /// <summary> Gets or sets a value indicating whether the right click area mouseovered. </summary>
 		/// <value> True if right click area mouseovered, false if not. </value>
 		protected bool RightClickAreaMouseovered
 		{
-			get
-			{
-				return Manager.MouseoveredRightClickable == this;
-			}
+			get => Manager.MouseoveredRightClickable == this;
 
-			set
+            set
 			{
 				var manager = Manager;
 				if(value)
@@ -834,45 +618,21 @@ namespace Sisus
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public virtual bool DebugMode
-		{
-			get
-			{
-				return Inspector.State.DebugMode || (parent != null && parent.DebugMode);
-			}
-		}
+		public virtual bool DebugMode => Inspector.State.DebugMode || (parent != null && parent.DebugMode);
 
-		/// <summary> Gets a value indicating whether this object is full inspector width. </summary>
+        /// <summary> Gets a value indicating whether this object is full inspector width. </summary>
 		/// <value> True if this object is full inspector width, false if not. </value>
 		[JsonIgnore]
-		protected bool IsFullInspectorWidth
-		{
-			get
-			{
-				return DrawGUI.IsFullInspectorWidth(Width);
-			}
-		}
+		protected bool IsFullInspectorWidth => DrawGUI.IsFullInspectorWidth(Width);
 
-		/// <summary> Gets or sets the mouse down position. </summary>
+        /// <summary> Gets or sets the mouse down position. </summary>
 		/// <value> The mouse down position. </value>
 		[JsonIgnore]
-		protected Vector2 MouseDownPosition
-		{
-			get
-			{
-				return InspectorUtility.ActiveManager.MouseDownInfo.MouseDownPos;
-			}
-		}
+		protected Vector2 MouseDownPosition => InspectorUtility.ActiveManager.MouseDownInfo.MouseDownPos;
 
-		protected virtual IDrawerProvider DrawerProvider
-		{
-			get
-			{
-				return Inspector.DrawerProvider;
-			}
-		}
+        protected virtual IDrawerProvider DrawerProvider => Inspector.DrawerProvider;
 
-		/// <summary>
+        /// <summary>
 		/// Sets up the Drawer so that it is ready to be used.
 		/// LateSetup should be called right after this.
 		/// </summary>
@@ -1435,15 +1195,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether we can reset. </summary>
 		/// <value> True if we can reset, false if not. </value>
-		protected bool CanReset
-		{
-			get
-			{
-				return !ReadOnly || overrideReset != null;
-			}
-		}
+		protected bool CanReset => !ReadOnly || overrideReset != null;
 
-		public void Reset()
+        public void Reset()
 		{
 			Reset(false);
 		}
@@ -1603,15 +1357,9 @@ namespace Sisus
 			return InspectorUtility.Preferences.doubleClickPrefixToReset && CanReset;
 		}
 
-		protected virtual bool IsMultiSelectable
-		{
-			get
-			{
-				return IsReorderable;
-			}
-		}
+		protected virtual bool IsMultiSelectable => IsReorderable;
 
-		/// <summary> Handles selection of drawers during during an OnClick call. </summary>
+        /// <summary> Handles selection of drawers during during an OnClick call. </summary>
 		/// <param name="inputEvent"> The input event. </param>
 		/// <param name="reason"> Information about which part of drawers were clicked for this to get called. </param>
 		public void HandleOnClickSelection(Event inputEvent, ReasonSelectionChanged reason)

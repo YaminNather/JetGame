@@ -14,24 +14,12 @@ namespace Sisus
 		private int min;
 
 		/// <inheritdoc/>
-		public bool RequiresPropertyDrawerType
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool RequiresPropertyDrawerType => false;
 
-		/// <inheritdoc />
-		protected override int ValueDuringMixedContent
-		{
-			get
-			{
-				return 1961271802;
-			}
-		}
+        /// <inheritdoc />
+		protected override int ValueDuringMixedContent => 1961271802;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="min"> The minimum value for the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>

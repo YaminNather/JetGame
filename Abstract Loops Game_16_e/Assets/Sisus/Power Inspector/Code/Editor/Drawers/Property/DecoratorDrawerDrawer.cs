@@ -24,42 +24,18 @@ namespace Sisus
 		private bool targetDrawerShownInInspector = true;
 
 		/// <inheritdoc/>
-		public bool RequiresDecoratorDrawerType
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool RequiresDecoratorDrawerType => true;
 
-		/// <inheritdoc cref="IDrawer.ReadOnly" />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.ReadOnly" />
+		public override bool ReadOnly => true;
 
-		/// <inheritdoc cref="IDrawer.Type" />
-		public override Type Type
-		{
-			get
-			{
-				return decoratorDrawer.GetType();
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Type" />
+		public override Type Type => decoratorDrawer.GetType();
 
-		/// <inheritdoc cref="IDrawer.PrefixResizingEnabledOverControl" />
-		public override bool PrefixResizingEnabledOverControl
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.PrefixResizingEnabledOverControl" />
+		public override bool PrefixResizingEnabledOverControl => false;
 
-		/// <inheritdoc cref="IDrawer.Height" />
+        /// <inheritdoc cref="IDrawer.Height" />
 		public override float Height
 		{
 			get
@@ -84,15 +60,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override bool ShouldShowInInspector
-		{
-			get
-			{
-				return base.ShouldShowInInspector && targetDrawerShownInInspector;
-			}
-		}
+		public override bool ShouldShowInInspector => base.ShouldShowInInspector && targetDrawerShownInInspector;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="attribute"> The PropertyAttribute that these drawer represent and whose DectoratorDrawer is used when drawing the control. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="drawerType"> Type of the DecoratorDrawer that is used for drawing the control. </param>

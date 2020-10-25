@@ -13,7 +13,8 @@ public class BlockEditorMgr : MonoBehaviour
 {
     #region Variables
     [SerializeField] private Transform m_RotationObjTrans;
-    public Transform RotationObjTrans { get => m_RotationObjTrans; }
+    public Transform RotationObjTrans => m_RotationObjTrans;
+
     #endregion
 
     private void Update()

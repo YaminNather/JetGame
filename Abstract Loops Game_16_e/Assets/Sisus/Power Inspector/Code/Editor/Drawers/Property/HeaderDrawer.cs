@@ -16,33 +16,15 @@ namespace Sisus
 		private float wordWrappedForWidth;
 
 		/// <inheritdoc/>
-		public bool RequiresDecoratorDrawerType
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool RequiresDecoratorDrawerType => false;
 
-		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Selectable" />
+		public override bool Selectable => false;
 
-		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return height;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Height" />
+		public override float Height => height;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="text"> The header text. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <returns> The drawer instance, ready to be used. </returns>

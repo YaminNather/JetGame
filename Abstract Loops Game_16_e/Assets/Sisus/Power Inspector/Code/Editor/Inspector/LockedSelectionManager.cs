@@ -17,26 +17,14 @@ namespace Sisus
 
 		public Action OnSelectionChanged
 		{
-			get
-			{
-				return onSelectionChanged;
-			}
+			get => onSelectionChanged;
 
-			set
-			{
-				onSelectionChanged = value;
-			}
-		}
+            set => onSelectionChanged = value;
+        }
 
-		public Object[] Selected
-		{
-			get
-			{
-				return lockedSelection;
-			}
-		}
+		public Object[] Selected => lockedSelection;
 
-		public void Select(Object target)
+        public void Select(Object target)
 		{
 			if(lockedSelection.Length == 0)
 			{

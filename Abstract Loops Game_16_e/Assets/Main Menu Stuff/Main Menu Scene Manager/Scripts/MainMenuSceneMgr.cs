@@ -13,12 +13,13 @@ public class MainMenuSceneMgr : MonoBehaviour
     private GlobalDatabaseInitializer gdi;
 
     private PagesEN m_PageCur;
-    public PagesEN PageCur { get => m_PageCur; }
+    public PagesEN PageCur => m_PageCur;
 
     [SerializeField] private AudioClip m_BackgroundMusic;
 
     private bool m_ScoreLastGameIsBest;
-    public bool ScoreLastGameIsBest { get => m_ScoreLastGameIsBest; }
+    public bool ScoreLastGameIsBest => m_ScoreLastGameIsBest;
+
     #endregion
 
     private void Awake()

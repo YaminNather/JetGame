@@ -28,13 +28,7 @@ namespace GoogleMobileAds.Android
 
         private MobileAdsClient() : base(Utils.OnInitializationCompleteListenerClassName) { }
 
-        public static MobileAdsClient Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static MobileAdsClient Instance => instance;
 
         public void Initialize(string appId)
         {

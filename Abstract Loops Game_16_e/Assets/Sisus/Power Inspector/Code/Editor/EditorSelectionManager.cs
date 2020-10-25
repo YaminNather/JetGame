@@ -13,26 +13,14 @@ namespace Sisus
 
 		public Action OnSelectionChanged
 		{
-			get
-			{
-				return Selection.selectionChanged;
-			}
+			get => Selection.selectionChanged;
 
-			set
-			{
-				Selection.selectionChanged = value;
-			}
-		}
+            set => Selection.selectionChanged = value;
+        }
 
-		public Object[] Selected
-		{
-			get
-			{
-				return Selection.objects;
-			}
-		}
+		public Object[] Selected => Selection.objects;
 
-		public void Select(Object target)
+        public void Select(Object target)
 		{
 			#if DEV_MODE && PI_ASSERTATIONS
 			UnityEngine.Debug.Assert(target == null || !(target is UnityEngine.Component));

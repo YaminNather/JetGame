@@ -40,41 +40,17 @@ namespace Sisus
 			}
 		}
 
-		public string UnityPackagePath
-		{
-			get
-			{
-				return GetDirectoryPath() + "/package.unitypackage";
-			}
-		}
+		public string UnityPackagePath => GetDirectoryPath() + "/package.unitypackage";
 
-		public string InstallPath
-		{
-			get
-			{
-				return GetDirectoryPath() + "/package";
-			}
-		}
+        public string InstallPath => GetDirectoryPath() + "/package";
 
-		[ShowInInspector]
-		public bool PluginIsInstalled
-		{
-			get
-			{
-				return Type != null;
-			}
-		}
+        [ShowInInspector]
+		public bool PluginIsInstalled => Type != null;
 
-		[ShowInInspector]
-		public bool CompatibilityPackageIsInstalled
-		{
-			get
-			{
-				return AssetDatabase.IsValidFolder(InstallPath);
-			}
-		}
+        [ShowInInspector]
+		public bool CompatibilityPackageIsInstalled => AssetDatabase.IsValidFolder(InstallPath);
 
-		[PSpace(3f)]
+        [PSpace(3f)]
 		[Button("Install"), ShowIf("CompatibilityPackageIsInstalled", false)]
 		[ContextMenu("Install")]
 		private void InstallManually()

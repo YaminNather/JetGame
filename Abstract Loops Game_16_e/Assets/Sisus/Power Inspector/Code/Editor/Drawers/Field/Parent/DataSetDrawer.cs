@@ -14,15 +14,9 @@ namespace Sisus
 		private bool drawInSingleRow;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow || base.DrawInSingleRow;
-			}
-		}
+		public override bool DrawInSingleRow => drawInSingleRow || base.DrawInSingleRow;
 
-		public void SetDrawInSingleRow(bool setDrawInSingleRow)
+        public void SetDrawInSingleRow(bool setDrawInSingleRow)
 		{
 			if(setDrawInSingleRow != drawInSingleRow)
 			{

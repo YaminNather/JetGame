@@ -16,15 +16,9 @@ namespace Sisus
 	{
 		private IDrawerProvider wrappedProvider;
 
-		public bool IsReady
-		{
-			get
-			{
-				return wrappedProvider.IsReady;
-			}
-		}
+		public bool IsReady => wrappedProvider.IsReady;
 
-		/// <summary>
+        /// <summary>
 		/// Create new instance of DrawerProviderModifer that works by wrapping the provided
 		/// existing drawer provider and reusing its drawer fetching data and logic as the
 		/// basis of drawer fetching, but possibly doing some alterations on top.

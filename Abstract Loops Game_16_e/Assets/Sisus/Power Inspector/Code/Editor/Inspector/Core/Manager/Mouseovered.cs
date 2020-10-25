@@ -98,16 +98,10 @@ namespace Sisus
 		/// </value>
 		public IDrawer RightClickable
 		{
-			get
-			{
-				return rightClickable;
-			}
+			get => rightClickable;
 
-			private set
-			{
-				rightClickable = value;
-			}
-		}
+            private set => rightClickable = value;
+        }
 
 		/// <summary>
 		/// Gets the inspector which is currently being mouseovered, or null if none.

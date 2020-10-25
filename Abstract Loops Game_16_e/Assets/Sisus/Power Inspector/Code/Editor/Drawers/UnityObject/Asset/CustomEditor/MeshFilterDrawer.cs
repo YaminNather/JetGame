@@ -9,15 +9,9 @@ namespace Sisus
 	public class MeshFilterDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Vertical;
-			}
-		}
+		public override PrefixResizer PrefixResizer => PrefixResizer.Vertical;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override float EstimatedUnfoldedHeight
 		{
 			get

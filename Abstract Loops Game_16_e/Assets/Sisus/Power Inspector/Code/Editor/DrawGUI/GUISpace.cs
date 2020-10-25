@@ -9,16 +9,10 @@ namespace Sisus
 
 		public static Space Current
 		{
-			get
-			{
-				return current;
-			}
+			get => current;
 
-			set
-			{
-				current = value;
-			}
-		}
+            set => current = value;
+        }
 
 		public static Vector2 ConvertPoint(Vector2 point, Space toSpace)
 		{

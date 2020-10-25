@@ -13,15 +13,9 @@ namespace Sisus.Attributes
 		public readonly float max;
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return Target.Members;
-			}
-		}
+		public Target Target => Target.Members;
 
-		/// <summary>
+        /// <summary>
 		/// Makes target field or property value always be less than or equal to given value.
 		/// </summary>
 		/// <param name="maximum"> The maximum allowed value. </param>

@@ -28,12 +28,9 @@ namespace Sisus
 		[CanBeNull]
 		public T2 this[[NotNull]T1 first]
 		{
-			get
-			{
-				return Get(first);
-			}
+			get => Get(first);
 
-			set
+            set
 			{
 				firstToSecond[first] = value;
 				if(value != null)
@@ -43,113 +40,41 @@ namespace Sisus
 			}
 		}
 		
-		public T1 this[[NotNull]T2 second]
-		{
-			get
-			{
-				return GetBySecond(second);
-			}
-		}
-		
-		public ICollection<T1> Firsts
-		{
-			get
-			{
-				return firstToSecond.Keys;
-			}
-		}
+		public T1 this[[NotNull]T2 second] => GetBySecond(second);
 
-		public ICollection<T2> Seconds
-		{
-			get
-			{
-				return secondToFirst.Keys;
-			}
-		}
+        public ICollection<T1> Firsts => firstToSecond.Keys;
 
-		public void CopyTo(Array array, int index)
+        public ICollection<T2> Seconds => secondToFirst.Keys;
+
+        public void CopyTo(Array array, int index)
 		{
 			CopyTo((KeyValuePair<T1,T2>[])array, index);
 		}
 
-		public int Count
-		{
-			get
-			{
-				return firstToSecond.Count;
-			}
-		}
+		public int Count => firstToSecond.Count;
 
-		bool IDictionary.IsFixedSize
-		{
-			get
-			{
-				return false;
-			}
-		}
+        bool IDictionary.IsFixedSize => false;
 
-		bool IDictionary.IsReadOnly
-		{
-			get
-			{
-				return false;
-			}
-		}
+        bool IDictionary.IsReadOnly => false;
 
-		object IDictionary.this[object key]
+        object IDictionary.this[object key]
 		{
-			get
-			{
-				return Get((T1)key);
-			}
-			
-			set
-			{
-				Set((T1)key, (T2)value);
-			}
-		}
+			get => Get((T1)key);
 
-		bool ICollection<KeyValuePair<T1, T2>>.IsReadOnly
-		{
-			get
-			{
-				return false;
-			}
-		}
+            set => Set((T1)key, (T2)value);
+        }
 
-		ICollection IDictionary.Keys
-		{
-			get
-			{
-				return firstToSecond.Keys;
-			}
-		}
+		bool ICollection<KeyValuePair<T1, T2>>.IsReadOnly => false;
 
-		ICollection IDictionary.Values
-		{ 
-			get
-			{
-				return firstToSecond.Values;
-			}
-		}
+        ICollection IDictionary.Keys => firstToSecond.Keys;
 
-		bool ICollection.IsSynchronized
-		{
-			get
-			{
-				return false;
-			}
-		}
+        ICollection IDictionary.Values => firstToSecond.Values;
 
-		object ICollection.SyncRoot
-		{
-			get
-			{
-				return (firstToSecond as ICollection).SyncRoot;
-			}
-		}
-		
-		public BiDictionary()
+        bool ICollection.IsSynchronized => false;
+
+        object ICollection.SyncRoot => (firstToSecond as ICollection).SyncRoot;
+
+        public BiDictionary()
 		{
 			#if DEV_MODE && DEBUG_CONSTRUCTOR
 			Debug.Log(StringUtils.ToStringSansNamespace(GetType())+" Constructor");

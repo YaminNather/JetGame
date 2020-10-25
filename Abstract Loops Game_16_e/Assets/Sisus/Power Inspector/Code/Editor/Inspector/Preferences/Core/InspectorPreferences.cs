@@ -195,15 +195,9 @@ namespace Sisus
 		[NonSerialized, HideInInspector]
 		private bool setupDone;
 
-		public bool SetupDone
-		{
-			get
-			{
-				return setupDone;
-			}
-		}
+		public bool SetupDone => setupDone;
 
-		[Header("Categorized Components")]
+        [Header("Categorized Components")]
 		public ComponentCategory[] componentCategories = new ComponentCategory[]
 		{
 			new ComponentCategory("", typeof(Transform), typeof(RectTransform))
@@ -221,12 +215,9 @@ namespace Sisus
 		[ShowInInspector]
 		public bool EnableCategorizedComponents
  		{
-			get
-			{
-				return categorizedComponents;
-			}
+			get => categorizedComponents;
 
-			set
+            set
 			{
 				if(value == categorizedComponents)
 				{
@@ -241,12 +232,9 @@ namespace Sisus
 		[ShowInInspector]
 		public bool GenerateFromAddComponentMenu
 		{
-			get
-			{
-				return generateFromAddComponentMenu;
-			}
+			get => generateFromAddComponentMenu;
 
-			set
+            set
 			{
 				if(generateFromAddComponentMenu != value)
 				{
@@ -288,86 +276,50 @@ namespace Sisus
 		[ShowInInspector]
 		public GUIContent PositionLabel
 		{
-			get
-			{
-				return labels.Position;
-			}
+			get => labels.Position;
 
-			set
-			{
-				labels.Position = value;
-			}
-		}
+            set => labels.Position = value;
+        }
 
 		[ShowInInspector]
 		public GUIContent RotationLabel
 		{
-			get
-			{
-				return labels.Rotation;
-			}
+			get => labels.Rotation;
 
-			set
-			{
-				labels.Rotation = value;
-			}
-		}
+            set => labels.Rotation = value;
+        }
 
 		[ShowInInspector]
 		public GUIContent ScaleLabel
 		{
-			get
-			{
-				return labels.Scale;
-			}
+			get => labels.Scale;
 
-			set
-			{
-				labels.Scale = value;
-			}
-		}
+            set => labels.Scale = value;
+        }
 
 		[ShowInInspector]
 		public GUIContent XLabel
 		{
-			get
-			{
-				return labels.X;
-			}
+			get => labels.X;
 
-			set
-			{
-				labels.X = value;
-			}
-		}
+            set => labels.X = value;
+        }
 
 		[ShowInInspector]
 		public GUIContent YLabel
 		{
-			get
-			{
-				return labels.Y;
-			}
+			get => labels.Y;
 
-			set
-			{
-				labels.Y = value;
-			}
-		}
+            set => labels.Y = value;
+        }
 
 		[ShowInInspector]
 		public GUIContent ZLabel
 		{
-			get
-			{
-				return labels.Z;
-			}
+			get => labels.Z;
 
-			set
-			{
-				labels.Z = value;
-			}
-		}
+            set => labels.Z = value;
+        }
 			
 		public GUIThemeColors theme
 		{
@@ -403,15 +355,9 @@ namespace Sisus
 			}
 		}
 
-		public Color PrefixSelectedAndMouseoveredTextColor
-		{
-			get
-			{
-				return Color.Lerp(theme.PrefixSelectedText, PrefixMouseoveredTextColor, 0.5f);
-			}
-		}
+		public Color PrefixSelectedAndMouseoveredTextColor => Color.Lerp(theme.PrefixSelectedText, PrefixMouseoveredTextColor, 0.5f);
 
-		public GUIStyle GetStyle(string styleName)
+        public GUIStyle GetStyle(string styleName)
 		{
 			try
 			{
@@ -430,78 +376,42 @@ namespace Sisus
 			}
 		}
 
-		public GUISkin GUISkin
-		{
-			get
-			{
-				return theme.guiSkin;
-			}
-		}
+		public GUISkin GUISkin => theme.guiSkin;
 
-		public FieldVisibility ShowNonSerializedFields
+        public FieldVisibility ShowNonSerializedFields
 		{
-			get
-			{
-				return showFields;
-			}
+			get => showFields;
 
-			set
-			{
-				Set(ref showFields, value, "Show Fields: {0}");
-			}
-		}
+            set => Set(ref showFields, value, "Show Fields: {0}");
+        }
 
 		public PropertyVisibility ShowProperties
 		{
-			get
-			{
-				return showProperties;
-			}
+			get => showProperties;
 
-			set
-			{
-				Set(ref showProperties, value, "Show Properties: {0}");
-			}
-		}
+            set => Set(ref showProperties, value, "Show Properties: {0}");
+        }
 
 		public MethodVisibility ShowMethods
 		{
-			get
-			{
-				return showMethods;
-			}
+			get => showMethods;
 
-			set
-			{
-				Set(ref showMethods, value, "Show Methods: {0}");
-			}
-		}
+            set => Set(ref showMethods, value, "Show Methods: {0}");
+        }
 
 		public bool ShowHiddenComponents
 		{
-			get
-			{
-				return showHiddenComponents;
-			}
+			get => showHiddenComponents;
 
-			set
-			{
-				Set(ref showHiddenComponents, value, "Show Hidden Components: {0}");
-			}
-		}
+            set => Set(ref showHiddenComponents, value, "Show Hidden Components: {0}");
+        }
 		
 		public UseEditorsOverDrawers UseEditorsOverDrawers
 		{
-			get
-			{
-				return useEditorsOverDrawers;
-			}
+			get => useEditorsOverDrawers;
 
-			set
-			{
-				Set(ref useEditorsOverDrawers, value, "Prefer Editors Over Drawers: {0}");
-			}
-		}
+            set => Set(ref useEditorsOverDrawers, value, "Prefer Editors Over Drawers: {0}");
+        }
 
 		public InspectorGraphics graphics
 		{
@@ -525,15 +435,9 @@ namespace Sisus
 			}
 		}
 		
-		public InspectorLabels labels
-		{
-			get
-			{
-				return theme.labels;
-			}
-		}
-		
-		public static InspectorPreferences GetSettingsCached(ref InspectorPreferences preferencesCached, bool editorMode)
+		public InspectorLabels labels => theme.labels;
+
+        public static InspectorPreferences GetSettingsCached(ref InspectorPreferences preferencesCached, bool editorMode)
 		{
 			if(preferencesCached == null)
 			{

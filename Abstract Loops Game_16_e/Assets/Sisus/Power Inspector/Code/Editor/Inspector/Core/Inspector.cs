@@ -62,15 +62,9 @@ namespace Sisus
 		private bool setupDone;
 
 		/// <inheritdoc />
-		public IInspectorDrawer InspectorDrawer
-		{
-			get
-			{
-				return inspectorDrawer;
-			}
-		}
+		public IInspectorDrawer InspectorDrawer => inspectorDrawer;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public IDrawer FocusedDrawer
 		{
 			get
@@ -81,47 +75,26 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public IDrawerProvider DrawerProvider
-		{
-			get
-			{
-				return DefaultDrawerProviders.GetForInspector(GetType());
-			}
-		}
-		
-		/// <summary> Gets or sets delegate that is invoked when the filter is changed, right before its effects are applied for filtering the view. </summary>
+		public IDrawerProvider DrawerProvider => DefaultDrawerProviders.GetForInspector(GetType());
+
+        /// <summary> Gets or sets delegate that is invoked when the filter is changed, right before its effects are applied for filtering the view. </summary>
 		/// <value> Callback invoked when the filter is changing. </value>
 		public Action<SearchFilter> OnFilterChanging { get; set; }
 
 		/// <inheritdoc />
-		public Object[] SelectedObjects
-		{
-			get
-			{
-				return inspectorDrawer.SelectionManager.Selected;
-			}
-		}
+		public Object[] SelectedObjects => inspectorDrawer.SelectionManager.Selected;
 
-		/// <summary> Gets currently selected GameObjects. </summary>
+        /// <summary> Gets currently selected GameObjects. </summary>
 		/// <value> The selected game objects. </value>
-		private GameObject[] SelectedGameObjects
-		{
-			get
-			{
-				return ArrayPool<Object>.Cast<GameObject>(SelectedObjects);
-			}
-		}
+		private GameObject[] SelectedGameObjects => ArrayPool<Object>.Cast<GameObject>(SelectedObjects);
 
-		/// <summary> Gets or sets the part of the Inspector that is currently being drawn during an OnGUI event. </summary>
+        /// <summary> Gets or sets the part of the Inspector that is currently being drawn during an OnGUI event. </summary>
 		/// <value> During OnGUI events returns the part of the inspector being drawn, otherwise returns None. </value>
 		public InspectorPart NowDrawingPart
 		{
-			get
-			{
-				return nowDrawingPart;
-			}
+			get => nowDrawingPart;
 
-			set
+            set
 			{
 				switch(value)
 				{
@@ -143,36 +116,18 @@ namespace Sisus
 		/// <inheritdoc/>
 		public InspectorPreferences Preferences
 		{
-			get
-			{
-				return preferences;
-			}
+			get => preferences;
 
-			protected set
-			{
-				preferences = value;
-			}
-		}
+            protected set => preferences = value;
+        }
 
 		/// <inheritdoc/>
-		public InspectorState State
-		{
-			get
-			{
-				return state;
-			}
-		}
+		public InspectorState State => state;
 
-		/// <inheritdoc/>
-		public bool HasFilter
-		{
-			get
-			{
-				return state.filter.HasFilter;
-			}
-		}
+        /// <inheritdoc/>
+		public bool HasFilter => state.filter.HasFilter;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public IInspectorToolbar Toolbar
 		{
 			get
@@ -186,15 +141,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public float PreviewAreaHeight
-		{
-			get
-			{
-				return DrawPreviewArea ? PreviewDrawer.Height : 0f;
-			}
-		}
+		public float PreviewAreaHeight => DrawPreviewArea ? PreviewDrawer.Height : 0f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public float ToolbarHeight
 		{
 			get
@@ -205,15 +154,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public bool Selected
-		{
-			get
-			{
-				return Manager.SelectedInspector == this;
-			}
-		}
+		public bool Selected => Manager.SelectedInspector == this;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public InspectorPart MouseoveredPart
 		{
 			get
@@ -239,15 +182,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the preview area should be drawn. </summary>
 		/// <value> True if preview area should be drawn, false if not. </value>
-		protected bool DrawPreviewArea
-		{
-			get
-			{
-				return drawPreviewArea;
-			}
-		}
+		protected bool DrawPreviewArea => drawPreviewArea;
 
-		/// <summary> Gets the class responsible for drawing the preview area of the inspector. </summary>
+        /// <summary> Gets the class responsible for drawing the preview area of the inspector. </summary>
 		/// <value>
 		/// The preview drawer, or null if the inspector doesn't have a preview area
 		/// (in which case DrawPreviewArea should return false).
@@ -262,15 +199,9 @@ namespace Sisus
 		/// How many OnGUI Layout events to wait between updating the cached values of all displayed controls
 		/// via their MemberInfos. </summary>
 		/// <value> Layout event interval for updating cached values. </value>
-		protected virtual int UpdateCachedValuesInterval
-		{
-			get
-			{
-				return 10;
-			}
-		}
+		protected virtual int UpdateCachedValuesInterval => 10;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[NotNull]
 		public IInspectorManager Manager
 		{
@@ -289,15 +220,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether setup phase has been done for the Inspector. </summary>
 		/// <value> True if setup done, false if not. </value>
-		public bool SetupDone
-		{
-			get
-			{
-				return setupDone;
-			}
-		}
-		
-		/// <summary> Initializes the Inspector for use with the given drawer, preferences and state data. </summary>
+		public bool SetupDone => setupDone;
+
+        /// <summary> Initializes the Inspector for use with the given drawer, preferences and state data. </summary>
 		/// <param name="drawer"> The drawer. </param>
 		/// <param name="setPreferences"> The preferences. </param>
 		/// <param name="inspected"> The targets to show on the inspector. </param>

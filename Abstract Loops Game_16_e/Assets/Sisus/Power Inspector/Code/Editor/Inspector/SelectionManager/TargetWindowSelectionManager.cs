@@ -27,16 +27,10 @@ namespace Sisus
 
 		public Action OnSelectionChanged
 		{
-			get
-			{
-				return onSelectionChanged;
-			}
+			get => onSelectionChanged;
 
-			set
-			{
-				onSelectionChanged = value;
-			}
-		}
+            set => onSelectionChanged = value;
+        }
 
 		public Object[] Selected
 		{

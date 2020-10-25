@@ -8,12 +8,9 @@
 
 		public static bool Enabled
 		{
-			get
-			{
-				return IsEnabled();
-			}
+			get => IsEnabled();
 
-			set
+            set
 			{
 				if(value)
 				{

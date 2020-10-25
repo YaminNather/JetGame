@@ -82,34 +82,16 @@ namespace Sisus
 
 		private bool canReadWithoutSideEffects;
 
-		public bool ParentChainIsBroken
-		{
-			get
-			{
-				return parentChainIsBroken;
-			}
-		}
+		public bool ParentChainIsBroken => parentChainIsBroken;
 
-		public bool IsCollectionOrCollectionMember
-		{
-			get
-			{
-				return CollectionIndex != 1 || IsCollection;
-			}
-		}
+        public bool IsCollectionOrCollectionMember => CollectionIndex != 1 || IsCollection;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether target implements the ICollection interface. </summary>
 		/// <value> True if target implements ICollection, false if not. </value>
-		public bool IsCollection
-		{
-			get
-			{
-				return Type.IsCollection();
-			}
-		}
+		public bool IsCollection => Type.IsCollection();
 
-		/// <summary>
+        /// <summary>
 		/// Gets or sets the LinkedMemberHierarchy to which this member belongs. </summary>
 		/// <value> The hierarchy of the  </value>
 		public LinkedMemberHierarchy Hierarchy
@@ -135,15 +117,9 @@ namespace Sisus
 		/// <value>
 		/// The collection index if a collection member, -2 if collection resizer, else -1.
 		/// </value>
-		public int CollectionIndex
-		{
-			get
-			{
-				return memberData.CollectionIndex;
-			}
-		}
+		public int CollectionIndex => memberData.CollectionIndex;
 
-		/// <summary>
+        /// <summary>
 		/// Gets or sets the index parameter values of this member.
 		/// 
 		/// For indexers, this returns an object array containing the default values
@@ -158,57 +134,33 @@ namespace Sisus
 		/// <value> Index parameters or null if not applicable. </value>
 		public object[] IndexParameters
 		{
-			get
-			{
-				return memberData.IndexParameters;
-			}
+			get => memberData.IndexParameters;
 
-			set
-			{
-				memberData.IndexParameters = value;
-			}
-		}
+            set => memberData.IndexParameters = value;
+        }
 
 		/// <summary>
 		/// Gets the number of UnityEngine.Object targets that the member represents. </summary>
 		/// <value> The number of UnityEngine.Object targets. </value>
-		public int TargetCount
-		{
-			get
-			{
-				return hierarchy.TargetCount;
-			}
-		}
+		public int TargetCount => hierarchy.TargetCount;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the direct parent LinkedMemberInfo of this 
 		/// For root members contained directly on a UnityEngine.Object, returns null.
 		/// </summary>
 		/// <value> The parent, or null if has none. </value>
 		[CanBeNull]
-		public LinkedMemberInfo Parent
-		{
-			get
-			{
-				return parent;
-			}
-		}
+		public LinkedMemberInfo Parent => parent;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether this represents a static field, property or method.
 		/// Also returns true for parameters, because their values can be get and set without
 		/// the need for an owning instance.
 		/// </summary>
 		/// <value> True if instance is not needed for getting or setting value. </value>
-		public bool IsStatic
-		{
-			get
-			{
-				return memberData.IsStatic;
-			}
-		}
+		public bool IsStatic => memberData.IsStatic;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether the represented control is a class member serialized by Unity.
 		/// 
 		/// This is used to determine if Unity's internal Undo handling can be used when the value is changed,
@@ -238,15 +190,9 @@ namespace Sisus
 			}
 		}
 
-		public bool IsRootMember
-		{
-			get
-			{
-				return parentType == LinkedMemberParent.UnityObject || parentType == LinkedMemberParent.Static || parentType == LinkedMemberParent.ClassInstance;
-			}
-		}
+		public bool IsRootMember => parentType == LinkedMemberParent.UnityObject || parentType == LinkedMemberParent.Static || parentType == LinkedMemberParent.ClassInstance;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether this represents members of multiple UnityEngine.Object targets with differing values.
 		/// This state is only updated every 0.1s, so it's not guaranteed to be up-to-date.
 		/// </summary>
@@ -307,75 +253,33 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether this represents members on multiple UnityEngine.Object targets. </summary>
 		/// <value> True if represents fields on multiple targets, false if not. </value>
-		public bool MultiField
-		{
-			get
-			{
-				return hierarchy.MultiField;
-			}
-		}
+		public bool MultiField => hierarchy.MultiField;
 
-		/// <summary> Gets the type of the member (field, property or method return value) that this represents. </summary>
+        /// <summary> Gets the type of the member (field, property or method return value) that this represents. </summary>
 		/// <value> The member type. </value>
 		[NotNull]
-		public Type Type
-		{
-			get
-			{
-				return memberData.Type;
-			}
-		}
+		public Type Type => memberData.Type;
 
-		public bool IsValueType
-		{
-			get
-			{
-				return Type.IsValueType;
-			}
-		}
-		
-		public MemberTypes MemberType
-		{
-			get
-			{
-				return memberData.MemberType;
-			}
-		}
+        public bool IsValueType => Type.IsValueType;
 
-		public LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return memberData.LinkedMemberType;
-			}
-		}
+        public MemberTypes MemberType => memberData.MemberType;
 
-		/// <summary> Gets a value indicating whether value we can read by calling one of the GetValue methods. </summary>
+        public LinkedMemberType LinkedMemberType => memberData.LinkedMemberType;
+
+        /// <summary> Gets a value indicating whether value we can read by calling one of the GetValue methods. </summary>
 		/// <value> True if we can read value, false if not. </value>
-		public bool CanRead
-		{
-			get
-			{
-				return canRead;
-			}
-		}
+		public bool CanRead => canRead;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether it is possible to write a value using one of the SetValue methods.
 		/// 
 		/// Note that this can be false even if System.Reflection.MemberInfo.CanWrite is true, because this
 		/// also returns false if the parent chain is broken.
 		/// </summary>
 		/// <value> True if we can read value, false if not. </value>
-		public bool CanWrite
-		{
-			get
-			{
-				return canWrite;
-			}
-		}
+		public bool CanWrite => canWrite;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether member can read read without a reasonable risk of side effects.
 		/// This is false for fields and auto-properties, and true for properties and methods by default.
 		/// However this is also true for properties that are drawn just like normal fields (e.g. when marked with ShowInInspectorAttribute).
@@ -386,71 +290,36 @@ namespace Sisus
 		/// <value> True if we can read value without risk of side effects. </value>
 		public bool CanReadWithoutSideEffects
 		{
-			get
-			{
-				// UPDATE: allowing this to be overridden manually, because properties are considered to be safe to read without side effects
-				// when marked with the ShowInInspector attribute, or when drawers are otherwise displaying them as normal fields.
-				//return memberData.CanReadWithoutSideEffects;
-				return canReadWithoutSideEffects;
-			}
+			get =>
+                // UPDATE: allowing this to be overridden manually, because properties are considered to be safe to read without side effects
+                // when marked with the ShowInInspector attribute, or when drawers are otherwise displaying them as normal fields.
+                //return memberData.CanReadWithoutSideEffects;
+                canReadWithoutSideEffects;
 
-			set
-			{
-				canReadWithoutSideEffects = value;
-			}
-		}
+            set => canReadWithoutSideEffects = value;
+        }
 
 		[CanBeNull]
-		public FieldInfo FieldInfo
-		{
-			get
-			{
-				return memberData.MemberInfo as FieldInfo;
-			}
-		}
+		public FieldInfo FieldInfo => memberData.MemberInfo as FieldInfo;
 
-		[CanBeNull]
-		public PropertyInfo PropertyInfo
-		{
-			get
-			{
-				return memberData.MemberInfo as PropertyInfo;
-			}
-		}
+        [CanBeNull]
+		public PropertyInfo PropertyInfo => memberData.MemberInfo as PropertyInfo;
 
-		[CanBeNull]
-		public MethodInfo MethodInfo
-		{
-			get
-			{
-				return memberData.MemberInfo as MethodInfo;
-			}
-		}
+        [CanBeNull]
+		public MethodInfo MethodInfo => memberData.MemberInfo as MethodInfo;
 
-		[CanBeNull]
-		public ParameterInfo ParameterInfo
-		{
-			get
-			{
-				return memberData.AttributeProvider as ParameterInfo;
-			}
-		}
+        [CanBeNull]
+		public ParameterInfo ParameterInfo => memberData.AttributeProvider as ParameterInfo;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the MemberInfo used internally by the LinkedMemberInfo
 		/// for things such as getting the value.
 		/// </summary>
 		/// <value> MemberInfo. </value>
 		[CanBeNull]
-		public MemberInfo MemberInfo
-		{
-			get
-			{
-				return memberData.MemberInfo;
-			}
-		}
+		public MemberInfo MemberInfo => memberData.MemberInfo;
 
-		/// <summary>
+        /// <summary>
 		/// Some LinkedMemberInfos (MethodData and CollectionResizerData) can have
 		/// two separate MemberInfos, one used for getting the value and the other one
 		/// for setting it. In those instances, this returns the MethodInfo used for setting
@@ -458,41 +327,17 @@ namespace Sisus
 		/// </summary>
 		/// <value> The second MemberInfo. </value>
 		[CanBeNull]
-		public MemberInfo SecondMemberInfo
-		{
-			get
-			{
-				return memberData.SecondMemberInfo;
-			}
-		}
+		public MemberInfo SecondMemberInfo => memberData.SecondMemberInfo;
 
-		public MulticastDelegate GetDelegate
-		{
-			get
-			{
-				return memberData.GetDelegate;
-			}
-		}
+        public MulticastDelegate GetDelegate => memberData.GetDelegate;
 
-		public MulticastDelegate SetDelegate
-		{
-			get
-			{
-				return memberData.SetDelegate;
-			}
-		}
+        public MulticastDelegate SetDelegate => memberData.SetDelegate;
 
-		/// <summary> Gets the MemberInfo or ParameterInfo used internally by the  </summary>
+        /// <summary> Gets the MemberInfo or ParameterInfo used internally by the  </summary>
 		/// <value> MemberInfo or ParameterInfo. </value>
-		public ICustomAttributeProvider AttributeProvider
-		{
-			get
-			{
-				return memberData.AttributeProvider;
-			}
-		}
+		public ICustomAttributeProvider AttributeProvider => memberData.AttributeProvider;
 
-		[NotNull]
+        [NotNull]
 		public MemberData Data
 		{
 			get
@@ -557,15 +402,9 @@ namespace Sisus
 			}
 		}
 		
-		public string Tooltip
-		{
-			get
-			{
-				return TooltipDatabase.GetTooltip(this);
-			}
-		}
-		
-		public GUIContent GetLabel()
+		public string Tooltip => TooltipDatabase.GetTooltip(this);
+
+        public GUIContent GetLabel()
 		{
 			#if DEV_MODE
 			Debug.Assert(memberData != null);
@@ -573,31 +412,13 @@ namespace Sisus
 			return GUIContentPool.Create(DisplayName, Tooltip);
 		}
 
-		public Component Component
-		{
-			get
-			{
-				return hierarchy.Target as Component;
-			}
-		}
+		public Component Component => hierarchy.Target as Component;
 
-		public Object UnityObject
-		{
-			get
-			{
-				return hierarchy.Target;
-			}
-		}
+        public Object UnityObject => hierarchy.Target;
 
-		public Object[] UnityObjects
-		{
-			get
-			{
-				return hierarchy.Targets;
-			}
-		}
+        public Object[] UnityObjects => hierarchy.Targets;
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		public SerializedProperty SerializedProperty
 		{
 			get
@@ -621,23 +442,11 @@ namespace Sisus
 		/// <value>
 		/// True if this object is persistent, false if not.
 		/// </value>
-		public bool IsPersistent
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool IsPersistent => true;
 
-		public bool HasUnappliedChanges
-		{
-			get
-			{
-				return GetHasUnappliedChanges();
-			}
-		}
-		
-		//prevent instances of this type being created automatically by deserialization systems etc.
+        public bool HasUnappliedChanges => GetHasUnappliedChanges();
+
+        //prevent instances of this type being created automatically by deserialization systems etc.
 		//by making the default constructor private
 		private LinkedMemberInfo() { }
 

@@ -44,31 +44,13 @@ namespace Sisus
 
 		public static Action<object> onMenuClosed;
 
-		public static bool MenuIsOpening
-		{
-			get
-			{
-				return openingMenu != null;
-			}
-		}
+		public static bool MenuIsOpening => openingMenu != null;
 
-		public static Menu OpeningMenu
-		{
-			get
-			{
-				return openingMenu;
-			}
-		}
-		
-		private static bool IsSafeToChangeInspectorContents
-		{
-			get
-			{
-				return InspectorUtility.IsSafeToChangeInspectorContents;
-			}
-		}
+        public static Menu OpeningMenu => openingMenu;
 
-		/// <summary>
+        private static bool IsSafeToChangeInspectorContents => InspectorUtility.IsSafeToChangeInspectorContents;
+
+        /// <summary>
 		/// This is initialized on load due to the usage of the InitializeOnLoad attribute.
 		/// </summary>
 		static ContextMenuUtility()

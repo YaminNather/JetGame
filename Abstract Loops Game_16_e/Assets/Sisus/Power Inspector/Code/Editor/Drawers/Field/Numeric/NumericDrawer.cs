@@ -38,30 +38,18 @@ namespace Sisus
 		/// <summary>
 		/// Tells whether or not changes made to the field are applied immediately after each change, or only after the user stops editing the text field.
 		/// </summary>
-		protected virtual bool IsDelayedField
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected virtual bool IsDelayedField => false;
 
-		/// <summary>
+        /// <summary>
 		/// This is used when determining if user has changed the current value when MixedContent is true.
 		/// The detection is more accurate the rarer this value is. So e.g. 105230812 is probably better than 0.
 		/// 
 		/// Invalid values like NaN should still be avoided, otherwise the field might get tinted red while
 		/// text field is being edited due to failing to pass data validation.
 		/// </summary>
-		protected virtual TValue ValueDuringMixedContent
-		{
-			get
-			{
-				return default(TValue);
-			}
-		}
+		protected virtual TValue ValueDuringMixedContent => default(TValue);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public void StartEditingField()
 		{
 			#if DEV_MODE && DEBUG_START_EDITING_FIELD

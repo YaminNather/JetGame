@@ -12,33 +12,15 @@ public class DebugModePlusToolbarItem : ToolbarItem
 	private GUIContent label;
 
 	/// <inheritdoc/>
-	public override float MinWidth
-	{
-		get
-		{
-			return Width;
-		}
-	}
+	public override float MinWidth => Width;
 
-	/// <inheritdoc/>
-	public override float MaxWidth
-	{
-		get
-		{
-			return Width;
-		}
-	}
+    /// <inheritdoc/>
+	public override float MaxWidth => Width;
 
-	/// <inheritdoc/>
-	public override string DocumentationPageUrl
-	{
-		get
-		{
-			return PowerInspectorDocumentation.GetTerminologyUrl("debug-mode");
-		}
-	}
+    /// <inheritdoc/>
+	public override string DocumentationPageUrl => PowerInspectorDocumentation.GetTerminologyUrl("debug-mode");
 
-	/// <inheritdoc/>
+    /// <inheritdoc/>
 	protected override void Setup()
 	{
 		label = GUIContentPool.Create(inspector.Preferences.graphics.DebugModeOnIcon, "Debug Mode+: On\nAll class members will be listed even if normally hidden.");

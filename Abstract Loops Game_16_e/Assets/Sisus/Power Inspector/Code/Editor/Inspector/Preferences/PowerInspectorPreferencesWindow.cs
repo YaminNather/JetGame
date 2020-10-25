@@ -91,33 +91,15 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override bool CanSplitView
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool CanSplitView => false;
 
-		/// <inheritdoc/>
-		public override Type InspectorType
-		{
-			get
-			{
-				return typeof(PreferencesInspector);
-			}
-		}
+        /// <inheritdoc/>
+		public override Type InspectorType => typeof(PreferencesInspector);
 
-		/// <inheritdoc/>
-		protected override string TitleText
-		{
-			get
-			{
-				return "Preferences";
-			}
-		}
+        /// <inheritdoc/>
+		protected override string TitleText => "Preferences";
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup(bool lockView, Vector2 scrollPos, float minWidth = 280f, float minHeight = 130f, float maxWidth = 0f, float maxHeight = 0f)
 		{
 			var preferences = GetPreferences();

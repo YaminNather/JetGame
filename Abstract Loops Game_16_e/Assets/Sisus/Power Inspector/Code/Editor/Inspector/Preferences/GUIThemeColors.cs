@@ -103,15 +103,9 @@ namespace Sisus
 		[SerializeField, HideInInspector]
 		private int nameHash;
 
-		public int NameHash
-		{
-			get
-			{
-				return nameHash;
-			}
-		}
+		public int NameHash => nameHash;
 
-		public bool NameHashEquals(int hashCode)
+        public bool NameHashEquals(int hashCode)
 		{
 			return nameHash == hashCode;
 		}

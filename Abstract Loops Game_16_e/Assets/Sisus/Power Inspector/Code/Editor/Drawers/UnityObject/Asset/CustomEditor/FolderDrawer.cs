@@ -42,62 +42,26 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Disabled;
-			}
-		}
+		public override PrefixResizer PrefixResizer => PrefixResizer.Disabled;
+
+        /// <inheritdoc />
+		protected override bool HasDebugModeIcon => false;
+
+#if UNITY_2018_1_OR_NEWER
+		/// <inheritdoc />
+		protected override bool HasPresetIcon => false;
+#endif
 
 		/// <inheritdoc />
-		protected override bool HasDebugModeIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		#if UNITY_2018_1_OR_NEWER
-		/// <inheritdoc />
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
+		public override float Height => HeaderHeight;
 
-		/// <inheritdoc />
-		public override float Height
-		{
-			get
-			{
-				return HeaderHeight;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool UsesEditorForDrawingBody => true;
 
-		/// <inheritdoc />
-		protected override bool UsesEditorForDrawingBody
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool DrawGreyedOut => false;
 
-		/// <inheritdoc />
-		protected override bool DrawGreyedOut
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

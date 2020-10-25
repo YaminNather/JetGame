@@ -58,23 +58,11 @@ namespace Sisus
 
 		private MenuItemValueType valueType;
 
-		public object IdentifyingObject
-		{
-			get
-			{
-				return valueType != MenuItemValueType.Disregard ? value : type;
-			}
-		}
+		public object IdentifyingObject => valueType != MenuItemValueType.Disregard ? value : type;
 
-		public bool IsGroup
-		{
-			get
-			{
-				return isGroup;
-			}
-		}
+        public bool IsGroup => isGroup;
 
-		public Texture Preview
+        public Texture Preview
 		{
 			get
 			{

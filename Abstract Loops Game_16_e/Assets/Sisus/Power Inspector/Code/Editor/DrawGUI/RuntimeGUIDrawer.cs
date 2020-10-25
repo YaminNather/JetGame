@@ -13,52 +13,28 @@ namespace Sisus
 
 		public override bool ShowMixedValue
 		{
-			get
-			{
-				return showMixedValue;
-			}
+			get => showMixedValue;
 
-			set
-			{
-				showMixedValue = value;
-			}
-		}
+            set => showMixedValue = value;
+        }
 
 		public override Object[] DragAndDropObjectReferences
 		{
-			get
-			{
-				return dragAndDropObjectReferences;
-			}
+			get => dragAndDropObjectReferences;
 
-			set
-			{
-				dragAndDropObjectReferences = value;
-			}
-		}
+            set => dragAndDropObjectReferences = value;
+        }
 		
 		public override DragAndDropVisualMode DragAndDropVisualMode
 		{
-			get
-			{
-				return dragAndDropVisual;
-			}
+			get => dragAndDropVisual;
 
-			set
-			{
-				dragAndDropVisual = value;
-			}
-		}
+            set => dragAndDropVisual = value;
+        }
 
-		public override float InspectorTitlebarHeight
-		{
-			get
-			{
-				return SingleLineHeight;
-			}
-		}
+		public override float InspectorTitlebarHeight => SingleLineHeight;
 
-		public override float AssetTitlebarHeight(bool toolbarHasTwoRowsOfButtons)
+        public override float AssetTitlebarHeight(bool toolbarHasTwoRowsOfButtons)
 		{
 			if(toolbarHasTwoRowsOfButtons)
 			{

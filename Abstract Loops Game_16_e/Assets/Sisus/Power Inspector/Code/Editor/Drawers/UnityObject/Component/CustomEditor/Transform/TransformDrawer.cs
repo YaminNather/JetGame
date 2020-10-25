@@ -35,56 +35,27 @@ namespace Sisus
 		private float height;
 		
 		/// <inheritdoc/>
-		protected override float PrefixResizerMaxHeight
-		{
-			get
-			{
-				// This is needed so that if the floating point precision warning box is shown
-				// the resize control won't be drawn behind it in an ugly manner.
-				return DrawGUI.SingleLineHeight * 3f - 10f;
-			}
-		}
+		protected override float PrefixResizerMaxHeight =>
+            // This is needed so that if the floating point precision warning box is shown
+            // the resize control won't be drawn behind it in an ugly manner.
+            DrawGUI.SingleLineHeight * 3f - 10f;
 
-		protected bool UsingLocalSpace
+        protected bool UsingLocalSpace
 		{
-			get
-			{
-				return Inspector.State.usingLocalSpace;
-			}
+			get => Inspector.State.usingLocalSpace;
 
-			set
-			{
-				Inspector.State.usingLocalSpace = value;
-			}
-		}
+            set => Inspector.State.usingLocalSpace = value;
+        }
 
-		private static bool UsingSnapping
-		{
-			get
-			{
-				return UserSettings.Snapping.Enabled;
-			}
-		}
-		
-		/// <inheritdoc />
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+		private static bool UsingSnapping => UserSettings.Snapping.Enabled;
 
-		/// <inheritdoc />
-		public override float Height
-		{
-			get
-			{
-				return height;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool HasExecuteMethodIcon => false;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
+		public override float Height => height;
+
+        /// <inheritdoc />
 		public override bool Unfolded
 		{
 			set
@@ -110,24 +81,12 @@ namespace Sisus
 		#endif
 
 		/// <inheritdoc/>
-		public override Transform[] Transforms
-		{
-			get
-			{
-				return ArrayPool<Component>.Cast<Transform>(targets);
-			}
-		}
+		public override Transform[] Transforms => ArrayPool<Component>.Cast<Transform>(targets);
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("transform-drawer");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("transform-drawer");
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override string OverrideDocumentationUrl(out string documentationTitle)
 		{
 			documentationTitle = "Transform Drawer";

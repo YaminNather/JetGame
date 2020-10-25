@@ -14,42 +14,18 @@ namespace Sisus
 		private bool drawInSingleRow;
 
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(object[]);
-			}
-		}
+		public override Type Type => typeof(object[]);
 
-		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc/>
-		protected override bool RebuildingMembersAllowed
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildingMembersAllowed => false;
 
-		/// <inheritdoc/>
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildDrawersIfValueChanged => false;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override object[] Value
 		{
 			get

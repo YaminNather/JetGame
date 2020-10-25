@@ -38,24 +38,12 @@ namespace Sisus.Compatibility
 		}
 
 		/// <inheritdoc/>
-		public override bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool WantsSearchBoxDisabled => true;
 
-		/// <inheritdoc/>
-		public override float HeaderHeight
-		{
-			get
-			{
-				return hideHeader ? 0f : base.HeaderHeight;
-			}
-		}
+        /// <inheritdoc/>
+		public override float HeaderHeight => hideHeader ? 0f : base.HeaderHeight;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override Rect RightClickArea
 		{
 			get

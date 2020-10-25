@@ -27,24 +27,12 @@ namespace Sisus
 		private int appendIndentLevel;
 
 		/// <inheritdoc/>
-		public override bool Foldable
-		{
-			get
-			{
-				return base.Foldable && drawHeader;
-			}
-		}
+		public override bool Foldable => base.Foldable && drawHeader;
 
-		/// <inheritdoc />
-		public override bool Selectable
-		{
-			get
-			{
-				return drawHeader && base.Selectable;
-			}
-		}
+        /// <inheritdoc />
+		public override bool Selectable => drawHeader && base.Selectable;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public override float Height
 		{
 			get
@@ -63,24 +51,12 @@ namespace Sisus
 		/// <value>
 		/// The append indent level.
 		/// </value>
-		public override int AppendIndentLevel
-		{
-			get
-			{
-				return appendIndentLevel;
-			}
-		}
+		public override int AppendIndentLevel => appendIndentLevel;
 
-		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow || base.DrawInSingleRow;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool DrawInSingleRow => drawInSingleRow || base.DrawInSingleRow;
 
-		public void SetDrawInSingleRow(bool setDrawInSingleRow)
+        public void SetDrawInSingleRow(bool setDrawInSingleRow)
 		{
 			if(setDrawInSingleRow != drawInSingleRow)
 			{

@@ -43,15 +43,9 @@ namespace Sisus
 		/// This is set to false for the duration of the Setup phase and when the application is quitting.
 		/// </summary>
 		/// <value> True if ready, false if not. </value>
-		public static bool Ready
-		{
-			get
-			{
-				return ready;
-			}
-		}
+		public static bool Ready => ready;
 
-		[UsedImplicitly]
+        [UsedImplicitly]
 		private void OnEnable()
 		{
 			// Don't allow more than one PersistentSingleton instance.

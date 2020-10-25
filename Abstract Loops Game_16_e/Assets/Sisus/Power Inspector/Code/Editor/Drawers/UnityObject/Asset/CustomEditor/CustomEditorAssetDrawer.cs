@@ -67,143 +67,54 @@ namespace Sisus
 		private GUIContent[] assetLabelsOnlyOnSomeTargets =  new GUIContent[0];
 
 		/// <inheritdoc/>
-		public virtual bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool WantsSearchBoxDisabled => false;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.Unfoldedness" />
-		public override float Unfoldedness
-		{
-			get
-			{
-				return 1f;
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.Unfoldedness" />
+		public override float Unfoldedness => 1f;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.Unfolded" />
-		public override bool Unfolded
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.Unfolded" />
+		public override bool Unfolded => true;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.Expandable" />
-		public override bool Foldable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.Expandable" />
+		public override bool Foldable => false;
 
-		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				// hide the prefix resizer if Editor body has no content.
-				// Won't compare directly to EditorHeight, because the PrefixResizer control itself can add 6 units to height.
-				return Height < HeaderHeight + DrawGUI.SingleLineHeight ? PrefixResizer.Disabled : PrefixResizer.TopOnly;
-			}
-		}
+        /// <inheritdoc />
+		public override PrefixResizer PrefixResizer =>
+            // hide the prefix resizer if Editor body has no content.
+            // Won't compare directly to EditorHeight, because the PrefixResizer control itself can add 6 units to height.
+            Height < HeaderHeight + DrawGUI.SingleLineHeight ? PrefixResizer.Disabled : PrefixResizer.TopOnly;
 
-		/// <inheritdoc />
-		public GUIContent[] AssetLabels
-		{
-			get
-			{
-				return assetLabels;
-			}
-		}
+        /// <inheritdoc />
+		public GUIContent[] AssetLabels => assetLabels;
 
-		/// <inheritdoc />
-		public GUIContent[] AssetLabelsOnlyOnSomeTargets
-		{
-			get
-			{
-				return assetLabelsOnlyOnSomeTargets;
-			}
-		}
+        /// <inheritdoc />
+		public GUIContent[] AssetLabelsOnlyOnSomeTargets => assetLabelsOnlyOnSomeTargets;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.RequiresConstantRepaint" />
-		public override bool RequiresConstantRepaint
-		{
-			get
-			{
-				return editor == null ? false : editor.RequiresConstantRepaint();
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.RequiresConstantRepaint" />
+		public override bool RequiresConstantRepaint => editor == null ? false : editor.RequiresConstantRepaint();
 
-		/// <inheritdoc cref="IUnityObjectDrawer.HeaderHeight" />
-		public override float HeaderHeight
-		{
-			get
-			{
-				return headerHeight;
-			}
-		}
+        /// <inheritdoc cref="IUnityObjectDrawer.HeaderHeight" />
+		public override float HeaderHeight => headerHeight;
 
+        /// <inheritdoc/>
+		protected override float ToolbarIconsTopOffset => AssetToolbarIconsTopOffset;
+
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconWidth => AssetHeaderToolbarIconWidth;
+
+        /// <inheritdoc/>
+		protected sealed override float HeaderToolbarIconHeight => AssetHeaderToolbarIconHeight;
+
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsRightOffset => AssetHeaderToolbarIconsRightOffset;
+
+        /// <inheritdoc />
+		protected sealed override float HeaderToolbarIconsOffset => AssetHeaderToolbarIconsOffset;
+
+#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
 		/// <inheritdoc/>
-		protected override float ToolbarIconsTopOffset
-		{
-			get
-			{
-				return AssetToolbarIconsTopOffset;
-			}
-		}
-
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconWidth
-		{
-			get
-			{
-				return AssetHeaderToolbarIconWidth;
-			}
-		}
-
-		/// <inheritdoc/>
-		protected sealed override float HeaderToolbarIconHeight
-		{
-			get
-			{
-				return AssetHeaderToolbarIconHeight;
-			}
-		}
-
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsRightOffset
-		{
-			get
-			{
-				return AssetHeaderToolbarIconsRightOffset;
-			}
-		}
-
-		/// <inheritdoc />
-		protected sealed override float HeaderToolbarIconsOffset
-		{
-			get
-			{
-				return AssetHeaderToolbarIconsOffset;
-			}
-		}
-
-		#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
-		/// <inheritdoc/>
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return isAssetImporter && Editable;
-			}
-		}
-		#endif
+		protected override bool HasPresetIcon => isAssetImporter && Editable;
+#endif
 
 		/// <inheritdoc />
 		protected override MonoScript MonoScript
@@ -216,71 +127,35 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		protected override bool IsAsset
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool IsAsset => true;
 
-		/// <summary> Gets a value indicating whether target asset is contained inside a Unity Package. </summary>
+        /// <summary> Gets a value indicating whether target asset is contained inside a Unity Package. </summary>
 		/// <value> True if this object is inside a Unity Package, false if not. </value>
-		protected bool IsPackageAsset
-		{
-			get
-			{
-				return isPackageAsset;
-			}
-		}
+		protected bool IsPackageAsset => isPackageAsset;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the local path of the target asset.
 		/// This is either relative to the Assets
 		/// directory or relative to the Unity Package
 		/// directory.
 		/// </summary>
 		/// <value> The local path of the target asset. </value>
-		protected string LocalPath
-		{
-			get
-			{
-				return localPath;
-			}
-		}
+		protected string LocalPath => localPath;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the full file path of the target asset.
 		/// </summary>
 		/// <value> The full file path of the target asset. </value>
-		protected string FullPath
-		{
-			get
-			{
-				return localPath.Length == 0 ? "" : FileUtility.LocalToFullPath(localPath);
-			}
-		}
+		protected string FullPath => localPath.Length == 0 ? "" : FileUtility.LocalToFullPath(localPath);
 
-		/// <inheritdoc />
-		protected override Color PrefixBackgroundColor
-		{
-			get
-			{
-				return InspectorUtility.Preferences.theme.AssetHeaderBackground;
-			}
-		}
-		
-		/// <summary> Gets subtitle text to display below the main ehader text. </summary>
+        /// <inheritdoc />
+		protected override Color PrefixBackgroundColor => InspectorUtility.Preferences.theme.AssetHeaderBackground;
+
+        /// <summary> Gets subtitle text to display below the main ehader text. </summary>
 		/// <returns> The header subtitle. </returns>
-		protected GUIContent HeaderSubtitle
-		{
-			get
-			{
-				return headerSubtitle;
-			}
-		}
+		protected GUIContent HeaderSubtitle => headerSubtitle;
 
-		/// <summary>
+        /// <summary>
 		/// Separation between header Editor and normal editor was needed to make the preview icon and label get displayed correctly.
 		/// Also, if targets are of mismatching types, an Editor can't be created for them, but since the Editor for the header will only
 		/// use the first of the targets, it will still work.
@@ -320,15 +195,9 @@ namespace Sisus
 		}
 		
 		/// <inheritdoc />
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		#if !POWER_INSPECTOR_LITE
+		protected override bool HasExecuteMethodIcon => false;
+
+#if !POWER_INSPECTOR_LITE
 		/// <inheritdoc/>
 		protected override string PasteContextMenuText
 		{
@@ -344,15 +213,9 @@ namespace Sisus
 		#endif
 
 		/// <inheritdoc/>
-		protected sealed override Object[] EditorTargets
-		{
-			get
-			{
-				return editorTargets;
-			}
-		}
+		protected sealed override Object[] EditorTargets => editorTargets;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawers represent. </param>
 		/// <param name="parent"> The parent drawers of the created drawers. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>
@@ -396,15 +259,9 @@ namespace Sisus
 		/// <summary>
 		/// Should the initial asset header height estimate be based on headeer that contains two rows of buttons?
 		/// </summary>
-		protected virtual bool HeaderHasTwoRowsOfButtons
-		{
-			get
-			{
-				return AddressablesUtility.IsInstalled;
-			}
-		}
+		protected virtual bool HeaderHasTwoRowsOfButtons => AddressablesUtility.IsInstalled;
 
-		/// <summary> Sets up an instance of the drawers for usage. </summary>
+        /// <summary> Sets up an instance of the drawers for usage. </summary>
 		/// <param name="setTargets"> The targets that the drawers represent. Can not be null. </param>
 		/// <param name="setEditorTargets"> The targets for which the main Editor is created. E.g. the asset importers for targets. Can be null. </param>
 		/// <param name="setParent"> The parent drawers of the created drawers. Can be null. </param>

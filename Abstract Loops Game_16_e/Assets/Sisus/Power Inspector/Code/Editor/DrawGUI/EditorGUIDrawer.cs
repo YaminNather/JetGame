@@ -28,15 +28,9 @@ namespace Sisus
 		private readonly static Type[] GradientFieldMethodParameterTypes = { typeof(Rect), typeof(Gradient) };
 		#endif
 
-		public static bool EnableFoldoutFix
-		{
-			get
-			{ 
-				return AddressablesUtility.IsInstalled;
-			}
-		}
+		public static bool EnableFoldoutFix => AddressablesUtility.IsInstalled;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override float InspectorTitlebarHeight
 		{
 			get
@@ -51,16 +45,10 @@ namespace Sisus
 
 		public override bool ShowMixedValue
 		{
-			get
-			{
-				return EditorGUI.showMixedValue;
-			}
+			get => EditorGUI.showMixedValue;
 
-			set
-			{
-				EditorGUI.showMixedValue = value;
-			}
-		}
+            set => EditorGUI.showMixedValue = value;
+        }
 
 		public override DragAndDropVisualMode DragAndDropVisualMode
 		{

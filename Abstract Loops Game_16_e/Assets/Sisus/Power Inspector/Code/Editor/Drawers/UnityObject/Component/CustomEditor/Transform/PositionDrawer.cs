@@ -15,27 +15,15 @@ namespace Sisus
 		private static readonly List<int> DraggingMembersBuilder = new List<int>(3);
 
 		/// <inheritdoc/>
-		protected override int[] DraggingTargetsMembers
-		{
-			get
-			{
-				return draggingMembers;
-			}
-		}
+		protected override int[] DraggingTargetsMembers => draggingMembers;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool SnappingEnabled
 		{
-			get
-			{
-				return UserSettings.Snapping.Enabled && UserSettings.Snapping.EnabledForMove;
-			}
+			get => UserSettings.Snapping.Enabled && UserSettings.Snapping.EnabledForMove;
 
-			set
-			{
-				UserSettings.Snapping.EnabledForMove = value;
-			}
-		}
+            set => UserSettings.Snapping.EnabledForMove = value;
+        }
 
 		/// <inheritdoc/>
 		public override float GetSnapStep(int memberIndex)

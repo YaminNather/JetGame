@@ -34,15 +34,9 @@ namespace Sisus
 		}
 		
 		/// <inheritdoc />
-		public override float Unfoldedness
-		{
-			get
-			{
-				return Foldable ? unfoldedness : base.Unfoldedness;
-			}
-		}
+		public override float Unfoldedness => Foldable ? unfoldedness : base.Unfoldedness;
 
-		/// <inheritdoc cref="IUnityObjectDrawer.Expandable" />
+        /// <inheritdoc cref="IUnityObjectDrawer.Expandable" />
 		public override bool Foldable
 		{
 			get
@@ -56,35 +50,19 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		protected override Editor HeaderEditor
-		{
-			get
-			{
-				//this is needed to make the forceVisible unfolding to work
-				return Editor;
-			}
-		}
+		protected override Editor HeaderEditor =>
+            //this is needed to make the forceVisible unfolding to work
+            Editor;
 
-		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				//prefix width in MaterialInspector is static so the prefix resizer should not be shown
-				return DebugMode ? PrefixResizer.TopOnly : PrefixResizer.Disabled;
-			}
-		}
+        /// <inheritdoc />
+		public override PrefixResizer PrefixResizer =>
+            //prefix width in MaterialInspector is static so the prefix resizer should not be shown
+            DebugMode ? PrefixResizer.TopOnly : PrefixResizer.Disabled;
 
-		#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
+#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
 		/// <inheritdoc />
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return Editable;
-			}
-		}
-		#endif
+		protected override bool HasPresetIcon => Editable;
+#endif
 
 		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>

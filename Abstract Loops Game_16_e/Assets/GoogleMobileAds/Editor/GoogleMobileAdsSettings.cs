@@ -37,67 +37,37 @@ namespace GoogleMobileAds.Editor
 
         public bool IsAdManagerEnabled
         {
-            get
-            {
-                return Instance.isAdManagerEnabled;
-            }
+            get => Instance.isAdManagerEnabled;
 
-            set
-            {
-                Instance.isAdManagerEnabled = value;
-            }
+            set => Instance.isAdManagerEnabled = value;
         }
 
         public bool IsAdMobEnabled
         {
-            get
-            {
-                return Instance.isAdMobEnabled;
-            }
+            get => Instance.isAdMobEnabled;
 
-            set
-            {
-                Instance.isAdMobEnabled = value;
-            }
+            set => Instance.isAdMobEnabled = value;
         }
 
         public string AdMobAndroidAppId
         {
-            get
-            {
-                return Instance.adMobAndroidAppId;
-            }
+            get => Instance.adMobAndroidAppId;
 
-            set
-            {
-                Instance.adMobAndroidAppId = value;
-            }
+            set => Instance.adMobAndroidAppId = value;
         }
 
         public string AdMobIOSAppId
         {
-            get
-            {
-                return Instance.adMobIOSAppId;
-            }
+            get => Instance.adMobIOSAppId;
 
-            set
-            {
-                Instance.adMobIOSAppId = value;
-            }
+            set => Instance.adMobIOSAppId = value;
         }
 
         public bool DelayAppMeasurementInit
         {
-            get
-            {
-                return Instance.delayAppMeasurementInit;
-            }
+            get => Instance.delayAppMeasurementInit;
 
-            set
-            {
-                Instance.delayAppMeasurementInit = value;
-            }
+            set => Instance.delayAppMeasurementInit = value;
         }
 
         public static GoogleMobileAdsSettings Instance

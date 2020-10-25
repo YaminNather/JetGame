@@ -12,24 +12,12 @@ namespace Sisus
 	public class CameraDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		protected override int AppendLastCheckedId
-		{
-			get
-			{
-				return 200;
-			}
-		}
+		protected override int AppendLastCheckedId => 200;
 
-		/// <inheritdoc />
-		protected override float EstimatedUnfoldedHeight
-		{
-			get
-			{
-				return 380f;
-			}
-		}
+        /// <inheritdoc />
+		protected override float EstimatedUnfoldedHeight => 380f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override float GetOptimalPrefixLabelWidthForEditor(int indentLevel)
 		{
 			return 125f;

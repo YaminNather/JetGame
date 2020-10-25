@@ -63,10 +63,7 @@ namespace GoogleMobileAds.Common
                 return "UserId";
             }
 
-            set
-            {
-                Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
-            }
+            set => Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
         }
 
         public void Initialize(string appId)

@@ -10,24 +10,12 @@ namespace Sisus
 	public class LightDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		protected override int AppendLastCheckedId
-		{
-			get
-			{
-				return 200;
-			}
-		}
+		protected override int AppendLastCheckedId => 200;
 
-		/// <inheritdoc />
-		protected override float EstimatedUnfoldedHeight
-		{
-			get
-			{
-				return 408f;
-			}
-		}
+        /// <inheritdoc />
+		protected override float EstimatedUnfoldedHeight => 408f;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

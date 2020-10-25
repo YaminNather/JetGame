@@ -16,53 +16,24 @@ namespace Sisus
 	public class ModelDrawer : CustomEditorAssetDrawer
 	{
 		/// <inheritdoc />
-		protected override bool HasDebugModeIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool HasDebugModeIcon => false;
 
-		/// <inheritdoc />
-		protected override bool HasEnabledFlag
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		/// <inheritdoc />
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool HasEnabledFlag => false;
 
-		/// <inheritdoc />
-		protected override Editor HeaderEditor
-		{
-			get
-			{
-				// without this override the header would look like a GameObject header
-				return Editor;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool HasExecuteMethodIcon => false;
 
-		/// <inheritdoc />
-		public override float MaxPrefixLabelWidth
-		{
-			get
-			{
-				return Mathf.Max(99f, 0.5f * DrawGUI.InspectorWidth - 130f);
-			}
-		}
+        /// <inheritdoc />
+		protected override Editor HeaderEditor =>
+            // without this override the header would look like a GameObject header
+            Editor;
+
+        /// <inheritdoc />
+		public override float MaxPrefixLabelWidth => Mathf.Max(99f, 0.5f * DrawGUI.InspectorWidth - 130f);
 
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

@@ -27,12 +27,9 @@ namespace Sisus
 
 		public string Filter
 		{
-			get
-			{
-				return filter.text;
-			}
+			get => filter.text;
 
-			set
+            set
 			{
 				if(!string.Equals(filter.text, value))
 				{
@@ -42,23 +39,11 @@ namespace Sisus
 			}
 		}
 
-		public string BestMatch
-		{
-			get
-			{
-				return database.Length == 0 ? "" : database[0].text;
-			}
-		}
-		
-		public int Count
-		{
-			get
-			{
-				return database.Length;
-			}
-		}
-		
-		public SearchableList(string[] content)
+		public string BestMatch => database.Length == 0 ? "" : database[0].text;
+
+        public int Count => database.Length;
+
+        public SearchableList(string[] content)
 		{
 			Items = content;
 

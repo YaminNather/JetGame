@@ -14,21 +14,22 @@ public class JetMovementComponent : MonoBehaviour
 
     [Header("Movement Info")]    
     [SerializeField]  private float m_Accel = 90f;
-    public float Accel { get => m_Accel; }
+    public float Accel => m_Accel;
     [SerializeField]  private float m_Deccel = 20f;
-    public float Deccel { get => m_Deccel; }
+    public float Deccel => m_Deccel;
     [SerializeField]  private Vector3 m_VelocityMax = new Vector3(10, 10, 30f);
-    public Vector3 VelocityMax { get => m_VelocityMax; }
+    public Vector3 VelocityMax => m_VelocityMax;
     [SerializeField]  private float m_MovementRadius = 3f;
-    public float MovementRadius { get => m_MovementRadius; }
+    public float MovementRadius => m_MovementRadius;
     private Vector3 m_Velocity;
-    public Vector3 Velocity { get => m_Velocity; }
+    public Vector3 Velocity => m_Velocity;
 
     [Header("Rotation Stuff")]
      [SerializeField] private float m_RotationMaxX = 20f;
-    public float RotationMaxX { get => m_RotationMaxX; }
+    public float RotationMaxX => m_RotationMaxX;
     [SerializeField] private float m_RotationMaxZ = 45f;
-    public float RotationMaxZ { get => m_RotationMaxZ; }
+    public float RotationMaxZ => m_RotationMaxZ;
+
     #endregion
 
     private void LateUpdate()

@@ -8,15 +8,9 @@ namespace Sisus
 	{
 		private Stack<T> stack;
 
-		public int Count
-		{
-			get
-			{
-				return stack.Count;
-			}
-		}
+		public int Count => stack.Count;
 
-		public Pool(int capacity)
+        public Pool(int capacity)
 		{
 			stack = new Stack<T>(capacity);
 		}

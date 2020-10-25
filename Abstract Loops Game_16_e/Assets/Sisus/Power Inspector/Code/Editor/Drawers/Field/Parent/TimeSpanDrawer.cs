@@ -11,71 +11,23 @@ namespace Sisus
 		private string asString;
 		private Rect stringRect;
 
-		private int Days
-		{
-			get
-			{
-				return Value.Days;
-			}
-		}
+		private int Days => Value.Days;
 
-		private int Hours
-		{
-			get
-			{
-				return Value.Hours;
-			}
-		}
+        private int Hours => Value.Hours;
 
-		private int Minutes
-		{
-			get
-			{
-				return Value.Minutes;
-			}
-		}
+        private int Minutes => Value.Minutes;
 
-		private float SecondsWithFractions
-		{
-			get
-			{
-				return Seconds + Milliseconds * 0.001f;
-			}
-		}
+        private float SecondsWithFractions => Seconds + Milliseconds * 0.001f;
 
-		private int Seconds
-		{
-			get
-			{
-				return Value.Seconds;
-			}
-		}
+        private int Seconds => Value.Seconds;
 
-		private int Milliseconds
-		{
-			get
-			{
-				return Value.Milliseconds;
-			}
-		}
+        private int Milliseconds => Value.Milliseconds;
 
-		private int MinDays
-		{
-			get
-			{
-				return TimeSpan.MinValue.Days;
-			}
-		}
+        private int MinDays => TimeSpan.MinValue.Days;
 
-		private int MaxDays
-		{
-			get
-			{
-				return TimeSpan.MaxValue.Days;
-			}
-		}
+        private int MaxDays => TimeSpan.MaxValue.Days;
 
-		private int MinHours
+        private int MinHours
 		{
 			get
 			{
@@ -147,42 +99,18 @@ namespace Sisus
 			}
 		}
 
-		private bool IsNegative
-		{
-			get
-			{
-				return Value.TotalMilliseconds < 0;
-			}
-		}
+		private bool IsNegative => Value.TotalMilliseconds < 0;
 
-		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return ReadOnly;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool DrawInSingleRow => ReadOnly;
 
-		/// <inheritdoc/>
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildDrawersIfValueChanged => true;
 
-		/// <inheritdoc/>
-		protected override bool PrefixLabelClippedToColumnWidth
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool PrefixLabelClippedToColumnWidth => true;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

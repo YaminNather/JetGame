@@ -18,15 +18,9 @@ namespace Sisus
 	public class TextAssetDrawer : FormattedTextAssetDrawer<PlainTextSyntaxFormatter>
 	{
 		/// <inheritdoc />
-		protected override bool AllowSyntaxHighlighting
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool AllowSyntaxHighlighting => false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

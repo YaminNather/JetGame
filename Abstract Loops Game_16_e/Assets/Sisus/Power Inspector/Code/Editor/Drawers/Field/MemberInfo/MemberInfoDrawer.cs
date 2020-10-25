@@ -11,15 +11,9 @@ namespace Sisus
 	public class MemberInfoDrawer : MemberInfoBaseDrawer<MemberInfo>
 	{
 		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				return typeof(MemberInfo);
-			}
-		}
+		public override Type Type => typeof(MemberInfo);
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The initial cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the class member that the created drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

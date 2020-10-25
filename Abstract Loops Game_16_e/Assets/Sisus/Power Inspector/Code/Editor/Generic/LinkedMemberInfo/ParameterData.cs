@@ -14,96 +14,37 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return null;
-			}
+			get => null;
 
-			set
-			{
-				throw new NotSupportedException();
-			}
-		}
+            set => throw new NotSupportedException();
+        }
 		#endif
 
-		public override string Name
-		{
-			get
-			{
-				return parameterInfo.Name;
-			}
-		}
+		public override string Name => parameterInfo.Name;
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Custom; }
-		}
+        public override MemberTypes MemberType => MemberTypes.Custom;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.Parameter;
-			}
-		}
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.Parameter;
 
-		public override MemberInfo MemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo MemberInfo => null;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo SecondMemberInfo => null;
 
-		public override ICustomAttributeProvider AttributeProvider
-		{
-			get { return parameterInfo; }
-		}
+        public override ICustomAttributeProvider AttributeProvider => parameterInfo;
 
-		public override bool IsStatic
-		{
-			get
-			{
-				//new test: true, because parent values are not actually needed for fetching value?
-				return true;
-			}
-		}
+        public override bool IsStatic =>
+            //new test: true, because parent values are not actually needed for fetching value?
+            true;
 
-		public override Type Type
-		{
-			get
-			{
-				return parameterInfo.ParameterType;
-			}
-		}
+        public override Type Type => parameterInfo.ParameterType;
 
-		public override bool CanRead
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanRead => true;
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanReadWithoutSideEffects => true;
 
-		public override bool CanWrite
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanWrite => true;
 
-		public void Setup(ParameterInfo setParameterInfo)
+        public void Setup(ParameterInfo setParameterInfo)
 		{
 			parameterInfo = setParameterInfo;
 		}

@@ -10,7 +10,7 @@ public class GlobalData : MonoBehaviour
     #region Variables
     private string m_SaveDir;
     private string m_SaveFileName;
-    private string SavePath { get => m_SaveDir + "/" + m_SaveFileName + ".txt"; }
+    private string SavePath => m_SaveDir + "/" + m_SaveFileName + ".txt";
 
     private SaveInfo m_SaveInfo;
 

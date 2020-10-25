@@ -68,10 +68,11 @@ public class BannerAdWrapper
 {
     #region Variables
     private bool m_IsValid;
-    public bool IsValid { get => m_IsValid; }
-    
+    public bool IsValid => m_IsValid;
+
     private BannerView m_BannerView;
-    public BannerView BannerView { get => m_BannerView; }
+    public BannerView BannerView => m_BannerView;
+
     #endregion
 
     public BannerAdWrapper(string appId)
@@ -100,10 +101,10 @@ public class InterstitialAdWrapper
 {
     #region Variables
     private bool m_IsValid;
-    public bool IsValid { get => m_IsValid; }
+    public bool IsValid => m_IsValid;
 
     private InterstitialAd m_InterstitialAd;
-    public InterstitialAd InterstitialAd { get => m_InterstitialAd; }
+    public InterstitialAd InterstitialAd => m_InterstitialAd;
     private bool m_ShowOnLoad;
     #endregion
 
@@ -147,10 +148,10 @@ public class RewardedAdWrapper
 {
     #region Variables
     private bool m_IsValid;
-    public bool IsValid { get => m_IsValid; }
+    public bool IsValid => m_IsValid;
 
     private RewardedAd m_RewardedAd;
-    public RewardedAd RewardedAd { get => m_RewardedAd; }
+    public RewardedAd RewardedAd => m_RewardedAd;
     private bool m_ShowOnLoad;   
     #endregion
 

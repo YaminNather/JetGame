@@ -11,24 +11,12 @@ namespace Sisus
 	public class MonoScriptDrawer : FormattedTextAssetDrawer<CSharpSyntaxFormatter>
 	{
 		/// <inheritdoc/>
-		protected override MonoScript MonoScript
-		{
-			get
-			{
-				return Target as MonoScript;
-			}
-		}
+		protected override MonoScript MonoScript => Target as MonoScript;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("script-drawer");
-			}
-		}
-		
-		/// <inheritdoc/>
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("script-drawer");
+
+        /// <inheritdoc/>
 		protected override CSharpSyntaxFormatter CreateSyntaxFormatter()
 		{
 			return CSharpSyntaxFormatterPool.Pop();

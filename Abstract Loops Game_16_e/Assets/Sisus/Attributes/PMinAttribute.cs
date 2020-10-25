@@ -15,15 +15,9 @@ namespace Sisus.Attributes
 		public readonly float min;
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return Target.Members;
-			}
-		}
+		public Target Target => Target.Members;
 
-		/// <summary>
+        /// <summary>
 		/// Makes target field or property value always be more than or equal to given value.
 		/// </summary>
 		/// <param name="minimum"> The minimum allowed value. </param>

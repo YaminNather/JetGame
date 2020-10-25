@@ -22,15 +22,9 @@ namespace Sisus
 		#endif
 		#endif
 
-		public string AssetPath
-		{
-			get
-			{
-				return assetPath;
-			}
-		}
+		public string AssetPath => assetPath;
 
-		#if UNITY_2018_1_OR_NEWER
+#if UNITY_2018_1_OR_NEWER
 		#if UNITY_2018_2_OR_NEWER
 		public long LocalId
 		#else

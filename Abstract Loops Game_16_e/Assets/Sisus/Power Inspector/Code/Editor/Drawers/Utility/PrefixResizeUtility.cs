@@ -21,12 +21,9 @@ namespace Sisus
 
 		public static IUnityObjectDrawer NowResizing
 		{
-			get
-			{
-				return nowResizing;
-			}
+			get => nowResizing;
 
-			set
+            set
 			{
 				if(nowResizing != null && value == null && OnPrefixResizingFinished != null)
 				{

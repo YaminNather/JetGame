@@ -26,8 +26,8 @@ public class MainGameMgr : MonoBehaviour
     }
 
     private int m_PlayerDeathCount;
-    public int PlayerDeathCount { get => m_PlayerDeathCount; }
-    
+    public int PlayerDeathCount => m_PlayerDeathCount;
+
     [SerializeField] private AudioClip m_BackgroundMusicAC;
     #endregion
 

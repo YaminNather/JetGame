@@ -10,51 +10,21 @@ namespace Sisus
 	public class ParticleSystemDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Disabled;
-			}
-		}
+		public override PrefixResizer PrefixResizer => PrefixResizer.Disabled;
 
-		/// <inheritdoc />
-		protected override float ControlsRowHeight
-		{
-			get
-			{
-				return 13f;
-			}
-		}
+        /// <inheritdoc />
+		protected override float ControlsRowHeight => 13f;
 
-		/// <inheritdoc/>
-		protected override float ControlsTopMargin
-		{
-			get
-			{
-				return 52f;
-			}
-		}
+        /// <inheritdoc/>
+		protected override float ControlsTopMargin => 52f;
 
-		/// <inheritdoc/>
-		protected override float ControlsLeftMargin
-		{
-			get
-			{
-				return 8f;
-			}
-		}
+        /// <inheritdoc/>
+		protected override float ControlsLeftMargin => 8f;
 
-		/// <inheritdoc/>
-		protected override float ControlsRightMargin
-		{
-			get
-			{
-				return 1f;
-			}
-		}
+        /// <inheritdoc/>
+		protected override float ControlsRightMargin => 1f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override float GetOptimalPrefixLabelWidthForEditor(int indentLevel)
 		{
 			// 133f would be the "correct" value, but EditorGUIUtility.labelWidth seems to be stuck at 146f

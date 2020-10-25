@@ -27,62 +27,29 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual bool IsSearchBox
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public virtual bool IsSearchBox => false;
 
-		/// <inheritdoc/>
-		public virtual bool Clickable
-		{
-			get
-			{
-				return Selectable;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual bool Clickable => Selectable;
 
-		/// <inheritdoc/>
-		public virtual bool Selectable
-		{
-			get
-			{
-				return ShouldShow();
-			}
-		}
+        /// <inheritdoc/>
+		public virtual bool Selectable => ShouldShow();
 
-		/// <inheritdoc/>
-		public virtual int IndexInToolbar
-		{
-			get
-			{
-				return -1;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual int IndexInToolbar => -1;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public abstract float MinWidth { get; }
 
 		/// <inheritdoc/>
-		public virtual float MaxWidth
-		{
-			get
-			{
-				return MinWidth;
-			}
-		}
+		public virtual float MaxWidth => MinWidth;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public Rect Bounds
 		{
-			get
-			{
-				return bounds;
-			}
+			get => bounds;
 
-			set
+            set
 			{
 				bounds = value;
 				UpdateDrawPositions(value);
@@ -92,32 +59,14 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether this toolbar item has keyboard focus. </summary>
 		/// <value> True if this is selected, false if not. </value>
-		protected bool IsSelected
-		{
-			get
-			{
-				return toolbar.SelectedItem == this;
-			}
-		}
+		protected bool IsSelected => toolbar.SelectedItem == this;
 
-		/// <inheritdoc/>
-		public virtual string DocumentationPageUrl
-		{
-			get
-			{
-				return "";
-			}
-		}
+        /// <inheritdoc/>
+		public virtual string DocumentationPageUrl => "";
 
-		protected bool HasDocumentationPage
-		{
-			get
-			{
-				return DocumentationPageUrl.Length > 0;
-			}
-		}
+        protected bool HasDocumentationPage => DocumentationPageUrl.Length > 0;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public Action<IInspectorToolbarItem, Rect, ActivationMethod> OnBeingActivated { get; set; }
 
 		/// <inheritdoc/>

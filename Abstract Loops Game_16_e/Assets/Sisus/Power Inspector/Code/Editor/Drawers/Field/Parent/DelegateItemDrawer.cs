@@ -32,41 +32,17 @@ namespace Sisus
 		private int controls;
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool DrawInSingleRow => true;
 
-		/// <inheritdoc/>
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return true;
-			}
-		}
-		
-		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return delegateType;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildDrawersIfValueChanged => true;
 
-		private bool IsNull
-		{
-			get
-			{
-				return Value == null;
-			}
-		}
-		
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <inheritdoc/>
+		public override Type Type => delegateType;
+
+        private bool IsNull => Value == null;
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The initial cached value of the drawer. </param>
 		/// <param name="type"> Type of the delegate. Can not be null. </param>
 		/// <param name="parent"> The parent drawers of this member. Can be null. </param>

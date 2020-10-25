@@ -11,15 +11,9 @@ namespace Sisus
 	public sealed class IntRangeDrawer : RangeDrawer<int>, IPropertyDrawerDrawer
 	{
 		/// <inheritdoc/>
-		public bool RequiresPropertyDrawerType
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool RequiresPropertyDrawerType => false;
 
-		public static IntRangeDrawer Create(int value, RangeAttribute range, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool setReadOnly)
+        public static IntRangeDrawer Create(int value, RangeAttribute range, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool setReadOnly)
 		{
 			return Create(value, Mathf.Ceil(range.min), Mathf.Floor(range.max), memberInfo, parent, label, setReadOnly);
 		}

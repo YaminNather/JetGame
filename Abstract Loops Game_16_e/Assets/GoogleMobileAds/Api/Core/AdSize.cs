@@ -72,37 +72,13 @@ namespace GoogleMobileAds.Api
             return CreateAnchoredAdaptiveAdSize(width, Orientation.Current);
         }
 
-        public int Width
-        {
-            get
-            {
-                return width;
-            }
-        }
+        public int Width => width;
 
-        public int Height
-        {
-            get
-            {
-                return height;
-            }
-        }
+        public int Height => height;
 
-        public Type AdType
-        {
-            get
-            {
-                return type;
-            }
-        }
+        public Type AdType => type;
 
-        internal Orientation Orientation
-        {
-            get
-            {
-              return orientation;
-            }
-        }
+        internal Orientation Orientation => orientation;
 
         public override bool Equals(object obj)
         {

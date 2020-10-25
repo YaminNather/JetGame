@@ -18,15 +18,9 @@ namespace Sisus
 		public readonly float ToolbarHeight = DefaultToolbarHeight;
 		
 		/// <inheritdoc/>
-		public override float Height
-		{
-			get
-			{
-				return ToolbarHeight;
-			}
-		}
+		public override float Height => ToolbarHeight;
 
-		public PowerInspectorToolbar() : base()
+        public PowerInspectorToolbar() : base()
 		{
 			ToolbarHeight = DefaultToolbarHeight;
 		}

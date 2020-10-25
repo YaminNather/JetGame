@@ -11,23 +11,11 @@ namespace Sisus
 	[InitializeOnLoad]
 	internal class PopupMenuWindowAttacher : IPopupMenuAttacher
 	{
-		public PopupMenuManager.OpenRequest OnRequestingOpen
-		{
-			get
-			{
-				return PopupMenuWindow.Create;
-			}
-		}
+		public PopupMenuManager.OpenRequest OnRequestingOpen => PopupMenuWindow.Create;
 
-		public PopupMenuManager.SelectItemRequest OnRequestingSelectItem
-		{
-			get
-			{
-				return PopupMenuWindow.SelectItem;
-			}
-		}
+        public PopupMenuManager.SelectItemRequest OnRequestingSelectItem => PopupMenuWindow.SelectItem;
 
-		[UsedImplicitly]
+        [UsedImplicitly]
 		static PopupMenuWindowAttacher()
 		{
 			var attacher = new PopupMenuWindowAttacher();

@@ -35,15 +35,9 @@ namespace Sisus
 		private Dictionary<Type, IInspectorDrawer> lastSelectedInspectorDrawers = new Dictionary<Type, IInspectorDrawer>(1);
 		private IInspectorDrawer lastSelectedEditorWindow;
 	
-		public bool IsMultiSelection
-		{
-			get
-			{
-				return isMultiSelection;
-			}
-		}
+		public bool IsMultiSelection => isMultiSelection;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the drawer that currently has focus, i.e. the drawer that will receive given keyboard inputs.
 		/// </summary>
 		/// <value>
@@ -69,15 +63,9 @@ namespace Sisus
 		}
 
 		[NotNull]
-		public List<IDrawer> MultiSelection
-		{
-			get
-			{
-				return multiSelection;
-			}
-		}
+		public List<IDrawer> MultiSelection => multiSelection;
 
-		[CanBeNull]
+        [CanBeNull]
 		public IInspector Inspector
 		{
 			get
@@ -114,15 +102,9 @@ namespace Sisus
 		}
 
 		[CanBeNull]
-		public IInspector LastSelectedInspector
-		{
-			get
-			{
-				return lastSelectedInspector;
-			}
-		}
+		public IInspector LastSelectedInspector => lastSelectedInspector;
 
-		public InspectorPart InspectorPart
+        public InspectorPart InspectorPart
 		{
 			get
 			{
@@ -145,29 +127,17 @@ namespace Sisus
 		/// <value>
 		/// Zero-based index.
 		/// </value>
-		public int RowIndex
-		{
-			get
-			{
-				return rowIndex;
-			}
-		}
+		public int RowIndex => rowIndex;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the number of drawers occupying the row of the focused drawer.
 		/// </summary>
 		/// <value>
 		/// Count.
 		/// </value>
-		public int RowElementCount
-		{
-			get
-			{
-				return rowElementCount;
-			}
-		}
+		public int RowElementCount => rowElementCount;
 
-		public bool IsSelected([NotNull]IDrawer drawer)
+        public bool IsSelected([NotNull]IDrawer drawer)
 		{
 			return isMultiSelection ? IsMultiSelected(drawer) : focusedDrawer == drawer;
 		}

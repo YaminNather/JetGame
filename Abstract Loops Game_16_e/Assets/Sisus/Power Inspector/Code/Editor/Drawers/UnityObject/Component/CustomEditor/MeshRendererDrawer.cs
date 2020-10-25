@@ -9,15 +9,9 @@ namespace Sisus
 	public class MeshRendererDrawer : RendererDrawer
 	{
 		/// <inheritdoc/>
-		protected override float EstimatedUnfoldedHeight
-		{
-			get
-			{
-				return 113f;
-			}
-		}
+		protected override float EstimatedUnfoldedHeight => 113f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override float GetOptimalPrefixLabelWidthForEditor(int indentLevel)
 		{
 			return 136f;

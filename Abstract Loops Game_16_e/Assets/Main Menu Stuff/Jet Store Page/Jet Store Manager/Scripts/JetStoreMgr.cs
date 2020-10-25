@@ -14,7 +14,8 @@ public class JetStoreMgr : Page
     [SerializeField] private Text m_CurrencyValueLbl;
     private int m_JetSelected;
     private Sprite m_JetNotOwnedSprite;
-    public Sprite JetNotOwnedSprite { get => m_JetNotOwnedSprite; }
+    public Sprite JetNotOwnedSprite => m_JetNotOwnedSprite;
+
     #endregion
 
     private void Awake()

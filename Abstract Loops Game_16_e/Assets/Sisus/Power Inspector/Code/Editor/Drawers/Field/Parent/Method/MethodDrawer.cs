@@ -75,51 +75,21 @@ namespace Sisus
 		private LinkedMemberHierarchy resultMemberHierarchy;
 
 		/// <inheritdoc/>
-		public override Part MouseoveredPart
-		{
-			get
-			{
-				return mouseIsOverButton ? Part.Button : base.MouseoveredPart;
-			}
-		}
+		public override Part MouseoveredPart => mouseIsOverButton ? Part.Button : base.MouseoveredPart;
 
-		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc/>
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				return backgroundRect;
-			}
-		}
+        /// <inheritdoc/>
+		public override Rect ClickToSelectArea => backgroundRect;
 
-		/// <inheritdoc/>
-		public override float HeaderHeight
-		{
-			get
-			{
-				return VerticalPadding + DrawGUI.SingleLineHeight + VerticalPadding;
-			}
-		}
+        /// <inheritdoc/>
+		public override float HeaderHeight => VerticalPadding + DrawGUI.SingleLineHeight + VerticalPadding;
 
-		/// <inheritdoc/>
-		protected override bool PrefixLabelClippedToColumnWidth
-		{
-			get
-			{
-				return Inspector.Preferences.enableTooltipIcons && label.tooltip.Length > 0;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool PrefixLabelClippedToColumnWidth => Inspector.Preferences.enableTooltipIcons && label.tooltip.Length > 0;
 
-		/// <summary> Gets or sets the generics drawers. </summary>
+        /// <summary> Gets or sets the generics drawers. </summary>
 		/// <value> The generics drawers. </value>
 		private GenericsDrawer GenericsDrawer
 		{
@@ -176,34 +146,16 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetPreferencesUrl("show-methods");
-			}
-		}
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetPreferencesUrl("show-methods");
 
 
-		/// <inheritdoc/>
-		public override bool CanReadFromFieldWithoutSideEffects
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool CanReadFromFieldWithoutSideEffects => false;
 
-		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return memberInfo.MethodInfo.ReturnType;
-			}
-		}
+        /// <inheritdoc/>
+		public override Type Type => memberInfo.MethodInfo.ReturnType;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override object Value
 		{
 			get
@@ -226,24 +178,12 @@ namespace Sisus
 		/// <summary> Gets information describing the method. </summary>
 		/// <value> Information describing the method. </value>
 		[NotNull]
-		private MethodInfo MethodInfo
-		{
-			get
-			{
-				return memberInfo.MethodInfo;
-			}
-		}
+		private MethodInfo MethodInfo => memberInfo.MethodInfo;
 
-		/// <inheritdoc/>
-		protected override bool CanBeNull
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool CanBeNull => true;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="methodInfo"> LinkedMemberInfo of the method that the drawers represent. </param>
 		/// <param name="parent"> The parent drawers of this member. Can be null. </param>
 		/// <param name="label"> The label. </param>
@@ -688,15 +628,9 @@ namespace Sisus
 		/// <summary>
 		/// GUIStyle for the button
 		/// </summary>
-		protected virtual GUIStyle Style
-		{
-			get
-			{
-				return InspectorPreferences.Styles.MiniButton;
-			}
-		}
+		protected virtual GUIStyle Style => InspectorPreferences.Styles.MiniButton;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void GetDrawPositions(Rect position)
 		{
 			lastDrawPosition = position;

@@ -13,15 +13,9 @@ namespace Sisus
 	{
 		private List<CodeBlock> blocks;
 
-		public List<CodeBlock> Elements
-		{
-			get
-			{
-				return blocks;
-			}
-		}
+		public List<CodeBlock> Elements => blocks;
 
-		public CodeBlockGroup()
+        public CodeBlockGroup()
 		{
 			blocks = new List<CodeBlock>(100);
 		}

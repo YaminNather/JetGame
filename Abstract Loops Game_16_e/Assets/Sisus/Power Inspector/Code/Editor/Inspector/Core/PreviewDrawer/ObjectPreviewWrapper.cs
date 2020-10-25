@@ -65,31 +65,13 @@ namespace Sisus
 		}
 		
 		/// <inheritdoc/>
-		public Type Type
-		{
-			get
-			{
-				return type;
-			}
-		}
+		public Type Type => type;
 
-		public Object[] Targets
-		{
-			get
-			{
-				return targets;
-			}
-		}
+        public Object[] Targets => targets;
 
-		public bool StateIsValid
-		{
-			get
-			{
-				return Instance() != null && !Targets.ContainsNullObjects();
-			}
-		}
+        public bool StateIsValid => Instance() != null && !Targets.ContainsNullObjects();
 
-		public bool HasPreviewGUI()
+        public bool HasPreviewGUI()
 		{
 			return objectPreview.HasPreviewGUI();
 		}
@@ -172,13 +154,7 @@ namespace Sisus
 			ReloadPreviewInstances();
 		}
 
-		public bool RequiresConstantRepaint
-		{
-			get
-			{
-				return false;
-			}
-		}
-	}
+		public bool RequiresConstantRepaint => false;
+    }
 }
 #endif

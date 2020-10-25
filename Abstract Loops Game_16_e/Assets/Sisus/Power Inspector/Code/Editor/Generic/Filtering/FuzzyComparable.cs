@@ -54,15 +54,9 @@ namespace Sisus
 		[SerializeField]
 		private readonly int[] splitPoints;
 		
-		private int Length
-		{
-			get
-			{
-				return compare.Length;
-			}
-		}
-		
-		public FuzzyComparable(string textInput)
+		private int Length => compare.Length;
+
+        public FuzzyComparable(string textInput)
 		{
 			text = textInput;
 			compare = FuzzyComparableBuilder.GenerateFuzzyComparableData(textInput, out splitPoints);

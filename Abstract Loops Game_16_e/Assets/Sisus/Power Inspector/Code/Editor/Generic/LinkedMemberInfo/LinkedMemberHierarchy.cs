@@ -169,129 +169,63 @@ namespace Sisus
 		/// Returns a flat read-only collection containing all the LinkedMemberInfos generated for the hierarchy.
 		/// Does not necessarily contain LinkedMemberInfos of all class members, but only those that are visible in the inspector.
 		/// </summary>
-		public IList<LinkedMemberInfo> Members
-		{
-			get
-			{
-				return members.AsReadOnly();
-			}
-		}
+		public IList<LinkedMemberInfo> Members => members.AsReadOnly();
 
-		public bool MultiField
-		{
-			get
-			{
-				return multiField;
-			}
-		}
+        public bool MultiField => multiField;
 
-		public int TargetCount
-		{
-			get
-			{
-				return targetCount;
-			}
-		}
+        public int TargetCount => targetCount;
 
-		public int NonUnityObjectTargetCount
-		{
-			get
-			{
-				return nonUnityObjectTargetCount;
-			}
-		}
+        public int NonUnityObjectTargetCount => nonUnityObjectTargetCount;
 
-		public int UnityObjectOrClassTargetCount
-		{
-			get
-			{
-				return unityObjectOrClassTargetCount;
-			}
-		}
+        public int UnityObjectOrClassTargetCount => unityObjectOrClassTargetCount;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the target UnityEngine.Objects of the hierarchy.
 		/// If hierarchy has no targets (e.g. if represents a static class),
 		/// returns a zero-size array.
 		/// </summary>
 		/// <value> The targets. </value>
 		[NotNull]
-		public Object[] Targets
-		{
-			get
-			{
-				return targets;
-			}
-		}
+		public Object[] Targets => targets;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the first target UnityEngine.Object of the hierarchy.
 		/// If hierarchy has no targets (e.g. if represents a static class),
 		/// returns null.
 		/// </summary>
 		/// <value> The target. </value>
 		[CanBeNull]
-		public Object Target
-		{
-			get
-			{
-				return targets.Length > 0 ? targets[0] : null;
-			}
-		}
+		public Object Target => targets.Length > 0 ? targets[0] : null;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the target System.Object of the hierarchy, when not targeting UnityEngine.Objects.
 		/// If hierarchy has no targets (e.g. if represents a static class), returns null.
 		/// If hierarchy has UnityEngine.Object type targets, returns null.
 		/// </summary>
 		/// <value> The target, if has one that is not of type UnityEngine.Object. </value>
 		[CanBeNull]
-		public object NonUnityObjectTarget
-		{
-			get
-			{
-				return nonUnityObjectTarget;
-			}
-		}
+		public object NonUnityObjectTarget => nonUnityObjectTarget;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the target System.Objects of the hierarchy, when not targeting UnityEngine.Objects.
 		/// If hierarchy has no targets (e.g. if represents a static class), returns empty array.
 		/// If hierarchy has UnityEngine.Object type targets, returns empty array.
 		/// </summary>
 		/// <value> The targets, if has ones that are not of type UnityEngine.Object. </value>
 		[NotNull]
-		public object[] NonUnityObjectTargets
-		{
-			get
-			{
-				return nonUnityObjectTargets;
-			}
-		}
+		public object[] NonUnityObjectTargets => nonUnityObjectTargets;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the target UnityEngine.Object or System.Object or of the hierarchy.
 		/// If hierarchy has no targets (e.g. if represents a static class), returns null.
 		/// </summary>
 		/// <value> The target. </value>
 		[CanBeNull]
-		public object UnityObjectOrClassTarget
-		{
-			get
-			{
-				return targetCount > 0 ? targets[0] : nonUnityObjectTarget;
-			}
-		}
+		public object UnityObjectOrClassTarget => targetCount > 0 ? targets[0] : nonUnityObjectTarget;
 
-		public object[] UnityObjectOrClassTargets
-		{
-			get
-			{
-				return targetCount > 0 ? targets : nonUnityObjectTargets;
-			}
-		}
+        public object[] UnityObjectOrClassTargets => targetCount > 0 ? targets : nonUnityObjectTargets;
 
-		public static LinkedMemberHierarchy GetForClass([CanBeNull]object target)
+        public static LinkedMemberHierarchy GetForClass([CanBeNull]object target)
 		{
 			return new LinkedMemberHierarchy(ArrayPool<Object>.ZeroSizeArray, target);
 		}

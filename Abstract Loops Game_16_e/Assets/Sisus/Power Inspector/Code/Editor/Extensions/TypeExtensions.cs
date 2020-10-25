@@ -159,15 +159,9 @@ namespace Sisus
 			EditorApplication.delayCall += Setup;
 		}
 
-		public static bool IsReady
-		{
-			get
-			{
-				return setupDone == SetupPhase.Done;
-			}
-		}
+		public static bool IsReady => setupDone == SetupPhase.Done;
 
-		public static IEnumerable<Assembly> Assemblies
+        public static IEnumerable<Assembly> Assemblies
 		{
 			get
 			{

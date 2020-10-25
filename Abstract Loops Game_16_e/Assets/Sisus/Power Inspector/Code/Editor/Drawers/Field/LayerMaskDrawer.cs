@@ -13,16 +13,10 @@ namespace Sisus
 	
 		public int MaskValue
 		{
-			get
-			{
-				return Value;
-			}
+			get => Value;
 
-			set
-			{
-				Value = value;
-			}
-		}
+            set => Value = value;
+        }
 
 		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>

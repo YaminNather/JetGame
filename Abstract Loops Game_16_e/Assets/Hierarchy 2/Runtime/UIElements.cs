@@ -27,7 +27,7 @@ namespace Hierarchy2
 
         public bool Value
         {
-            get { return value; }
+            get => value;
 
             set
             {
@@ -39,8 +39,8 @@ namespace Hierarchy2
 
         public string Title
         {
-            get { return labelElement.text; }
-            set { labelElement.text = value; }
+            get => labelElement.text;
+            set => labelElement.text = value;
         }
 
         public Foldout() => Init("");
@@ -130,8 +130,8 @@ namespace Hierarchy2
     {
         public string Label
         {
-            get { return label; }
-            set { label = value; }
+            get => label;
+            set => label = value;
         }
 
         private string label = "";

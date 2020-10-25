@@ -16,44 +16,22 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public override bool RequiresConstantRepaint
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool RequiresConstantRepaint => false;
 
-		/// <inheritdoc />
-		protected override bool HasDebugModeIcon
-		{
-			get
-			{
-				// hide the icon because it overlaps with the name field
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool HasDebugModeIcon =>
+            // hide the icon because it overlaps with the name field
+            false;
 
-		/// <inheritdoc />
-		protected override bool HasExecuteMethodIcon
-		{
-			get
-			{
-				// hide the icon because it overlaps with the name field
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool HasExecuteMethodIcon =>
+            // hide the icon because it overlaps with the name field
+            false;
 
-		#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
+#if UNITY_2018_1_OR_NEWER // Presets were added in Unity 2018.1
 		/// <inheritdoc />
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return true;
-			}
-		}
-		#endif
+		protected override bool HasPresetIcon => true;
+#endif
 
 		/// <inheritdoc />
 		protected override void GetHeaderSubtitle(ref GUIContent subtitle)
@@ -64,14 +42,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public override float MaxPrefixLabelWidth
-		{
-			get
-			{
-				// UnityEvent drawer can clip off-screen if prefix column width is too large compared to inspector width
-				return Mathf.Max(99f, DrawGUI.InspectorWidth - 178f);
-			}
-		}
-	}
+		public override float MaxPrefixLabelWidth =>
+            // UnityEvent drawer can clip off-screen if prefix column width is too large compared to inspector width
+            Mathf.Max(99f, DrawGUI.InspectorWidth - 178f);
+    }
 }
 #endif

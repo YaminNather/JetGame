@@ -187,47 +187,17 @@ namespace Sisus
 			}
 		}
 
-		public static Vector2 OnWindowBeginScreenPoint
-		{
-			get
-			{
-				return onWindowBeginScreenPoint;
-			}
-		}
+		public static Vector2 OnWindowBeginScreenPoint => onWindowBeginScreenPoint;
 
-		public static DrawGUI Active
-		{
-			get
-			{
-				return Platform.GUIDrawer;
-			}
-		}
+        public static DrawGUI Active => Platform.GUIDrawer;
 
-		public static DrawGUI Runtime
-		{
-			get
-			{
-				return Platform.RuntimeGUIDrawer;
-			}
-		}
+        public static DrawGUI Runtime => Platform.RuntimeGUIDrawer;
 
-		public static DrawGUI Editor
-		{
-			get
-			{
-				return Platform.Editor.GUI;
-			}
-		}
+        public static DrawGUI Editor => Platform.Editor.GUI;
 
-		public Color InspectorBackgroundColor
-		{
-			get
-			{
-				return InspectorUtility.Preferences.theme.Background;
-			}
-		}
+        public Color InspectorBackgroundColor => InspectorUtility.Preferences.theme.Background;
 
-		public static bool ActionKey
+        public static bool ActionKey
 		{
 			get
 			{
@@ -326,23 +296,11 @@ namespace Sisus
 			}
 		}
 		
-		public static float InspectorHeight
-		{
-			get
-			{
-				return InspectorUtility.ActiveInspector.State.WindowRect.height;
-			}
-		}
-		
-		public static float MaxAutoSizedPrefixLabelWidth
-		{
-			get
-			{
-				return GetCurrentDrawAreaWidth() * InspectorUtility.Preferences.maxAutoSizedPrefixColumnWidth;
-			}
-		}
+		public static float InspectorHeight => InspectorUtility.ActiveInspector.State.WindowRect.height;
 
-		/// <summary>
+        public static float MaxAutoSizedPrefixLabelWidth => GetCurrentDrawAreaWidth() * InspectorUtility.Preferences.maxAutoSizedPrefixColumnWidth;
+
+        /// <summary>
 		/// Gets or sets the width of the prefix label column.
 		/// 
 		/// This is the left side of the inspector.
@@ -372,15 +330,9 @@ namespace Sisus
 			}
 		}
 
-		public static bool IsUnityObjectDrag
-		{
-			get
-			{
-				return Platform.Active.GUI.DragAndDropObjectReferences.Length > 0;
-			}
-		}
-		
-		public static bool EditingTextField
+		public static bool IsUnityObjectDrag => Platform.Active.GUI.DragAndDropObjectReferences.Length > 0;
+
+        public static bool EditingTextField
 		{
 			get
 			{

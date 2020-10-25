@@ -11,15 +11,9 @@ namespace Sisus
 		public GUIStyle guiStyle;
 
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(string);
-			}
-		}
+		public override Type Type => typeof(string);
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="guiStyle"> The starting cached value of the drawer. </param>
 		/// <param name="text"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>

@@ -28,15 +28,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		protected sealed override int Rank
-		{
-			get
-			{
-				return 1;
-			}
-		}
+		protected sealed override int Rank => 1;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override IDrawer BuildResizeField()
 		{
 			var resizerMemberInfo = ResizerMemberInfo;

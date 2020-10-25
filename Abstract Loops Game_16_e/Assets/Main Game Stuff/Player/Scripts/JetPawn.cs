@@ -283,10 +283,10 @@ public abstract class Pawn : MonoBehaviour
     #region Variables
     protected PlayerController m_PlayerController;
 
-    public bool IsPossessed { get => m_PlayerController != null; }
+    public bool IsPossessed => m_PlayerController != null;
 
     protected int m_Health;
-    public int Health { get => m_Health; }
+    public int Health => m_Health;
     public System.Action HealthOnReachedZero_E;
     public System.Action OnDeath_E;
     #endregion

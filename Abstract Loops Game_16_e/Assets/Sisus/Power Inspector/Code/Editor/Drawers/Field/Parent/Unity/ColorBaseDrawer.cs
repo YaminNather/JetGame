@@ -24,24 +24,12 @@ namespace Sisus
 		private bool listeningForStoppedUsingEyeDropper;
 
 		/// <inheritdoc/>
-		public override Part MouseoveredPart
-		{
-			get
-			{
-				return eyeDropToolMouseovered ? Part.Eyedropper : base.MouseoveredPart;
-			}
-		}
+		public override Part MouseoveredPart => eyeDropToolMouseovered ? Part.Eyedropper : base.MouseoveredPart;
 
-		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(TColor);
-			}
-		}
-		
-		private Rect EyeDropToolRect
+        /// <inheritdoc/>
+		public override Type Type => typeof(TColor);
+
+        private Rect EyeDropToolRect
 		{
 			get
 			{

@@ -19,16 +19,10 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return null;
-			}
+			get => null;
 
-			set
-			{
-				throw new NotSupportedException();
-			}
-		}
+            set => throw new NotSupportedException();
+        }
 		#endif
 
 		public override object[] IndexParameters
@@ -62,20 +56,11 @@ namespace Sisus
 			}
 		}
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Property; }
-		}
+		public override MemberTypes MemberType => MemberTypes.Property;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.Indexer;
-			}
-		}
-			
-		public override string Name
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.Indexer;
+
+        public override string Name
 		{
 			get
 			{
@@ -90,57 +75,21 @@ namespace Sisus
 			}
 		}
 
-		public override bool IsStatic
-		{
-			get
-			{
-				return propertyInfo.GetGetMethod().IsStatic;
-			}
-		}
+		public override bool IsStatic => propertyInfo.GetGetMethod().IsStatic;
 
-		public override MemberInfo MemberInfo
-		{
-			get { return propertyInfo; }
-		}
+        public override MemberInfo MemberInfo => propertyInfo;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo SecondMemberInfo => null;
 
-		public override Type Type
-		{
-			get
-			{
-				return propertyInfo.PropertyType;
-			}
-		}
+        public override Type Type => propertyInfo.PropertyType;
 
-		public override bool CanRead
-		{
-			get
-			{
-				return propertyInfo.CanRead;
-			}
-		}
+        public override bool CanRead => propertyInfo.CanRead;
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return false; //should we trust that an indexer doesn't have side effects?
-			}
-		}
+        public override bool CanReadWithoutSideEffects => false; //should we trust that an indexer doesn't have side effects?
 
-		public override bool CanWrite
-		{
-			get
-			{
-				return propertyInfo.CanWrite;
-			}
-		}
-			
-		public void Setup(PropertyInfo inPropertyInfo)
+        public override bool CanWrite => propertyInfo.CanWrite;
+
+        public void Setup(PropertyInfo inPropertyInfo)
 		{
 			propertyInfo = inPropertyInfo;
 		}

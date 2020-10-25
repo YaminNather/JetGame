@@ -108,42 +108,18 @@ namespace Sisus
 		protected Rect[] memberRects = new Rect[0];
 
 		/// <inheritdoc cref="IDrawer.CachedValuesNeedUpdating" />
-		public sealed override bool CachedValuesNeedUpdating
-		{
-			get
-			{
-				return cachedValuesNeedUpdating;
-			}
-		}
+		public sealed override bool CachedValuesNeedUpdating => cachedValuesNeedUpdating;
 
-		/// <inheritdoc/>
-		public virtual bool MembersAreVisible
-		{
-			get
-			{
-				return Unfoldedness > 0f;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual bool MembersAreVisible => Unfoldedness > 0f;
 
-		/// <inheritdoc/>
-		public virtual float HeaderHeight
-		{
-			get
-			{
-				return DrawGUI.SingleLineHeight;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual float HeaderHeight => DrawGUI.SingleLineHeight;
 
-		/// <inheritdoc cref="IDrawer.ClickToSelectArea" />
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.ClickToSelectArea" />
+		public override Rect ClickToSelectArea => labelLastDrawPosition;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override Rect SelectionRect
 		{
 			get
@@ -185,33 +161,15 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual bool DrawInSingleRow
-		{
-			get
-			{
-				return members.Length == 0 && memberBuildList.Count == 0;
-			}
-		}
-		
-		/// <inheritdoc/>
-		public virtual bool Foldable
-		{
-			get
-			{
-				return !DrawInSingleRow;
-			}
-		}
+		public virtual bool DrawInSingleRow => members.Length == 0 && memberBuildList.Count == 0;
 
-		/// <inheritdoc cref="IDrawer.PrefixResizingEnabledOverControl" />
-		public override bool PrefixResizingEnabledOverControl
-		{
-			get
-			{
-				return PrefixLabelClippedToColumnWidth;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual bool Foldable => !DrawInSingleRow;
 
-		/// <inheritdoc cref="IDrawer.DebugMode" />
+        /// <inheritdoc cref="IDrawer.PrefixResizingEnabledOverControl" />
+		public override bool PrefixResizingEnabledOverControl => PrefixLabelClippedToColumnWidth;
+
+        /// <inheritdoc cref="IDrawer.DebugMode" />
 		public override bool DebugMode
 		{
 			get
@@ -295,38 +253,20 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public sealed override Rect ControlPosition
-		{
-			get
-			{
-				return bodyLastDrawPosition;
-			}
-		}
+		public sealed override Rect ControlPosition => bodyLastDrawPosition;
 
-		/// <inheritdoc cref="IDrawer.RightClickArea" />
-		public sealed override Rect RightClickArea
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.RightClickArea" />
+		public sealed override Rect RightClickArea => labelLastDrawPosition;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the append indent level.
 		/// </summary>
 		/// <value>
 		/// The append indent level.
 		/// </value>
-		public virtual int AppendIndentLevel
-		{
-			get
-			{
-				return 1;
-			}
-		}
+		public virtual int AppendIndentLevel => 1;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
 		public IDrawer[] Members
 		{
@@ -392,24 +332,12 @@ namespace Sisus
 		
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public IDrawer[] VisibleMembers
-		{
-			get
-			{
-				return visibleMembers;
-			}
-		}
-		
-		/// <inheritdoc cref="IDrawer.ShouldShowInInspector" />
-		public override bool ShouldShowInInspector
-		{
-			get
-			{
-				return ParentDrawerUtility.ShowInInspector(this, passedLastFilterCheck) && passedLastShowInInspectorIfTest;
-			}
-		}
+		public IDrawer[] VisibleMembers => visibleMembers;
 
-		/// <inheritdoc/>
+        /// <inheritdoc cref="IDrawer.ShouldShowInInspector" />
+		public override bool ShouldShowInInspector => ParentDrawerUtility.ShowInInspector(this, passedLastFilterCheck) && passedLastShowInInspectorIfTest;
+
+        /// <inheritdoc/>
 		public bool Unfolded
 		{
 			get
@@ -497,15 +425,9 @@ namespace Sisus
 		/// or if it can flow past it (the behaviour of most foldouts).
 		/// </summary>
 		/// <value> True if prefix label clipped to colum width, false if not. </value>
-		protected virtual bool PrefixLabelClippedToColumnWidth
-		{
-			get
-			{
-				return DrawInSingleRow || (Inspector.Preferences.enableTooltipIcons && label.tooltip.Length > 0);
-			}
-		}
+		protected virtual bool PrefixLabelClippedToColumnWidth => DrawInSingleRow || (Inspector.Preferences.enableTooltipIcons && label.tooltip.Length > 0);
 
-		/// <summary>
+        /// <summary>
 		/// Called when drawer were fully folded (closedness was 0)
 		/// and just now started unfolding (closedness is > 0), or when they
 		/// were at least partially unfolded (closedness was > 0) and just became
@@ -534,24 +456,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public float Unfoldedness
-		{
-			get
-			{
-				return unfoldedness;
-			}
-		}
+		public float Unfoldedness => unfoldedness;
 
-		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return ParentDrawerUtility.CalculateHeight(this);
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Height" />
+		public override float Height => ParentDrawerUtility.CalculateHeight(this);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override TValue Value
 		{
 			set
@@ -578,15 +488,9 @@ namespace Sisus
 		/// <value>
 		/// True if members listed vertically, false if not.
 		/// </value>
-		private bool MembersListedVertically
-		{
-			get
-			{
-				return !DrawInSingleRow && Unfolded;
-			}
-		}
+		private bool MembersListedVertically => !DrawInSingleRow && Unfolded;
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether rebuilding members is allowed.
 		/// 
 		/// If members are set manually by an external class instead of being
@@ -613,15 +517,9 @@ namespace Sisus
 		/// <value>
 		/// True if rebuild drawer if value changed, false if not.
 		/// </value>
-		protected virtual bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return memberInfo == null && RebuildingMembersAllowed;
-			}
-		}
+		protected virtual bool RebuildDrawersIfValueChanged => memberInfo == null && RebuildingMembersAllowed;
 
-		private Rect DragBarPosition
+        private Rect DragBarPosition
 		{
 			get
 			{
@@ -1502,15 +1400,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override Rect PrefixLabelPosition
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+		protected override Rect PrefixLabelPosition => labelLastDrawPosition;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool PassesSearchFilter(SearchFilter filter)
 		{
 			return ParentDrawerUtility.PassesSearchFilter(this, filter, SelfPassesSearchFilter);

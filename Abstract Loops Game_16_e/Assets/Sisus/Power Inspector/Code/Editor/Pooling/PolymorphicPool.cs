@@ -13,15 +13,9 @@ namespace Sisus
 
 		private readonly Dictionary<Type, Stack<T>> pool;
 		
-		public int Count
-		{
-			get
-			{
-				return pool.Count;
-			}
-		}
-		
-		public bool Remove(T remove)
+		public int Count => pool.Count;
+
+        public bool Remove(T remove)
 		{
 			Stack<T> stack;
 			var type = typeof(T);

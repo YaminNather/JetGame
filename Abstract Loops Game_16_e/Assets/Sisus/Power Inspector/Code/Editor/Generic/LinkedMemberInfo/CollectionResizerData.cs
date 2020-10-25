@@ -24,130 +24,50 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return serializedProperty;
-			}
-				
-			set
-			{
-				serializedProperty = value;
-			}
-		}
+			get => serializedProperty;
+
+            set => serializedProperty = value;
+        }
 		#endif
 
-		public override MulticastDelegate GetDelegate
-		{
-			get
-			{
-				return getSize;
-			}
-		}
+		public override MulticastDelegate GetDelegate => getSize;
 
-		public override MulticastDelegate SetDelegate
-		{
-			get
-			{
-				return setSize;
-			}
-		}
+        public override MulticastDelegate SetDelegate => setSize;
 
-		public override int CollectionIndex
-		{
-			get
-			{
-				return CollectionIndexValue;
-			}
-		}
+        public override int CollectionIndex => CollectionIndexValue;
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Method; }
-		}
+        public override MemberTypes MemberType => MemberTypes.Method;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.CollectionResizer;
-			}
-		}
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.CollectionResizer;
 
-		public override string Name
-		{
-			get
-			{
-				return getSize != null ? StringUtils.ToString(getSize) : setSize != null ? StringUtils.ToString(setSize) : "";
-			}
-		}
+        public override string Name => getSize != null ? StringUtils.ToString(getSize) : setSize != null ? StringUtils.ToString(setSize) : "";
 
-		/// <inheritdoc />
-		public override bool IsStatic
-		{
-			get
-			{
-				// Even if getSize / setSize actually refer to static methods,
-				// we want want to treat the CollectionResizerData as non-static,
-				// so that GetValue is called with fieldOwner value containing
-				// the value of the collection.
-				return false;
-			}
-		}
+        /// <inheritdoc />
+		public override bool IsStatic =>
+            // Even if getSize / setSize actually refer to static methods,
+            // we want want to treat the CollectionResizerData as non-static,
+            // so that GetValue is called with fieldOwner value containing
+            // the value of the collection.
+            false;
 
-		public override bool Equals(MemberData other)
+        public override bool Equals(MemberData other)
 		{
 			return false;
 		}
 
-		public override MemberInfo MemberInfo
-		{
-			get
-			{
-				return getSize != null ? getSize.Method : null;
-			}
-		}
+		public override MemberInfo MemberInfo => getSize != null ? getSize.Method : null;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get
-			{
-				return setSize != null ? setSize.Method : null;
-			}
-		}
+        public override MemberInfo SecondMemberInfo => setSize != null ? setSize.Method : null;
 
-		public override Type Type
-		{
-			get
-			{
-				return type;
-			}
-		}
+        public override Type Type => type;
 
-		public override bool CanRead
-		{
-			get
-			{
-				return getSize != null;
-			}
-		}
+        public override bool CanRead => getSize != null;
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return getSize != null; //For now will assume no side effects. Could allow specifying this via parameter later if needed
-			}
-		}
+        public override bool CanReadWithoutSideEffects => getSize != null; //For now will assume no side effects. Could allow specifying this via parameter later if needed
 
-		public override bool CanWrite
-		{
-			get
-			{
-				return setSize != null;
-			}
-		}
+        public override bool CanWrite => setSize != null;
 
-		public void Setup([NotNull]Type inType, [NotNull]GetSize inGetSize, SetSize inSetSize)
+        public void Setup([NotNull]Type inType, [NotNull]GetSize inGetSize, SetSize inSetSize)
 		{
 			#if DEV_MODE && PI_ASSERTATIONS
 			Debug.Assert(inType != null);

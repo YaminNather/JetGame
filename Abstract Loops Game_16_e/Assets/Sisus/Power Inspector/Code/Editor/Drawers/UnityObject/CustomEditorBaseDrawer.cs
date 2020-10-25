@@ -68,43 +68,19 @@ namespace Sisus
 		protected bool hideInInspector;
 
 		/// <summary> Offset of items inside Editor from the bottom of the header. </summary>
-		protected virtual float ControlsTopMargin
-		{
-			get
-			{
-				return 1f;
-			}
-		}
+		protected virtual float ControlsTopMargin => 1f;
 
-		/// <summary> Offset of items inside Editor from the left edge of the inspector. </summary>
-		protected virtual float ControlsLeftMargin
-		{
-			get
-			{
-				return 13f;
-			}
-		}
+        /// <summary> Offset of items inside Editor from the left edge of the inspector. </summary>
+		protected virtual float ControlsLeftMargin => 13f;
 
-		/// <summary> Offset of items inside Editor from the right edge of the inspector. </summary>
-		protected virtual float ControlsRightMargin
-		{
-			get
-			{
-				return 4f;
-			}
-		}
+        /// <summary> Offset of items inside Editor from the right edge of the inspector. </summary>
+		protected virtual float ControlsRightMargin => 4f;
 
-		/// <summary> Gets the controller responsible for changing focused keyboard control. </summary>
+        /// <summary> Gets the controller responsible for changing focused keyboard control. </summary>
 		/// <value> The keyboard focus controller. </value>
-		protected virtual EditorKeyboardFocusController KeyboardFocusController
-		{
-			get
-			{
-				return keyboardFocusController;
-			}
-		}
+		protected virtual EditorKeyboardFocusController KeyboardFocusController => keyboardFocusController;
 
-		private const float ControlsBottomMargin = 2f; //4f; //UPDATE: Changed from 4 to 2 because of Extended Transform Editor
+        private const float ControlsBottomMargin = 2f; //4f; //UPDATE: Changed from 4 to 2 because of Extended Transform Editor
 
 		/// <summary> Offset of controls from the end of the prefix column. </summary>
 		private const float PrefixColumnEndToControlOffset = 6f;
@@ -121,24 +97,12 @@ namespace Sisus
 		private int focusFirstField;
 
 		/// <inheritdoc cref="IDrawer.RequiresConstantRepaint" />
-		public override bool RequiresConstantRepaint
-		{
-			get
-			{
-				return editor != null && editor.RequiresConstantRepaint();
-			}
-		}
+		public override bool RequiresConstantRepaint => editor != null && editor.RequiresConstantRepaint();
 
-		/// <inheritdoc/>
-		public override bool ShouldShowInInspector
-		{
-			get
-			{
-				return !hideInInspector && base.ShouldShowInInspector;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool ShouldShowInInspector => !hideInInspector && base.ShouldShowInInspector;
 
-		/// <inheritdoc cref="IDrawer.Height" />
+        /// <inheritdoc cref="IDrawer.Height" />
 		public override float Height
 		{
 			get
@@ -186,15 +150,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override bool CanBeSelectedWithoutHeaderBeingSelected
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool CanBeSelectedWithoutHeaderBeingSelected => true;
 
-		/// <summary>
+        /// <summary>
 		/// The main Editor used for drawing the body of the drawer.
 		/// For AssetImporter targets, this is the AssetImporterEditor.
 		///
@@ -219,25 +177,13 @@ namespace Sisus
 			}
 		}
 		
-		protected virtual int AppendLastCheckedId
-		{
-			get
-			{
-				return 0;
-			}
-		}
+		protected virtual int AppendLastCheckedId => 0;
 
-		/// <summary> What height is a single row in the body of the drawer? </summary>
+        /// <summary> What height is a single row in the body of the drawer? </summary>
 		/// <value> Row height in pixels. </value>
-		protected virtual float ControlsRowHeight
-		{
-			get
-			{
-				return DrawGUI.SingleLineHeight;
-			}
-		}
+		protected virtual float ControlsRowHeight => DrawGUI.SingleLineHeight;
 
-		protected int EndControlId
+        protected int EndControlId
 		{
 			get
 			{

@@ -37,33 +37,15 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc />
-		protected override bool CanBeNull
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool CanBeNull => true;
 
-		/// <inheritdoc/>
-		protected override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool RebuildDrawersIfValueChanged => true;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="methodInfo"> LinkedMemberInfo of the method that the drawer represent. If represents an anonymous method, leave null. </param>
 		/// <param name="parent"> The parent drawer of this member. Can be null. </param>

@@ -19,27 +19,15 @@ namespace Sisus
 		private GUIContent[] tabLabels;
 		
 		/// <inheritdoc/>
-		public override Type Type
-		{
-			get
-			{
-				return typeof(int);
-			}
-		}
+		public override Type Type => typeof(int);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool ReadOnly
 		{
-			get
-			{
-				return base.ReadOnly || readOnly;
-			}
+			get => base.ReadOnly || readOnly;
 
-			set
-			{
-				readOnly = value;
-			}
-		}
+            set => readOnly = value;
+        }
 
 		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="selectedTab"> Zero-based index of the currently selected tab. </param>

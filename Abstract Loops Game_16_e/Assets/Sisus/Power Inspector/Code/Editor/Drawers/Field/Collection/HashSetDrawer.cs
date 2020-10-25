@@ -35,33 +35,15 @@ namespace Sisus
 		private Type memberType;
 
 		/// <inheritdoc />
-		protected override bool IsFixedSize
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool IsFixedSize => false;
 
-		/// <inheritdoc />
-		protected override bool IsReadOnlyCollection
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		/// <inheritdoc />
-		protected override Type MemberType
-		{
-			get
-			{
-				return memberType;
-			}
-		}
+        /// <inheritdoc />
+		protected override bool IsReadOnlyCollection => false;
 
-		private MethodInfo AddMethod
+        /// <inheritdoc />
+		protected override Type MemberType => memberType;
+
+        private MethodInfo AddMethod
 		{
 			get
 			{
@@ -135,15 +117,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		protected override bool CanContainDuplicates
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool CanContainDuplicates => false;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

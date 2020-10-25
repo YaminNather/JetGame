@@ -22,15 +22,9 @@ namespace Sisus
 		private bool editField;
 		
 		/// <inheritdoc/>
-		public bool RequiresPropertyDrawerType
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool RequiresPropertyDrawerType => true;
 
-		private bool IsTextField
+        private bool IsTextField
 		{
 			get
 			{
@@ -40,23 +34,11 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.PrefixResizingEnabledOverControl" />
-		public override bool PrefixResizingEnabledOverControl
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool PrefixResizingEnabledOverControl => false;
 
-		private SerializedProperty SerializedProperty
-		{
-			get
-			{
-				return memberInfo == null ? null : memberInfo.SerializedProperty;
-			}
-		}
+        private SerializedProperty SerializedProperty => memberInfo == null ? null : memberInfo.SerializedProperty;
 
-		/// <inheritdoc cref="IDrawer.Height" />
+        /// <inheritdoc cref="IDrawer.Height" />
 		public override float Height
 		{
 			get

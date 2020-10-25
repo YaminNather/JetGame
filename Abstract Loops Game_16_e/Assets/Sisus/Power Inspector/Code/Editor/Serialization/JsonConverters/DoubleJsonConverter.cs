@@ -6,23 +6,11 @@ namespace Sisus
 {
 	public class DoubleJsonConverter : JsonConverter
 	{
-		public override bool CanWrite
-		{
-			get
-			{
-				return true;
-			}
-		}
-		
-		public override bool CanRead
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool CanWrite => true;
 
-		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override bool CanRead => false;
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
 		{
 			throw new NotImplementedException("Unnecessary because CanRead is false. The type will skip the converter.");
 		}

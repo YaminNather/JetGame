@@ -5,23 +5,11 @@ namespace Sisus
 {
 	public class StringJsonConverter : JsonConverter
 	{
-		public override bool CanWrite
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool CanWrite => true;
 
-		public override bool CanRead
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool CanRead => true;
 
-		public override bool CanConvert(Type objectType)
+        public override bool CanConvert(Type objectType)
 		{
 			return objectType == Types.String;
 		}

@@ -7,14 +7,14 @@ public abstract class UIAnimationComponent : OnSceneLoadedMonoBehaviour
 {
     #region Variables
     [SerializeField] protected Type_EN m_Type;
-    public Type_EN Type { get => m_Type; }
+    public Type_EN Type => m_Type;
 
     [Header("Timings")]
     [SerializeField] protected float m_StartTime;
-    public float StartTime { get => m_StartTime; }
+    public float StartTime => m_StartTime;
     [SerializeField] protected float m_EndTime;
-    public float EndTime { get => m_EndTime; }
-    public float Duration { get => m_EndTime - m_StartTime; }
+    public float EndTime => m_EndTime;
+    public float Duration => m_EndTime - m_StartTime;
 
     [Header("Entry Ease Settings")]
     [SerializeField] protected Ease m_EntryEaseType; 

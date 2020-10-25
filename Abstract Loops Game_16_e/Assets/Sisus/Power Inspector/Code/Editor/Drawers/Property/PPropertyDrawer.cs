@@ -75,15 +75,9 @@ namespace Sisus
 			}
 		}
 
-		public InspectorPreferences Preferences
-		{
-			get
-			{
-				return Inspector != null ? inspector.Preferences : null;
-			}
-		}
-		
-		#if !UNITY_EDITOR
+		public InspectorPreferences Preferences => Inspector != null ? inspector.Preferences : null;
+
+#if !UNITY_EDITOR
 		public FieldInfo fieldInfo
 		{
 			get

@@ -19,15 +19,9 @@ namespace Sisus
 		[NonSerialized]
 		private bool fetchedPreviewNotNull;
 
-		public bool IsGroup
-		{
-			get
-			{
-				return type == null;
-			}
-		}
+		public bool IsGroup => type == null;
 
-		public Texture Preview
+        public Texture Preview
 		{
 			get
 			{

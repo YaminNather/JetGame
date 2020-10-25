@@ -93,81 +93,33 @@ namespace Sisus
 		private GUIContent lineCountTooltip = new GUIContent("");
 
 		/// <inheritdoc/>
-		public override Part SelectedPart
-		{
-			get
-			{
-				return selectedLine != -1 ? Part.Line : base.SelectedPart;
-			}
-		}
+		public override Part SelectedPart => selectedLine != -1 ? Part.Line : base.SelectedPart;
 
-		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return viewportHeight;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Height" />
+		public override float Height => viewportHeight;
 
-		#if UNITY_2018_1_OR_NEWER
+#if UNITY_2018_1_OR_NEWER
 		/// <inheritdoc/>
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
+		protected override bool HasPresetIcon => false;
+#endif
 
 		/// <inheritdoc/>
-		protected override bool UsesEditorForDrawingBody
-		{
-			get
-			{
-				return editDefaultReferences || DebugMode;
-			}
-		}
+		protected override bool UsesEditorForDrawingBody => editDefaultReferences || DebugMode;
 
-		/// <inheritdoc/>
-		protected override bool CanBeSelectedWithoutHeaderBeingSelected
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc/>
+		protected override bool CanBeSelectedWithoutHeaderBeingSelected => true;
 
-		/// <summary> Gets a value indicating whether entering syntax highlighted mode is allowed. </summary>
+        /// <summary> Gets a value indicating whether entering syntax highlighted mode is allowed. </summary>
 		/// <value> True if syntax highlighting allowed, false if not. </value>
-		protected virtual bool AllowSyntaxHighlighting
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected virtual bool AllowSyntaxHighlighting => true;
 
-		/// <summary> Allow entering edit mode? </summary>
+        /// <summary> Allow entering edit mode? </summary>
 		/// <value> True if editing text asset content is allowed, false if not. </value>
-		protected virtual bool AllowEditing
-		{
-			get
-			{
-				return !IsPackageAsset;
-			}
-		}
+		protected virtual bool AllowEditing => !IsPackageAsset;
 
-		private bool DisplayUnformatted
-		{
-			get
-			{
-				return displayUnformatted || !AllowSyntaxHighlighting;
-			}
-		}
+        private bool DisplayUnformatted => displayUnformatted || !AllowSyntaxHighlighting;
 
-		private float LineNumberColumnWidth
+        private float LineNumberColumnWidth
 		{
 			get
 			{
@@ -191,15 +143,9 @@ namespace Sisus
 			}
 		}
 
-		private float ContentHeight
-		{
-			get
-			{
-				return code.LineCount * RowHeight;
-			}
-		}
+		private float ContentHeight => code.LineCount * RowHeight;
 
-		private float ContentWidth
+        private float ContentWidth
 		{
 			get
 			{

@@ -14,7 +14,8 @@ public class JetBuyBtn : Button
 
     private int m_JetID;
     public int JetID { get => m_JetID; set => m_JetID = value; }
-    private JetData jetData { get => GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase.m_JetDatas[m_JetID]; }
+    private JetData jetData => GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase.m_JetDatas[m_JetID];
+
     #endregion
 
     /// <summary>

@@ -10,24 +10,12 @@ namespace Sisus
 	public class BoxCollider2DDrawer : CustomEditorComponentDrawer
 	{
 		/// <inheritdoc />
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Vertical;
-			}
-		}
+		public override PrefixResizer PrefixResizer => PrefixResizer.Vertical;
 
-		/// <inheritdoc />
-		protected override float PrefixResizerMaxHeight
-		{
-			get
-			{
-				return 325f;
-			}
-		}
-		
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <inheritdoc />
+		protected override float PrefixResizerMaxHeight => 325f;
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

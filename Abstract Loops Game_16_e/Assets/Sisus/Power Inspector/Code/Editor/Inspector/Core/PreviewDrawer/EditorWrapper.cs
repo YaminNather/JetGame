@@ -28,47 +28,17 @@ namespace Sisus
 			}
 		}
 
-		public Type Type
-		{
-			get
-			{
-				return Target.GetType();
-			}
-		}
+		public Type Type => Target.GetType();
 
-		public bool RequiresConstantRepaint
-		{
-			get
-			{
-				return editor.RequiresConstantRepaint();
-			}
-		}
-		
-		public Object Target
-		{
-			get
-			{
-				return editor.target;
-			}
-		}
+        public bool RequiresConstantRepaint => editor.RequiresConstantRepaint();
 
-		public Object[] Targets
-		{
-			get
-			{
-				return editor.targets;
-			}
-		}
+        public Object Target => editor.target;
 
-		public bool StateIsValid
-		{
-			get
-			{
-				return editor != null && !Targets.ContainsNullObjects();
-			}
-		}
+        public Object[] Targets => editor.targets;
 
-		public EditorWrapper(Editor previewEditor)
+        public bool StateIsValid => editor != null && !Targets.ContainsNullObjects();
+
+        public EditorWrapper(Editor previewEditor)
 		{
 			editor = previewEditor;
 			key = new PreviewableKey(editor.GetType(), editor.targets);

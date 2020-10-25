@@ -34,56 +34,20 @@ namespace Sisus
 		private Rect sliderClickableAreaRect;
 
 		/// <inheritdoc />
-		public override bool RequiresConstantRepaint
-		{
-			get
-			{
-				return mouseoveredSubPart == SliderSubPart.Slider;
-			}
-		}
+		public override bool RequiresConstantRepaint => mouseoveredSubPart == SliderSubPart.Slider;
 
-		/// <inheritdoc />
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetAttributeUrl("prange");
-			}
-		}
+        /// <inheritdoc />
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetAttributeUrl("prange");
 
-		private bool HasNumberField
-		{
-			get
-			{
-				return numberFieldPosition.width > 0f;
-			}
-		}
+        private bool HasNumberField => numberFieldPosition.width > 0f;
 
-		private Rect SliderPosition
-		{
-			get
-			{
-				return sliderPosition;
-			}
-		}
+        private Rect SliderPosition => sliderPosition;
 
-		private Rect NumberFieldPosition
-		{
-			get
-			{
-				return numberFieldPosition;
-			}
-		}
+        private Rect NumberFieldPosition => numberFieldPosition;
 
-		private Rect SliderClickableAreaRect
-		{
-			get
-			{
-				return sliderClickableAreaRect;
-			}
-		}
+        private Rect SliderClickableAreaRect => sliderClickableAreaRect;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public sealed override void SetupInterface(object setValue, Type setValueType, LinkedMemberInfo setMemberInfo, IParentDrawer setParent, GUIContent setLabel, bool setReadOnly)
 		{
 			throw new NotSupportedException("Please use the other Setup method");

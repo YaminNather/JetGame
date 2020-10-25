@@ -45,16 +45,10 @@ namespace Sisus
 		/// </value>
 		public bool IsClick
 		{
-			get
-			{
-				return isClick;
-			}
+			get => isClick;
 
-			private set
-			{
-				isClick = value;
-			}
-		}
+            private set => isClick = value;
+        }
 
 		/// <summary>
 		/// Gets a value indicating whether the mouse button is currently pressed down.
@@ -94,15 +88,9 @@ namespace Sisus
 		/// During mouse up event this can be used to determine whether or not this is a click event.
 		/// </summary>
 		/// <value> True if cursor moved while right mouse button was last held down. </value>
-		public bool CursorMovedAfterMouseDown
-		{
-			get
-			{
-				return cursorMovedAfterMouseDown;
-			}
-		}
+		public bool CursorMovedAfterMouseDown => cursorMovedAfterMouseDown;
 
-		/// <summary>
+        /// <summary>
 		/// This is set to false whenever the right mouse button is pressed down (via InspectorUtility.BeginInspector),
 		/// and to false
 		/// Gets a value indicating whether the current or previous mouse down event was used.
@@ -125,22 +113,13 @@ namespace Sisus
 			}
 		}
 
-		public IDrawer MouseDownOverControl
-		{
-			get
-			{
-				return mouseDownOverControl;
-			}
-		}
+		public IDrawer MouseDownOverControl => mouseDownOverControl;
 
-		public IInspector Inspector
+        public IInspector Inspector
 		{
-			get
-			{
-				return inspector;
-			}
+			get => inspector;
 
-			private set
+            private set
 			{
 				if(inspector != value)
 				{
@@ -160,16 +139,10 @@ namespace Sisus
 		
 		public Vector2 MouseDownPos
 		{
-			get
-			{
-				return GUIUtility.ScreenToGUIPoint(mouseDownPos);
-			}
+			get => GUIUtility.ScreenToGUIPoint(mouseDownPos);
 
-			private set
-			{
-				mouseDownPos = GUIUtility.GUIToScreenPoint(value);
-			}
-		}
+            private set => mouseDownPos = GUIUtility.GUIToScreenPoint(value);
+        }
 
 		public RightClickInfo()
 		{

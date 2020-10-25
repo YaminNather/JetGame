@@ -73,33 +73,15 @@ namespace Sisus
 		#endif
 
 		/// <inheritdoc/>
-		public override Rect ControlPosition
-		{
-			get
-			{
-				return bodyLastDrawPosition;
-			}
-		}
+		public override Rect ControlPosition => bodyLastDrawPosition;
 
-		/// <inheritdoc cref="IDrawer.CachedValuesNeedUpdating" />
-		public sealed override bool CachedValuesNeedUpdating
-		{
-			get
-			{
-				return cachedValuesNeedUpdating;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.CachedValuesNeedUpdating" />
+		public sealed override bool CachedValuesNeedUpdating => cachedValuesNeedUpdating;
 
-		/// <inheritdoc/>
-		public bool MembersAreVisible
-		{
-			get
-			{
-				return Unfoldedness > 0f;
-			}
-		}
+        /// <inheritdoc/>
+		public bool MembersAreVisible => Unfoldedness > 0f;
 
-		/// <inheritdoc cref="IDrawer.RequiresConstantRepaint" />
+        /// <inheritdoc cref="IDrawer.RequiresConstantRepaint" />
 		public override bool RequiresConstantRepaint
 		{
 			get
@@ -138,48 +120,21 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.ClickToSelectArea" />
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+		public override Rect ClickToSelectArea => labelLastDrawPosition;
 
-		/// <inheritdoc cref="IDrawer.RightClickArea" />
-		public override Rect RightClickArea
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.RightClickArea" />
+		public override Rect RightClickArea => labelLastDrawPosition;
 
-		/// <inheritdoc/>
-		protected override Rect PrefixLabelPosition
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+        /// <inheritdoc/>
+		protected override Rect PrefixLabelPosition => labelLastDrawPosition;
 
-		/// <inheritdoc/>
-		public virtual int AppendIndentLevel
-		{
-			get
-			{
-				return 1;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual int AppendIndentLevel => 1;
 
-		/// <inheritdoc/>
-		public virtual bool DrawInSingleRow
-		{
-			get { return false; }
-		}
+        /// <inheritdoc/>
+		public virtual bool DrawInSingleRow => false;
 
-		/// <summary>
+        /// <summary>
 		/// Indexer to get or set items within this collection using array index syntax.
 		/// </summary>
 		/// <param name="index">
@@ -271,33 +226,15 @@ namespace Sisus
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public IDrawer[] VisibleMembers
-		{
-			get
-			{
-				return visibleMembers;
-			}
-		}
+		public IDrawer[] VisibleMembers => visibleMembers;
 
-		/// <inheritdoc/>
-		public virtual float HeaderHeight
-		{
-			get
-			{
-				return DrawGUI.SingleLineHeight;
-			}
-		}
+        /// <inheritdoc/>
+		public virtual float HeaderHeight => DrawGUI.SingleLineHeight;
 
-		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return UnityObjectDrawerUtility.CalculateHeight(this);
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Height" />
+		public override float Height => UnityObjectDrawerUtility.CalculateHeight(this);
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public sealed override bool PassesSearchFilter(SearchFilter filter)
 		{
 			return ParentDrawerUtility.PassesSearchFilter(this, filter, SelfPassesSearchFilter);
@@ -337,15 +274,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.ShouldShowInInspector" />
-		public override bool ShouldShowInInspector
-		{
-			get
-			{
-				return ParentDrawerUtility.ShowInInspector(this, passedLastFilterCheck);
-			}
-		}
+		public override bool ShouldShowInInspector => ParentDrawerUtility.ShowInInspector(this, passedLastFilterCheck);
 
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether rebuilding members is allowed.
 		/// </summary>
 		/// <value>
@@ -366,15 +297,9 @@ namespace Sisus
 		/// <summary>
 		/// True if unfoldedness can be controlled by clicking a foldout control.
 		/// </summary>
-		public virtual bool Foldable
-		{
-			get
-			{
-				return !DrawInSingleRow;
-			}
-		}
+		public virtual bool Foldable => !DrawInSingleRow;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public abstract bool Unfolded
 		{
 			get;
@@ -382,15 +307,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public virtual float Unfoldedness
-		{
-			get
-			{
-				return Unfolded ? 1f : 0f;
-			}
-		}
+		public virtual float Unfoldedness => Unfolded ? 1f : 0f;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup(IParentDrawer setParent, GUIContent setLabel)
 		{
 			base.Setup(setParent, setLabel);

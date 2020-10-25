@@ -14,15 +14,9 @@ namespace Sisus
 
 		private DrawerGroup drawer;
 
-		public DrawerGroup Drawer
-		{
-			get
-			{
-				return drawer;
-			}
-		}
-		
-		public static TDrawerWindow Create<TDrawerWindow>(IInspector inspector, Action doOnClosed = null) where TDrawerWindow : DrawerToWindow
+		public DrawerGroup Drawer => drawer;
+
+        public static TDrawerWindow Create<TDrawerWindow>(IInspector inspector, Action doOnClosed = null) where TDrawerWindow : DrawerToWindow
 		{
 			return Create<TDrawerWindow>(DrawerGroup.Create(inspector), doOnClosed);
 		}

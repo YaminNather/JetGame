@@ -35,54 +35,24 @@ namespace Sisus
 		private SearchBoxPart mouseoveredPart;
 		
 		/// <inheritdoc/>
-		public override bool IsSearchBox
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool IsSearchBox => true;
 
-		/// <inheritdoc/>
-		public override float MinWidth
-		{
-			get
-			{
-				return 50f;
-			}
-		}
+        /// <inheritdoc/>
+		public override float MinWidth => 50f;
 
-		/// <inheritdoc/>
-		public override float MaxWidth
-		{
-			get
-			{
-				return 1000f;
-			}
-		}
+        /// <inheritdoc/>
+		public override float MaxWidth => 1000f;
 
-		/// <summary>
+        /// <summary>
 		/// Current filter string text in its raw input form.
 		/// </summary>
 		/// <value> Raw filter text. </value>
-		protected string FilterString
-		{
-			get
-			{
-				return inspector.State.filter.RawInput;
-			}
-		}
+		protected string FilterString => inspector.State.filter.RawInput;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetFeatureUrl("search-box");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetFeatureUrl("search-box");
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override void Setup()
 		{
 			filterDrawer = new FilterField(OpenFilteringMethodMenu);

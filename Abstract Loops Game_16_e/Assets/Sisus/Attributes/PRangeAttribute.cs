@@ -18,15 +18,9 @@ namespace Sisus.Attributes
 		public readonly float max;
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return Target.Members;
-			}
-		}
+		public Target Target => Target.Members;
 
-		/// <summary>
+        /// <summary>
 		/// Make a float or int be shown as a slider in the Inspector instead of the default number field.
 		/// </summary>
 		/// <param name="minimum"> The minimum allowed value. </param>

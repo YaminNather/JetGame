@@ -12,15 +12,9 @@ namespace Sisus
 		private static Type[] nonUnityObjectTypes;
 
 		/// <inheritdoc />
-		protected override bool CanBeUnityObject
-		{
-			get
-			{
-				return true;
-			}
-		}
-		
-		/// <inheritdoc />
+		protected override bool CanBeUnityObject => true;
+
+        /// <inheritdoc />
 		protected override Type[] NonUnityObjectTypes
 		{
 			get

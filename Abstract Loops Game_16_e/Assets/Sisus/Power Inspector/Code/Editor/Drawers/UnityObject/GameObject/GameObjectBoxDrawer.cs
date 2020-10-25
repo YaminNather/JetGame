@@ -16,33 +16,15 @@ namespace Sisus
 		private Rect boxRect;
 
 		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				return typeof(string);
-			}
-		}
+		public override Type Type => typeof(string);
 
-		/// <inheritdoc />
-		public override float Height
-		{
-			get
-			{
-				return TotalHeight;
-			}
-		}
+        /// <inheritdoc />
+		public override float Height => TotalHeight;
 
-		/// <inheritdoc />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return true;
-			}
-		}
+        /// <inheritdoc />
+		public override bool ReadOnly => true;
 
-		public static GameObjectBoxDrawer Create(IParentDrawer parent, GUIContent label)
+        public static GameObjectBoxDrawer Create(IParentDrawer parent, GUIContent label)
 		{
 			GameObjectBoxDrawer result;
 			if(!DrawerPool.TryGet(out result))

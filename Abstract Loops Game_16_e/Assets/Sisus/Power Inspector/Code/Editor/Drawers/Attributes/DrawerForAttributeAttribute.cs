@@ -17,24 +17,12 @@ namespace Sisus.Attributes
 
 		/// <inheritdoc/>
 		[NotNull]
-		public override Type Target
-		{
-			get
-			{
-				return attributeType;
-			}
-		}
+		public override Type Target => attributeType;
 
-		/// <inheritdoc/>
-		public override bool TargetExtendingTypes
-		{
-			get
-			{
-				return true; // For now at least DrawerForAttribute will always target extending types
-			}
-		}
+        /// <inheritdoc/>
+		public override bool TargetExtendingTypes => true; // For now at least DrawerForAttribute will always target extending types
 
-		public DrawerForAttributeAttribute([NotNull]Type setAttributeType) : base(false)
+        public DrawerForAttributeAttribute([NotNull]Type setAttributeType) : base(false)
 		{
 			attributeType = setAttributeType;
 			valueType = typeof(object);

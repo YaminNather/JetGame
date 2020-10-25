@@ -20,15 +20,9 @@ namespace Sisus
 		private MethodInfo onAssetBundleNameGUI;
 		#endif
 		
-		public bool HasTarget
-		{
-			get
-			{
-				return onAssetBundleNameGUIParams[0] != null;
-			}
-		}
+		public bool HasTarget => onAssetBundleNameGUIParams[0] != null;
 
-		public AssetBundleGUIDrawer()
+        public AssetBundleGUIDrawer()
 		{
 			#if UNITY_EDITOR
 			var type = Types.GetInternalEditorType("UnityEditor.AssetBundleNameGUI");

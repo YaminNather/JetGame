@@ -10,24 +10,12 @@ namespace Sisus
 	public class TextureDrawer : CustomEditorAssetDrawer
 	{
 		/// <inheritdoc />
-		protected override bool HasReferenceIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool HasReferenceIcon => false;
 
-		/// <inheritdoc />
-		public override bool RequiresConstantRepaint
-		{
-			get
-			{
-				return Platform.Time < InspectorUtility.LastInputTime + 1f;
-			}
-		}
+        /// <inheritdoc />
+		public override bool RequiresConstantRepaint => Platform.Time < InspectorUtility.LastInputTime + 1f;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

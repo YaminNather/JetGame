@@ -44,24 +44,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc />
-		public sealed override Vector2 MouseDownCursorTopLeftCornerOffset
-		{
-			get
-			{
-				return mouseDownCursorTopLeftCornerOffset;
-			}
-		}
+		public sealed override Vector2 MouseDownCursorTopLeftCornerOffset => mouseDownCursorTopLeftCornerOffset;
 
-		/// <inheritdoc />
-		public override bool MouseDownOverReorderArea
-		{
-			get
-			{
-				return mouseDownOverPart == PrefixedControlPart.Prefix;
-			}
-		}
+        /// <inheritdoc />
+		public override bool MouseDownOverReorderArea => mouseDownOverPart == PrefixedControlPart.Prefix;
 
-		/// <summary>
+        /// <summary>
 		/// Which part of this subject is the cursor currently residing over?
 		/// </summary>
 		/// <value>
@@ -69,16 +57,10 @@ namespace Sisus
 		/// </value>
 		protected PrefixedControlPart MouseOverPart
 		{
-			get
-			{
-				return Mouseovered ? mouseOverPart : PrefixedControlPart.None;
-			}
+			get => Mouseovered ? mouseOverPart : PrefixedControlPart.None;
 
-			set
-			{
-				mouseOverPart = value;
-			}
-		}
+            set => mouseOverPart = value;
+        }
 
 		/// <summary>
 		/// In context where mouse is currently pressed down, returns the part if this
@@ -87,42 +69,18 @@ namespace Sisus
 		/// <value>
 		/// The mouseovered part.
 		/// </value>
-		protected PrefixedControlPart MouseDownOverPart
-		{
-			get
-			{
-				return mouseDownOverPart;
-			}
-		}
-		
-		/// <inheritdoc />
-		protected sealed override Rect PrefixLabelPosition
-		{
-			get
-			{
-				return labelLastDrawPosition;
-			}
-		}
+		protected PrefixedControlPart MouseDownOverPart => mouseDownOverPart;
 
-		/// <inheritdoc />
-		public sealed override Rect ControlPosition
-		{
-			get
-			{
-				return controlLastDrawPosition;
-			}
-		}
+        /// <inheritdoc />
+		protected sealed override Rect PrefixLabelPosition => labelLastDrawPosition;
 
-		/// <inheritdoc />
-		public override float Height
-		{
-			get
-			{
-				return DrawGUI.SingleLineHeight;
-			}
-		}
-		
-		/// <summary>
+        /// <inheritdoc />
+		public sealed override Rect ControlPosition => controlLastDrawPosition;
+
+        /// <inheritdoc />
+		public override float Height => DrawGUI.SingleLineHeight;
+
+        /// <summary>
 		/// Starts a process that gives the control field keyboard focus
 		/// </summary>
 		protected void FocusControlField()

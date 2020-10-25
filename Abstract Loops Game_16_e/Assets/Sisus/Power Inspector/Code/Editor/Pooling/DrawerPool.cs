@@ -8,15 +8,9 @@ namespace Sisus
 		private const int MaxItemsOfSameType = 250;
 		private static readonly Dictionary<Type, Stack<IDrawer>> DrawersPool = new Dictionary<Type,Stack<IDrawer>>(50);
 
-		public static int Count
-		{
-			get
-			{
-				return DrawersPool.Count;
-			}
-		}
+		public static int Count => DrawersPool.Count;
 
-		public static bool TryGet<T>(out T result) where T : class, IDrawer
+        public static bool TryGet<T>(out T result) where T : class, IDrawer
 		{
 			Stack<IDrawer> stack;
 			if(DrawersPool.TryGetValue(typeof(T), out stack))

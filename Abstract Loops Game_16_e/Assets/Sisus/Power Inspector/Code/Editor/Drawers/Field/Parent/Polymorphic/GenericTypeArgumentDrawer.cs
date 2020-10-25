@@ -16,24 +16,12 @@ namespace Sisus
 		private bool drawInSingleRow;
 
 		/// <inheritdoc />
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <inheritdoc />
-		public override Type Type
-		{
-			get
-			{
-				return typeof(Type[]);
-			}
-		}
+        /// <inheritdoc />
+		public override Type Type => typeof(Type[]);
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public override Type[] Value
 		{
 			get

@@ -24,24 +24,12 @@ namespace Sisus.Attributes
 		public readonly bool allRequired = true;
 
 		/// <inheritdoc/>
-		public Type[] RequiredComponents
-		{
-			get
-			{
-				return requiredComponents;
-			}
-		}
+		public Type[] RequiredComponents => requiredComponents;
 
-		/// <inheritdoc/>
-		public bool AllRequired
-		{
-			get
-			{
-				return allRequired;
-			}
-		}
+        /// <inheritdoc/>
+		public bool AllRequired => allRequired;
 
-		public RequireComponentsAttribute([NotNull]Type requiredComponent)
+        public RequireComponentsAttribute([NotNull]Type requiredComponent)
 		{
 			if(!typeof(Component).IsAssignableFrom(requiredComponent) && !requiredComponent.IsInterface)
 			{

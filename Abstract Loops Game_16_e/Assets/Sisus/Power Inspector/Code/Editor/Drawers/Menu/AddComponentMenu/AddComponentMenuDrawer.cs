@@ -84,30 +84,15 @@ namespace Sisus
 
 		private IInspector inspector;
 
-		private Color32 BgColor
-		{
-			get
-			{
-				return inspector.Preferences.theme.Background;
-			}
-		}
+		private Color32 BgColor => inspector.Preferences.theme.Background;
 
-		private Color32 BgColorNavigationBar
-		{
-			get
-			{
-				return DrawGUI.IsProSkin ? bgColorNavigationBarDark : bgColorNavigationBarLight;
-			}
-		}
+        private Color32 BgColorNavigationBar => DrawGUI.IsProSkin ? bgColorNavigationBarDark : bgColorNavigationBarLight;
 
-		public string FilterString
+        public string FilterString
 		{
-			get
-			{
-				return filter;
-			}
+			get => filter;
 
-			set
+            set
 			{
 				filter = value;
 				setFilter = value;

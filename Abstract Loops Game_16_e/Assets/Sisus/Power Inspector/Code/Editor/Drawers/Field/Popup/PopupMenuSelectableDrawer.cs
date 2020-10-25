@@ -27,15 +27,9 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether multiple items can be ticked in the menu. </summary>
 		/// <value> True if we can tick multiple items in the menu, false if not. </value>
-		protected virtual bool CanTickMultipleItems
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected virtual bool CanTickMultipleItems => false;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public override TValue DrawControlVisuals(Rect position, TValue inputValue)
 		{
 			DrawGUI.Active.Label(position, selectedItemLabel, InspectorPreferences.Styles.MiniPopup);

@@ -21,15 +21,9 @@ namespace Sisus
 		/// <summary> Get header part at index. </summary>
 		/// <param name="index"> Zero-based index of the header part starting from the right. </param>
 		/// <returns> The header part. </returns>
-		public HeaderPartDrawer this[int index]
-		{
-			get
-			{
-				return parts[index];
-			}
-		}
+		public HeaderPartDrawer this[int index] => parts[index];
 
-		/// <summary> Gets the item responsible for handling the given HeaderPart. </summary>
+        /// <summary> Gets the item responsible for handling the given HeaderPart. </summary>
 		/// <param name="part"> The HeaderPart. </param>
 		/// <returns> The indexed item. </returns>
 		public HeaderPartDrawer this[HeaderPart part]
@@ -50,15 +44,9 @@ namespace Sisus
 
 		/// <summary> Gets the number of header parts. </summary>
 		/// <value> The header aprt count. </value>
-		public int Count
-		{
-			get
-			{
-				return parts.Count;
-			}
-		}
+		public int Count => parts.Count;
 
-		/// <summary> Gets the first (starting from top-left) selectable header part. </summary>
+        /// <summary> Gets the first (starting from top-left) selectable header part. </summary>
 		/// <value> The first selectable header part. </value>
 		public HeaderPartDrawer FirstSelectable
 		{

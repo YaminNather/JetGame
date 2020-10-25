@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 public class LoopsDatabase : DatabaseBase
 {
     private List<LoopMgrBase> m_Loops;
-    public List<LoopMgrBase> Loops { get => m_Loops; }
+    public List<LoopMgrBase> Loops => m_Loops;
 
     public LoopMgrBase LoopGet_F(int index)
     {

@@ -10,15 +10,9 @@ namespace Sisus
 	public sealed class InspectorPreferencesUpdateTo12500 : InspectorPreferencesUpdate
 	{
 		/// <inheritdoc/>
-		public override int ToVersion
-		{
-			get
-			{
-				return 12500; // 1.2.5
-			}
-		}
+		public override int ToVersion => 12500; // 1.2.5
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool ShouldApplyNext(int currentVersion)
 		{
 			return currentVersion < ToVersion;

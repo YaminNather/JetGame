@@ -15,22 +15,13 @@ namespace Sisus
 
 		public Action<Button> onRectChanged;
 
-		public GUIContent Label
-		{
-			get
-			{
-				return label;
-			}
-		}
+		public GUIContent Label => label;
 
-		public Rect Rect
+        public Rect Rect
 		{
-			get
-			{
-				return rect;
-			}
+			get => rect;
 
-			set
+            set
 			{
 				if(!rect.Equals(value))
 				{

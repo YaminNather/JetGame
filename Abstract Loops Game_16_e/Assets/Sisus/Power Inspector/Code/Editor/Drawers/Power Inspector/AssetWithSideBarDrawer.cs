@@ -24,48 +24,18 @@ namespace Sisus
 		private Rect sideBarPosition;
 		private Vector2 scrollPosition;		
 
-		private bool HasSideBar
-		{
-			get
-			{
-				return true;
-			}
-		}
+		private bool HasSideBar => true;
 
-		/// <inheritdoc/>
-		public override PrefixResizer PrefixResizer
-		{
-			get
-			{
-				return PrefixResizer.Disabled;
-			}
-		}
+        /// <inheritdoc/>
+		public override PrefixResizer PrefixResizer => PrefixResizer.Disabled;
 
-		public string ActiveView
-		{
-			get
-			{
-				return activeHeaderIndex == -1 ? "" : headers[activeHeaderIndex];
-			}
-		}
+        public string ActiveView => activeHeaderIndex == -1 ? "" : headers[activeHeaderIndex];
 
-		public int ActiveViewIndex
-		{
-			get
-			{
-				return activeHeaderIndex;
-			}
-		}
+        public int ActiveViewIndex => activeHeaderIndex;
 
-		public string[] Views
-		{
-			get
-			{
-				return headers;
-			}
-		}
-		
-		/// <inheritdoc/>
+        public string[] Views => headers;
+
+        /// <inheritdoc/>
 		protected override string OverrideDocumentationUrl(out string documentationTitle)
 		{
 			documentationTitle = "Preferences";
@@ -303,23 +273,11 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.Height" />
-		public override float Height
-		{
-			get
-			{
-				return height;
-			}
-		}
+		public override float Height => height;
 
-		private float ContentHeight
-		{
-			get
-			{
-				return base.Height;
-			}
-		}
-		
-		/// <inheritdoc/>
+        private float ContentHeight => base.Height;
+
+        /// <inheritdoc/>
 		public override bool DrawBody(Rect position)
 		{
 			if(!HasSideBar)

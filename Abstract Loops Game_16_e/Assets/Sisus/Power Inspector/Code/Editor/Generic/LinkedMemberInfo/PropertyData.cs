@@ -34,32 +34,17 @@ namespace Sisus
 		#if UNITY_EDITOR
 		public override SerializedProperty SerializedProperty
 		{
-			get
-			{
-				return serializedProperty;
-			}
+			get => serializedProperty;
 
-			set
-			{
-				serializedProperty = value;
-			}
-		}
+            set => serializedProperty = value;
+        }
 		#endif
 
-		public override MemberTypes MemberType
-		{
-			get { return MemberTypes.Property; }
-		}
+		public override MemberTypes MemberType => MemberTypes.Property;
 
-		public override LinkedMemberType LinkedMemberType
-		{
-			get
-			{
-				return LinkedMemberType.Property;
-			}
-		}
+        public override LinkedMemberType LinkedMemberType => LinkedMemberType.Property;
 
-		public override string Name
+        public override string Name
 		{
 			get
 			{
@@ -74,33 +59,15 @@ namespace Sisus
 			}
 		}
 
-		public override MemberInfo MemberInfo
-		{
-			get { return propertyInfo; }
-		}
+		public override MemberInfo MemberInfo => propertyInfo;
 
-		public override MemberInfo SecondMemberInfo
-		{
-			get { return null; }
-		}
+        public override MemberInfo SecondMemberInfo => null;
 
-		public override bool IsStatic
-		{
-			get
-			{
-				return propertyInfo.CanRead ? propertyInfo.GetGetMethod(true).IsStatic : propertyInfo.GetSetMethod(true).IsStatic;
-			}
-		}
+        public override bool IsStatic => propertyInfo.CanRead ? propertyInfo.GetGetMethod(true).IsStatic : propertyInfo.GetSetMethod(true).IsStatic;
 
-		public override Type Type
-		{
-			get
-			{
-				return propertyInfo.PropertyType;
-			}
-		}
+        public override Type Type => propertyInfo.PropertyType;
 
-		public override bool CanRead
+        public override bool CanRead
 		{
 			get
 			{
@@ -112,15 +79,9 @@ namespace Sisus
 			}
 		}
 
-		public override bool CanReadWithoutSideEffects
-		{
-			get
-			{
-				return CanRead && propertyInfo.IsAutoProperty();
-			}
-		}
+		public override bool CanReadWithoutSideEffects => CanRead && propertyInfo.IsAutoProperty();
 
-		public override bool CanWrite
+        public override bool CanWrite
 		{
 			get
 			{

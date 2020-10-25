@@ -12,24 +12,12 @@ namespace Sisus
 	public sealed class PowerInspectorWindow : InspectorDrawerWindow<PowerInspectorWindow, PowerInspector>, IHasCustomMenu
 	{
 		/// <inheritdoc/>
-		public override bool CanSplitView
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool CanSplitView => true;
 
-		/// <inheritdoc/>
-		public override Type InspectorType
-		{
-			get
-			{
-				return typeof(PowerInspector);
-			}
-		}
-		
-		/// <summary>
+        /// <inheritdoc/>
+		public override Type InspectorType => typeof(PowerInspector);
+
+        /// <summary>
 		/// Creates a new instance of the Power Inspector Window.
 		/// If a Power Inspector window already exists, then
 		/// creates the new window as a tab on the existing instance.

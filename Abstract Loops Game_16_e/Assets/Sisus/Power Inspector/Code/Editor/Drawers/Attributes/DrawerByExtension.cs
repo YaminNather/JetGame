@@ -19,24 +19,12 @@ namespace Sisus.Attributes
 
 		/// <inheritdoc/>
 		[CanBeNull]
-		public override Type Target
-		{
-			get
-			{
-				return null;
-			}
-		}
+		public override Type Target => null;
 
-		/// <inheritdoc/>
-		public override bool TargetExtendingTypes
-		{
-			get
-			{
-				return false;
-			}
-		}
-		
-		public DrawerByExtensionAttribute([NotNull]string setFileExtension) : base(false)
+        /// <inheritdoc/>
+		public override bool TargetExtendingTypes => false;
+
+        public DrawerByExtensionAttribute([NotNull]string setFileExtension) : base(false)
 		{
 			setFileExtension = setFileExtension.ToLowerInvariant();
 			if(setFileExtension.Length == 0 || setFileExtension[0] != '.')

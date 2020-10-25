@@ -11,15 +11,9 @@ namespace Sisus
 	public sealed class FloatRangeDrawer : RangeDrawer<float>, IPropertyDrawerDrawer
 	{
 		/// <inheritdoc/>
-		public bool RequiresPropertyDrawerType
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool RequiresPropertyDrawerType => true;
 
-		public static FloatRangeDrawer Create(float value, RangeAttribute range, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool setReadOnly)
+        public static FloatRangeDrawer Create(float value, RangeAttribute range, LinkedMemberInfo memberInfo, IParentDrawer parent, GUIContent label, bool setReadOnly)
 		{
 			return Create(value, range.min, range.max, memberInfo, parent, label, setReadOnly);
 		}

@@ -28,31 +28,13 @@ namespace Sisus
 		private readonly Font font;
 		private readonly int fontSize;
 
-		public Font Font
-		{
-			get
-			{
-				return font;
-			}
-		}
+		public Font Font => font;
 
-		public int FontSize
-		{
-			get
-			{
-				return fontSize;
-			}
-		}
+        public int FontSize => fontSize;
 
-		public bool Ready
-		{
-			get
-			{
-				return charAdvancesCached;
-			}
-		}
+        public bool Ready => charAdvancesCached;
 
-		public FontCharSizes([NotNull]Font setFont)
+        public FontCharSizes([NotNull]Font setFont)
 		{
 			#if DEV_MODE && PI_ASSERTATIONS
 			Debug.Assert(setFont != null);

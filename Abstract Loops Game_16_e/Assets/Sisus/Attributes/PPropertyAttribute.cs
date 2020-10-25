@@ -23,15 +23,9 @@ namespace Sisus.Attributes
 		public readonly Target target = Target.Default;
 
 		/// <inheritdoc/>
-		public Target Target
-		{
-			get
-			{
-				return target;
-			}
-		}
+		public Target Target => target;
 
-		protected PPropertyAttribute() : base() { }
+        protected PPropertyAttribute() : base() { }
 
 		protected PPropertyAttribute(Target attributeTarget) : base()
 		{

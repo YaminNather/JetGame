@@ -15,15 +15,9 @@ namespace Sisus
 	public class Array2DDrawer : CollectionDrawer<Array, Size2D, Xy>
 	{
 		/// <inheritdoc />
-		protected override bool IsFixedSize
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool IsFixedSize => true;
 
-		/// <summary>
+        /// <summary>
 		/// Returns the one-dimensional equivalent of the two-dimensional Array's type,
 		/// i.e. the type of the single-dimensional Arrays that are contained inside
 		/// the two-dimensional Array. E.g. If Array type is T[,] than returns T[].
@@ -31,24 +25,12 @@ namespace Sisus
 		/// <value>
 		/// The one-dimensional equivalent of the two-dimensional Array's type
 		/// </value>
-		protected override Type MemberType
-		{
-			get
-			{
-				return Type.GetElementType();
-			}
-		}
+		protected override Type MemberType => Type.GetElementType();
 
-		/// <inheritdoc />
-		protected override int Rank
-		{
-			get
-			{
-				return 2;
-			}
-		}
-		
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <inheritdoc />
+		protected override int Rank => 2;
+
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="array"> The starting cached value of the drawer. </param>
 		/// <param name="memberInfo"> LinkedMemberInfo for the field, property or parameter that the drawer represents. Can be null. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>

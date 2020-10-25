@@ -27,27 +27,15 @@ namespace Sisus
 		private bool rotationCachedForLocalSpace;
 		
 		/// <inheritdoc/>
-		protected override int[] DraggingTargetsMembers
-		{
-			get
-			{
-				return DraggingMembers;
-			}
-		}
+		protected override int[] DraggingTargetsMembers => DraggingMembers;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public override bool SnappingEnabled
 		{
-			get
-			{
-				return UserSettings.Snapping.Enabled && UserSettings.Snapping.EnabledForRotate;
-			}
+			get => UserSettings.Snapping.Enabled && UserSettings.Snapping.EnabledForRotate;
 
-			set
-			{
-				UserSettings.Snapping.EnabledForRotate = value;
-			}
-		}
+            set => UserSettings.Snapping.EnabledForRotate = value;
+        }
 
 		/// <inheritdoc/>
 		public override float GetSnapStep(int memberIndex = -1)

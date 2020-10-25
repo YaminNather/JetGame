@@ -9,22 +9,13 @@ namespace Sisus
 		private TScriptableObject[] targets;
 		private AssetDrawer drawer;
 
-		public AssetDrawer Drawer
-		{
-			get
-			{
-				return drawer;
-			}
-		}
+		public AssetDrawer Drawer => drawer;
 
-		public TScriptableObject[] Targets
+        public TScriptableObject[] Targets
 		{
-			get
-			{
-				return targets;
-			}
+			get => targets;
 
-			set
+            set
 			{
 				var valueWas = targets;
 				targets = value;

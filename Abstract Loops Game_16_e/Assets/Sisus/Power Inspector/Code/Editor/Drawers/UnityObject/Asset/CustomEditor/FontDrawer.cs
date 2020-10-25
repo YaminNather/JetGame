@@ -14,16 +14,11 @@ namespace Sisus
 	public class FontDrawer : CustomEditorAssetDrawer
 	{
 		/// <inheritdoc />
-		protected override Editor HeaderEditor
-		{
-			get
-			{
-				//this is needed to make the forceVisible unfolding to work
-				return Editor;
-			}
-		}
+		protected override Editor HeaderEditor =>
+            //this is needed to make the forceVisible unfolding to work
+            Editor;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		protected override void GetHeaderSubtitle(ref GUIContent subtitle)
 		{
 			var type = Type;

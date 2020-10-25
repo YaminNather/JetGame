@@ -195,15 +195,9 @@ namespace Sisus.Compatibility
 
 		/// <summary> Is the plugin currently installed and active? </summary>
 		/// <value> True if plugin is installed and active, false if not. </value>
-		public virtual bool IsActive
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public virtual bool IsActive => true;
 
-		/// <summary>
+        /// <summary>
 		/// Returns list of full names of custom editors that should be ignored by Power Inspector.
 		/// 
 		/// Sometimes plugins can contain a custom Editor used by all Objects in Unity.
@@ -213,15 +207,9 @@ namespace Sisus.Compatibility
 		/// When the functionality of a plugin is already supported with the attribute conversion feature,
 		/// it can often be desirable to prevent the base editor from being used in Power Inspector.
 		/// </summary>
-		public virtual string[] IgnoreEditors
-		{
-			get
-			{
-				return new string[0];
-			}
-		}
+		public virtual string[] IgnoreEditors => new string[0];
 
-		/// <summary>
+        /// <summary>
 		/// Add converters that allow converting plugin attributes to Power Inspector supported attributes.
 		/// </summary>
 		/// <param name="add">

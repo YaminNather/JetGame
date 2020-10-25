@@ -14,24 +14,12 @@ namespace Sisus.Attributes
 
 		/// <inheritdoc/>
 		[NotNull]
-		public override Type Target
-		{
-			get
-			{
-				return type;
-			}
-		}
+		public override Type Target => type;
 
-		/// <inheritdoc/>
-		public override bool TargetExtendingTypes
-		{
-			get
-			{
-				return targetExtendingClasses;
-			}
-		}
+        /// <inheritdoc/>
+		public override bool TargetExtendingTypes => targetExtendingClasses;
 
-		public DrawerForComponentAttribute(Type setType, bool targetsExtendingClasses = true) : base(false)
+        public DrawerForComponentAttribute(Type setType, bool targetsExtendingClasses = true) : base(false)
 		{
 			type = setType;
 			targetExtendingClasses = targetsExtendingClasses;

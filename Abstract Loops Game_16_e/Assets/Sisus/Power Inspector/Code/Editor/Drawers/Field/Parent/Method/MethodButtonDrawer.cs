@@ -18,33 +18,15 @@ namespace Sisus
 		private GUIStyle guiStyle;
 
 		/// <inheritdoc/>
-		protected override GUIStyle Style
-		{
-			get
-			{
-				return guiStyle;
-			}
-		}
+		protected override GUIStyle Style => guiStyle;
 
-		/// <inheritdoc/>
-		public override Rect ClickToSelectArea
-		{
-			get
-			{
-				return lastDrawPosition;
-			}
-		}
+        /// <inheritdoc/>
+		public override Rect ClickToSelectArea => lastDrawPosition;
 
-		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetAttributeUrl("button");
-			}
-		}
+        /// <inheritdoc/>
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetAttributeUrl("button");
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="methodInfo"> LinkedMemberInfo of the method that the drawers represent. </param>
 		/// <param name="parent"> The parent drawers of this member. Can be null. </param>
 		/// <param name="label"> The label. </param>

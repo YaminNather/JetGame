@@ -23,23 +23,11 @@ namespace Sisus
 		[NonSerialized]
 		private bool ignoreNextRecordRequest;
 
-		public List<Object[]> History
-		{
-			get
-			{
-				return history;
-			}
-		}
+		public List<Object[]> History => history;
 
-		public int CurrentIndex
-		{
-			get
-			{
-				return currentIndex;
-			}
-		}
+        public int CurrentIndex => currentIndex;
 
-		public bool HasPreviousItems()
+        public bool HasPreviousItems()
 		{
 			return currentIndex > 0;
 		}

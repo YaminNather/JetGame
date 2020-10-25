@@ -180,33 +180,15 @@ namespace Sisus
 		private bool forceHideAddComponentMenuButton;
 
 		/// <inheritdoc/>
-		public bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool WantsSearchBoxDisabled => false;
 
-		/// <inheritdoc cref="IDrawer.Inspector" />
-		public override IInspector Inspector
-		{
-			get
-			{
-				return inspector;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Inspector" />
+		public override IInspector Inspector => inspector;
 
-		/// <inheritdoc cref="IDrawer.DebugMode" />
-		public override bool DebugMode
-		{
-			get
-			{
-				return inspector.State.DebugMode;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.DebugMode" />
+		public override bool DebugMode => inspector.State.DebugMode;
 
-		#if DEV_MODE && DEBUG_SET_SELECTED_PART
+#if DEV_MODE && DEBUG_SET_SELECTED_PART
 		private GameObjectHeaderPart _selectedPart;
 		private GameObjectHeaderPart selectedPart
 		{
@@ -224,24 +206,12 @@ namespace Sisus
 		#endif
 
 		/// <inheritdoc cref="IDrawer.ReadOnly" />
-		public override bool ReadOnly
-		{
-			get
-			{
-				return !editable;
-			}
-		}
+		public override bool ReadOnly => !editable;
 
-		/// <inheritdoc/>
-		public override LinkedMemberHierarchy MemberHierarchy
-		{
-			get
-			{
-				return LinkedMemberHierarchy.Get(UnityObjects);
-			}
-		}
-				
-		/// <inheritdoc/>
+        /// <inheritdoc/>
+		public override LinkedMemberHierarchy MemberHierarchy => LinkedMemberHierarchy.Get(UnityObjects);
+
+        /// <inheritdoc/>
 		public Rect FirstReorderableDropTargetRect
 		{
 			get
@@ -276,24 +246,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public int FirstCollectionMemberIndex
-		{
-			get
-			{
-				return members.Length <= 1 ? -1 : 0;
-			}
-		}
+		public int FirstCollectionMemberIndex => members.Length <= 1 ? -1 : 0;
 
-		/// <inheritdoc/>
-		public int LastCollectionMemberIndex
-		{
-			get
-			{
-				return members.Length <= 1 ? -1 : members.Length - LastCollectionMemberCountOffset;
-			}
-		}
+        /// <inheritdoc/>
+		public int LastCollectionMemberIndex => members.Length <= 1 ? -1 : members.Length - LastCollectionMemberCountOffset;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		public int FirstVisibleCollectionMemberIndex
 		{
 			get
@@ -370,24 +328,12 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override Part MouseoveredPart
-		{
-			get
-			{
-				return (Part)mouseoveredPart;
-			}
-		}
+		public override Part MouseoveredPart => (Part)mouseoveredPart;
 
-		/// <inheritdoc/>
-		public override Part SelectedPart
-		{
-			get
-			{
-				return (Part)selectedPart;
-			}
-		}
+        /// <inheritdoc/>
+		public override Part SelectedPart => (Part)selectedPart;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		protected override Rect SelectionRect
 		{
 			get
@@ -413,79 +359,31 @@ namespace Sisus
 
 		#if UNITY_EDITOR
 		/// <inheritdoc/>
-		public GUIContent[] AssetLabels
-		{
-			get
-			{
-				return assetLabels;
-			}
-		}
+		public GUIContent[] AssetLabels => assetLabels;
 
-		/// <inheritdoc />
-		public GUIContent[] AssetLabelsOnlyOnSomeTargets
-		{
-			get
-			{
-				return assetLabelsOnlyOnSomeTargets;
-			}
-		}
-		#endif
+        /// <inheritdoc />
+		public GUIContent[] AssetLabelsOnlyOnSomeTargets => assetLabelsOnlyOnSomeTargets;
+#endif
 
 		/// <inheritdoc cref="IDrawer.UnityObject" />
-		public override Object UnityObject
-		{
-			get
-			{
-				return targets[0];
-			}
-		}
+		public override Object UnityObject => targets[0];
 
-		/// <inheritdoc cref="IDrawer.UnityObjects" />
-		public override Object[] UnityObjects
-		{
-			get
-			{
-				return targets;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.UnityObjects" />
+		public override Object[] UnityObjects => targets;
 
-		/// <inheritdoc/>
-		public GameObject GameObject
-		{
-			get
-			{
-				return targets[0];
-			}
-		}
+        /// <inheritdoc/>
+		public GameObject GameObject => targets[0];
 
-		/// <inheritdoc/>
-		public GameObject[] GameObjects
-		{
-			get
-			{
-				return targets;
-			}
-		}
+        /// <inheritdoc/>
+		public GameObject[] GameObjects => targets;
 
-		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return passedLastFilterCheck;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Selectable" />
+		public override bool Selectable => passedLastFilterCheck;
 
-		/// <inheritdoc cref="IParentDrawer.HeaderHeight" />
-		public override float HeaderHeight
-		{
-			get
-			{
-				return HeaderHeightOutsideDebugMode + debugModeAdditionalHeight;
-			}
-		}
-		
-		protected float HeaderHeightOutsideDebugMode
+        /// <inheritdoc cref="IParentDrawer.HeaderHeight" />
+		public override float HeaderHeight => HeaderHeightOutsideDebugMode + debugModeAdditionalHeight;
+
+        protected float HeaderHeightOutsideDebugMode
 		{
 			get
 			{
@@ -504,45 +402,21 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IParentDrawer.AppendIndentLevel" />
-		public override int AppendIndentLevel
-		{
-			get
-			{
-				return 0;
-			}
-		}
+		public override int AppendIndentLevel => 0;
 
-		/// <inheritdoc cref="IDrawer.Type" />
-		public override Type Type
-		{
-			get
-			{
-				return Types.GameObject;
-			}
-		}
+        /// <inheritdoc cref="IDrawer.Type" />
+		public override Type Type => Types.GameObject;
 
-		/// <inheritdoc cref="IParentDrawer.Foldable" />
-		public override bool Foldable
-		{
-			get
-			{
-				return false;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.Foldable" />
+		public override bool Foldable => false;
 
-		/// <inheritdoc cref="IParentDrawer.Unfolded" />
+        /// <inheritdoc cref="IParentDrawer.Unfolded" />
 		public override bool Unfolded
 		{
-			get
-			{
-				return true;
-			}
+			get => true;
 
-			set
-			{
-				Debug.LogError("Can't set unfolded state of GameObjectDrawer to "+value+"; they are always unfolded.");
-			}
-		}
+            set => Debug.LogError("Can't set unfolded state of GameObjectDrawer to "+value+"; they are always unfolded.");
+        }
 
 		/// <summary>
 		/// Gets the active flag position.
@@ -824,15 +698,9 @@ namespace Sisus
 		#endif // prefab-related
 		
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("gameobject-drawer");
-			}
-		}
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("gameobject-drawer");
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="target"> The target that the drawers represent. </param>
 		/// <param name="parent"> The parent drawer of the created drawer. Can be null. </param>
 		/// <param name="inspector"> The inspector in which the IDrawer are contained. Can not be null. </param>

@@ -117,15 +117,9 @@ namespace Sisus
 		/// <summary>
 		/// If true then field value can remain as null. If false, null value will be replaced with a non-null value during Setup phase (when possible).
 		/// </summary>
-		protected virtual bool CanBeNull
-		{
-			get
-			{
-				return canBeNull;
-			}
-		}
+		protected virtual bool CanBeNull => canBeNull;
 
-		/// <inheritdoc cref="IDrawer.FullClassName" />
+        /// <inheritdoc cref="IDrawer.FullClassName" />
 		public override string FullClassName
 		{
 			get
@@ -139,39 +133,21 @@ namespace Sisus
 		}
 		
 		/// <inheritdoc cref="IDrawer.IsReorderable" />
-		public sealed override bool IsReorderable
-		{
-			get
-			{
-				return isReorderable;
-			}
-		}
+		public sealed override bool IsReorderable => isReorderable;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the mouse down cursor top left corner offset.
 		/// </summary>
 		/// <value>
 		/// The mouse down cursor top left corner offset.
 		/// </value>
-		public virtual Vector2 MouseDownCursorTopLeftCornerOffset
-		{
-			get
-			{
-				return Vector2.zero;
-			}
-		}
+		public virtual Vector2 MouseDownCursorTopLeftCornerOffset => Vector2.zero;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public virtual bool MouseDownOverReorderArea
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public virtual bool MouseDownOverReorderArea => true;
 
-		/// <inheritdoc cref="IDrawer.IsAnimated" />
+        /// <inheritdoc cref="IDrawer.IsAnimated" />
 		[JsonIgnore]
 		public override bool IsAnimated
 		{
@@ -214,25 +190,13 @@ namespace Sisus
 		/// True if mixed content, false if not.
 		/// </value>
 		[JsonIgnore]
-		protected virtual bool MixedContent
-		{
-			get
-			{
-				return memberInfo != null && memberInfo.MixedContent;
-			}
-		}
+		protected virtual bool MixedContent => memberInfo != null && memberInfo.MixedContent;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
-		public override bool ShouldShowInInspector
-		{
-			get
-			{
-				return base.ShouldShowInInspector && passedLastShowInInspectorIfTest;
-			}
-		}
+		public override bool ShouldShowInInspector => base.ShouldShowInInspector && passedLastShowInInspectorIfTest;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the value of the drawer over which the mouse button was last pressed down at the moment when the mouse button was pressed down.
 		/// NOTE: This should only be called when the mouse was last pressed down over this particular drawer, and calling this can otherwise throw an invalid cast exception!
 		/// </summary>
@@ -240,41 +204,24 @@ namespace Sisus
 		/// The values cached during mouse down.
 		/// </value>
 		[JsonIgnore]
-		protected TValue MouseDownValue
-		{
-			get
-			{
-				return (TValue)InspectorUtility.ActiveManager.MouseDownInfo.MouseDownOverDrawerValue;
-			}
-		}
+		protected TValue MouseDownValue => (TValue)InspectorUtility.ActiveManager.MouseDownInfo.MouseDownOverDrawerValue;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the values of the drawer over which the mouse button was last pressed down at the moment when the mouse button was pressed down.
 		/// <value>
 		/// The values cached during mouse down.
 		/// </value>
 		[JsonIgnore, NotNull]
-		protected object[] MouseDownValues
-		{
-			get
-			{
-				return InspectorUtility.ActiveManager.MouseDownInfo.MouseDownOverDrawerValues;
-			}
-		}
+		protected object[] MouseDownValues => InspectorUtility.ActiveManager.MouseDownInfo.MouseDownOverDrawerValues;
 
-		/// <inheritdoc cref="IFieldDrawer.CanReadFromFieldWithoutSideEffects" />
-		public virtual bool CanReadFromFieldWithoutSideEffects
-		{
-			get
-			{
-				// NOTE: by default assuming that can read without side-effects if shown using FieldDrawer even if memberInfo.CanReadWithoutSideEffects is false.
-				// This is so that Properties shown in the inspector as if they were normal fields (e.g. because they have been marked with ShowInInspector) are considered
-				// safe to read, even if they are not auto-properties. PropertyDrawer overrides this to return false.
-				return memberInfo != null && memberInfo.CanRead && (!getValueCausedException || memberInfo.PropertyInfo == null);
-			}
-		}
-		
-		/// <summary>
+        /// <inheritdoc cref="IFieldDrawer.CanReadFromFieldWithoutSideEffects" />
+		public virtual bool CanReadFromFieldWithoutSideEffects =>
+            // NOTE: by default assuming that can read without side-effects if shown using FieldDrawer even if memberInfo.CanReadWithoutSideEffects is false.
+            // This is so that Properties shown in the inspector as if they were normal fields (e.g. because they have been marked with ShowInInspector) are considered
+            // safe to read, even if they are not auto-properties. PropertyDrawer overrides this to return false.
+            memberInfo != null && memberInfo.CanRead && (!getValueCausedException || memberInfo.PropertyInfo == null);
+
+        /// <summary>
 		/// Is it safe to read the value of this field without the risk of there being undesired side
 		/// effects? Returns true for all fields, false for properties and methods that aren't considered
 		/// safe based on their attributes and current display preferences.
@@ -282,15 +229,9 @@ namespace Sisus
 		/// <value>
 		/// True if we can read from field without risk of undesired side effects, false if not.
 		/// </value>
-		protected virtual bool CanWriteToFieldWithoutSideEffects
-		{
-			get
-			{
-				return memberInfo != null && memberInfo.CanWrite;
-			}
-		}
+		protected virtual bool CanWriteToFieldWithoutSideEffects => memberInfo != null && memberInfo.CanWrite;
 
-		/// <summary>
+        /// <summary>
 		/// Gets or sets Function that is evaluated instead of the normal method
 		/// when determining whether the field has unapplied changes and its
 		/// label should appear bolded.
@@ -299,12 +240,9 @@ namespace Sisus
 		[CanBeNull]
 		public Func<bool> OverrideHasUnappliedChanges
 		{
-			get
-			{
-				return overrideHasUnappliedChanges;
-			}
+			get => overrideHasUnappliedChanges;
 
-			set
+            set
 			{
 				overrideHasUnappliedChanges = value;
 				OnValidate();
@@ -312,15 +250,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return passedLastFilterCheck && ShownInInspector;
-			}
-		}
+		public override bool Selectable => passedLastFilterCheck && ShownInInspector;
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
 		[JsonIgnore]
 		public sealed override LinkedMemberHierarchy MemberHierarchy
 		{
@@ -342,28 +274,16 @@ namespace Sisus
 		[JsonIgnore]
 		public virtual TValue Value
 		{
-			get
-			{
-				return value;
-			}
+			get => value;
 
-			set
-			{
-				DoSetValue(value, true, true);
-			}
-		}
+            set => DoSetValue(value, true, true);
+        }
 
 		/// <inheritdoc cref="IDrawer.Type" />
 		[JsonIgnore]
-		public override Type Type
-		{
-			get
-			{
-				return type;
-			}
-		}
+		public override Type Type => type;
 
-		/// <inheritdoc cref="IDrawer.Tooltip" />
+        /// <inheritdoc cref="IDrawer.Tooltip" />
 		public sealed override string Tooltip
 		{
 			set
@@ -388,12 +308,9 @@ namespace Sisus
 		/// <inheritdoc cref="IDrawer.HasUnappliedChanges" />
 		public sealed override bool HasUnappliedChanges
 		{
-			get
-			{
-				return hasUnappliedChanges;
-			}
+			get => hasUnappliedChanges;
 
-			protected set
+            protected set
 			{
 				if(hasUnappliedChanges != value)
 				{
@@ -483,14 +400,8 @@ namespace Sisus
 		/// <value>
 		/// The property modifications.
 		/// </value>
-		protected PropertyModification[] PropertyModifications
-		{
-			get
-			{
-				return PrefabUtility.GetPropertyModifications(UnityObject);
-			}
-		}
-		#endif
+		protected PropertyModification[] PropertyModifications => PrefabUtility.GetPropertyModifications(UnityObject);
+#endif
 		
 		/// <summary>
 		/// Gets a value indicating whether we can write to field.
@@ -498,15 +409,9 @@ namespace Sisus
 		/// <value>
 		/// True if we can write to field, false if not.
 		/// </value>
-		private bool CanWriteToField
-		{
-			get
-			{
-				return canWriteToField && !ReadOnly && !setValueCausedException;
-			}
-		}
-		
-		/// <inheritdoc cref="IFieldDrawer.SetupInterface"/>
+		private bool CanWriteToField => canWriteToField && !ReadOnly && !setValueCausedException;
+
+        /// <inheritdoc cref="IFieldDrawer.SetupInterface"/>
 		public virtual void SetupInterface(object setValue, Type setValueType, LinkedMemberInfo setMemberInfo, IParentDrawer setParent, GUIContent setLabel, bool setReadOnly)
 		{
 			Setup((TValue)setValue, setValueType, setMemberInfo, setParent, setLabel, setReadOnly);
@@ -1434,15 +1339,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.MemberInfo" />
-		public override LinkedMemberInfo MemberInfo
-		{
-			get
-			{
-				return memberInfo;
-			}
-		}
+		public override LinkedMemberInfo MemberInfo => memberInfo;
 
-		/// <inheritdoc cref="IDrawer.GetOptimalPrefixLabelWidth" />
+        /// <inheritdoc cref="IDrawer.GetOptimalPrefixLabelWidth" />
 		public override float GetOptimalPrefixLabelWidth(int indentLevel)
 		{
 			float result;

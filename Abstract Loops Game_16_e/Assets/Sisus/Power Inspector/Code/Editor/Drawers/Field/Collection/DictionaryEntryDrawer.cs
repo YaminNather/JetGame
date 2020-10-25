@@ -22,15 +22,9 @@ namespace Sisus
 		private Type valueType;
 
 		/// <inheritdoc />
-		public override bool DrawInSingleRow
-		{
-			get
-			{
-				return drawInSingleRow;
-			}
-		}
+		public override bool DrawInSingleRow => drawInSingleRow;
 
-		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
+        /// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="value"> The starting cached value of the drawer. </param>
 		/// <param name="keyType"> The type of the keys in the dictionary. </param>
 		/// <param name="valueType"> The type of the values in the dictionary. </param>

@@ -18,23 +18,11 @@ namespace Sisus
 		public readonly Type[] types;
 		private readonly int hashCode;
 
-		public int Count
-		{
-			get
-			{
-				return types.Length;
-			}
-		}
+		public int Count => types.Length;
 
-		public Type this[int index]
-		{
-			get
-			{
-				return types[index];
-			}
-		}
+        public Type this[int index] => types[index];
 
-		public AnyType([NotNull]params Type[] setTypes)
+        public AnyType([NotNull]params Type[] setTypes)
 		{
 			for(int count = setTypes.Length, n = count - 1; n >= 0; n--)
 			{

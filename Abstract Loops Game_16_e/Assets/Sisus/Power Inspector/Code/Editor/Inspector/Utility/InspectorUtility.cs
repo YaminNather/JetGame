@@ -43,15 +43,9 @@ namespace Sisus
 		private static Rect activeTooltipPosition;
 		private static IInspector activeTooltipInspector;
 		
-		public static Vector2 InspectorBeginScreenPoint
-		{
-			get
-			{
-				return inspectorBeginScreenPoint;
-			}
-		}
+		public static Vector2 InspectorBeginScreenPoint => inspectorBeginScreenPoint;
 
-		/// <summary>
+        /// <summary>
 		/// Manager of the active inspector.
 		/// </summary>
 		/// <value>
@@ -59,16 +53,10 @@ namespace Sisus
 		/// </value>
 		public static IInspectorManager ActiveManager
 		{
-			get
-			{
-				return activeManager;
-			}
+			get => activeManager;
 
-			set
-			{
-				activeManager = value;
-			}
-		}
+            set => activeManager = value;
+        }
 
 		/// <summary>
 		/// Inspector drawer which is now "active" or the drawer of inspector that was last active.
@@ -80,29 +68,17 @@ namespace Sisus
 		/// <value>
 		/// The current or last active inspector drawer.
 		/// </value>
-		public static IInspectorDrawer ActiveInspectorDrawer
-		{
-			get
-			{
-				return activeInspectorDrawer;
-			}
-		}
+		public static IInspectorDrawer ActiveInspectorDrawer => activeInspectorDrawer;
 
-		/// <summary>
+        /// <summary>
 		/// Inspector drawer whose OnGUI function is in progress right now.
 		/// </summary>
 		/// <value>
 		/// The current or last active inspector drawer.
 		/// </value>
-		public static IInspectorDrawer NowDrawingInspectorDrawer
-		{
-			get
-			{
-				return NowDrawingInspectorPart != InspectorPart.None ? activeInspectorDrawer : null;
-			}
-		}
+		public static IInspectorDrawer NowDrawingInspectorDrawer => NowDrawingInspectorPart != InspectorPart.None ? activeInspectorDrawer : null;
 
-		/// <summary>
+        /// <summary>
 		/// Inspector which is now "active", i.e. currently being drawn, edited or interacted with in some way.
 		/// Note that this is not cleared at the end of each OnGUI call, so it can also return the last active inspector,
 		/// even if it's not currently being interacted with.
@@ -110,23 +86,11 @@ namespace Sisus
 		/// <value>
 		/// The current or last active inspector.
 		/// </value>
-		public static IInspector ActiveInspector
-		{
-			get
-			{
-				return activeManager == null ? null : activeManager.ActiveInspector;
-			}
-		}
+		public static IInspector ActiveInspector => activeManager == null ? null : activeManager.ActiveInspector;
 
-		public static IInspector MouseoveredInspector
-		{
-			get
-			{
-				return activeManager == null ? null : activeManager.MouseoveredInspector;
-			}
-		}
+        public static IInspector MouseoveredInspector => activeManager == null ? null : activeManager.MouseoveredInspector;
 
-		public static IInspector MouseoveredOrActiveInspector
+        public static IInspector MouseoveredOrActiveInspector
 		{
 			get
 			{
@@ -187,23 +151,11 @@ namespace Sisus
 			}
 		}
 
-		public static float LastInputTime
-		{
-			get
-			{
-				return ActiveInspector.LastInputTime;
-			}
-		}
+		public static float LastInputTime => ActiveInspector.LastInputTime;
 
-		public static bool IsSafeToChangeInspectorContents
-		{
-			get
-			{
-				return NowDrawingInspectorPart == InspectorPart.None && Event.current != null && Event.current.type != EventType.Repaint;
-			}
-		}
+        public static bool IsSafeToChangeInspectorContents => NowDrawingInspectorPart == InspectorPart.None && Event.current != null && Event.current.type != EventType.Repaint;
 
-		/// <summary> Gets the part of the active Inspector that is currently being drawn during an OnGUI event. </summary>
+        /// <summary> Gets the part of the active Inspector that is currently being drawn during an OnGUI event. </summary>
 		/// <value> During the OnGUI event of an inspector returns the part of the inspector being drawn, otherwise returns None. </value>
 		public static InspectorPart NowDrawingInspectorPart
 		{

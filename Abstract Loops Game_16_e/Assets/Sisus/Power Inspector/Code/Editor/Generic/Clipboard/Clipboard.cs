@@ -28,22 +28,13 @@ namespace Sisus
 
 		private static bool lastOperationFailed;
 
-		public static bool LastOperationFailed
-		{
-			get
-			{
-				return lastOperationFailed;
-			}
-		}
+		public static bool LastOperationFailed => lastOperationFailed;
 
-		public static string Content
+        public static string Content
 		{
-			get
-			{
-				return GUIUtility.systemCopyBuffer;
-			}
+			get => GUIUtility.systemCopyBuffer;
 
-			set
+            set
 			{
 				GUIUtility.systemCopyBuffer = value;
 				lastSystemCopyBufferInput = value;

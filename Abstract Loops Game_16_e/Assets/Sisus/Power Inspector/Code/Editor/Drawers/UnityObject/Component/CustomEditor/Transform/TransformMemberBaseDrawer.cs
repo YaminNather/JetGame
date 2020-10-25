@@ -36,53 +36,29 @@ namespace Sisus
 		private bool draggableMemberVisible;
 
 		/// <inheritdoc cref="IParentDrawer.DrawInSingleRow" />
-		public sealed override bool DrawInSingleRow
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public sealed override bool DrawInSingleRow => true;
 
-		/// <inheritdoc />
-		public bool DraggingPrefix
-		{
-			get
-			{
-				return this == InspectorUtility.ActiveManager.MouseDownInfo.MouseDownOverDrawer && draggableMemberVisible;
-			}
-		}
+        /// <inheritdoc />
+		public bool DraggingPrefix => this == InspectorUtility.ActiveManager.MouseDownInfo.MouseDownOverDrawer && draggableMemberVisible;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public abstract bool SnappingEnabled { get; set; }
 
 		/// <inheritdoc />
 		public abstract float GetSnapStep(int memberIndex = -1);
 
-		private bool DrawSnapIcon
-		{
-			get
-			{
-				return UserSettings.Snapping.Enabled;
-			}
-		}
-		
-		/// <summary>
+		private bool DrawSnapIcon => UserSettings.Snapping.Enabled;
+
+        /// <summary>
 		/// Gets the zero-based index of the members whose values are modified by prefix dragging action.
 		/// </summary>
 		/// <value> Indexes in members array. </value>
 		protected abstract int[] DraggingTargetsMembers { get; }
 
 		/// <inheritdoc/>
-		protected sealed override bool RebuildDrawersIfValueChanged
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected sealed override bool RebuildDrawersIfValueChanged => false;
 
-		private Rect SnappingIconPosition
+        private Rect SnappingIconPosition
 		{
 			get
 			{
@@ -95,15 +71,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc/>
-		public override string DocumentationPageUrl
-		{
-			get
-			{
-				return PowerInspectorDocumentation.GetDrawerInfoUrl("transform-drawer");
-			}
-		}
-		
-		#if ENABLE_WORLD_SPACE_TOOLTIPS
+		public override string DocumentationPageUrl => PowerInspectorDocumentation.GetDrawerInfoUrl("transform-drawer");
+
+#if ENABLE_WORLD_SPACE_TOOLTIPS
 		protected override void Setup(Vector3 setValue, LinkedMemberInfo setFieldInfo, IParentDrawer setParent, GUIContent setLabel, bool setReadOnly)
 		{
 			base.Setup(setValue, setFieldInfo, setParent, setLabel, setReadOnly);

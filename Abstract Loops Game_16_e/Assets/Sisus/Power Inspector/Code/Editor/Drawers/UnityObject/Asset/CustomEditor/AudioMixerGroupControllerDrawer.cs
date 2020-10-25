@@ -12,14 +12,8 @@ namespace Sisus
 	{
 		#if UNITY_2018_1_OR_NEWER
 		/// <inheritdoc/>
-		protected override bool HasPresetIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
-		#endif
+		protected override bool HasPresetIcon => false;
+#endif
 	
 		/// <summary> Creates a new instance of the drawer or returns a reusable instance from the pool. </summary>
 		/// <param name="targets"> The targets that the drawer represent. </param>

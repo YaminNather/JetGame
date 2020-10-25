@@ -26,15 +26,9 @@ namespace Sisus
 		private CodeBlockGroup generatedBlocks;
 		private int lineCount;
 
-		public string TextUnformatted
-		{
-			get
-			{
-				return textUnformatted;
-			}
-		}
+		public string TextUnformatted => textUnformatted;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the code blocks that were generated during the last BuildAllBlocks or BuildNextBlocks call.
 		/// 
 		/// This is cleared and reused during each BuildNextBlocks call. So if you want to cache the data
@@ -43,15 +37,9 @@ namespace Sisus
 		/// </summary>
 		/// <value> The generated blocks. </value>
 		[NotNull]
-		public CodeBlockGroup GeneratedBlocks
-		{
-			get
-			{
-				return generatedBlocks;
-			}
-		}
+		public CodeBlockGroup GeneratedBlocks => generatedBlocks;
 
-		/// <summary>
+        /// <summary>
 		/// Gets rich text color tag that precedes all comment blocks.
 		/// </summary>
 		/// <value> Rich text color tag. </value>
@@ -61,15 +49,9 @@ namespace Sisus
 		/// <example>
 		/// <![CDATA[<color=#rrggbbaa>]]>
 		/// </example>
-		public virtual string CommentColorTag
-		{
-			get
-			{
-				return InspectorUtility.Preferences.theme.SyntaxHighlight.CommentColorTag;
-			}
-		}
+		public virtual string CommentColorTag => InspectorUtility.Preferences.theme.SyntaxHighlight.CommentColorTag;
 
-		/// <summary>
+        /// <summary>
 		/// Gets rich text color tag that precedes all numbers.
 		/// </summary>
 		/// <value> Rich text color tag. </value>
@@ -79,15 +61,9 @@ namespace Sisus
 		/// <example>
 		/// <![CDATA[<color=#rrggbbaa>]]>
 		/// </example>
-		public virtual string NumberColorTag
-		{
-			get
-			{
-				return InspectorUtility.Preferences.theme.SyntaxHighlight.NumberColorTag;
-			}
-		}
+		public virtual string NumberColorTag => InspectorUtility.Preferences.theme.SyntaxHighlight.NumberColorTag;
 
-		/// <summary>
+        /// <summary>
 		/// Gets rich text color tag that precedes all text strings (i.e. text inside quotation marks).
 		/// </summary>
 		/// <value> Rich text color tag. </value>
@@ -97,15 +73,9 @@ namespace Sisus
 		/// <example>
 		/// <![CDATA[<color=#rrggbbaa>]]>
 		/// </example>
-		public virtual string StringColorTag
-		{
-			get
-			{
-				return InspectorUtility.Preferences.theme.SyntaxHighlight.StringColorTag;
-			}
-		}
+		public virtual string StringColorTag => InspectorUtility.Preferences.theme.SyntaxHighlight.StringColorTag;
 
-		/// <summary>
+        /// <summary>
 		/// Gets rich text color tag that precedes all keywords (i.e. ref, class, int...).
 		/// </summary>
 		/// <value> Rich text color tag. </value>
@@ -115,15 +85,9 @@ namespace Sisus
 		/// <example>
 		/// <![CDATA[<color=#rrggbbaa>]]>
 		/// </example>
-		public virtual string KeywordColorTag
-		{
-			get
-			{
-				return InspectorUtility.Preferences.theme.SyntaxHighlight.KeywordColorTag;
-			}
-		}
+		public virtual string KeywordColorTag => InspectorUtility.Preferences.theme.SyntaxHighlight.KeywordColorTag;
 
-		public SyntaxFormatterBase()
+        public SyntaxFormatterBase()
 		{
 			generatedBlocks = new CodeBlockGroup();
 			textUnformatted = "";

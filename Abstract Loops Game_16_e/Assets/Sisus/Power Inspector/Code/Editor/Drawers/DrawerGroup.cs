@@ -21,15 +21,9 @@ namespace Sisus
 		private bool wantsSearchBoxDisabled;
 
 		/// <inheritdoc/>
-		public override int AppendIndentLevel
-		{
-			get
-			{
-				return 0;
-			}
-		}
+		public override int AppendIndentLevel => 0;
 
-		/// <summary> Gets the first drawer in members, or null if has no members. </summary>
+        /// <summary> Gets the first drawer in members, or null if has no members. </summary>
 		/// <returns> IDrawer or null. </returns>
 		[CanBeNull]
 		public IDrawer First()
@@ -51,33 +45,15 @@ namespace Sisus
 
 		/// <summary> Gets a value indicating whether the drawers would prefer it if there was no search box visible in the Inspector toolbar.. </summary>
 		/// <value> True if wants search box disabled, false if not. </value>
-		public bool WantsSearchBoxDisabled
-		{
-			get
-			{
-				return wantsSearchBoxDisabled;
-			}
-		}
+		public bool WantsSearchBoxDisabled => wantsSearchBoxDisabled;
 
-		/// <inheritdoc/>
-		public override IInspector Inspector
-		{
-			get
-			{
-				return inspector;
-			}
-		}
+        /// <inheritdoc/>
+		public override IInspector Inspector => inspector;
 
-		/// <inheritdoc cref="IParentDrawer.HeaderHeight" />
-		public override float HeaderHeight
-		{
-			get
-			{
-				return 0f;
-			}
-		}
+        /// <inheritdoc cref="IParentDrawer.HeaderHeight" />
+		public override float HeaderHeight => 0f;
 
-		/// <inheritdoc />
+        /// <inheritdoc />
 		public Rect FirstReorderableDropTargetRect
 		{
 			get
@@ -91,15 +67,9 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.Type" />
-		public override Type Type
-		{
-			get
-			{
-				return typeof(object[]);
-			}
-		}
+		public override Type Type => typeof(object[]);
 
-		/// <summary> Gets or sets the length of members array. </summary>
+        /// <summary> Gets or sets the length of members array. </summary>
 		/// <value> The length of members array. </value>
 		public int Length
 		{
@@ -147,60 +117,24 @@ namespace Sisus
 		}
 
 		/// <inheritdoc cref="IDrawer.Selectable" />
-		public override bool Selectable
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool Selectable => false;
 
-		/// <inheritdoc/>
-		public int LastCollectionMemberCountOffset
-		{
-			get
-			{
-				return 1;
-			}
-		}
+        /// <inheritdoc/>
+		public int LastCollectionMemberCountOffset => 1;
 
-		/// <inheritdoc/>
-		public int FirstCollectionMemberIndex
-		{
-			get
-			{
-				return members.Length == 0 ? -1 : 0;
-			}
-		}
+        /// <inheritdoc/>
+		public int FirstCollectionMemberIndex => members.Length == 0 ? -1 : 0;
 
-		/// <inheritdoc/>
-		public int LastCollectionMemberIndex
-		{
-			get
-			{
-				return members.Length - 1;
-			}
-		}
+        /// <inheritdoc/>
+		public int LastCollectionMemberIndex => members.Length - 1;
 
-		/// <inheritdoc/>
-		public int FirstVisibleCollectionMemberIndex
-		{
-			get
-			{
-				return visibleMembers.Length == 0 ? -1 : 0;
-			}
-		}
+        /// <inheritdoc/>
+		public int FirstVisibleCollectionMemberIndex => visibleMembers.Length == 0 ? -1 : 0;
 
-		/// <inheritdoc/>
-		public int LastVisibleCollectionMemberIndex
-		{
-			get
-			{
-				return visibleMembers.Length - 1;
-			}
-		}
-		
-		public static DrawerGroup Create(IInspector inspector, IParentDrawer parent = null, GUIContent label = null)
+        /// <inheritdoc/>
+		public int LastVisibleCollectionMemberIndex => visibleMembers.Length - 1;
+
+        public static DrawerGroup Create(IInspector inspector, IParentDrawer parent = null, GUIContent label = null)
 		{
 			DrawerGroup result;
 			if(!DrawerPool.TryGet(out result))
