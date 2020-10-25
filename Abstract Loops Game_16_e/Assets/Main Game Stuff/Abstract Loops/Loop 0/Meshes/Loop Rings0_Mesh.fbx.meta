@@ -9,6 +9,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Circle
     second: {fileID: 2100000, guid: b845ecaebfcc7674a855e7206c61587b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Loop Material
+    second: {fileID: 2100000, guid: b845ecaebfcc7674a855e7206c61587b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Loop_Material
+    second: {fileID: 2100000, guid: b845ecaebfcc7674a855e7206c61587b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

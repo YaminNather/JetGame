@@ -30,7 +30,7 @@ public class LoopsMgr : MonoBehaviour
         int index = 0;
         do
         {
-        index = Random.Range(0, m_Loops.Length);
+            index = Random.Range(0, m_Loops.Length);
         } while (m_Loops[index].IsSpawned);
         
         LoopSpawn_F(m_Loops[index]);
