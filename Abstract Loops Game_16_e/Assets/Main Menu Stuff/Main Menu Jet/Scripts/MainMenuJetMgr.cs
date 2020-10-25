@@ -13,8 +13,8 @@ public class MainMenuJetMgr : MonoBehaviour
     private int m_JetCurID;
     public int JetCurID => m_JetCurID;
 
-    private JetsDatabase JetDatas => GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase;
-    private GlobalData GlobalData => GlobalDatabaseInitializer.INSTANCE.m_GlobalData;
+    private JetsDatabase JetDatas => GlobalMgr.INSTANCE.m_JetsDatabase;
+    private GlobalData GlobalData => GlobalMgr.INSTANCE.m_GlobalData;
 
     [SerializeField] private Material MainMenuJetMaterial;
 
@@ -35,7 +35,7 @@ public class MainMenuJetMgr : MonoBehaviour
     public void JetsInstantiate_F()
     {
         m_JetMeshes = new Dictionary<int, GameObject>();
-        JetsDatabase jdb = GlobalDatabaseInitializer.INSTANCE.m_JetsDatabase;
+        JetsDatabase jdb = GlobalMgr.INSTANCE.m_JetsDatabase;
 
         foreach(KeyValuePair<int, JetData> kvp in jdb.m_JetDatas)
         {
@@ -43,7 +43,7 @@ public class MainMenuJetMgr : MonoBehaviour
             MainMenuMaterialAssign_F(gObj);
             m_JetMeshes.Add(kvp.Key, gObj);
 
-            if (kvp.Key == GlobalDatabaseInitializer.INSTANCE.m_GlobalData.JetCur)
+            if (kvp.Key == GlobalMgr.INSTANCE.m_GlobalData.JetCur)
             {
                 JetCurSet_F(kvp.Key);
             }

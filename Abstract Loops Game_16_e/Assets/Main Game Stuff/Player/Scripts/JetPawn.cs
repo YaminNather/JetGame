@@ -192,7 +192,7 @@ public partial class JetPawn : Pawn
     {
         //Debug.Log("Kill_EF() called");
         m_JetAudioMgr.PlayAudioWithGlobalAudioSource_F(JetAudioMgr.AudioClipsEN.Explode);
-        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
+        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
         if(IsPossessed) m_PlayerController.UnPossess_F();
         OnDeath_E?.Invoke();
 

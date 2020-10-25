@@ -18,7 +18,7 @@ public class LoopsMgr : MonoBehaviour
     /// </summary>
     public void LoopsFieldSetup_F()
     {
-        m_Loops = GlobalDatabaseInitializer.INSTANCE.m_LoopsDatabase.Loops.ToArray();
+        m_Loops = GlobalMgr.INSTANCE.m_LoopsDatabase.Loops.ToArray();
     }
 
     /// <summary>

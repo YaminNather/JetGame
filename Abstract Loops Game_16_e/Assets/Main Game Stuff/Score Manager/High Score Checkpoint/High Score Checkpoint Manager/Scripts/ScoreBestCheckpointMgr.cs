@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using TMPro;
-using Unity.QuickSearch;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class ScoreBestCheckpointMgr : MonoBehaviour

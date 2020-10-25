@@ -30,7 +30,7 @@ public class LevelsMgr : MonoBehaviour
 
     public void GetAllLevelsForGame_F()
     {
-        LevelsDatabase ldb = GlobalDatabaseInitializer.INSTANCE.m_LevelsDatabase;
+        LevelsDatabase ldb = GlobalMgr.INSTANCE.m_LevelsDatabase;
 #if UNITY_EDITOR
         if (m_TestLevels == null || m_TestLevels.Length == 0)
         {

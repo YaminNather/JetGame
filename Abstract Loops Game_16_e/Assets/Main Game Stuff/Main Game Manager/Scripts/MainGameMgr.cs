@@ -10,12 +10,16 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.UI;
 
 public class MainGameMgr : MonoBehaviour
 {
     #region Variables
-    private GlobalDatabaseInitializer m_gdi;
+    static private MainGameMgr s_Instance;
+    static public MainGameMgr Instance => s_Instance;
+
+    private GlobalMgr m_gdi;
     private MainGameReferences mgr;
 
     private DifficultyEN m_Difficulty;
@@ -29,11 +33,13 @@ public class MainGameMgr : MonoBehaviour
     public int PlayerDeathCount => m_PlayerDeathCount;
 
     [SerializeField] private AudioClip m_BackgroundMusicAC;
+
+    private AsyncOperationHandle<SceneInstance> mainMenuSceneLoadingAsyncOp;
     #endregion
 
     private void Awake()
     {
-        m_gdi = GlobalDatabaseInitializer.INSTANCE;
+        m_gdi = GlobalMgr.INSTANCE;
         mgr = MainGameReferences.INSTANCE;
     }
 
@@ -47,11 +53,14 @@ public class MainGameMgr : MonoBehaviour
         //TESTING- Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_gdi.AllLoaded == false) yield return null;
 
+        //Start Loading MainMenu Scene in advance.
+        mainMenuSceneLoadingAsyncOp = GlobalMgr.INSTANCE.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu, activateOnLoad: false);
+
         //Sets the best score in ScoreMgr.
         mgr.scoreMgr.ScoreBestSet_F();
 
         //Play Background Music
-        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
+        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
 
         //First Spawn player and possess it because loops and levels are spawned from player position.        
         JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
@@ -135,7 +144,7 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void PlayerRevive_F()
     {
-        GlobalDatabaseInitializer.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
+        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
         JetPawn player = MainGameReferences.INSTANCE.player;
         player.Revive_F();
         JetPlayerController playerController = MainGameReferences.INSTANCE.playerController;
@@ -152,7 +161,7 @@ public class MainGameMgr : MonoBehaviour
         //Debug.Log("Transitioning to Score Display");
         
         //Setting the score and currency values in Global Data and saving it.
-        GlobalDatabaseInitializer gdi = GlobalDatabaseInitializer.INSTANCE;
+        GlobalMgr gdi = GlobalMgr.INSTANCE;
         gdi.m_GlobalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
         gdi.m_GlobalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
         gdi.m_GlobalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
@@ -161,11 +170,20 @@ public class MainGameMgr : MonoBehaviour
         //Doing a fade out to black and when fade is done, despawning all levels and loops and then opening the Main Menu Scene.
         MainGameReferences.INSTANCE.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
         {
-            GlobalDatabaseInitializer.INSTANCE.m_AdsMgr.GamesSinceLastInterstitialAd++;
+            GlobalMgr.INSTANCE.m_AdsMgr.GamesSinceLastInterstitialAd++;
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
-            MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();           
-            gdi.m_ScenesDatabase.LoadScene_F(Scenes_EN.MainMenu);
+            MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();
+
+            StartCoroutine(ActivateMainMenuScene_IEF());
+            //gdi.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu);
         });
+    }
+
+    private IEnumerator ActivateMainMenuScene_IEF()
+    {
+        while (mainMenuSceneLoadingAsyncOp.IsDone == false) yield return null;
+
+        yield return mainMenuSceneLoadingAsyncOp.Result.ActivateAsync();
     }
 
 #if UNITY_EDITOR

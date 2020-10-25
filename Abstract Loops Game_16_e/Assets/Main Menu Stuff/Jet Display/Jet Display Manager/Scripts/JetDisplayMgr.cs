@@ -25,7 +25,7 @@ public class JetDisplayMgr : MonoBehaviour
 
     //private void Awake()
     //{
-    //    gd = GlobalDatabaseInitializer.s_Instance.globalData;
+    //    gd = GlobalMgr.s_Instance.globalData;
     //    m_Animator = GetComponent<Animator>();
     //    Destroy(JetHolder_Trans.GetChild(0).transform.gameObject);
     //    //SetupInitialTransforms_F();
@@ -47,7 +47,7 @@ public class JetDisplayMgr : MonoBehaviour
     //{
     //    yield return StartCoroutine(LoadAllModels_IEF());
     //    //Debug.Log("<color=yellow>All Display Jets Loaded</color>");
-    //    JetObjCurMake_F(GlobalDatabaseInitializer.s_Instance.globalData.JetCur);
+    //    JetObjCurMake_F(GlobalMgr.s_Instance.globalData.JetCur);
     //    Entry_F(true);
     //}
     

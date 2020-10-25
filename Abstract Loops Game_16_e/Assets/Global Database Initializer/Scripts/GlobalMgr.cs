@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalDatabaseInitializer : MonoBehaviour
+public class GlobalMgr : MonoBehaviour
 {
     #region Variables
-    static public GlobalDatabaseInitializer INSTANCE;
+    static public GlobalMgr INSTANCE;
 
     [HideInInspector] public GlobalData m_GlobalData;
     [HideInInspector] public LevelsDatabase m_LevelsDatabase;
     [HideInInspector] public JetsDatabase m_JetsDatabase;
     [HideInInspector] public LoopsDatabase m_LoopsDatabase;
-    [HideInInspector] public ScenesLoader m_ScenesDatabase;
+    [HideInInspector] public ScenesLoader m_SceneLoader;
     [HideInInspector] public BackgroundMusicMgr m_BackgroundMusicMgr;
     [HideInInspector] public AdsMgr m_AdsMgr;
 
@@ -44,7 +44,7 @@ public class GlobalDatabaseInitializer : MonoBehaviour
         m_LevelsDatabase = gameObject.AddComponent<LevelsDatabase>();
         m_JetsDatabase = gameObject.AddComponent<JetsDatabase>();
         m_LoopsDatabase = gameObject.AddComponent<LoopsDatabase>();
-        m_ScenesDatabase = gameObject.AddComponent<ScenesLoader>();
+        m_SceneLoader = gameObject.AddComponent<ScenesLoader>();
         m_BackgroundMusicMgr = gameObject.AddComponent<BackgroundMusicMgr>();
         m_AdsMgr = gameObject.AddComponent<AdsMgr>();
     }       

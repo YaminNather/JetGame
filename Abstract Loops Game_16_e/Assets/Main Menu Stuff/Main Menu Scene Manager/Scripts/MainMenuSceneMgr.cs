@@ -1,16 +1,23 @@
 using DG.Tweening;
 using System;
 using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 public class MainMenuSceneMgr : MonoBehaviour
 {
     #region Variables
+    private static MainMenuSceneMgr s_Instance;
+    public static MainMenuSceneMgr Instance => s_Instance;
+
     private MainMenuSceneReferences mmsr;
-    private GlobalDatabaseInitializer gdi;
+    private GlobalMgr gdi;
 
     private PagesEN m_PageCur;
     public PagesEN PageCur => m_PageCur;
@@ -20,11 +27,14 @@ public class MainMenuSceneMgr : MonoBehaviour
     private bool m_ScoreLastGameIsBest;
     public bool ScoreLastGameIsBest => m_ScoreLastGameIsBest;
 
+    private AsyncOperationHandle<SceneInstance> m_MainGameSceneLoadingAsyncOp;
+    public AsyncOperationHandle<SceneInstance> MainGameSceneLoadingAsyncOp => m_MainGameSceneLoadingAsyncOp;
     #endregion
 
     private void Awake()
     {
-        gdi = GlobalDatabaseInitializer.INSTANCE;
+        s_Instance = this;
+        gdi = GlobalMgr.INSTANCE;
         mmsr = MainMenuSceneReferences.INSTANCE;
     }
 
@@ -47,7 +57,13 @@ public class MainMenuSceneMgr : MonoBehaviour
     {
         while (gdi.AllLoaded == false) yield return null;
 
+        //Start Loading MainGame right away.
+        m_MainGameSceneLoadingAsyncOp = GlobalMgr.INSTANCE.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainGame, loadSceneMode:LoadSceneMode.Single, activateOnLoad:false);
+
+        //Instantiate the Main Menu Jet.
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetsInstantiate_F();
+        
+        //Open the Main Game and check if to load ads.
         PageOpen_F(PagesEN.Main, onOpen_E: () => 
         {
             gdi.m_AdsMgr.BannerCheckAndCreate_F();

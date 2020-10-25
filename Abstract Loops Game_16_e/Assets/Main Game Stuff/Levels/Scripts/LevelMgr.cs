@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Experimental.SceneManagement;
-using UnityEngine;
+#endif
 
 public partial class LevelMgr : MonoBehaviour
 {
@@ -48,8 +48,11 @@ public partial class LevelMgr : MonoBehaviour
         ReorderLevelChildren_F((menuCommand.context as LevelMgr));
 
     [MenuItem("Spawn Level Prefab Tool/Reorder Level Children", true)]
-    private static bool ReorderLevelChildrenFromTitleBarValidator_F() =>
-        PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.GetComponent<LevelMgr>() != null;
+    private static bool ReorderLevelChildrenFromTitleBarValidator_F()
+    {
+        PrefabStage prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
+        return prefabStage != null && prefabStage.prefabContentsRoot.GetComponent<LevelMgr>() != null;
+    }
 
     [MenuItem("Spawn Level Prefab Tool/Reorder Level Children")]
     private static void ReorderLevelChildrenFromTitleBar_F() =>
