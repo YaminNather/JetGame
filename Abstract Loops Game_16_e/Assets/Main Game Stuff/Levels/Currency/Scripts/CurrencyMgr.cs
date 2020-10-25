@@ -32,10 +32,11 @@ public class CurrencyMgr : LevelComponent
 #if UNITY_EDITOR
 public class CurrencyCreateWizard : ScriptableWizard
 {
+    #region Variables
     public int m_SpawnCount = 1;
 
     public Transform m_ContextTrans;
-    public float m_InitialDist = 10f;
+    public float m_InitialDist = 0f;
     public float m_RelativeDist = 1f;
 
     public float m_DistFromCenter = 2f;
@@ -43,7 +44,8 @@ public class CurrencyCreateWizard : ScriptableWizard
     
     private GameObject m_CurrencyPrefab;
     [SerializeField] private LinkedList<GameObject> m_Ghosts;
-    
+#endregion
+
     [MenuItem("Spawn Level Prefab Tool/Add Currency")]
     private static void CreateWizard(MenuCommand menuCommand)
     {

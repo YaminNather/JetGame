@@ -32,7 +32,7 @@ public class BlockEditorMgr : MonoBehaviour
 [CustomEditor(typeof(BlockEditorMgr)), CanEditMultipleObjects]
 public class BlockEditorMgrEditor : Editor
 {
-    BlockEditorMgr target;
+    private new BlockEditorMgr target;
 
     public override VisualElement CreateInspectorGUI()
     {
@@ -43,11 +43,23 @@ public class BlockEditorMgrEditor : Editor
         //Drawing default Inspector.
         r.Add(new IMGUIContainer(() => DrawDefaultInspector()));
 
+
+        //Drawing Transform Component of the rotating part.
+        if (serializedObject.isEditingMultipleObjects == false && target.RotationObjTrans != null)
+        {
+            Editor transformEditor = Editor.CreateEditor(target.RotationObjTrans);
+            Foldout foldout = new Foldout() {text = "Rotating Objects Transform"};
+            foldout.Add(new IMGUIContainer(() =>
+            {
+                transformEditor.OnInspectorGUI();
+            }));
+            r.Add(foldout);
+        }
+
         //Getting all Rotation Components from children of target/targets.
         SerializedObject sObj = RotationComponentsSObjsGet_F();
-
         if (sObj != null)
-        {            
+        {
             //Drawing a field to edit their RotationDir.
             PropertyField rotationDirField = new PropertyField();
             rotationDirField.BindProperty(sObj.FindProperty("m_RotationDir"));
