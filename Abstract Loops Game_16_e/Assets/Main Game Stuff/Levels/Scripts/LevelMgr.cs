@@ -40,28 +40,36 @@ public partial class LevelMgr : MonoBehaviour
 public partial class LevelMgr : MonoBehaviour
 {
     [MenuItem("CONTEXT/LevelMgr/Reorder Children", true)]
-    private static bool ReorderLevelChildrenValidator_F(MenuCommand menuCommand)
-    {
-        return PrefabStageUtility.GetCurrentPrefabStage() != null;
-    }
+    private static bool ReorderLevelChildrenFromContextMenuValidator_F(MenuCommand menuCommand) =>
+        PrefabStageUtility.GetCurrentPrefabStage() != null;
 
     [MenuItem("CONTEXT/LevelMgr/Reorder Children")]
-    private static void ReorderLevelChildren_F(MenuCommand menuCommand)
-    {
-        Transform level = (menuCommand.context as LevelMgr).transform;
+    private static void ReorderLevelChildrenFromContextMenu_F(MenuCommand menuCommand) => 
+        ReorderLevelChildren_F((menuCommand.context as LevelMgr));
 
-        for (int i = 0; i < level.childCount - 1; i++)
+    [MenuItem("Spawn Level Prefab Tool/Reorder Level Children", true)]
+    private static bool ReorderLevelChildrenFromTitleBarValidator_F() =>
+        PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.GetComponent<LevelMgr>() != null;
+
+    [MenuItem("Spawn Level Prefab Tool/Reorder Level Children")]
+    private static void ReorderLevelChildrenFromTitleBar_F() =>
+        ReorderLevelChildren_F(PrefabStageUtility.GetCurrentPrefabStage().prefabContentsRoot.GetComponent<LevelMgr>());
+
+    private static void ReorderLevelChildren_F(LevelMgr level)
+    {
+        Transform levelTrans = level.transform;
+        for (int i = 0; i < levelTrans.childCount - 1; i++)
         {
-            Transform min = level.GetChild(i);
-            for (int j = i + 1; j < level.childCount; j++)
+            Transform min = levelTrans.GetChild(i);
+            for (int j = i + 1; j < levelTrans.childCount; j++)
             {
-                if (level.GetChild(j).transform.position.z < min.transform.position.z)
-                    min = level.GetChild(j);
+                if (levelTrans.GetChild(j).transform.position.z < min.transform.position.z)
+                    min = levelTrans.GetChild(j);
             }
-            Undo.SetTransformParent(min.transform, level, "Reordered Level Children");
+
+            Undo.SetTransformParent(min.transform, levelTrans, "Reordered Level Children");
             min.SetSiblingIndex(i);
         }
-
     }
 }
 #endif

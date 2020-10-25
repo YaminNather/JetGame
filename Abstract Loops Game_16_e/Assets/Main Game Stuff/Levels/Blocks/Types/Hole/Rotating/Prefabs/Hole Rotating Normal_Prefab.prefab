@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215203932395108586, guid: 57c34711b8d5a3b49b181d6ea4eed335, type: 3}
       propertyPath: m_RotationSpeed
-      value: 120
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 6985241202270565421, guid: 57c34711b8d5a3b49b181d6ea4eed335, type: 3}
       propertyPath: m_LocalPosition.x
