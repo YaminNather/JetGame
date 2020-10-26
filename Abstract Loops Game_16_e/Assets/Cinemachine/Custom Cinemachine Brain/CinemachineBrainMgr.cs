@@ -13,15 +13,17 @@ public class CinemachineBrainMgr : MonoBehaviour
     public CinemachineVirtualCamera CVCCur => m_CVCCur;
     #endregion
 
-    private void Awake()
+    private void Start()
     {
         m_CinemachineBrain = GetComponent<CinemachineBrain>();
         m_CVCCur = m_CinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
         m_CVCCur.m_Priority = 10;
+        Debug.Log("<color=yellow>Start()</color>");
     }
 
     public void TransitionTo_F(CinemachineVirtualCamera cvc)
     {
+        Debug.Log("<color=yellow>TransitionTo_F()</color>");
         if (cvc == null) return;
 
         m_CVCCur.m_Priority = 0;
