@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Main Page_SpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: ca34fa5c5f904ab4aa79139cbb8a6eab, type: 3}
+    - {fileID: 102900000, guid: 3122a6cd38ca8594fa4fad54c1f51180, type: 3}
+    totalSpriteSurfaceArea: 1415624
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d3ec7410c60513d4bbb5344350cfaf2d, type: 3}
+  - {fileID: 21300000, guid: f5367b02b3a50604bb086c736de6c675, type: 3}
+  - {fileID: 21300000, guid: a68306526a0439948b6d740e335c4f26, type: 3}
+  - {fileID: 21300000, guid: 413eb53474f510e419c0d00b08eb0fe0, type: 3}
+  - {fileID: 21300000, guid: 0585b447af8fb254dbf06a27ca3baad3, type: 3}
+  - {fileID: 21300000, guid: ca34fa5c5f904ab4aa79139cbb8a6eab, type: 3}
+  - {fileID: 21300000, guid: a974241eccd84df459f161ebc9ed023b, type: 3}
+  - {fileID: 21300000, guid: cd3fe97ea9aec564e89a0b5f975f0e18, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Share Icon_Texture
+  - Title_Texture
+  - Current Score Header_Texture
+  - Jet Store Button_Texture
+  - Settings Button_Texture
+  - Currency Icon_Texture
+  - Play Button_Texture
+  - Best Score Header_Texture
+  m_RenderDataMap: {}
+  m_Tag: Main Page_SpriteAtlas
+  m_IsVariant: 0
