@@ -23,9 +23,9 @@ public class LoopsMgr : MonoBehaviour
 
     /// <summary>
     /// Gets a random loop by going through all
-    /// loops to find which isnt already spawned and calls LoopSpawn_F.
+    /// loops to find which isn't already spawned and calls LoopSpawn_F.
     /// </summary>
-    public void RandomLoopSpawn_F()
+    public void RandomLoopSpawn_F(Vector3 spawnPos)
     {
         int index = 0;
         do
@@ -33,20 +33,19 @@ public class LoopsMgr : MonoBehaviour
             index = Random.Range(0, m_Loops.Length);
         } while (m_Loops[index].IsSpawned);
         
-        LoopSpawn_F(m_Loops[index]);
+        LoopSpawn_F(m_Loops[index], spawnPos);
     }
 
     /// <summary>
     /// Spawn a loop.
     /// </summary>
     /// <param name="loop"></param>
-    public void LoopSpawn_F(LoopMgrBase loop)
+    /// <param name="spawnPos"></param>
+    public void LoopSpawn_F(LoopMgrBase loop, Vector3 spawnPos)
     {
-        Pawn player = MainGameReferences.INSTANCE.playerController.PossessedPawn;
-
         loop.gameObject.SetActive(true);
         loop.OnSpawn_F();
-        loop.transform.position = new Vector3(0f, 0f, player.transform.position.z - 5f);
+        loop.transform.position = spawnPos;
         loop.IsSpawned = true;
         //loop.EndHitbox.ListenerAdd_F(LoopEndHitboxOnEnter_EF);
     }
