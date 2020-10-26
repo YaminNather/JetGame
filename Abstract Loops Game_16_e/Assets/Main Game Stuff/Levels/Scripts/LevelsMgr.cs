@@ -12,8 +12,6 @@ public class LevelsMgr : MonoBehaviour
     private LevelMgr[] m_NormalLevels;
     private LevelMgr[] m_HardLevels;
     private Queue<LevelMgr> m_LevelsSpawned;
-    private bool m_PlayerJustRevived;
-    public bool PlayerJustRevived { get => m_PlayerJustRevived; set => m_PlayerJustRevived = value; }    
 
     private readonly Vector3 k_NullVector = new Vector3(-999f, -999f, -999f);
 
@@ -72,14 +70,19 @@ public class LevelsMgr : MonoBehaviour
         return m_LevelsSpawned.ElementAt(0);
     }
 
-    public void RandomLevelSpawn_F()
+    public void RandomLevelSpawn_F(Vector3 spawnPos)
     {
         if (m_LevelsSpawned.Count >= 2)
             return;
 
         int toSpawnCount = 2 - m_LevelsSpawned.Count;
+
         for (int i = 0; i < toSpawnCount; i++)
-            LevelSpawn_F(RandomLevelGet_F(MainGameReferences.INSTANCE.mainGameMgr.Difficulty));
+        {
+            LevelMgr level = RandomLevelGet_F(MainGameReferences.INSTANCE.mainGameMgr.Difficulty);
+            LevelSpawn_F(level, spawnPos);
+            spawnPos = level.EndHitbox.transform.position;
+        }
 
     }
 
@@ -102,9 +105,8 @@ public class LevelsMgr : MonoBehaviour
         return levels[index];
     }
 
-    public void LevelSpawn_F(LevelMgr level)
+    public void LevelSpawn_F(LevelMgr level, Vector3 spawnPos)
     {
-        Vector3 spawnPos = LevelSpawnPosGet_F();        
         level.transform.position = spawnPos;
         level.gameObject.SetActive(true);
         level.OnSpawn_F();
@@ -115,27 +117,27 @@ public class LevelsMgr : MonoBehaviour
         m_LevelsSpawned.Enqueue(level);        
     }
 
-    public Vector3 LevelSpawnPosGet_F()
-    {
-        switch (m_LevelsSpawned.Count)
-        {
-            case 0:
-                if (m_PlayerJustRevived)
-                {
-                    m_PlayerJustRevived = false;
-                    return new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z);
-                }
-                else
-                    return Vector3.zero;
+    //public Vector3 LevelSpawnPosGet_F()
+    //{
+    //    switch (m_LevelsSpawned.Count)
+    //    {
+    //        case 0:
+    //            if (m_PlayerJustRevived)
+    //            {
+    //                m_PlayerJustRevived = false;
+    //                return new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z);
+    //            }
+    //            else
+    //                return Vector3.zero;
 
-            default:
-                return m_LevelsSpawned.Last().EndHitbox.transform.position;
-        }
-    }
+    //        default:
+    //            return m_LevelsSpawned.Last().EndHitbox.transform.position;
+    //    }
+    //}
 
     private void LevelHitboxOnEnterSpawnNextLevel_EF(Collider other)
     {
-        if (other.TryGetComponent(out PlayerHitbox ph)) RandomLevelSpawn_F();
+        if (other.TryGetComponent(out PlayerHitbox ph)) RandomLevelSpawn_F(m_LevelsSpawned.Last().EndHitbox.transform.position);
     }
 
     public void LevelDespawn_F(LevelMgr level)

@@ -76,7 +76,7 @@ public class MainGameMgr : MonoBehaviour
 
         //Spawning the first loops and levels.
         mgr.loopsMgr.RandomLoopSpawn_F();
-        mgr.levelsMgr.RandomLevelSpawn_F();        
+        mgr.levelsMgr.RandomLevelSpawn_F(Vector3.zero);
     }    
 
     /// <summary>
@@ -150,7 +150,7 @@ public class MainGameMgr : MonoBehaviour
         JetPlayerController playerController = MainGameReferences.INSTANCE.playerController;
         playerController.Possess_F(player);
         MainGameReferences.INSTANCE.levelsMgr.PlayerJustRevived = true;
-        MainGameReferences.INSTANCE.levelsMgr.RandomLevelSpawn_F();
+        MainGameReferences.INSTANCE.levelsMgr.RandomLevelSpawn_F(new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z));
     }
 
     /// <summary>
