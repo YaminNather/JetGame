@@ -32,9 +32,13 @@ Shader "Custom/Emission_Shader_1"
                 float4 positionHCS : SV_POSITION;
                 float2 uv : TEXCOORD0;
             };
-
+            
+            //Global Variables
             half _Hue0;
+            half3 _PrimaryColor;
             TEXTURE2D(_WireframeTexture); SAMPLER(sampler_WireframeTexture);
+
+            //Local Variables
             CBUFFER_START(UnityPerMaterial)
             half _EmissionStrength;
             half4 _WireframeTexture_ST;
@@ -61,8 +65,9 @@ Shader "Custom/Emission_Shader_1"
             half3 frag(Varyings IN) : SV_Target
             {
                 half4 sampledColor = SAMPLE_TEXTURE2D(_WireframeTexture, sampler_WireframeTexture, IN.uv);
-                half3 hueColor = HSVToRGBConvert_F(half3(_Hue0, 1.0, 1.0));
-                half3 lerpedColor = lerp(_SecondaryColor, hueColor * _EmissionStrength, sampledColor);
+                //half3 hueColor = HSVToRGBConvert_F(half3(_Hue0, 1.0, 1.0));
+                //half3 lerpedColor = lerp(_SecondaryColor, hueColor * _EmissionStrength, sampledColor);
+                half3 lerpedColor = lerp(_SecondaryColor, _PrimaryColor * _EmissionStrength, sampledColor);
                 return lerpedColor;
             }
             ENDHLSL

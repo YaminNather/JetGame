@@ -13,6 +13,7 @@ public class ColorMgr : MonoBehaviour
         {
             m_Hue0 = value;
             Shader.SetGlobalFloat("_Hue0", value);
+            Shader.SetGlobalColor("_PrimaryColor", Color.HSVToRGB(value, 1.0f, 1.0f));
         }
     }
 
@@ -23,7 +24,8 @@ public class ColorMgr : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        Shader.SetGlobalFloat("_Hue0", m_Hue0);        
+        Shader.SetGlobalFloat("_Hue0", m_Hue0);
+        Shader.SetGlobalColor("_PrimaryColor", Color.HSVToRGB(m_Hue0, 1.0f, 1.0f));
     }
 #endif
 }
