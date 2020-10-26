@@ -33,9 +33,10 @@ Shader "Custom/Emission_Shader"
             };
 
             half _Hue0;
+            TEXTURE2D(_WireframeTexture); SAMPLER(sampler_WireframeTexture);
             CBUFFER_START(UnityPerMaterial)
             half _EmissionStrength;
-            TEXTURE2D(_WireframeTexture); SAMPLER(sampler_WireframeTexture); half4 _WireframeTexture_ST;
+            half4 _WireframeTexture_ST;
             CBUFFER_END
 
             half3 HSVToRGBConvert_F(half3 In)
