@@ -50,7 +50,10 @@ public class MainGameMgr : MonoBehaviour
 
     private IEnumerator Start_IEF()
     {
-        //TESTING- Waiting for all assets to load into their database. This part will be moved somewhere else later.
+        //Setting Screen to Black, so that we can fade in once everything is loaded.
+        mgr.LoopTransition.color = Color.black;
+
+        //Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_gdi.AllLoaded == false) yield return null;
 
         //Start Loading MainMenu Scene in advance.
@@ -62,13 +65,6 @@ public class MainGameMgr : MonoBehaviour
         //Play Background Music
         GlobalMgr.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
 
-        //First Spawn player and possess it because loops and levels are spawned from player position.        
-        JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
-        spawnedPlayer.transform.position = Vector3.forward * 5.0f;
-        //Debug.Log($"<color=green>Spawned Player default pos = {spawnedPlayer.transform.position}</color>");
-        mgr.player = spawnedPlayer;
-        mgr.player.OnDeath_E += OnPlayerDeath_EF;
-        mgr.playerController.Possess_F(spawnedPlayer);
 
         //Getting all loops and levels from their database.
         mgr.loopsMgr.LoopsFieldSetup_F();
@@ -76,7 +72,18 @@ public class MainGameMgr : MonoBehaviour
 
         //Spawning the first loops and levels.
         mgr.loopsMgr.RandomLoopSpawn_F(Vector3.zero);
-        mgr.levelsMgr.RandomLevelSpawn_F(Vector3.zero);
+        mgr.levelsMgr.RandomLevelSpawn_F(new Vector3(0.0f, 0.0f, 50.0f));
+        
+        //Spawn player and possess it.
+        JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
+        spawnedPlayer.transform.position = Vector3.forward * 5.0f;
+        //Debug.Log($"<color=green>Spawned Player default pos = {spawnedPlayer.transform.position}</color>");
+        mgr.player = spawnedPlayer;
+        mgr.player.OnDeath_E += OnPlayerDeath_EF;
+        mgr.playerController.Possess_F(spawnedPlayer);
+
+        //Fading in the scene.
+        mgr.LoopTransition.DOFade(0.0f, 0.5f);
     }    
 
     /// <summary>
