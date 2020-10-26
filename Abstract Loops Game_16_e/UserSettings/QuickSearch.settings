@@ -16,7 +16,7 @@ filters = {
 	settings = true
 }
 scopes = {
-	"last_search.AB59B443" = "Sprite Atlas"
+	"last_search.AB59B443" = "pipeline"
 	"last_search.000006DE" = ""
 }
 providers = {

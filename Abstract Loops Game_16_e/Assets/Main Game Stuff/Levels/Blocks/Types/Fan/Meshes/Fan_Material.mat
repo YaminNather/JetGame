@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Fan_Material
   m_Shader: {fileID: 4800000, guid: 0661d30d54847e94d870feb210ae75ca, type: 3}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: 
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -62,7 +62,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
-    - _EmissionStrength: 2
+    - _EmissionStrength: 1.29
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
