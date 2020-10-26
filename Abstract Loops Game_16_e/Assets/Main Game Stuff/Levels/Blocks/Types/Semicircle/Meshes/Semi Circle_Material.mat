@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Semi Circle_Material
-  m_Shader: {fileID: -6465566751694194690, guid: 7d78bbe38221ad147bb7b40e9054f9d8, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6bc6b2e2c7c161a4bb61cf0e21a3e266, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
