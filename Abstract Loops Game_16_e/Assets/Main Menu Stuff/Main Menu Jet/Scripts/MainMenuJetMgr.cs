@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class MainMenuJetMgr : MonoBehaviour
@@ -17,6 +18,8 @@ public class MainMenuJetMgr : MonoBehaviour
     private GlobalData GlobalData => GlobalMgr.INSTANCE.m_GlobalData;
 
     [SerializeField] private Material MainMenuJetMaterial;
+
+    [SerializeField] private CinemachineVirtualCamera m_VCamera;
 
     private Tweener JetChangeT;
     #endregion
@@ -52,6 +55,27 @@ public class MainMenuJetMgr : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        m_jmc.InputVectorAdd_F(new Vector3(0f, 0f, 1f));
+    }
+
+    private IEnumerator RandomJetSway_IEF()
+    {        
+        while(true)
+        {
+            float time = Random.Range(0f, 0.5f);            
+            Vector3 input = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2), 0f);
+            //Debug.Log($"<color=yellow>Time = {time}, dir = {input}</color>");
+            while (time > 0f)
+            {
+                m_jmc.InputVectorAdd_F(input);
+                time -= Time.deltaTime;
+                yield return null;
+            }
+        }
+    }
+    
     /// <summary>
     /// Removes old materials from instantiated mesh and assigns the main menu material for the jet.
     /// </summary>
@@ -112,24 +136,11 @@ public class MainMenuJetMgr : MonoBehaviour
     /// </summary>
     public void JetCurSetToEquippedJet_F() => JetCurSet_F(GlobalData.JetCur);
 
-    private void Update()
+    /// <summary>
+    /// Call to Blast Off the jet to transition of the the MainGameScene.
+    /// </summary>
+    public void BlastOff_F()
     {
-        m_jmc.InputVectorAdd_F(new Vector3(0f, 0f, 1f));
-    }
-
-    private IEnumerator RandomJetSway_IEF()
-    {        
-        while(true)
-        {
-            float time = Random.Range(0f, 0.5f);            
-            Vector3 input = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2), 0f);
-            //Debug.Log($"<color=yellow>Time = {time}, dir = {input}</color>");
-            while (time > 0f)
-            {
-                m_jmc.InputVectorAdd_F(input);
-                time -= Time.deltaTime;
-                yield return null;
-            }
-        }
+        m_VCamera.Follow = null;
     }
 }

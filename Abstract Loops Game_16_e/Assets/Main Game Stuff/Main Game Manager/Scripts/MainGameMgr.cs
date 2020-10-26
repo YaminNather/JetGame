@@ -179,6 +179,10 @@ public class MainGameMgr : MonoBehaviour
         });
     }
 
+    /// <summary>
+    /// Activates the Preloaded MainMenuScene. Called when game ends. 
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ActivateMainMenuScene_IEF()
     {
         while (mainMenuSceneLoadingAsyncOp.IsDone == false) yield return null;

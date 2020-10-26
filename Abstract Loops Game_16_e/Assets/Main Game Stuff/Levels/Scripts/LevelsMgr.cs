@@ -81,7 +81,7 @@ public class LevelsMgr : MonoBehaviour
         for (int i = 0; i < toSpawnCount; i++)
             LevelSpawn_F(RandomLevelGet_F(MainGameReferences.INSTANCE.mainGameMgr.Difficulty));
 
-        }
+    }
 
     public LevelMgr RandomLevelGet_F(MainGameMgr.DifficultyEN difficulty)
     {

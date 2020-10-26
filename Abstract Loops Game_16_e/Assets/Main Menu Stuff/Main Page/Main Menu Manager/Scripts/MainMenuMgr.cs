@@ -64,18 +64,27 @@ public class MainMenuMgr : Page
         if (IsOpeningMainGameScene == true) return;
 
         IsOpeningMainGameScene = true;
-        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
         StartCoroutine(Play_IEF());
     }
 
     private IEnumerator Play_IEF()
     {
-        MainMenuSceneReferences.INSTANCE.transitionImage.transform.parent.gameObject.SetActive(true);
-        MainMenuSceneReferences.INSTANCE.transitionImage.DOFade(1f, 1f);
-        yield return new WaitForSeconds(1);
 
+        //Jet Blast Off.
+        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.BlastOff_F();
+
+        //Fading out the Scene.
+        MainMenuSceneReferences.INSTANCE.transitionImage.transform.parent.gameObject.SetActive(true);
+        MainMenuSceneReferences.INSTANCE.transitionImage.DOFade(1.0f, 1.0f);
+
+        //Fading out the Background Music.
+        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
+        yield return new WaitForSeconds(1.0f);
+
+        //Checking if MainGameSceneIsLoading or waiting for it to finish loading.
         while (MainMenuSceneMgr.Instance.MainGameSceneLoadingAsyncOp.IsDone == false) yield return null;
 
+        //Activating MainGameScene.
         AsyncOperation activateSceneAsyncOp = MainMenuSceneMgr.Instance.MainGameSceneLoadingAsyncOp.Result.ActivateAsync();
         yield return activateSceneAsyncOp;
 
