@@ -149,7 +149,7 @@ public class MainGameMgr : MonoBehaviour
         player.Revive_F();
         JetPlayerController playerController = MainGameReferences.INSTANCE.playerController;
         playerController.Possess_F(player);
-        MainGameReferences.INSTANCE.levelsMgr.PlayerJustRevived = true;
+        //MainGameReferences.INSTANCE.levelsMgr.PlayerJustRevived = true;
         MainGameReferences.INSTANCE.levelsMgr.RandomLevelSpawn_F(new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z));
     }
 
