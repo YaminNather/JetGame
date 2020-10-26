@@ -70,6 +70,8 @@ public class MainMenuMgr : Page
 
     private IEnumerator Play_IEF()
     {
+        MainMenuSceneReferences.INSTANCE.transitionImage.transform.parent.gameObject.SetActive(true);
+        MainMenuSceneReferences.INSTANCE.transitionImage.DOFade(1f, 1f);
         yield return new WaitForSeconds(1);
 
         while (MainMenuSceneMgr.Instance.MainGameSceneLoadingAsyncOp.IsDone == false) yield return null;

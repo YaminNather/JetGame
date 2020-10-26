@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuSceneReferences : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MainMenuSceneReferences : MonoBehaviour
     public JetDisplayMgr jetDisplayMgr;
     public JetStoreMgr jetStoreMgr;
     public SettingsPageMgr settingsPageMgr;
+    public Image transitionImage;
     public ColorMgr colorMgr;
     #endregion
 
