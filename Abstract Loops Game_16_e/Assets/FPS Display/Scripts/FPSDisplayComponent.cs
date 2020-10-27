@@ -16,7 +16,7 @@ public class FPSDisplayComponent : MonoBehaviour
 
     private IEnumerator LabelUpdate_IEF()
     {
-        WaitForSeconds wfs = new WaitForSeconds(1.0f);
+        WaitForSeconds wfs = new WaitForSeconds(0.1f);
         while (true)
         {
             m_Text.text = "" + (1.0f / Time.deltaTime);
