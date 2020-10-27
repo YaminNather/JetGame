@@ -801,7 +801,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ExitEaseType: 0
+  m_ExitEaseType: 26
   m_ExitToUseCurve: 0
   m_ExitAnimationCurve:
     serializedVersion: 2
@@ -2756,6 +2756,7 @@ GameObject:
   - component: {fileID: 522093867}
   - component: {fileID: 522093866}
   - component: {fileID: 522093869}
+  - component: {fileID: 522093870}
   m_Layer: 5
   m_Name: Loop 1 Select Btn
   m_TagString: Untagged
@@ -2934,6 +2935,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_SlideInDir: 0
+--- !u!114 &522093870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522093864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cca0e04c65af143843e62d32ac323d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &527564925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,7 +4369,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ExitEaseType: 0
+  m_ExitEaseType: 26
   m_ExitToUseCurve: 0
   m_ExitAnimationCurve:
     serializedVersion: 2
@@ -4407,6 +4420,7 @@ GameObject:
   - component: {fileID: 1020433586}
   - component: {fileID: 1020433585}
   - component: {fileID: 1020433588}
+  - component: {fileID: 1020433589}
   m_Layer: 5
   m_Name: Loop 0 Select Btn
   m_TagString: Untagged
@@ -4585,6 +4599,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_SlideInDir: 0
+--- !u!114 &1020433589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020433583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cca0e04c65af143843e62d32ac323d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1044637443
 GameObject:
   m_ObjectHideFlags: 0
@@ -6675,7 +6701,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ExitEaseType: 0
+  m_ExitEaseType: 26
   m_ExitToUseCurve: 0
   m_ExitAnimationCurve:
     serializedVersion: 2
@@ -8164,7 +8190,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ExitEaseType: 0
+  m_ExitEaseType: 26
   m_ExitToUseCurve: 0
   m_ExitAnimationCurve:
     serializedVersion: 2
@@ -9171,6 +9197,7 @@ GameObject:
   - component: {fileID: 1718858592}
   - component: {fileID: 1718858591}
   - component: {fileID: 1718858594}
+  - component: {fileID: 1718858595}
   m_Layer: 5
   m_Name: Random Loop Select Btn
   m_TagString: Untagged
@@ -9349,6 +9376,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_SlideInDir: 0
+--- !u!114 &1718858595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718858589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cca0e04c65af143843e62d32ac323d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737781657
 GameObject:
   m_ObjectHideFlags: 0
