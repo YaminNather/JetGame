@@ -5,12 +5,14 @@ using UnityEngine;
 public class LoopMgrBase : MonoBehaviour
 {
     #region Variables
+    [SerializeField] private int m_Id;
+    public int Id => m_Id;
+
     [SerializeField] private bool m_IsSpawned;
     public bool IsSpawned { get => m_IsSpawned; set => m_IsSpawned = value; }
 
     private Hitbox[] m_LoopEndHitboxes;
     public Hitbox[] LoopEndHitboxes => m_LoopEndHitboxes;
-
     #endregion
 
     protected virtual void Awake()

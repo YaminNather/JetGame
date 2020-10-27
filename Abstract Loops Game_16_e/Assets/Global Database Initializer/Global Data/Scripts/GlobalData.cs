@@ -36,6 +36,9 @@ public class GlobalData : MonoBehaviour
 
     public List<int> JetsOwned { get => m_SaveInfo.JetsOwned; set => m_SaveInfo.JetsOwned = value; }
     public int JetCur { get => m_SaveInfo.JetCur; set => m_SaveInfo.JetCur = value; }
+
+    public int LoopCur { get => m_SaveInfo.LoopCur; set => m_SaveInfo.LoopCur = value; }
+
     #endregion
 
     private void Awake()
@@ -65,7 +68,8 @@ public class GlobalData : MonoBehaviour
         JetsOwned.Add(0);
         JetsOwned.Add(3);
         JetCur = 3;
-        
+        LoopCur = -1;
+
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
         {
@@ -136,6 +140,7 @@ public class SaveInfo
 
     public List<int> JetsOwned;
     public int JetCur;
+    public int LoopCur;
     #endregion
 
     public SaveInfo()
@@ -144,6 +149,7 @@ public class SaveInfo
         ScoreBest = 0;
         ScoreLastGame = 0;
         JetsOwned = new List<int>();
-        JetCur = 0;        
+        JetCur = 0;
+        LoopCur = -1;
     }
 }

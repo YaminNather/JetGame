@@ -73,7 +73,7 @@ public class MainGameMgr : MonoBehaviour
         mgr.levelsMgr.GetAllLevelsForGame_F();
 
         //Spawning the first loops and levels.
-        mgr.loopsMgr.RandomLoopSpawn_F(Vector3.zero);
+        mgr.loopsMgr.LoopSpawn_F(Vector3.zero);
         mgr.levelsMgr.RandomLevelSpawn_F(new Vector3(0.0f, 0.0f, 50.0f));
         
         //Spawn player and possess it.
@@ -181,7 +181,7 @@ public class MainGameMgr : MonoBehaviour
         {
             GlobalMgr.INSTANCE.m_AdsMgr.GamesSinceLastInterstitialAd++;
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
-            MainGameReferences.INSTANCE.loopsMgr.LoopsAllDespawn_F();
+            MainGameReferences.INSTANCE.loopsMgr.LoopDespawn_F();
 
             StartCoroutine(ActivateMainMenuScene_IEF());
             //gdi.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu);

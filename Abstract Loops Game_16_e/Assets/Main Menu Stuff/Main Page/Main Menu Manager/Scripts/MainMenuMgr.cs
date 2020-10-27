@@ -49,6 +49,9 @@ public class MainMenuMgr : Page
         m_ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
         m_CurrencyValue_Lbl.text = "" + gd.Currency;
         m_NewBestScoreLblGObj.gameObject.SetActive(false);
+
+        //Refresh LoopSelect Btns.
+        foreach(LoopSelectBtnMgr btn in GetComponentsInChildren<LoopSelectBtnMgr>()) btn.Refresh_F();
     }
 
     public override void Close_F(Page page = null, Action onClose_E = null, Action onOpen = null)
