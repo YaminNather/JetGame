@@ -15,6 +15,7 @@ public class GlobalMgr : MonoBehaviour
     [HideInInspector] public ScenesLoader m_SceneLoader;
     [HideInInspector] public BackgroundMusicMgr m_BackgroundMusicMgr;
     [HideInInspector] public AdsMgr m_AdsMgr;
+    [HideInInspector] public ColorMgr m_ColorMgr;
 
     public bool AllLoaded { get; private set; }
     #endregion
@@ -47,6 +48,7 @@ public class GlobalMgr : MonoBehaviour
         m_SceneLoader = gameObject.AddComponent<ScenesLoader>();
         m_BackgroundMusicMgr = gameObject.AddComponent<BackgroundMusicMgr>();
         m_AdsMgr = gameObject.AddComponent<AdsMgr>();
+        m_ColorMgr = gameObject.AddComponent<ColorMgr>();
     }       
 
     /// <summary>

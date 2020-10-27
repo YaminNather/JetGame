@@ -516,7 +516,6 @@ Transform:
   - {fileID: 281911618}
   - {fileID: 963194228}
   - {fileID: 850559828}
-  - {fileID: 1447482483}
   - {fileID: 589706224}
   - {fileID: 1331369752}
   m_Father: {fileID: 0}
@@ -6085,6 +6084,7 @@ MonoBehaviour:
   m_SceneLoader: {fileID: 0}
   m_BackgroundMusicMgr: {fileID: 0}
   m_AdsMgr: {fileID: 0}
+  m_ColorMgr: {fileID: 0}
 --- !u!4 &565128393
 Transform:
   m_ObjectHideFlags: 0
@@ -6290,7 +6290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &589706225
 ParticleSystem:
@@ -22632,7 +22632,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348421337
 GameObject:
@@ -22805,50 +22805,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4476890708411462117, guid: 37100e5c6aab18146b14740cf88a0866, type: 3}
   m_PrefabInstance: {fileID: 1445663689}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1447482481
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1447482483}
-  - component: {fileID: 1447482482}
-  m_Layer: 0
-  m_Name: Color Mgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1447482482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447482481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd46aebf154dc564f845e43e1e37a792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Hue0: 0
---- !u!4 &1447482483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447482481}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 101822401}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460037104
 GameObject:
   m_ObjectHideFlags: 16
@@ -23234,7 +23190,7 @@ MonoBehaviour:
   LoopTransition: {fileID: 275086033}
   loopsMgr: {fileID: 281911619}
   levelsMgr: {fileID: 343955715}
-  colorMgr: {fileID: 1447482482}
+  colorMgr: {fileID: 0}
   scoreMgr: {fileID: 1479427658}
   reviveMgr: {fileID: 624524355}
   currencyPSMgr: {fileID: 589706227}

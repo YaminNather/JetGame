@@ -53,6 +53,8 @@ public class MainGameMgr : MonoBehaviour
         //Setting Screen to Black, so that we can fade in once everything is loaded.
         mgr.LoopTransition.color = Color.black;
 
+        GlobalMgr.INSTANCE.m_ColorMgr.SetRandomColor_F();
+
         //Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_gdi.AllLoaded == false) yield return null;
 

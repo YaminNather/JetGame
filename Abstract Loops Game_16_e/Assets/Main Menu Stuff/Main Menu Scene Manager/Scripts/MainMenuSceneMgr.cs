@@ -55,6 +55,8 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private IEnumerator Start_IEF()
     {
+        GlobalMgr.INSTANCE.m_ColorMgr.SetRandomColor_F();
+
         while (gdi.AllLoaded == false) yield return null;
 
         //Start Loading MainGame right away.
