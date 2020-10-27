@@ -24,6 +24,8 @@ public class LoopSelectBtnMgr : Button
 
         globalData.LoopCur = m_Id;
 
+        globalData.Save_F();
+
         foreach (LoopSelectBtnMgr btn in transform.parent.GetComponentsInChildren<LoopSelectBtnMgr>())
             btn.Refresh_F();
     }
