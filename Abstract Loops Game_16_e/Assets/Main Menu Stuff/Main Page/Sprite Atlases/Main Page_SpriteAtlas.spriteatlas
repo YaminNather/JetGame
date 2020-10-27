@@ -57,7 +57,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: ca34fa5c5f904ab4aa79139cbb8a6eab, type: 3}
     - {fileID: 102900000, guid: 3122a6cd38ca8594fa4fad54c1f51180, type: 3}
-    totalSpriteSurfaceArea: 1415624
+    totalSpriteSurfaceArea: 1461752
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -67,19 +67,25 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f5367b02b3a50604bb086c736de6c675, type: 3}
   - {fileID: 21300000, guid: a68306526a0439948b6d740e335c4f26, type: 3}
   - {fileID: 21300000, guid: 413eb53474f510e419c0d00b08eb0fe0, type: 3}
+  - {fileID: 21300000, guid: 8e8f2b44c90da294ca8b308b4f253cea, type: 3}
   - {fileID: 21300000, guid: 0585b447af8fb254dbf06a27ca3baad3, type: 3}
+  - {fileID: 21300000, guid: 07d4855ca62cb354c860a0ff6a41506a, type: 3}
   - {fileID: 21300000, guid: ca34fa5c5f904ab4aa79139cbb8a6eab, type: 3}
   - {fileID: 21300000, guid: a974241eccd84df459f161ebc9ed023b, type: 3}
   - {fileID: 21300000, guid: cd3fe97ea9aec564e89a0b5f975f0e18, type: 3}
+  - {fileID: 21300000, guid: 3910850f3354ccb4fb48f542a750240f, type: 3}
   m_PackedSpriteNamesToIndex:
   - Share Icon_Texture
   - Title_Texture
   - Current Score Header_Texture
   - Jet Store Button_Texture
+  - Loop 1 Select Btn_Texture
   - Settings Button_Texture
+  - Random Loop Select Btn_Texture
   - Currency Icon_Texture
   - Play Button_Texture
   - Best Score Header_Texture
+  - Loop 0 Select Btn_Texture
   m_RenderDataMap: {}
   m_Tag: Main Page_SpriteAtlas
   m_IsVariant: 0
