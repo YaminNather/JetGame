@@ -68,6 +68,9 @@
         },
         {
             "m_Id": "fae77a78c35d474cb925f787a1b7f7c1"
+        },
+        {
+            "m_Id": "1cb455b5f4eb4274947728feec122392"
         }
     ],
     "m_GroupDatas": [],
@@ -97,6 +100,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "a1cd1ac6fa2d464ba340e0ec3853d7dd"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "1cb455b5f4eb4274947728feec122392"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "ebaa3b80208f46f79ec3a386525bfbdd"
                 },
                 "m_SlotId": 0
             }
@@ -514,6 +531,39 @@
     "m_Labels": [
         "X"
     ]
+}
+
+{
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "1cb455b5f4eb4274947728feec122392",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_NodeVersion": 0,
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -541.2174682617188,
+            "y": 161.04348754882813,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "f2050b849d0d42afb12750c5486ef51b"
+        }
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "5895a6e0c83d40898719d2549f3b7af2"
+    }
 }
 
 {
@@ -2169,6 +2219,30 @@
         "X",
         "Y"
     ]
+}
+
+{
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "f2050b849d0d42afb12750c5486ef51b",
+    "m_Id": 0,
+    "m_DisplayName": "Primary Color",
+    "m_SlotType": 1,
+    "m_Priority": 2147483647,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    }
 }
 
 {
