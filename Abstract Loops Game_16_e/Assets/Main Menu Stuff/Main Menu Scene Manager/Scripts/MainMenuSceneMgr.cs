@@ -93,7 +93,7 @@ public class MainMenuSceneMgr : MonoBehaviour
 
 #if UNITY_EDITOR
     [MenuItem("Scenes/Main Menu")]
-    public static void OpenScene_F() => EditorSceneManager.OpenScene("Assets/Main Menu Stuff/Scenes/MainMenu_0_Scene.unity");
+    public static void OpenScene_F() => EditorSceneManager.OpenScene("Assets/Main Menu Stuff/Scenes/MainMenu_1_Scene.unity");
 #endif
 }
 
