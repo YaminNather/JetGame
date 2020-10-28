@@ -65,7 +65,8 @@ public class MainMenuJetMgr : MonoBehaviour
         while(true)
         {
             float time = Random.Range(0f, 0.5f);            
-            Vector3 input = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2), 0f);
+            //Vector3 input = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2), 0f);
+            Vector3 input = new Vector3(Random.Range(-1, 2), Random.Range(-0.1f, 0.1f), 0f);
             //Debug.Log($"<color=yellow>Time = {time}, dir = {input}</color>");
             while (time > 0f)
             {
