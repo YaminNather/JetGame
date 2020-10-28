@@ -7,6 +7,7 @@ public class GlobalMgr : MonoBehaviour
 {
     #region Variables
     static public GlobalMgr INSTANCE;
+    static private bool s_DidResolutionScale;
 
     [HideInInspector] public GlobalData m_GlobalData;
     [HideInInspector] public LevelsDatabase m_LevelsDatabase;
@@ -34,6 +35,15 @@ public class GlobalMgr : MonoBehaviour
         AddAllComponents_F();
         StartCoroutine(DatabasesLoad_F());
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        if (s_DidResolutionScale == false)
+        {
+            Screen.SetResolution((int)(Screen.currentResolution.width / 1.5f), (int)(Screen.currentResolution.height / 1.5f), true);
+            s_DidResolutionScale = true;
+        }
     }
 
     /// <summary>
