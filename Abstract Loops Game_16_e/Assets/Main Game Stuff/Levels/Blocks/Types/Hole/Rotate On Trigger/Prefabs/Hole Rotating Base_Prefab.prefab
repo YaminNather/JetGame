@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6322081634839255417
+--- !u!1 &2558275287290351589
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5389236179762612308}
-  - component: {fileID: 4232944060182536333}
-  - component: {fileID: 890111341179100155}
+  - component: {fileID: 5900872749730361912}
+  - component: {fileID: 6151542974869365719}
+  - component: {fileID: 4382696228797392751}
   m_Layer: 10
-  m_Name: Box Hitbox
+  m_Name: Rotate On Trigger Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5389236179762612308
+--- !u!4 &5900872749730361912
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322081634839255417}
+  m_GameObject: {fileID: 2558275287290351589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,26 +32,26 @@ Transform:
   m_Father: {fileID: 6985241202270565421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4232944060182536333
+--- !u!65 &6151542974869365719
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322081634839255417}
+  m_GameObject: {fileID: 2558275287290351589}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 0.1}
+  m_Size: {x: 10, y: 10, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &890111341179100155
+--- !u!114 &4382696228797392751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322081634839255417}
+  m_GameObject: {fileID: 2558275287290351589}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2e23f1ec25a03b4da4ee2c24c480669, type: 3}
@@ -60,13 +60,13 @@ MonoBehaviour:
   m_Trigger_E:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2076382717727344738
+--- !u!114 &4632855584051746000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4063609797765951309}
+  m_GameObject: {fileID: 3950438931699028398}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a6d4daa3ac48bb4da15e10caf79b0e8, type: 3}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RotationSpeed: 90
   m_RotationDir: 1
-  m_Hitbox: {fileID: 890111341179100155}
+  m_Hitbox: {fileID: 4382696228797392751}
 --- !u!1001 &7911813854464321907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8219887470871222136, guid: 02299c7b5f669424789fbe43a3c63636, type: 3}
       propertyPath: m_Name
-      value: Hole Rotating Base_Prefab
+      value: Ring Rotating Base_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02299c7b5f669424789fbe43a3c63636, type: 3}
@@ -137,8 +137,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 953891298603851102, guid: 02299c7b5f669424789fbe43a3c63636, type: 3}
   m_PrefabInstance: {fileID: 7911813854464321907}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4063609797765951309 stripped
+--- !u!1 &3950438931699028398 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6172393695229167166, guid: 02299c7b5f669424789fbe43a3c63636, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6565878335914080477, guid: 02299c7b5f669424789fbe43a3c63636, type: 3}
   m_PrefabInstance: {fileID: 7911813854464321907}
   m_PrefabAsset: {fileID: 0}
