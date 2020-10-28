@@ -55,10 +55,10 @@ public class MainMenuJetMgr : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        m_jmc.InputVectorAdd_F(new Vector3(0f, 0f, 1f));
-    }
+    //private void Update()
+    //{
+    //    m_jmc.InputVectorAdd_F(new Vector3(0f, 0f, 0f));
+    //}
 
     private IEnumerator RandomJetSway_IEF()
     {        
@@ -142,5 +142,6 @@ public class MainMenuJetMgr : MonoBehaviour
     public void BlastOff_F()
     {
         m_VCamera.Follow = null;
+        transform.DOLocalMoveZ(50.0f, 1.0f);
     }
 }
