@@ -49,10 +49,20 @@ public class JetStoreMgr : Page
         m_JetSelected = GlobalMgr.INSTANCE.m_GlobalData.JetCur;
     }
 
+    public void AllBuyButtonsRefresh_F()
+    {
+        foreach (JetBuyBtn btn in GetComponentsInChildren<JetBuyBtn>())
+        {
+            btn.Refresh_F();
+        }
+    }
+
+    #region Button Functions
     public void BackBtn_BEF()
     {        
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(GlobalMgr.INSTANCE.m_GlobalData.JetCur);
         MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.Main);
         m_VCamera.Priority = 0;
     }
+    #endregion
 }

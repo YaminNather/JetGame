@@ -43,10 +43,23 @@ public class JetBuyBtn : Button
             m_JetIcon.sprite = jetData.Icon;
             m_JetIcon.color = Color.red;
             m_CostLbl.gameObject.SetActive(false);
+
+            GlobalData globalData = GlobalMgr.INSTANCE.m_GlobalData;
+            if (globalData.JetCur == m_JetID)
+            {
+                GetComponent<Image>().color = Color.green;
+                m_JetIcon.color = Color.green;
+            }
+            else
+            {
+                GetComponent<Image>().color = Color.red;
+                m_JetIcon.color = Color.red;
+            }
         }
         else
         {
             m_JetIcon.sprite = MainMenuSceneReferences.INSTANCE.jetStoreMgr.JetNotOwnedSprite;
+            GetComponent<Image>().color = Color.red;
             m_JetIcon.color = Color.white;
             m_CostLbl.gameObject.SetActive(true);
             m_CostLbl.text = "" + jetData.Cost;
@@ -58,27 +71,27 @@ public class JetBuyBtn : Button
     /// </summary>
     private void OnClick_EF()
     {
-        GlobalData m_GlobalData = GlobalMgr.INSTANCE.m_GlobalData;
+        GlobalData globalData = GlobalMgr.INSTANCE.m_GlobalData;
 
         /* If jet is owned, equip it, 
          * else check if u have enough cash to buy it, if enough buy it and equip it. */
-        if (m_GlobalData.JetCheckIfOwned_F(m_JetID))
+        if (globalData.JetCheckIfOwned_F(m_JetID))
         {
-            m_GlobalData.JetCur = m_JetID;
-            m_GlobalData.Save_F();
+            globalData.JetCur = m_JetID;
+            globalData.Save_F();
             MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(m_JetID);
         }
-        else if (m_GlobalData.Currency >= jetData.Cost)
+        else if (globalData.Currency >= jetData.Cost)
         {
-            m_GlobalData.JetsOwnedAddTo_F(m_JetID);
-            m_GlobalData.CurrencyChange_F(-jetData.Cost);
-            m_GlobalData.JetCur = m_JetID;
-            m_GlobalData.Save_F();
+            globalData.JetsOwnedAddTo_F(m_JetID);
+            globalData.CurrencyChange_F(-jetData.Cost);
+            globalData.JetCur = m_JetID;
+            globalData.Save_F();
             MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(m_JetID);
         }
 
-        //Refresh the button.
-        Refresh_F();
+        //Refresh all Buy Buttons.
+        MainMenuSceneReferences.INSTANCE.jetStoreMgr.AllBuyButtonsRefresh_F();
     }
 }
 
