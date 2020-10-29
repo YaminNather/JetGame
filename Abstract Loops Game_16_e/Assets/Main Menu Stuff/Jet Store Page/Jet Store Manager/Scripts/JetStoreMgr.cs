@@ -27,7 +27,7 @@ public class JetStoreMgr : Page
     private void OnEnable()
     {
         m_VCamera.Priority = 20;
-        GlobalData globalData = GlobalMgr.INSTANCE.m_GlobalData;
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
         m_JetSelected = globalData.JetCur;
         m_CurrencyValueLbl.text = "" + globalData.Currency;
     }
@@ -38,7 +38,7 @@ public class JetStoreMgr : Page
         m_JetNotOwnedSprite = firstBtn.transform.GetChild(0).GetComponent<Image>().sprite;
 
         int aLength = m_MainMenuJetMgr.JetMeshes.Count - 1;
-        foreach(KeyValuePair<int, JetData> kvp in GlobalMgr.INSTANCE.m_JetsDatabase.m_JetDatas)
+        foreach(KeyValuePair<int, JetData> kvp in GlobalMgr.s_Instance.m_JetsDatabase.m_JetDatas)
         {
             GameObject gObj = Instantiate(firstBtn, m_BuyBtnsHolderTrans);
             gObj.GetComponent<JetBuyBtn>().Init_F(kvp.Key);
@@ -46,7 +46,7 @@ public class JetStoreMgr : Page
         
         Destroy(firstBtn);
 
-        m_JetSelected = GlobalMgr.INSTANCE.m_GlobalData.JetCur;
+        m_JetSelected = GlobalMgr.s_Instance.m_GlobalData.JetCur;
     }
 
     public void AllBuyButtonsRefresh_F()
@@ -60,7 +60,7 @@ public class JetStoreMgr : Page
     #region Button Functions
     public void BackBtn_BEF()
     {        
-        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(GlobalMgr.INSTANCE.m_GlobalData.JetCur);
+        MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetCurSet_F(GlobalMgr.s_Instance.m_GlobalData.JetCur);
         MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.Main);
         m_VCamera.Priority = 0;
     }

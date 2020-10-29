@@ -39,6 +39,13 @@ public class GlobalData : MonoBehaviour
 
     public int LoopCur { get => m_SaveInfo.LoopCur; set => m_SaveInfo.LoopCur = value; }
 
+    public readonly int m_BackgroundMusicCount = 2;
+    public int BackgroundMusicCur 
+    {
+        get => m_SaveInfo.BackgroundMusicCur; 
+        set => m_SaveInfo.BackgroundMusicCur = (value < m_BackgroundMusicCount) ? value : 0;
+    }
+    
     #endregion
 
     private void Awake()
@@ -69,6 +76,7 @@ public class GlobalData : MonoBehaviour
         JetsOwned.Add(3);
         JetCur = 3;
         LoopCur = -1;
+        BackgroundMusicCur = 0;
 
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
@@ -141,6 +149,7 @@ public class SaveInfo
     public List<int> JetsOwned;
     public int JetCur;
     public int LoopCur;
+    public int BackgroundMusicCur;
     #endregion
 
     public SaveInfo()
@@ -151,5 +160,6 @@ public class SaveInfo
         JetsOwned = new List<int>();
         JetCur = 0;
         LoopCur = -1;
+        BackgroundMusicCur = 0;
     }
 }

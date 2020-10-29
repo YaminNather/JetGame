@@ -34,7 +34,7 @@ public class MainMenuSceneMgr : MonoBehaviour
     private void Awake()
     {
         s_Instance = this;
-        gdi = GlobalMgr.INSTANCE;
+        gdi = GlobalMgr.s_Instance;
         mmsr = MainMenuSceneReferences.INSTANCE;
     }
 
@@ -55,12 +55,12 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private IEnumerator Start_IEF()
     {
-        GlobalMgr.INSTANCE.m_ColorMgr.SetRandomColor_F();
+        GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
 
         while (gdi.AllLoaded == false) yield return null;
 
         //Start Loading MainGame right away.
-        m_MainGameSceneLoadingAsyncOp = GlobalMgr.INSTANCE.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainGame, loadSceneMode:LoadSceneMode.Single, activateOnLoad:false);
+        m_MainGameSceneLoadingAsyncOp = GlobalMgr.s_Instance.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainGame, loadSceneMode:LoadSceneMode.Single, activateOnLoad:false);
 
         //Instantiate the Main Menu Jet.
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetsInstantiate_F();

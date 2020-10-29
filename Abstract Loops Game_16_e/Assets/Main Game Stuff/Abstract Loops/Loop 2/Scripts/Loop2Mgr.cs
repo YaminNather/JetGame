@@ -22,7 +22,7 @@ public class Loop2Mgr : LoopMgrBase
     {
         //m_Hue0 += Time.deltaTime;
         //if (m_Hue0 >= 1f) m_Hue0 = 0f;
-        //MainGameReferences.INSTANCE.colorMgr.Hue0 = m_Hue0;
+        //MainGameReferences.s_Instance.colorMgr.Hue0 = m_Hue0;
 
         m_Part0_Trans.Rotate(new Vector3(0f, 0f, 60f) * Time.deltaTime);
         m_Part1_Trans.rotation = m_Part0_Trans.rotation;

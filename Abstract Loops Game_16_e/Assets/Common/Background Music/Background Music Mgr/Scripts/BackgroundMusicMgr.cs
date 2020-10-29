@@ -1,12 +1,15 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class BackgroundMusicMgr : MonoBehaviour
 {
-    private AudioSource m_AudioSource;    
+    #region Variables
+    private AudioSource m_AudioSource;
+    #endregion    
 
     private void Awake()
     {

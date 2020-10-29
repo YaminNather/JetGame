@@ -6,7 +6,7 @@ using UnityEngine;
 public class GlobalMgr : MonoBehaviour
 {
     #region Variables
-    static public GlobalMgr INSTANCE;
+    static public GlobalMgr s_Instance;
     static private bool s_DidResolutionScale;
 
     [HideInInspector] public GlobalData m_GlobalData;
@@ -25,12 +25,12 @@ public class GlobalMgr : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         
-        if (INSTANCE != null)
+        if (s_Instance != null)
         {
             Destroy(gameObject);
             return;
         }
-        INSTANCE = this;
+        s_Instance = this;
 
         AddAllComponents_F();
         StartCoroutine(DatabasesLoad_F());

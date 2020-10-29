@@ -14,7 +14,7 @@ public class JetBuyBtn : Button
 
     private int m_JetID;
     public int JetID { get => m_JetID; set => m_JetID = value; }
-    private JetData jetData => GlobalMgr.INSTANCE.m_JetsDatabase.m_JetDatas[m_JetID];
+    private JetData jetData => GlobalMgr.s_Instance.m_JetsDatabase.m_JetDatas[m_JetID];
 
     #endregion
 
@@ -34,17 +34,17 @@ public class JetBuyBtn : Button
     /// </summary>
     public void Refresh_F()
     {
-        JetData jetData = GlobalMgr.INSTANCE.m_JetsDatabase.m_JetDatas[m_JetID];            
+        JetData jetData = GlobalMgr.s_Instance.m_JetsDatabase.m_JetDatas[m_JetID];            
         
         /* If owned, deactivate CostLbl and change the sprite to the sprite of the jet,
         if not owned then activate cost and set sprite to common unowned sprite from the JeStoreMgr.*/
-        if(GlobalMgr.INSTANCE.m_GlobalData.JetCheckIfOwned_F(m_JetID))
+        if(GlobalMgr.s_Instance.m_GlobalData.JetCheckIfOwned_F(m_JetID))
         {
             m_JetIcon.sprite = jetData.Icon;
             m_JetIcon.color = Color.red;
             m_CostLbl.gameObject.SetActive(false);
 
-            GlobalData globalData = GlobalMgr.INSTANCE.m_GlobalData;
+            GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
             if (globalData.JetCur == m_JetID)
             {
                 GetComponent<Image>().color = Color.green;
@@ -71,7 +71,7 @@ public class JetBuyBtn : Button
     /// </summary>
     private void OnClick_EF()
     {
-        GlobalData globalData = GlobalMgr.INSTANCE.m_GlobalData;
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
 
         /* If jet is owned, equip it, 
          * else check if u have enough cash to buy it, if enough buy it and equip it. */

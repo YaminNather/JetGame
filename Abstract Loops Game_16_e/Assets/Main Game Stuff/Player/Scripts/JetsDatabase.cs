@@ -40,7 +40,7 @@ public class JetsDatabase : DatabaseBase
 
     public GameObject JetCurInstantiate_F()
     {
-        return JetInstantiate_F(GlobalMgr.INSTANCE.m_GlobalData.JetCur);
+        return JetInstantiate_F(GlobalMgr.s_Instance.m_GlobalData.JetCur);
     }
 
     public GameObject MainMenuJetInstantiate_F(int id)

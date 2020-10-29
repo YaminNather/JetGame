@@ -19,7 +19,7 @@ public class MainGameMgr : MonoBehaviour
     static private MainGameMgr s_Instance;
     static public MainGameMgr Instance => s_Instance;
 
-    private GlobalMgr m_gdi;
+    private GlobalMgr m_globalMgr;
     private MainGameReferences mgr;
 
     private DifficultyEN m_Difficulty;
@@ -32,14 +32,14 @@ public class MainGameMgr : MonoBehaviour
     private int m_PlayerDeathCount;
     public int PlayerDeathCount => m_PlayerDeathCount;
 
-    [SerializeField] private AudioClip m_BackgroundMusicAC;
+    [SerializeField] private AudioClip[] m_BackgroundMusicACs;
 
     private AsyncOperationHandle<SceneInstance> mainMenuSceneLoadingAsyncOp;
     #endregion
 
     private void Awake()
     {
-        m_gdi = GlobalMgr.INSTANCE;
+        m_globalMgr = GlobalMgr.s_Instance;
         mgr = MainGameReferences.INSTANCE;
     }
 
@@ -53,19 +53,19 @@ public class MainGameMgr : MonoBehaviour
         //Setting Screen to Black, so that we can fade in once everything is loaded.
         mgr.transitionMgr.ColorSet_F(Color.black);
 
-        GlobalMgr.INSTANCE.m_ColorMgr.SetRandomColor_F();
+        GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
 
         //Waiting for all assets to load into their database. This part will be moved somewhere else later.
-        while (m_gdi.AllLoaded == false) yield return null;
+        while (m_globalMgr.AllLoaded == false) yield return null;
 
         //Start Loading MainMenu Scene in advance.
-        mainMenuSceneLoadingAsyncOp = GlobalMgr.INSTANCE.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu, activateOnLoad: false);
+        mainMenuSceneLoadingAsyncOp = GlobalMgr.s_Instance.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu, activateOnLoad: false);
 
         //Sets the best score in ScoreMgr.
         mgr.scoreMgr.ScoreBestSet_F();
 
         //Play Background Music
-        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
+        GlobalMgr.s_Instance.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicACs[GlobalMgr.s_Instance.m_GlobalData.BackgroundMusicCur]);
 
 
         //Getting all loops and levels from their database.
@@ -77,7 +77,7 @@ public class MainGameMgr : MonoBehaviour
         mgr.levelsMgr.RandomLevelSpawn_F(new Vector3(0.0f, 0.0f, 50.0f));
         
         //Spawn player and possess it.
-        JetPawn spawnedPlayer = m_gdi.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
+        JetPawn spawnedPlayer = m_globalMgr.m_JetsDatabase.JetCurInstantiate_F().GetComponent<JetPawn>();
         spawnedPlayer.transform.position = Vector3.forward * 5.0f;
         //Debug.Log($"<color=green>Spawned Player default pos = {spawnedPlayer.transform.position}</color>");
         mgr.player = spawnedPlayer;
@@ -112,13 +112,13 @@ public class MainGameMgr : MonoBehaviour
     {        
         //DOTween.To(() => 0f, val =>
         //{
-        //    MainGameReferences mgr = MainGameReferences.INSTANCE;
+        //    MainGameReferences mgr = MainGameReferences.s_Instance;
         //    Image LoopTransition = mgr.transitionMgr;
         //    LoopTransition.color = LoopTransition.color.With(a: val);
         //}, 1f, 1f)
         //    .OnComplete(() =>
         //    {
-        //        MainGameReferences mgr = MainGameReferences.INSTANCE;
+        //        MainGameReferences mgr = MainGameReferences.s_Instance;
         //        mgr.levelsMgr.LevelsDespawnAll_F();
         //        ReviveMgr reviveMgr = mgr.reviveMgr;
         //        if (reviveMgr.IsAdLoaded)
@@ -165,12 +165,12 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void PlayerRevive_F()
     {
-        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicAC);
+        GlobalMgr.s_Instance.m_BackgroundMusicMgr.Play_F(m_BackgroundMusicACs[GlobalMgr.s_Instance.m_GlobalData.BackgroundMusicCur]);
         JetPawn player = MainGameReferences.INSTANCE.player;
         player.Revive_F();
         JetPlayerController playerController = MainGameReferences.INSTANCE.playerController;
         playerController.Possess_F(player);
-        //MainGameReferences.INSTANCE.levelsMgr.PlayerJustRevived = true;
+        //MainGameReferences.s_Instance.levelsMgr.PlayerJustRevived = true;
         MainGameReferences.INSTANCE.levelsMgr.RandomLevelSpawn_F(new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z));
     }
 
@@ -182,7 +182,7 @@ public class MainGameMgr : MonoBehaviour
         //Debug.Log("Transitioning to Score Display");
         
         //Setting the score and currency values in Global Data and saving it.
-        GlobalMgr gdi = GlobalMgr.INSTANCE;
+        GlobalMgr gdi = GlobalMgr.s_Instance;
         gdi.m_GlobalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
         gdi.m_GlobalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
         gdi.m_GlobalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
@@ -191,7 +191,7 @@ public class MainGameMgr : MonoBehaviour
         //Doing a fade out to black and when fade is done, despawning all levels and loops and then opening the Main Menu Scene.
         MainGameReferences.INSTANCE.transitionMgr.TransitionDo_F(Color.black, 2f, () =>
         {
-            GlobalMgr.INSTANCE.m_AdsMgr.GamesSinceLastInterstitialAd++;
+            GlobalMgr.s_Instance.m_AdsMgr.GamesSinceLastInterstitialAd++;
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
             MainGameReferences.INSTANCE.loopsMgr.LoopDespawn_F();
 

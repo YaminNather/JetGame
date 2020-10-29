@@ -21,7 +21,7 @@ public class LoopSelectBtnMgr : Button
 
     private void OnClick_BEF()
     {
-        GlobalData globalData = GlobalMgr.INSTANCE.m_GlobalData;
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
         if (globalData.LoopCur == m_Id) return;
 
         globalData.LoopCur = m_Id;
@@ -34,7 +34,7 @@ public class LoopSelectBtnMgr : Button
 
     public void Refresh_F()
     {
-        image.color = m_Id == GlobalMgr.INSTANCE.m_GlobalData.LoopCur ? Color.green : Color.cyan;
+        image.color = m_Id == GlobalMgr.s_Instance.m_GlobalData.LoopCur ? Color.green : Color.cyan;
     }
 }
 

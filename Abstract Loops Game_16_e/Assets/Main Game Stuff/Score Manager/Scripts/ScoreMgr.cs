@@ -37,7 +37,7 @@ public class ScoreMgr : MonoBehaviour
 
     }
 
-    public void ScoreBestSet_F() => m_ScoreBest = GlobalMgr.INSTANCE.m_GlobalData.ScoreBest;
+    public void ScoreBestSet_F() => m_ScoreBest = GlobalMgr.s_Instance.m_GlobalData.ScoreBest;
 
     public void ScoreAdd_F(int amount)
     {

@@ -44,7 +44,7 @@ public class MainMenuMgr : Page
     private void OnEnable()
     {
         //Get the score and currency from GlobalData and assign it to the labels.
-        GlobalData gd = GlobalMgr.INSTANCE.m_GlobalData;
+        GlobalData gd = GlobalMgr.s_Instance.m_GlobalData;
         m_ScoreBest_Lbl.text = "" + gd.ScoreBest;
         m_ScoreCur_Lbl.text = "" + gd.ScoreLastGame;
         m_CurrencyValue_Lbl.text = "" + gd.Currency;
@@ -81,7 +81,7 @@ public class MainMenuMgr : Page
         MainMenuSceneReferences.INSTANCE.transitionImage.DOFade(1.0f, 1.0f);
 
         //Fading out the Background Music.
-        GlobalMgr.INSTANCE.m_BackgroundMusicMgr.FadeOut_F();
+        GlobalMgr.s_Instance.m_BackgroundMusicMgr.FadeOut_F();
         yield return new WaitForSeconds(1.0f);
 
         //Checking if MainGameSceneIsLoading or waiting for it to finish loading.

@@ -18,8 +18,8 @@ public class LoopsMgr : MonoBehaviour
     /// </summary>
     public void LoopsFieldSetup_F()
     {
-        int loopCur = GlobalMgr.INSTANCE.m_GlobalData.LoopCur;
-        LoopsDatabase loopsDatabase = GlobalMgr.INSTANCE.m_LoopsDatabase;
+        int loopCur = GlobalMgr.s_Instance.m_GlobalData.LoopCur;
+        LoopsDatabase loopsDatabase = GlobalMgr.s_Instance.m_LoopsDatabase;
         
         if (loopCur != -1)
             m_Loop = loopsDatabase.LoopGet_F(loopCur);

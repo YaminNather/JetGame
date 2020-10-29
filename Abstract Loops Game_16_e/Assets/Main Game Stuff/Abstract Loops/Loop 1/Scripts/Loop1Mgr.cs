@@ -16,6 +16,6 @@ public class Loop1Mgr : LoopMgrBase
     {
         //m_Hue += 0.1f * Time.deltaTime;
         //if (m_Hue >= 1f) m_Hue = 0f;
-        //MainGameReferences.INSTANCE.colorMgr.Hue0 = m_Hue;
+        //MainGameReferences.s_Instance.colorMgr.Hue0 = m_Hue;
     }
 }

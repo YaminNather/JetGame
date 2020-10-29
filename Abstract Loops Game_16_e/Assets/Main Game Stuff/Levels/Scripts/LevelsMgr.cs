@@ -28,7 +28,7 @@ public class LevelsMgr : MonoBehaviour
 
     public void GetAllLevelsForGame_F()
     {
-        LevelsDatabase ldb = GlobalMgr.INSTANCE.m_LevelsDatabase;
+        LevelsDatabase ldb = GlobalMgr.s_Instance.m_LevelsDatabase;
 #if UNITY_EDITOR
         if (m_TestLevels == null || m_TestLevels.Length == 0)
         {
@@ -125,7 +125,7 @@ public class LevelsMgr : MonoBehaviour
     //            if (m_PlayerJustRevived)
     //            {
     //                m_PlayerJustRevived = false;
-    //                return new Vector3(0f, 0f, MainGameReferences.INSTANCE.player.transform.position.z);
+    //                return new Vector3(0f, 0f, MainGameReferences.s_Instance.player.transform.position.z);
     //            }
     //            else
     //                return Vector3.zero;
