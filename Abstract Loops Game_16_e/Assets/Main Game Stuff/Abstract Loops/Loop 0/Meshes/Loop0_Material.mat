@@ -59,7 +59,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 10
-    - _EmissionStrength: 1.85
+    - _EmissionStrength: 1.37
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0

@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: 221a939e37edd934aabad515ded8de5c
 ModelImporter:
   serializedVersion: 20101
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -6170630042035211521
+    second: Loop Rings|CameraAction
+  - first:
+      74: -8557471697764084079
+    second: Loop Rings|Loop RingsAction
   externalObjects:
   - first:
       type: UnityEngine:Material
