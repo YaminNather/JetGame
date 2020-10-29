@@ -511,7 +511,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 565128393}
-  - {fileID: 1800934718}
   - {fileID: 343955716}
   - {fileID: 281911618}
   - {fileID: 963194228}
@@ -519,7 +518,7 @@ Transform:
   - {fileID: 589706224}
   - {fileID: 1331369752}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160894040
 GameObject:
@@ -665,6 +664,7 @@ GameObject:
   - component: {fileID: 275086032}
   - component: {fileID: 275086034}
   - component: {fileID: 275086033}
+  - component: {fileID: 275086035}
   m_Layer: 5
   m_Name: Screen Fader
   m_TagString: Untagged
@@ -729,6 +729,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275086031}
   m_CullTransparentMesh: 0
+--- !u!114 &275086035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275086031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3335be26f5a4f164e87527f998f52a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281911617
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &281911619
 MonoBehaviour:
@@ -894,7 +906,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354106116
 GameObject:
@@ -6170,7 +6182,7 @@ MonoBehaviour:
     FieldOfView: 110
     OrthographicSize: 5
     NearClipPlane: 0.01
-    FarClipPlane: 75
+    FarClipPlane: 50
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -6292,7 +6304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &589706225
 ParticleSystem:
@@ -11899,7 +11911,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &850559829
 MonoBehaviour:
@@ -21956,7 +21968,7 @@ Transform:
   - {fileID: 314522187}
   - {fileID: 1445663690}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -22041,7 +22053,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -22215,7 +22227,7 @@ Transform:
   - {fileID: 439417858}
   - {fileID: 55257787}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1092360874
 MonoBehaviour:
@@ -22636,7 +22648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101822401}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348421337
 GameObject:
@@ -22875,7 +22887,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479427657
 GameObject:
@@ -23078,7 +23090,7 @@ Transform:
   - {fileID: 570696700}
   - {fileID: 459299443}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1688741218
 MonoBehaviour:
@@ -23191,7 +23203,7 @@ MonoBehaviour:
   playerController: {fileID: 432404872}
   player: {fileID: 0}
   playerExplosionPSMgr: {fileID: 459299444}
-  LoopTransition: {fileID: 275086033}
+  transitionMgr: {fileID: 275086035}
   loopsMgr: {fileID: 281911619}
   levelsMgr: {fileID: 343955715}
   colorMgr: {fileID: 0}
@@ -23209,8 +23221,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 101822401}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1800934719
 MonoBehaviour:

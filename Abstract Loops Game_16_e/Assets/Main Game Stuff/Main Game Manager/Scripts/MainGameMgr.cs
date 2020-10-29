@@ -51,7 +51,7 @@ public class MainGameMgr : MonoBehaviour
     private IEnumerator Start_IEF()
     {
         //Setting Screen to Black, so that we can fade in once everything is loaded.
-        mgr.LoopTransition.color = Color.black;
+        mgr.transitionMgr.ColorSet_F(Color.black);
 
         GlobalMgr.INSTANCE.m_ColorMgr.SetRandomColor_F();
 
@@ -85,7 +85,7 @@ public class MainGameMgr : MonoBehaviour
         mgr.playerController.Possess_F(spawnedPlayer);
 
         //Fading in the scene.
-        mgr.LoopTransition.DOFade(0.0f, 0.5f);
+        mgr.transitionMgr.TransitionDo_F(0.0f, 0.5f);
     }    
 
     /// <summary>
@@ -110,24 +110,36 @@ public class MainGameMgr : MonoBehaviour
     /// </summary>
     private void TransitionToRevive_F()
     {        
-        DOTween.To(() => 0f, val =>
+        //DOTween.To(() => 0f, val =>
+        //{
+        //    MainGameReferences mgr = MainGameReferences.INSTANCE;
+        //    Image LoopTransition = mgr.transitionMgr;
+        //    LoopTransition.color = LoopTransition.color.With(a: val);
+        //}, 1f, 1f)
+        //    .OnComplete(() =>
+        //    {
+        //        MainGameReferences mgr = MainGameReferences.INSTANCE;
+        //        mgr.levelsMgr.LevelsDespawnAll_F();
+        //        ReviveMgr reviveMgr = mgr.reviveMgr;
+        //        if (reviveMgr.IsAdLoaded)
+        //        {
+        //            reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
+        //            reviveMgr.gameObject.SetActive(true);
+        //        }
+        //        else TransitionToMainMenu_F();
+        //    });       
+        MainGameReferences.INSTANCE.transitionMgr.TransitionDo_F(0.0f, 1.0f, 1.0f, () =>
         {
             MainGameReferences mgr = MainGameReferences.INSTANCE;
-            Image LoopTransition = mgr.LoopTransition;
-            LoopTransition.color = LoopTransition.color.With(a: val);
-        }, 1f, 1f)
-            .OnComplete(() =>
+            mgr.levelsMgr.LevelsDespawnAll_F();
+            ReviveMgr reviveMgr = mgr.reviveMgr;
+            if (reviveMgr.IsAdLoaded)
             {
-                MainGameReferences mgr = MainGameReferences.INSTANCE;
-                mgr.levelsMgr.LevelsDespawnAll_F();
-                ReviveMgr reviveMgr = mgr.reviveMgr;
-                if (reviveMgr.IsAdLoaded)
-                {
-                    reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
-                    reviveMgr.gameObject.SetActive(true);
-                }
-                else TransitionToMainMenu_F();
-            });                
+                reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
+                reviveMgr.gameObject.SetActive(true);
+            }
+            else TransitionToMainMenu_F();
+        });
     }
 
     /// <summary>
@@ -143,7 +155,7 @@ public class MainGameMgr : MonoBehaviour
                 break;
 
             case true:
-                MainGameReferences.INSTANCE.LoopTransition.DOFade(0f, 1f).OnComplete(PlayerRevive_F);
+                MainGameReferences.INSTANCE.transitionMgr.TransitionDo_F(0f, 1f, PlayerRevive_F);
                 break;
         }
     }
@@ -177,7 +189,7 @@ public class MainGameMgr : MonoBehaviour
         gdi.m_GlobalData.Save_F();
 
         //Doing a fade out to black and when fade is done, despawning all levels and loops and then opening the Main Menu Scene.
-        MainGameReferences.INSTANCE.LoopTransition.DOColor(Color.black, 2f).OnComplete(() =>
+        MainGameReferences.INSTANCE.transitionMgr.TransitionDo_F(Color.black, 2f, () =>
         {
             GlobalMgr.INSTANCE.m_AdsMgr.GamesSinceLastInterstitialAd++;
             MainGameReferences.INSTANCE.levelsMgr.LevelsDespawnAll_F();
