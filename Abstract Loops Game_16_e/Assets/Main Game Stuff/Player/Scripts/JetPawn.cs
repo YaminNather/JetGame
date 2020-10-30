@@ -134,7 +134,7 @@ public partial class JetPawn : Pawn
         //    return;
 
         Vector2 value = ctx.ReadValue<Vector2>();
-        float maxPixelDist =(40.0f / 1080.0f) * Screen.width; // This is the max distance(in px's) for drag to get full speed. Changing this changes sensitivity.
+        float maxPixelDist =(30.0f / 1080.0f) * Screen.width; // This is the max distance(in px's) for drag to get full speed. Changing this changes sensitivity.
         value.x = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(-maxPixelDist, maxPixelDist, value.x));
         value.y = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(-maxPixelDist, maxPixelDist, value.y));
 

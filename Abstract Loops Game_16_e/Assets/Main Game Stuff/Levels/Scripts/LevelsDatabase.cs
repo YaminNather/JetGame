@@ -33,27 +33,18 @@ public class LevelsDatabase : DatabaseBase
         m_IsLoaded = true;
     }
 
-    private IEnumerator LevelResourceLocationsGet_F(string type, IList<IResourceLocation> resourceLocations)
-    {
-        type = type + " Level";
-        resourceLocations = null;
-        AsyncOperationHandle<IList<IResourceLocation>> asyncOpHandle0 = Addressables.LoadResourceLocationsAsync(type);
-        asyncOpHandle0.Completed += x => resourceLocations = x.Result;
-        yield return asyncOpHandle0;
-    }
-
     private IEnumerator LevelsInstantiateAndSetup_F(string type, List<LevelMgr> list)
     {
-        Debug.Log($"Instantiating {type} levels");
+        //Debug.Log($"Instantiating {type} levels");
         list.Clear();
 
-        type = type + " Level";
-        IList<IResourceLocation> resourceLocations = null;
+        type += " Level";
+        IList<IResourceLocation> resourceLocations = new List<IResourceLocation>();
         AsyncOperationHandle<IList<IResourceLocation>> asyncOpHandle0 = Addressables.LoadResourceLocationsAsync(type);
         asyncOpHandle0.Completed += x => resourceLocations = x.Result;
         yield return asyncOpHandle0;
         
-        Debug.Log($"ResourceLocations.Length = {resourceLocations.Count}");
+        //Debug.Log($"ResourceLocations.Length = {resourceLocations.Count}");
 
         foreach (IResourceLocation rl in resourceLocations)
         {
@@ -64,7 +55,7 @@ public class LevelsDatabase : DatabaseBase
                 {
                     x.Result.SetActive(false);
                     list.Add(level);
-                    level.transform.name = level.transform.name + " from Addressables";
+                    level.transform.name += " from Addressables";
                     level.Init_F();
                     DontDestroyOnLoad(x.Result);
                 }

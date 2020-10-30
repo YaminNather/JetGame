@@ -40,27 +40,35 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private void Start()
     {
-        gdi.m_AdsMgr.InterstitialAdCheckAndCreate_F();
-
-        if (gdi.m_GlobalData.ScoreLastGameIsBest)
-        { 
-            m_ScoreLastGameIsBest = true;
-            gdi.m_GlobalData.ScoreLastGameIsBest = false;
-        }
-
-        gdi.m_BackgroundMusicMgr.Play_F(m_BackgroundMusic);
-        //DOTween.To(() => 0f, val => mmsr.colorMgr.Hue0 = val, 1f, 40f).SetLoops(-1).SetEase(Ease.Linear);
         StartCoroutine(Start_IEF());
     }
 
     private IEnumerator Start_IEF()
     {
-        GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
 
         while (gdi.AllLoaded == false) yield return null;
+        
+        //Set a random Global Color in the Menu.
+        GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
+
+        //Create an Interstitial Ad and hold for display.
+        gdi.m_AdsMgr.InterstitialAdCheckAndCreate_F();
+
+        //Check if last games Score was the high score to set flags for displaying the New HighScore Label.
+        if (gdi.m_GlobalData.ScoreLastGameIsBest)
+        {
+            m_ScoreLastGameIsBest = true;
+            gdi.m_GlobalData.ScoreLastGameIsBest = false;
+        }
+
+        //Play Menu Background Music.
+        gdi.m_BackgroundMusicMgr.Play_F(m_BackgroundMusic);
+
+        //DOTween.To(() => 0f, val => mmsr.colorMgr.Hue0 = val, 1f, 40f).SetLoops(-1).SetEase(Ease.Linear);
 
         //Start Loading MainGame right away.
-        m_MainGameSceneLoadingAsyncOp = GlobalMgr.s_Instance.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainGame, loadSceneMode:LoadSceneMode.Single, activateOnLoad:false);
+        m_MainGameSceneLoadingAsyncOp = GlobalMgr.s_Instance.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainGame,
+            loadSceneMode:LoadSceneMode.Single, activateOnLoad:false);
 
         //Instantiate the Main Menu Jet.
         MainMenuSceneReferences.INSTANCE.mainMenuJetMgr.JetsInstantiate_F();
