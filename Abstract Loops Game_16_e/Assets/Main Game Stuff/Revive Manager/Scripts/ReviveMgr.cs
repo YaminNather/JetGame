@@ -26,9 +26,7 @@ public class ReviveMgr : MonoBehaviour
     private Sequence m_Pulse_Seq;
     public System.Action<bool> m_OnReviveEndE;
 
-    private RewardedAdWrapper m_RewardedAd;
-    public bool IsAdLoaded => m_RewardedAd != null;
-
+    private RewardedAdWrapper RewardedAd => GlobalMgr.s_Instance.m_AdsMgr.RewardedAd;
     #endregion
 
     private void Awake()
@@ -36,32 +34,10 @@ public class ReviveMgr : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    private void Start()
+    public void LoadAd_F()
     {
-        StartCoroutine(RewardedAdTryLoad_IEF());        
-    }
-
-    private IEnumerator RewardedAdTryLoad_IEF()
-    {
-        int triesCount = 0;
-        tryToLoad_EF();
-        yield break;
-        
-        void tryToLoad_EF()
-        {
-            if (triesCount < 2)
-            {
-                m_RewardedAd = new RewardedAdWrapper("", false);
-                m_RewardedAd.Load_F();
-                m_RewardedAd.RewardedAd.OnAdFailedToLoad += (sender, e) => tryToLoad_EF();
-                m_RewardedAd.RewardedAd.OnAdClosed += (sender, e) => m_OnReviveEndE.Invoke(true);
-                triesCount++;
-            }
-            else
-            {
-                m_RewardedAd = null;
-            }
-        }
+        GlobalMgr.s_Instance.m_AdsMgr.RewardedAdCheckAndCreate_F(false, 
+            (sender, reward) => m_OnReviveEndE?.Invoke(true));
     }
 
     private void OnEnable()
@@ -70,13 +46,17 @@ public class ReviveMgr : MonoBehaviour
         m_FullPulse_Image.gameObject.SetActive(true);
         m_NoPulse_Image.gameObject.SetActive(false);
         m_Pulse_Seq = DOTween.Sequence();
-        m_FullPulse_Image.color = m_NoPulse_Image.color  = new Color(0f, 0f, 0f);        
+        m_FullPulse_Image.color = m_NoPulse_Image.color  = new Color(0f, 0f, 0f); 
+        
+        //Heartbeat Pulses.
         for(int i = 0; i < m_ReviveTime; i++)
         {
             m_Pulse_Seq.AppendCallback(() => m_AudioSource.PlayOneShot(m_HeartbeatingAC));
             m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
             m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
         }
+        
+        //Heartbeat Flatline.
         m_Pulse_Seq.AppendCallback(() =>
         {
             m_ReviveBtnGObj.SetActive(false);
@@ -99,10 +79,6 @@ public class ReviveMgr : MonoBehaviour
             m_Pulse_Seq.Kill();
         gameObject.SetActive(false);
 
-#if UNITY_EDITOR
-        m_OnReviveEndE?.Invoke(true);
-#else
-        m_RewardedAd.Show_F();
-#endif
+        RewardedAd.Show_F();
     }    
 }

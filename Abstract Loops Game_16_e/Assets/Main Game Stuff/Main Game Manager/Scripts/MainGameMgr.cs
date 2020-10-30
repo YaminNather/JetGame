@@ -60,6 +60,9 @@ public class MainGameMgr : MonoBehaviour
 
         //Start Loading MainMenu Scene in advance.
         mainMenuSceneLoadingAsyncOp = GlobalMgr.s_Instance.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu, activateOnLoad: false);
+        
+        //Load Ad
+        MainGameReferences.INSTANCE.reviveMgr.LoadAd_F();
 
         //Sets the best score in ScoreMgr.
         mgr.scoreMgr.ScoreBestSet_F();
@@ -133,7 +136,8 @@ public class MainGameMgr : MonoBehaviour
             MainGameReferences mgr = MainGameReferences.INSTANCE;
             mgr.levelsMgr.LevelsDespawnAll_F();
             ReviveMgr reviveMgr = mgr.reviveMgr;
-            if (reviveMgr.IsAdLoaded)
+            RewardedAdWrapper rewardedAd = GlobalMgr.s_Instance.m_AdsMgr.RewardedAd;
+            if (rewardedAd.IsValid && rewardedAd.IsLoaded)
             {
                 reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
                 reviveMgr.gameObject.SetActive(true);

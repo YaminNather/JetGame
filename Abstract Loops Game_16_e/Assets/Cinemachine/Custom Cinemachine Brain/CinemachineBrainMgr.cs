@@ -18,12 +18,10 @@ public class CinemachineBrainMgr : MonoBehaviour
         m_CinemachineBrain = GetComponent<CinemachineBrain>();
         m_CVCCur = m_CinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
         m_CVCCur.m_Priority = 10;
-        Debug.Log("<color=yellow>Start()</color>");
     }
 
     public void TransitionTo_F(CinemachineVirtualCamera cvc)
     {
-        Debug.Log("<color=yellow>TransitionTo_F()</color>");
         if (cvc == null) return;
 
         m_CVCCur.m_Priority = 0;

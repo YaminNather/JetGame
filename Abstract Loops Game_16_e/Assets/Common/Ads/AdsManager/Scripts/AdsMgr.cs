@@ -1,6 +1,7 @@
 using UnityEngine;
 using GoogleMobileAds.Api;
 using System;
+using JetBrains.Annotations;
 
 public class AdsMgr : MonoBehaviour
 {
@@ -40,28 +41,45 @@ public class AdsMgr : MonoBehaviour
 
     private void Start()
     {
-        MobileAds.Initialize(status => { });        
+        MobileAds.Initialize(status => Debug.Log("<color=cyan>Initialization Finished</color>"));
     } 
     
     public void BannerCheckAndCreate_F()
     {
-        if(m_BannerAd.IsValid_F() == false)
-        {
-            m_BannerAd = new BannerAdWrapper("");
-            m_BannerAd.LoadAndShow_F();            
-        }
+        if (m_BannerAd.IsValid_F()) return;
+
+#if UNITY_ANDROID
+        const string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+#elif UNITY_IPHONE
+        const string adUnitId = "ca-app-pub-3940256099942544/2934735716";
+#else
+        const string adUnitId = "unexpected_platform";
+#endif
+        m_BannerAd = new BannerAdWrapper(adUnitId);
     }
 
-    public void InterstitialAdCheckAndCreate_F()
+    public void InterstitialAdCheckAndCreate_F(bool showOnLoad)
     {
         if (m_InterstitialAd.IsValid_F() == false)
         {
-            m_InterstitialAd = new InterstitialAdWrapper("", false);
-            m_InterstitialAd.InterstitialAd.OnAdOpening += (sender, e) => m_GamesSinceLastInterstitialAd = 0;
-            m_InterstitialAd.InterstitialAd.OnAdClosed += (sender, e) => InterstitialAdCheckAndCreate_F();
-            m_InterstitialAd.Load_F();
+#if UNITY_ANDROID
+            const string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+#elif UNITY_IPHONE
+            const string adUnitId = "ca-app-pub-3940256099942544/4411468910";
+#else
+            const string adUnitId = "unexpected_platform";
+#endif
+            m_InterstitialAd = new InterstitialAdWrapper(adUnitId, showOnLoad);
         }
-    }    
+    }
+
+    public void RewardedAdCheckAndCreate_F(bool showOnLoad, EventHandler<Reward> onUserEarnedReward = null)
+    {
+        if (m_RewardedAd.IsValid_F()) return;
+
+        string appId = "ca-app-pub-3940256099942544/5224354917";
+        m_RewardedAd = new RewardedAdWrapper(appId, showOnLoad, onUserEarnedReward);
+    }
 }
 
 public class BannerAdWrapper
@@ -70,7 +88,10 @@ public class BannerAdWrapper
     private bool m_IsValid;
     public bool IsValid => m_IsValid;
 
-    private BannerView m_BannerView;
+    private bool m_IsLoaded;
+    public bool IsLoaded => m_IsLoaded;
+
+    private readonly BannerView m_BannerView;
     public BannerView BannerView => m_BannerView;
 
     #endregion
@@ -78,11 +99,12 @@ public class BannerAdWrapper
     public BannerAdWrapper(string appId)
     {
         m_BannerView = new BannerView(appId, AdSize.Banner, AdPosition.Bottom);
-        
+        m_BannerView.OnAdLoaded += (sender, args) => m_IsLoaded = true;
         m_BannerView.OnAdFailedToLoad += (sender, e) => m_IsValid = false;
         m_BannerView.OnAdClosed += (sender, e) => m_IsValid = false;
 
         m_IsValid = true;
+        LoadAndShow_F();
     }
 
     public void LoadAndShow_F()
@@ -103,21 +125,22 @@ public class InterstitialAdWrapper
     private bool m_IsValid;
     public bool IsValid => m_IsValid;
 
-    private InterstitialAd m_InterstitialAd;
+    private readonly InterstitialAd m_InterstitialAd;
     public InterstitialAd InterstitialAd => m_InterstitialAd;
-    private bool m_ShowOnLoad;
+    private readonly bool m_ShowOnLoad;
     #endregion
 
     public InterstitialAdWrapper(string appId, bool m_ShowOnLoad)
     {
         m_InterstitialAd = new InterstitialAd(appId);
-
         m_InterstitialAd.OnAdLoaded += OnAdLoaded_EF;
-        m_InterstitialAd.OnAdFailedToLoad += (sender, e) => m_IsValid = true;
-        m_InterstitialAd.OnAdClosed += (sender, e) => m_IsValid = true;
-
+        m_InterstitialAd.OnAdFailedToLoad += (sender, e) => m_IsValid = false;
+        m_InterstitialAd.OnAdClosed += (sender, e) => m_IsValid = false;
+        
         this.m_ShowOnLoad = m_ShowOnLoad;
+
         m_IsValid = true;
+        Load_F();
     }
 
     public void Load_F()
@@ -140,7 +163,7 @@ public class InterstitialAdWrapper
 
     private void OnAdLoaded_EF(object sender, EventArgs e)
     {
-        if (m_IsValid == true && m_ShowOnLoad == true) m_InterstitialAd.Show();
+        if (m_IsValid && m_ShowOnLoad) m_InterstitialAd.Show();
     }
 }
 
@@ -150,25 +173,32 @@ public class RewardedAdWrapper
     private bool m_IsValid;
     public bool IsValid => m_IsValid;
 
-    private RewardedAd m_RewardedAd;
+    private bool m_IsLoaded;
+    public bool IsLoaded => m_IsLoaded;
+
+    public readonly RewardedAd m_RewardedAd;
     public RewardedAd RewardedAd => m_RewardedAd;
-    private bool m_ShowOnLoad;   
+    private readonly bool m_ShowOnLoad;   
     #endregion
 
     public RewardedAdWrapper(string appId, bool m_ShowOnLoad, EventHandler<Reward> onUserEarnedReward_E = null)
     {
         m_RewardedAd = new RewardedAd(appId);
 
-        m_RewardedAd.OnAdLoaded += OnAdLoaded_EF;        
+        m_RewardedAd.OnAdLoaded += OnAdLoaded_EF;
+        m_RewardedAd.OnAdFailedToLoad += (object sender, AdErrorEventArgs e) => m_IsValid = false;
         m_RewardedAd.OnUserEarnedReward += onUserEarnedReward_E;
+        m_RewardedAd.OnAdClosed += (object sender, EventArgs e) => m_IsValid = false;
 
         this.m_ShowOnLoad = m_ShowOnLoad;
         m_IsValid = true;
+
+        Load_F();
     }
 
     public void Load_F()
     {
-        if (m_IsValid == true) return;
+        if (m_IsValid) return;
 
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
@@ -179,14 +209,17 @@ public class RewardedAdWrapper
 
     public void Show_F()
     {
-        if (m_IsValid == true) return;
+        if (m_IsValid) return;
 
         m_RewardedAd.Show();
     }
 
     private void OnAdLoaded_EF(object sender, EventArgs e)
     {
-        if (m_IsValid == true && m_ShowOnLoad == true) m_RewardedAd.Show();
+        if (m_IsValid == false || m_ShowOnLoad == false) return;
+        
+        m_RewardedAd.Show();
+        m_IsLoaded = true;
     }
 }
 
@@ -202,5 +235,10 @@ public static class AdWrappersExtensionMethods
     {
         if (ad == null) return false;
         else return ad.IsValid;
+    }
+
+    public static bool IsValid_F(this RewardedAdWrapper ad)
+    {
+        return ad?.IsValid ?? false;
     }
 }

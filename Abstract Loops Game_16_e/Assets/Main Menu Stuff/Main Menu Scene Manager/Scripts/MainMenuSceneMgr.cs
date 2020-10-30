@@ -52,7 +52,7 @@ public class MainMenuSceneMgr : MonoBehaviour
         GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
 
         //Create an Interstitial Ad and hold for display.
-        gdi.m_AdsMgr.InterstitialAdCheckAndCreate_F();
+        gdi.m_AdsMgr.InterstitialAdCheckAndCreate_F(false);
 
         //Check if last games Score was the high score to set flags for displaying the New HighScore Label.
         if (gdi.m_GlobalData.ScoreLastGameIsBest)
