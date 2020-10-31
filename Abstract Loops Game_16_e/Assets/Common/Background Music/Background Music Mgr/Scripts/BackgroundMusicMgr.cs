@@ -9,11 +9,13 @@ public class BackgroundMusicMgr : MonoBehaviour
 {
     #region Variables
     private AudioSource m_AudioSource;
+    private bool IsPlaying => m_AudioSource.isPlaying;
     #endregion    
 
     private void Awake()
     {
         m_AudioSource = gameObject.AddComponent<AudioSource>();
+        m_AudioSource.loop = true;
         AudioMixer mixer = Resources.Load("Audio Mixer/0_AudioMixer") as AudioMixer;
         m_AudioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Background Music")[0];
     }
@@ -38,7 +40,11 @@ public class BackgroundMusicMgr : MonoBehaviour
 
     public void FadeOut_F(float time = 1, AudioClip audioClip = null)
     {
-        if (!m_AudioSource.isPlaying) throw new System.Exception("No Audio is playing ATM!!!");
+        if (!m_AudioSource.isPlaying)
+        {
+            Debug.LogError("No Audio is playing ATM!!!");
+            return;
+        }
 
         TweenCallback Action_0 = () =>
         {
