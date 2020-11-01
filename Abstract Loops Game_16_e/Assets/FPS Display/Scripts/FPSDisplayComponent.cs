@@ -19,7 +19,7 @@ public class FPSDisplayComponent : MonoBehaviour
         WaitForSeconds wfs = new WaitForSeconds(0.1f);
         while (true)
         {
-            m_Text.text = "" + (1.0f / Time.deltaTime);
+            m_Text.text = "" + (int)(1.0f / Time.deltaTime);
             yield return wfs;
         }
     }
