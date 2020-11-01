@@ -17,6 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: ef07aff0bddd14048979f73375ed658f
   m_SerializeEntries:
+  - m_GUID: 0b0974767c8795144b3165f1ec0ae39d
+    m_Address: JetData 1 Stingray1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 0b0974767c8795144b3165f1ec0ae39d, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 0b0974767c8795144b3165f1ec0ae39d, type: 2}
   - m_GUID: 167362dd97309184db01bd9102079663
     m_Address: JetData 3 Horizon Ripoff
     m_ReadOnly: 0
@@ -64,8 +71,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - JetData
-    m_MainAsset: {fileID: 11400000, guid: ab92cbc29f8598c40a1164621fc4120c, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: ab92cbc29f8598c40a1164621fc4120c, type: 2}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: c26edbd222c04a04b87d51c044968a0c
     m_Address: JetData 6 Fighter Jet
     m_ReadOnly: 0
