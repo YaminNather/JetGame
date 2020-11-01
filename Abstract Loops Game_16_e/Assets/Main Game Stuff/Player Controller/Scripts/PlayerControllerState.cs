@@ -10,7 +10,7 @@ public abstract class PlayerControllerState : MonoBehaviour
     protected JetPlayerController m_PlayerController;
 
     [SerializeField] protected PlayerControllerStates m_StateName; //State Name
-    public PlayerControllerStates Name { get => m_StateName; }
+    public PlayerControllerStates Name => m_StateName;
 
     /// <summary>
     /// Function executed on Entering State.

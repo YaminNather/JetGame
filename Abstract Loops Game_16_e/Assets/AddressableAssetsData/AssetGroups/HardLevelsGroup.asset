@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HardLevelsGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: HardLevelsGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 95fdbfb5a6b026940adc897c9afcf885
+  m_SerializeEntries:
+  - m_GUID: 07a7299456ca41141a517fbc6b9c990c
+    m_Address: Level 2_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 07a7299456ca41141a517fbc6b9c990c, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 07a7299456ca41141a517fbc6b9c990c, type: 3}
+  - m_GUID: 2c1fc87bfb882ec488ad925c038dcb34
+    m_Address: Level 7_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 2c1fc87bfb882ec488ad925c038dcb34, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 2c1fc87bfb882ec488ad925c038dcb34, type: 3}
+  - m_GUID: 5e3439cf32d2d6b4490cf469a160c8ae
+    m_Address: Level 9_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 5e3439cf32d2d6b4490cf469a160c8ae, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 5e3439cf32d2d6b4490cf469a160c8ae, type: 3}
+  - m_GUID: 6e7020cbd5f61c14484f0f968939ea87
+    m_Address: Level 5_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 6e7020cbd5f61c14484f0f968939ea87, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 6e7020cbd5f61c14484f0f968939ea87, type: 3}
+  - m_GUID: 8fc18fc8e586db3459d7629b2144b387
+    m_Address: Level 1_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 8fc18fc8e586db3459d7629b2144b387, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 8fc18fc8e586db3459d7629b2144b387, type: 3}
+  - m_GUID: 9be163e8b8c0fd64bacb0ed059110da6
+    m_Address: Level 4_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 9be163e8b8c0fd64bacb0ed059110da6, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 9be163e8b8c0fd64bacb0ed059110da6, type: 3}
+  - m_GUID: c17f849990b48304aac8f59bc3d4c4ad
+    m_Address: Level 3_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: c17f849990b48304aac8f59bc3d4c4ad, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: c17f849990b48304aac8f59bc3d4c4ad, type: 3}
+  - m_GUID: c5a2abc3a7b1a1d4b97998fa8287b60e
+    m_Address: Level 8_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: c5a2abc3a7b1a1d4b97998fa8287b60e, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: c5a2abc3a7b1a1d4b97998fa8287b60e, type: 3}
+  - m_GUID: d41b112f5f8e5454b9eb18dff08c8df5
+    m_Address: Level 0_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: d41b112f5f8e5454b9eb18dff08c8df5, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: d41b112f5f8e5454b9eb18dff08c8df5, type: 3}
+  - m_GUID: f49783e8c5c0c814c851abe0bdc18111
+    m_Address: Level 6_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hard Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: f49783e8c5c0c814c851abe0bdc18111, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: f49783e8c5c0c814c851abe0bdc18111, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 792e5f45f2dc9fe439f93d9c9600a530, type: 2}
+    - {fileID: 11400000, guid: 43c193423b1814847b51c9bc7de7d975, type: 2}

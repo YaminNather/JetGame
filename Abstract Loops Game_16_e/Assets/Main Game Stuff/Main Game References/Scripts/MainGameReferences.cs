@@ -6,22 +6,23 @@ using UnityEngine.UI;
 public class MainGameReferences : MonoBehaviour
 {
     #region Variables
-    public static MainGameReferences s_Instance;
+    public static MainGameReferences INSTANCE;
 
     public MainGameMgr mainGameMgr;
     public JetPlayerController playerController;
     public JetPawn player;
-    public Image LoopTransition;
+    public PlayerExplosionPSMgr playerExplosionPSMgr;
+    public TransitionMgr transitionMgr;
     public LoopsMgr loopsMgr;
     public LevelsMgr levelsMgr;
     public ColorMgr colorMgr;
     public ScoreMgr scoreMgr;
     public ReviveMgr reviveMgr;
-    public CurrencyPSMgr currencyPSMgr;
+    public CurrenciesMgr currencyPSMgr;
     #endregion
 
     private void Awake()
     {
-        s_Instance = this;
+        INSTANCE = this;
     }
 }

@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: EasyLevelsGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: EasyLevelsGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 348297743d430d1428e7c9632b270a6a
+  m_SerializeEntries:
+  - m_GUID: 3441002923513b84c96dbfcaefe52374
+    m_Address: Level 5_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 3441002923513b84c96dbfcaefe52374, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 3441002923513b84c96dbfcaefe52374, type: 3}
+  - m_GUID: 37100e5c6aab18146b14740cf88a0866
+    m_Address: Level 1_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 37100e5c6aab18146b14740cf88a0866, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 37100e5c6aab18146b14740cf88a0866, type: 3}
+  - m_GUID: 3956613e26438a04c861069c30561173
+    m_Address: Level 4_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 3956613e26438a04c861069c30561173, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 3956613e26438a04c861069c30561173, type: 3}
+  - m_GUID: 45978002478d4d5419b4ccde38584218
+    m_Address: Level 0_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 45978002478d4d5419b4ccde38584218, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 45978002478d4d5419b4ccde38584218, type: 3}
+  - m_GUID: 4ad2c546494ab6b44b0ad77f686c2e7b
+    m_Address: Level 2_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 4ad2c546494ab6b44b0ad77f686c2e7b, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 4ad2c546494ab6b44b0ad77f686c2e7b, type: 3}
+  - m_GUID: 6f28a4595cb600b428ea8ca42a1cfada
+    m_Address: Level 8_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 6f28a4595cb600b428ea8ca42a1cfada, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 6f28a4595cb600b428ea8ca42a1cfada, type: 3}
+  - m_GUID: 71dd3ac51eec653469bb45e875557f21
+    m_Address: Level 6_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: 71dd3ac51eec653469bb45e875557f21, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: 71dd3ac51eec653469bb45e875557f21, type: 3}
+  - m_GUID: a6ad49c65f4530f45addbf4feeaf8f22
+    m_Address: Level 7_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: a6ad49c65f4530f45addbf4feeaf8f22, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: a6ad49c65f4530f45addbf4feeaf8f22, type: 3}
+  - m_GUID: d29e9e599b70a774a992e79efc981edb
+    m_Address: Level 8_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: d29e9e599b70a774a992e79efc981edb, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: d29e9e599b70a774a992e79efc981edb, type: 3}
+  - m_GUID: edc36d21dadbeba4fba8b25e681559a5
+    m_Address: Level 3_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level
+    - Easy Level
+    m_MainAsset: {fileID: 4476890708411462116, guid: edc36d21dadbeba4fba8b25e681559a5, type: 3}
+    m_TargetAsset: {fileID: 4476890708411462116, guid: edc36d21dadbeba4fba8b25e681559a5, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8989b35ea5fd6c24aa9306006cea3d20, type: 2}
+    - {fileID: 11400000, guid: 4b747d3d66e41cb4597d856a0606eb27, type: 2}

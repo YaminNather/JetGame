@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,69 +7,63 @@ using UnityEngine.UI;
 public class ScoreMgr : MonoBehaviour
 {
     #region Variables
-    [SerializeField]private Text ScoreValue_Lbl;
-    private int m_AccumulatedScorePrev;
-    private int m_AccumulatedScoreCur;
-    public int Score { get => m_AccumulatedScorePrev + m_AccumulatedScoreCur; }
+    [Header("Score Stuff")]
+    [SerializeField] private Text m_ScoreValue_Lbl;
+    private int m_Score;
+    public int Score => m_Score; 
+    private Tweener m_ScoreValueUpdateT;
+    [SerializeField] private AnimationCurve m_ScoreValueLblUpdateTEaseAC;
+    public System.Action<int> ScoreOnUpdate_E;
 
-    [SerializeField] private Text CurrencyValue_Lbl;
+    private int m_ScoreBest;
+    private ScoreBestCheckpointMgr m_ScoreBestCheckpointMgr;
+
+    [Header("Currency Stuff")]
+    [SerializeField] private Text m_CurrencyValue_Lbl;
     private int m_Currency;
     public int Currency { get => m_Currency; set => m_Currency = value; }
-
-    private bool m_IsRecording;
-    public bool IsRecording { get => m_IsRecording; }
-    private Vector3 m_RecordingStartPos;
-    private Pawn m_player;
-
-    [SerializeField] private int ScoreModifier;
     #endregion
 
     private void Awake()
     {
-        ScoreValue_Lbl.text = "0";
-        CurrencyValue_Lbl.text = "0";
+        m_ScoreValue_Lbl.text = "0";
+        m_ScoreValueUpdateT = DOTween.To(() => 1f, val => m_ScoreValue_Lbl.transform.localScale = new Vector3(val, val, val), 1.5f, 0.5f)
+            .SetEase(m_ScoreValueLblUpdateTEaseAC)
+            .SetAutoKill(false)
+            .Pause();
+        m_ScoreBestCheckpointMgr = GetComponentInChildren<ScoreBestCheckpointMgr>(true);
+        
+        m_CurrencyValue_Lbl.text = "0";
+
     }
 
-    private void Update()
+    public void ScoreBestSet_F() => m_ScoreBest = GlobalMgr.s_Instance.m_GlobalData.ScoreBest;
+
+    public void ScoreAdd_F(int amount)
     {
-        if(m_IsRecording)
+        m_Score += amount;
+        if (m_Score == 50)
+            MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Normal;
+        else if(m_Score == 100)
+            MainGameReferences.INSTANCE.mainGameMgr.Difficulty = MainGameMgr.DifficultyEN.Hard;
+
+        ScoreOnUpdate_E?.Invoke(m_Score);
+
+        if (m_Score == m_ScoreBest - 10)
         {
-            m_AccumulatedScoreCur = (int)(m_player.transform.position.z - m_RecordingStartPos.z) / ScoreModifier;
-            ScoreUIUpdate_F();
+            m_ScoreBestCheckpointMgr.gameObject.SetActive(true);
+            m_ScoreBestCheckpointMgr.CountdownStart_F(m_ScoreBest);
         }
-    }
 
-    public void ScoreRecordingStart_F(JetPlayerController playerController)
-    {
-        Pawn possessedPlayer = playerController.PossessedPawn;
-        if (m_IsRecording == true || possessedPlayer == null)
-            return;
-
-        m_IsRecording = true;
-        m_player = possessedPlayer;
-        m_RecordingStartPos = possessedPlayer.transform.position;
-    }    
-
-    public void ScoreRecordingStop_F()
-    {
-        if (!m_IsRecording)
-            return;
-
-        m_AccumulatedScorePrev += m_AccumulatedScoreCur;
-        m_player = null;
-        m_IsRecording = false;
-    }
-
-    public void ScoreRecordingReset_F()
-    {
-        if (m_IsRecording) ScoreRecordingStop_F();
-
-        m_AccumulatedScorePrev = m_AccumulatedScoreCur = 0;
+        ScoreUIUpdate_F();
     }
 
     private void ScoreUIUpdate_F()
     {
-        ScoreValue_Lbl.text =  "" + (m_AccumulatedScorePrev + m_AccumulatedScoreCur);
+        
+        m_ScoreValue_Lbl.text = "" + m_Score;
+
+        m_ScoreValueUpdateT.Restart();
     }
 
     public void CurrencyReset_F() => m_Currency = 0;
@@ -79,5 +74,5 @@ public class ScoreMgr : MonoBehaviour
         CurrencyUIUpdate_F();
     }
 
-    private void CurrencyUIUpdate_F() => CurrencyValue_Lbl.text = "" + m_Currency;    
+    private void CurrencyUIUpdate_F() => m_CurrencyValue_Lbl.text = "" + m_Currency;
 }

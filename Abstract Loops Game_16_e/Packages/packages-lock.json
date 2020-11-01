@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "com.google.external-dependency-manager": {
+      "version": "1.2.161",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unityregistry-pa.googleapis.com"
+    },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.addressables": {
       "version": "1.14.2",
       "depth": 0,
@@ -50,14 +63,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.2",
+      "version": "2.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.1",
+      "version": "1.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -180,12 +193,12 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.xsduan.hierarchy-folders": {
-      "version": "https://github.com/xsduan/unity-hierarchy-folders.git",
+    "com.unity.ui.builder": {
+      "version": "1.0.0-preview.7",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {},
-      "hash": "86c614734d88841793b2138bbb8b7d49df228d04"
+      "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

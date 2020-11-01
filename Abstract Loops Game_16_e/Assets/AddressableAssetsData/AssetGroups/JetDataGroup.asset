@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: JetDataGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: JetDataGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ef07aff0bddd14048979f73375ed658f
+  m_SerializeEntries:
+  - m_GUID: 167362dd97309184db01bd9102079663
+    m_Address: JetData 3 Horizon Ripoff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 51b92778e2bd9ae45813e779e765be8b
+    m_Address: JetData 4 UFO
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6151874c7adcae548b05c46f6338741c
+    m_Address: JetData 9 Flying Car
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6997e66034844bd4e8b53b877a79f241
+    m_Address: Jet Data 10 Tie Jet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9c288ca71d903494eb39bba912d9b9e5
+    m_Address: JetData 8 Batwing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ab7fc5394cd4f0e4db55e1ed392115da
+    m_Address: JetData 5 Paper Plane
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c26edbd222c04a04b87d51c044968a0c
+    m_Address: JetData 6 Fighter Jet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f88f9ab574cf6064c82b8e63488e2707
+    m_Address: JetData 7 Pointy Jet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 011306590ed9ffd46b6e003c76b55b77, type: 2}
+    - {fileID: 11400000, guid: 4f5b6bf19dcd42047b7f2e56cb8f5cc4, type: 2}

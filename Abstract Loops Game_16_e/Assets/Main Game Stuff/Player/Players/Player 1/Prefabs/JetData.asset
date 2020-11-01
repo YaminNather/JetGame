@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074e86f8e38cfc64da87ece2ba9779bb, type: 3}
+  m_Name: JetData
+  m_EditorClassIdentifier: 
+  m_ID: 1
+  m_JetPawnPrefab: {fileID: 2891101753249683333, guid: c4d8c6515eb6cd4458357e1e0ad2391d, type: 3}
+  m_Cost: 400
+  m_Icon: {fileID: 21300000, guid: b5ae660646aa52b43aca2c1d52c648f2, type: 3}

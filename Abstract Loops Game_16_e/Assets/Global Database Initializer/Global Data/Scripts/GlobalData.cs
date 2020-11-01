@@ -10,43 +10,59 @@ public class GlobalData : MonoBehaviour
     #region Variables
     private string m_SaveDir;
     private string m_SaveFileName;
-    private string SavePath { get => m_SaveDir + "/" + m_SaveFileName + ".txt"; }
+    private string SavePath => m_SaveDir + "/" + m_SaveFileName + ".txt";
 
-    public Menus_EN MenuToOpen;
-    
     private SaveInfo m_SaveInfo;
 
     public int Currency { get => m_SaveInfo.Currency; private set => m_SaveInfo.Currency = value; }
     private int m_CurrencyLastGame;
     public int CurrencyLastGame { get => m_CurrencyLastGame; set => m_CurrencyLastGame = value; }
     public int ScoreBest { get => m_SaveInfo.ScoreBest; set => m_SaveInfo.ScoreBest = value; }
-    private int m_ScoreLastGame;
-    public int ScoreLastGame 
+    public int ScoreLastGame
     {
-        get => m_ScoreLastGame;
+        get => m_SaveInfo.ScoreLastGame;
         set
         {
-            m_ScoreLastGame = value;
-            if (value > ScoreBest) ScoreBest = value;
+            m_SaveInfo.ScoreLastGame = value;
+            if (value > ScoreBest)
+            {
+                ScoreBest = value;
+                m_ScoreLastGameIsBest = true;
+            }
         }
     }
+    public bool m_ScoreLastGameIsBest;
+    public bool ScoreLastGameIsBest { get => m_ScoreLastGameIsBest; set => m_ScoreLastGameIsBest = value; }   
 
-    public List<string> JetsOwned { get => m_SaveInfo.JetsOwned; set => m_SaveInfo.JetsOwned = value; }
-    public string JetCur { get => m_SaveInfo.JetCur; set => m_SaveInfo.JetCur = value; }
+    public List<int> JetsOwned { get => m_SaveInfo.JetsOwned; set => m_SaveInfo.JetsOwned = value; }
+    public int JetCur { get => m_SaveInfo.JetCur; set => m_SaveInfo.JetCur = value; }
+
+    public int LoopCur { get => m_SaveInfo.LoopCur; set => m_SaveInfo.LoopCur = value; }
+
+    public readonly int m_BackgroundMusicCount = 2;
+    public int BackgroundMusicCur 
+    {
+        get => m_SaveInfo.BackgroundMusicCur; 
+        set => m_SaveInfo.BackgroundMusicCur = (value < m_BackgroundMusicCount) ? value : 0;
+    }
+
+    private int m_GamesPlayedSinceLastInterstitialAd;
+    public int GamesPlayedSinceLastInterstitialAd { get => m_GamesPlayedSinceLastInterstitialAd; set => m_GamesPlayedSinceLastInterstitialAd = value; }
+
     #endregion
 
     private void Awake()
-    {        
+    {
         //Storing a save path.        
         m_SaveDir = Application.persistentDataPath + "/Saves";
         m_SaveFileName = "TestSaveFile_0";
-
-
-        //Initializing some data members.
-        m_ScoreLastGame = -1;
         
         //Loading Old Data.
         Load_F();
+
+
+        Currency = 90000;        
+        Save_F();
     }
 
     public void SaveNew_F()
@@ -57,11 +73,14 @@ public class GlobalData : MonoBehaviour
         m_SaveInfo = new SaveInfo();
         Currency = 0;
         ScoreBest = 0;
+        ScoreLastGame = 0; 
         JetsOwned.Clear();
-        JetsOwned.Add("Test Player 0");
-        JetsOwned.Add("Horizon Ripoff");
-        JetCur = "Horizon Ripoff";
-        
+        JetsOwned.Add(0);
+        JetsOwned.Add(3);
+        JetCur = 3;
+        LoopCur = -1;
+        BackgroundMusicCur = 0;
+
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
         {
@@ -100,7 +119,7 @@ public class GlobalData : MonoBehaviour
         try
         {
             m_SaveInfo = JsonUtility.FromJson<SaveInfo>(File.ReadAllText(SavePath));
-            Debug.Log("<color=cyan>Loaded successfully from file.</color>");
+            Debug.Log("<color=cyan>Loaded successfully from file.</color>");            
         }
         catch (Exception e)
         {
@@ -108,11 +127,11 @@ public class GlobalData : MonoBehaviour
         }
     }
 
-    public bool JetCheckIfOwned_F(string jetName) => JetsOwned.Contains(jetName);
+    public bool JetCheckIfOwned_F(int id) => JetsOwned.Contains(id);
 
-    public void JetsOwnedAddTo_F(string jetName)
+    public void JetsOwnedAddTo_F(int id)
     {
-        JetsOwned.Add(jetName);
+        JetsOwned.Add(id);
     }
 
     public void CurrencyChange_F(int amount)
@@ -128,18 +147,22 @@ public class SaveInfo
     #region Variables
     public int Currency;
     public int ScoreBest;
+    public int ScoreLastGame;
 
-    public List<string> JetsOwned;
-    public string JetCur;
+    public List<int> JetsOwned;
+    public int JetCur;
+    public int LoopCur;
+    public int BackgroundMusicCur;
     #endregion
 
     public SaveInfo()
     {
         Currency = 0;
         ScoreBest = 0;
-        JetsOwned = new List<string>();
-        JetCur = "";        
+        ScoreLastGame = 0;
+        JetsOwned = new List<int>();
+        JetCur = 0;
+        LoopCur = -1;
+        BackgroundMusicCur = 0;
     }
 }
-
-public enum Menus_EN { MainMenu, ScoreBoard}

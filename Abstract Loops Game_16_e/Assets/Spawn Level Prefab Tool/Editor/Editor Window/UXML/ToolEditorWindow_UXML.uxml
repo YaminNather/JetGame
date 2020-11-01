@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement style="padding-left: 0; padding-right: 0; margin-top: 10px; margin-bottom: 10px; margin-left: 5px; margin-right: 5px;">
+        <Style src="ToolEditorWindow_USS.uss" />
+        <ui:VisualElement name="SelectBlockSection_VE" style="margin-top: 10px; margin-bottom: 10px;">
+            <ui:Label text="SELECT BLOCK" display-tooltip-when-elided="True" name="Header_Lbl" style="-unity-font: url(&apos;/Assets/Spawn Level Prefab Tool/Editor/Fonts/Purista Semibold.otf&apos;); -unity-text-align: upper-center; font-size: 20px;" />
+            <ui:ScrollView style="max-height: 236px;">
+                <ui:VisualElement name="BlockTypesSection_VE" style="margin-left: 10px; margin-right: 10px; max-height: 1349px;" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <uie:IntegerField label="Spawn Count" value="1" name="SpawnCount_IntegerField" />
+        <ui:Foldout text="Distance Settings" name="DistSettingsSection_VE">
+            <uie:FloatField label="Initial Distance" value="30" name="InitialDist_FloatField" />
+            <uie:FloatField label="Relative Distance" value="30" name="RelativeDist_FloatField" />
+            <ui:Toggle label="Use Context" name="DistUseContext_Toggle" value="true" />
+        </ui:Foldout>
+        <ui:Foldout text="RotationSettings" name="RotationSettingsSection_VE">
+            <uie:FloatField label="Initial Rotation" value="0" name="InitialRotation_FloatField" />
+            <uie:FloatField label="Relative Rotation" value="180" name="RelativeRotation_FloatField" />
+            <ui:Toggle label="Use Context" name="RotationUseContext_Toggle" value="true" />
+        </ui:Foldout>
+        <ui:Button text="Spawn" display-tooltip-when-elided="True" name="Spawn_Btn" style="margin-top: 12px;" />
+    </ui:VisualElement>
+</ui:UXML>

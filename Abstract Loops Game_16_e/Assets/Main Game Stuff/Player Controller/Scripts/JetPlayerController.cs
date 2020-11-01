@@ -29,6 +29,7 @@ public class JetPlayerController : PlayerController
     {
         base.UnPossess_F();
         PlayerCamera.OnUnPossess_F();
+        
     }
 }
 
@@ -39,8 +40,8 @@ public abstract class PlayerController : MonoBehaviour
 {
     #region Variables
     protected Pawn m_PossessedPawn; // Field storing currently possessed Player.
-    public Pawn PossessedPawn { get => m_PossessedPawn; } // Property for m_Possessed Player.
-    protected bool IsPossessed { get => m_PossessedPawn != null; } // Property to check if playercontroller is possessing a player.
+    public Pawn PossessedPawn => m_PossessedPawn; // Property for m_Possessed Player.
+    protected bool IsPossessed => m_PossessedPawn != null; // Property to check if playercontroller is possessing a player.
     private Player_InputAction player_InputAction;
     #endregion
 
@@ -61,7 +62,7 @@ public abstract class PlayerController : MonoBehaviour
         pawn.OnPossess_F(this);
 
         player_InputAction.Enable();
-        pawn.SetupInput_F(player_InputAction);
+        pawn.InputSetup_F(player_InputAction);
     }
 
     public virtual void UnPossess_F()
@@ -69,6 +70,7 @@ public abstract class PlayerController : MonoBehaviour
         if (!IsPossessed) return;
 
         player_InputAction.Disable();
+        PossessedPawn.InputDesetup_F(player_InputAction);
         PossessedPawn.OnUnPossess_F();
         m_PossessedPawn = null;
     }

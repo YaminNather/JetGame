@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
-public class Hitbox : MonoBehaviour
+public partial class Hitbox : MonoBehaviour
 {
     #region Variables
     [SerializeField] protected UnityEvent<Collider> m_Trigger_E; // The Trigger Event which takes place on collision.
@@ -46,3 +47,20 @@ public class Hitbox : MonoBehaviour
         m_Trigger_E?.Invoke(collider);
     }
 }
+
+#if UNITY_EDITOR
+public partial class Hitbox : MonoBehaviour
+{
+    [MenuItem("GameObject/Custom/Hitboxes/Box Hitbox", false, priority = 10)]
+    public static void BoxHitboxCreateMenuItem_F(MenuCommand menuCommand)
+    {
+        GameObject createdGObj = new GameObject("Box Hitbox", new System.Type[] { typeof(BoxCollider), typeof(Hitbox) });
+        BoxCollider boxCollider = createdGObj.GetComponent<BoxCollider>();
+        boxCollider.isTrigger = true;
+        GameObjectUtility.SetParentAndAlign(createdGObj, menuCommand.context as GameObject);
+        Undo.RegisterCreatedObjectUndo(createdGObj, "Created a box Hitbox");
+        Selection.activeGameObject = createdGObj;
+        Debug.Log($"menuCommand.context = {menuCommand.context}", menuCommand.context);
+    }
+}
+#endif

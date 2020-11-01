@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 361196bd7946f1d4483e2b330722cd02
   m_SerializeEntries:
+  - m_GUID: 2d27e9116b5853748943df648a1f925e
+    m_Address: Loop 2_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 1502303336148976443, guid: 2d27e9116b5853748943df648a1f925e, type: 3}
+    m_TargetAsset: {fileID: 1502303336148976443, guid: 2d27e9116b5853748943df648a1f925e, type: 3}
   - m_GUID: 8a5c3d2b35cea354497814df5ce48798
     m_Address: Loop 0_Prefab
     m_ReadOnly: 0
@@ -24,6 +30,13 @@ MonoBehaviour:
     - Loop
     m_MainAsset: {fileID: 1746453211457153115, guid: 8a5c3d2b35cea354497814df5ce48798, type: 3}
     m_TargetAsset: {fileID: 1746453211457153115, guid: 8a5c3d2b35cea354497814df5ce48798, type: 3}
+  - m_GUID: cf4d800789ac81c489905c4291717eb8
+    m_Address: Loop 1_Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Loop
+    m_MainAsset: {fileID: 8583978994899868958, guid: cf4d800789ac81c489905c4291717eb8, type: 3}
+    m_TargetAsset: {fileID: 8583978994899868958, guid: cf4d800789ac81c489905c4291717eb8, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 630821e4a68efa147a6c79c021bc2ca0, type: 2}
   m_SchemaSet:

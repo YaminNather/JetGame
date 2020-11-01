@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,81 +9,75 @@ using UnityEngine.UI;
 public class Page : MonoBehaviour
 {
     #region Variables
-    private AnimatedUIComponent[] m_AnimatedUIComponents;    
+    private UIAnimationComponent[] m_UIAnimationComponents;
+    
+    protected System.Action OnOpen_E;
+    protected System.Action OnClose_E;
 
-    [Header("Page Settings")]
-    [SerializeField] private float m_OpenTime = 2;        
+    public bool Clickable { get => GetComponent<GraphicRaycaster>().enabled; set => GetComponent<GraphicRaycaster>().enabled = value; }
     #endregion   
 
-    public virtual void Open_F()
+    public virtual void Open_F(System.Action onOpen_E = null)
     {
         gameObject.SetActive(true);
-        GetComponent<GraphicRaycaster>().enabled = false;
+        Clickable = false;
 
-        m_AnimatedUIComponents = GetComponentsInChildren<AnimatedUIComponent>();
-        int orderCount = OrderMaxFind_F() + 1;
-        float indiTime = m_OpenTime / orderCount;
-        Debug.Log($"<color=yellow>indiTime = {indiTime}</color>");
+        m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>(true);
         
         Sequence Seq_0 = DOTween.Sequence();
 
-        int aLength = m_AnimatedUIComponents.Length;
-        for(int i = 0; i < aLength; i++)
+        int aLength = m_UIAnimationComponents.Length;
+        foreach (UIAnimationComponent uiac in m_UIAnimationComponents)
         {
-            //Debug.Log($"<color=yellow>i = {i}\nAnimated Component Name = {m_AnimatedUIComponents[i].transform.name}\norder = {m_AnimatedUIComponents[i].m_Order}\nInsert Time = {m_AnimatedUIComponents[i].m_Order * indiTime}</color>");
-            int i_1 = i;
-            float animStartTime = m_AnimatedUIComponents[i_1].m_Order * indiTime;
-            m_AnimatedUIComponents[i].EntryInitialize_F();
-            Seq_0.InsertCallback(animStartTime, () =>
-            {
-                m_AnimatedUIComponents[i_1].Enter_F(m_OpenTime - animStartTime);
-            });
+            if (uiac.Type == UIAnimationComponent.Type_EN.Exit) continue;
+
+            uiac.EntryInitialize_F();
+            Seq_0.Insert(uiac.StartTime, uiac.EntryTween_F());
         }
 
-        Seq_0.InsertCallback(m_OpenTime, () => GetComponent<GraphicRaycaster>().enabled = true);
+        Seq_0.AppendCallback(() =>
+        {
+            Clickable = true;
+            OnOpen_E?.Invoke();
+            onOpen_E?.Invoke();
+        });
     }
 
-    public virtual void Close_F(Page page = null)
+    public virtual void Close_F(Page page = null, System.Action onClose_E = null, System.Action onOpen = null)
     {
-        GetComponent<GraphicRaycaster>().enabled = false;
+        Clickable = false;
 
-        m_AnimatedUIComponents = GetComponentsInChildren<AnimatedUIComponent>();
-        int orderCount = OrderMaxFind_F() + 1;
-        float indiTime = m_OpenTime / orderCount;
-        Debug.Log($"<color=yellow>indiTime = {indiTime}</color>");
+        m_UIAnimationComponents = GetComponentsInChildren<UIAnimationComponent>(true);
+        float closeTime = MaxTimeGet_F();        
+
 
         Sequence Seq_0 = DOTween.Sequence();
 
-        int aLength = m_AnimatedUIComponents.Length;
-        for (int i = 0; i < aLength; i++)
+        int aLength = m_UIAnimationComponents.Length;
+        foreach (UIAnimationComponent uiac in m_UIAnimationComponents)
         {
-            //Debug.Log($"<color=yellow>i = {i}\nAnimated Component Name = {m_AnimatedUIComponents[i].transform.name}\norder = {m_AnimatedUIComponents[i].m_Order}\nInsert Time = {m_AnimatedUIComponents[i].m_Order * indiTime}</color>");
-            int i_1 = i;
-            float animStartTime = m_AnimatedUIComponents[i_1].m_Order * indiTime;
-            m_AnimatedUIComponents[i].ExitInitialize_F();
-            Seq_0.InsertCallback(animStartTime, () =>
-            {
-                m_AnimatedUIComponents[i_1].Exit_F(m_OpenTime - animStartTime);
-            });
+            if (uiac.Type == UIAnimationComponent.Type_EN.Entry) continue;
+
+            uiac.ExitInitialize_F();
+            Seq_0.Insert(closeTime - uiac.EndTime, uiac.ExitTween_F());
         }
 
-        Seq_0.InsertCallback(m_OpenTime, () =>
+        Seq_0.AppendCallback(() =>
         {
-            GetComponent<GraphicRaycaster>().enabled = true;
+            OnClose_E?.Invoke();
+            onClose_E?.Invoke();
             gameObject.SetActive(false);
-            page?.Open_F();
-        });        
-            
+            Clickable = true;
+            page?.Open_F(OnOpen_E);
+        });
     }
 
-    private int OrderMaxFind_F()
+    private float MaxTimeGet_F()
     {
-        int r = 0;
-        foreach(AnimatedUIComponent auic in m_AnimatedUIComponents)
-        {
-            if (r < auic.m_Order) r = auic.m_Order;
-        }
-        
+        float r = 0;
+        foreach (UIAnimationComponent uiac in GetComponentsInChildren<UIAnimationComponent>(true))
+            if (uiac.EndTime > r) r = uiac.EndTime;
+
         return r;
     }
 }

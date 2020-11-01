@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1123965026001818812
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633506416249958313, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436075869151162558, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: RotateSpeed.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654382079446876545, guid: a020fff028796b64c876846a77e2a60f, type: 3}
+      propertyPath: m_Name
+      value: Fan Rotating Easy_Prefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a020fff028796b64c876846a77e2a60f, type: 3}

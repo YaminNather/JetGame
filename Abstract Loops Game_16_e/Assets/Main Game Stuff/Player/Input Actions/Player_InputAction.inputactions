@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "MoveWithMouse",
+                    "type": "Value",
+                    "id": "f3cd7639-edf2-4030-9cfc-8cfe4bddd761",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -141,6 +149,28 @@
                     "processors": "",
                     "groups": "K&M",
                     "action": "Invincibility_Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a863e41-c171-4007-b24b-a86c0212a412",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "MoveWithMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13d6a002-957d-414a-ae42-8ce306285503",
+                    "path": "<Touchscreen>/touch*/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "MoveWithMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
