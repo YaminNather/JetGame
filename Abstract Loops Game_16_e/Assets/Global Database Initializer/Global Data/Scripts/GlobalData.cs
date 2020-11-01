@@ -45,7 +45,10 @@ public class GlobalData : MonoBehaviour
         get => m_SaveInfo.BackgroundMusicCur; 
         set => m_SaveInfo.BackgroundMusicCur = (value < m_BackgroundMusicCount) ? value : 0;
     }
-    
+
+    private int m_GamesPlayedSinceLastInterstitialAd;
+    public int GamesPlayedSinceLastInterstitialAd { get => m_GamesPlayedSinceLastInterstitialAd; set => m_GamesPlayedSinceLastInterstitialAd = value; }
+
     #endregion
 
     private void Awake()

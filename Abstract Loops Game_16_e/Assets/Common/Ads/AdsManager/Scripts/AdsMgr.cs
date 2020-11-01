@@ -1,6 +1,7 @@
 using UnityEngine;
 using GoogleMobileAds.Api;
 using System;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 public class AdsMgr : MonoBehaviour
@@ -11,17 +12,15 @@ public class AdsMgr : MonoBehaviour
     {
         get
         {
-            if (m_BannerAd != null && m_BannerAd.IsValid == false) m_BannerAd = null;
             return m_BannerAd;
         }
     }
 
-    private InterstitialAdWrapper m_InterstitialAd;   
+    private InterstitialAdWrapper m_InterstitialAd;
     public InterstitialAdWrapper InterstitialAd
     {
         get
         {
-            if(m_InterstitialAd != null && m_InterstitialAd.IsValid == false) m_InterstitialAd = null;
             return m_InterstitialAd;
         }
     }
@@ -33,7 +32,6 @@ public class AdsMgr : MonoBehaviour
     {
         get
         {
-            if (m_RewardedAd != null && m_RewardedAd.IsValid == false) m_RewardedAd = null;
             return m_RewardedAd;
         }
     }
@@ -46,8 +44,9 @@ public class AdsMgr : MonoBehaviour
     
     public void BannerCheckAndCreate_F()
     {
-        if (m_BannerAd.IsValid_F()) return;
+        if (m_BannerAd.IsValid_F() && m_BannerAd.IsLoaded == false) return;
 
+        Debug.Log($"<color=#66FF00>Banner Ad Loading</color>");
 #if UNITY_ANDROID
         const string adUnitId = "ca-app-pub-3940256099942544/6300978111";
 #elif UNITY_IPHONE
@@ -60,25 +59,26 @@ public class AdsMgr : MonoBehaviour
 
     public void InterstitialAdCheckAndCreate_F(bool showOnLoad)
     {
-        if (m_InterstitialAd.IsValid_F() == false)
-        {
+        if (m_InterstitialAd.IsValid_F() && m_RewardedAd.IsLoaded == false) return;
+
+        Debug.Log($"<color=#66FF00>Interstitial Ad Loading</color>");
 #if UNITY_ANDROID
-            const string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        const string adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #elif UNITY_IPHONE
             const string adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
             const string adUnitId = "unexpected_platform";
 #endif
             m_InterstitialAd = new InterstitialAdWrapper(adUnitId, showOnLoad);
-        }
     }
 
     public void RewardedAdCheckAndCreate_F(bool showOnLoad, EventHandler<Reward> onUserEarnedReward = null)
     {
-        if (m_RewardedAd.IsValid_F()) return;
+        if (m_RewardedAd.IsValid_F() && m_RewardedAd.IsLoaded == false) return;
 
+        Debug.Log($"<color=#66FF00>Video Ad Loading</color>");
         string appId = "ca-app-pub-3940256099942544/5224354917";
-        m_RewardedAd = new RewardedAdWrapper(appId, showOnLoad, onUserEarnedReward);
+        m_RewardedAd = new RewardedAdWrapper(appId, showOnLoad);
     }
 }
 
@@ -125,6 +125,9 @@ public class InterstitialAdWrapper
     private bool m_IsValid;
     public bool IsValid => m_IsValid;
 
+    private bool m_IsLoaded;
+    public bool IsLoaded => m_IsLoaded;
+
     private readonly InterstitialAd m_InterstitialAd;
     public InterstitialAd InterstitialAd => m_InterstitialAd;
     private readonly bool m_ShowOnLoad;
@@ -163,6 +166,7 @@ public class InterstitialAdWrapper
 
     private void OnAdLoaded_EF(object sender, EventArgs e)
     {
+        m_IsLoaded = true;
         if (m_IsValid && m_ShowOnLoad) m_InterstitialAd.Show();
     }
 }
@@ -178,16 +182,25 @@ public class RewardedAdWrapper
 
     public readonly RewardedAd m_RewardedAd;
     public RewardedAd RewardedAd => m_RewardedAd;
-    private readonly bool m_ShowOnLoad;   
+
+    private readonly bool m_ShowOnLoad;
+
+    private bool m_RewardRecieved;
+    public bool RewardRecieved => m_RewardRecieved;
+
     #endregion
 
-    public RewardedAdWrapper(string appId, bool m_ShowOnLoad, EventHandler<Reward> onUserEarnedReward_E = null)
+    public RewardedAdWrapper(string appId, bool m_ShowOnLoad)
     {
         m_RewardedAd = new RewardedAd(appId);
 
         m_RewardedAd.OnAdLoaded += OnAdLoaded_EF;
-        m_RewardedAd.OnAdFailedToLoad += (object sender, AdErrorEventArgs e) => m_IsValid = false;
-        m_RewardedAd.OnUserEarnedReward += onUserEarnedReward_E;
+        m_RewardedAd.OnAdFailedToLoad += (object sender, AdErrorEventArgs e) =>
+        {
+            Debug.Log("<color=#66FF00>Rewarded Ad failed to load</color>");
+            m_IsValid = false;
+        };
+        m_RewardedAd.OnUserEarnedReward += (object sender, Reward reward) => m_RewardRecieved = true;
         m_RewardedAd.OnAdClosed += (object sender, EventArgs e) => m_IsValid = false;
 
         this.m_ShowOnLoad = m_ShowOnLoad;
@@ -198,7 +211,7 @@ public class RewardedAdWrapper
 
     public void Load_F()
     {
-        if (m_IsValid) return;
+        if (!m_IsValid) return;
 
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
@@ -209,17 +222,18 @@ public class RewardedAdWrapper
 
     public void Show_F()
     {
-        if (m_IsValid) return;
+        if (!m_IsValid) return;
 
         m_RewardedAd.Show();
     }
 
     private void OnAdLoaded_EF(object sender, EventArgs e)
     {
-        if (m_IsValid == false || m_ShowOnLoad == false) return;
-        
-        m_RewardedAd.Show();
+        Debug.Log("<color=#66FF00>Rewarded Ad Loaded</color>");
         m_IsLoaded = true;
+        
+        if (m_IsValid == false || m_ShowOnLoad == false) return;
+        m_RewardedAd.Show();
     }
 }
 

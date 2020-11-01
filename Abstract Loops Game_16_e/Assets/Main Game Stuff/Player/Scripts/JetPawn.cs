@@ -219,7 +219,7 @@ public partial class JetPawn : Pawn
     private IEnumerator Revive_IEF()
     {
         InvincibilityStart_F();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.0f);
         
         InvincibilityStop_F();
     }

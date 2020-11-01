@@ -22,7 +22,9 @@ public class MainMenuMgr : Page
 
     private Tweener m_NewBestScoreLblAnimT;
 
-    private bool IsOpeningMainGameScene;
+    private bool m_IsOpeningMainGameScene;
+
+    private bool m_InterstitialAdShowIsDone;
     #endregion
 
     private void Awake()
@@ -33,6 +35,19 @@ public class MainMenuMgr : Page
 
     private void OnOpen_EF()
     {
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+        Debug.Log($"<color=#66FF00>Games Played since last interstitial Ad = {globalData.GamesPlayedSinceLastInterstitialAd}</color>");
+        if (globalData.GamesPlayedSinceLastInterstitialAd > 3)
+        {
+            Debug.Log($"<color=magenta>Interstitial ad should be here now</color>");
+            AdsMgr adsMgr = GlobalMgr.s_Instance.m_AdsMgr;
+            if (adsMgr.InterstitialAd.IsValid_F() && adsMgr.InterstitialAd.IsLoaded && !m_InterstitialAdShowIsDone)
+            {
+                adsMgr.InterstitialAd.Show_F();
+                globalData.GamesPlayedSinceLastInterstitialAd = 0;
+                m_InterstitialAdShowIsDone = true;
+            }
+        }
         //If last game's score was the best then enable the NewBestScore Lbl.
         if (mmsr.mainMenuSceneMgr.ScoreLastGameIsBest)
         {
@@ -64,9 +79,9 @@ public class MainMenuMgr : Page
     #region Button Functions
     public void Play_BEF()
     {
-        if (IsOpeningMainGameScene == true) return;
+        if (m_IsOpeningMainGameScene == true) return;
 
-        IsOpeningMainGameScene = true;
+        m_IsOpeningMainGameScene = true;
         StartCoroutine(Play_IEF());
     }
 
@@ -91,12 +106,12 @@ public class MainMenuMgr : Page
         AsyncOperation activateSceneAsyncOp = MainMenuSceneMgr.Instance.MainGameSceneLoadingAsyncOp.Result.ActivateAsync();
         yield return activateSceneAsyncOp;
 
-        IsOpeningMainGameScene = false;
+        m_IsOpeningMainGameScene = false;
     }
 
     public void JetStoreBtn_BEF()
     {
-        if(IsOpeningMainGameScene == true) return;
+        if(m_IsOpeningMainGameScene == true) return;
         
         MainMenuSceneReferences.INSTANCE.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.JetStore);     
     }
@@ -106,7 +121,7 @@ public class MainMenuMgr : Page
         ////Shader.SetGlobalFloat("_Hue0", Shader.GetGlobalFloat("_Hue0") + 0.1f * Time.deltaTime);
         //GameObject GObj_0 = FindObjectOfType<Volume>(true).gameObject;
         //GObj_0.SetActive(!GObj_0.activeSelf);
-        if (IsOpeningMainGameScene == true) return;
+        if (m_IsOpeningMainGameScene == true) return;
 
         mmsr.mainMenuSceneMgr.PageOpen_F(MainMenuSceneMgr.PagesEN.Settings);
     }

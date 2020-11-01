@@ -53,6 +53,7 @@ public class MainGameMgr : MonoBehaviour
         //Setting Screen to Black, so that we can fade in once everything is loaded.
         mgr.transitionMgr.ColorSet_F(Color.black);
 
+        //Set random Global Color.
         GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
 
         //Waiting for all assets to load into their database. This part will be moved somewhere else later.
@@ -112,31 +113,14 @@ public class MainGameMgr : MonoBehaviour
     /// Transition To the revive part by covering the screen white.
     /// </summary>
     private void TransitionToRevive_F()
-    {        
-        //DOTween.To(() => 0f, val =>
-        //{
-        //    MainGameReferences mgr = MainGameReferences.s_Instance;
-        //    Image LoopTransition = mgr.transitionMgr;
-        //    LoopTransition.color = LoopTransition.color.With(a: val);
-        //}, 1f, 1f)
-        //    .OnComplete(() =>
-        //    {
-        //        MainGameReferences mgr = MainGameReferences.s_Instance;
-        //        mgr.levelsMgr.LevelsDespawnAll_F();
-        //        ReviveMgr reviveMgr = mgr.reviveMgr;
-        //        if (reviveMgr.IsAdLoaded)
-        //        {
-        //            reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
-        //            reviveMgr.gameObject.SetActive(true);
-        //        }
-        //        else TransitionToMainMenu_F();
-        //    });       
+    {
+        Debug.Log("<color=cyan>TransitionToRevive_F() happens</color>");
         MainGameReferences.INSTANCE.transitionMgr.TransitionDo_F(0.0f, 1.0f, 1.0f, () =>
         {
-            MainGameReferences mgr = MainGameReferences.INSTANCE;
             mgr.levelsMgr.LevelsDespawnAll_F();
             ReviveMgr reviveMgr = mgr.reviveMgr;
             RewardedAdWrapper rewardedAd = GlobalMgr.s_Instance.m_AdsMgr.RewardedAd;
+            Debug.Log($"<color=#66FF00>Rewarded Ad:\nIsValid = {rewardedAd.IsValid}\nIsLoaded = {rewardedAd.IsLoaded}</color>");
             if (rewardedAd.IsValid && rewardedAd.IsLoaded)
             {
                 reviveMgr.m_OnReviveEndE += OnReviveProcessEnd_EF;
@@ -186,11 +170,12 @@ public class MainGameMgr : MonoBehaviour
         //Debug.Log("Transitioning to Score Display");
         
         //Setting the score and currency values in Global Data and saving it.
-        GlobalMgr gdi = GlobalMgr.s_Instance;
-        gdi.m_GlobalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
-        gdi.m_GlobalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
-        gdi.m_GlobalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
-        gdi.m_GlobalData.Save_F();
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+        globalData.ScoreLastGame = MainGameReferences.INSTANCE.scoreMgr.Score;
+        globalData.CurrencyLastGame = MainGameReferences.INSTANCE.scoreMgr.Currency;
+        globalData.CurrencyChange_F(MainGameReferences.INSTANCE.scoreMgr.Currency);
+        globalData.GamesPlayedSinceLastInterstitialAd++;
+        globalData.Save_F();
 
         //Doing a fade out to black and when fade is done, despawning all levels and loops and then opening the Main Menu Scene.
         MainGameReferences.INSTANCE.transitionMgr.TransitionDo_F(Color.black, 2f, () =>

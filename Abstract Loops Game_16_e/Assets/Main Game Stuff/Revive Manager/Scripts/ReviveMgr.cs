@@ -2,7 +2,6 @@
 using GoogleMobileAds.Api;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +26,8 @@ public class ReviveMgr : MonoBehaviour
     public System.Action<bool> m_OnReviveEndE;
 
     private RewardedAdWrapper RewardedAd => GlobalMgr.s_Instance.m_AdsMgr.RewardedAd;
+
+    private bool IsAdClosed;
     #endregion
 
     private void Awake()
@@ -36,8 +37,8 @@ public class ReviveMgr : MonoBehaviour
 
     public void LoadAd_F()
     {
-        GlobalMgr.s_Instance.m_AdsMgr.RewardedAdCheckAndCreate_F(false, 
-            (sender, reward) => m_OnReviveEndE?.Invoke(true));
+        GlobalMgr.s_Instance.m_AdsMgr.RewardedAdCheckAndCreate_F(false);
+        RewardedAd.m_RewardedAd.OnAdClosed += (object sender, EventArgs e) => IsAdClosed = true;
     }
 
     private void OnEnable()
@@ -75,10 +76,22 @@ public class ReviveMgr : MonoBehaviour
 
     public void Revive_BEF()
     {
+        StartCoroutine(ReviveProcess_IEF());
+    }
+
+    private IEnumerator ReviveProcess_IEF()
+    {
         if (m_Pulse_Seq.IsActive())
             m_Pulse_Seq.Kill();
-        gameObject.SetActive(false);
 
+        Debug.Log("<color=magenta>Rewarded Ad to be shown now.</color>");
         RewardedAd.Show_F();
-    }    
+
+        while(!IsAdClosed) yield return null;
+
+        Debug.Log("<color=66FF00>Video Ad closed.</color>");
+        Debug.Log($"Rewarded Ad == null? {RewardedAd == null}");
+        m_OnReviveEndE?.Invoke(RewardedAd.RewardRecieved);
+        gameObject.SetActive(false);
+    }
 }
