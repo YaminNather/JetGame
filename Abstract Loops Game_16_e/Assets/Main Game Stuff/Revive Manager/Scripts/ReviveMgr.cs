@@ -85,6 +85,10 @@ public class ReviveMgr : MonoBehaviour
             m_Pulse_Seq.Kill();
 
         Debug.Log("<color=magenta>Rewarded Ad to be shown now.</color>");
+
+#if UNITY_EDITOR
+        m_OnReviveEndE?.Invoke(true);
+#else
         RewardedAd.Show_F();
 
         while(!IsAdClosed) yield return null;
@@ -92,6 +96,9 @@ public class ReviveMgr : MonoBehaviour
         Debug.Log("<color=66FF00>Video Ad closed.</color>");
         Debug.Log($"Rewarded Ad == null? {RewardedAd == null}");
         m_OnReviveEndE?.Invoke(RewardedAd.RewardRecieved);
+#endif
+        
         gameObject.SetActive(false);
+        yield break;
     }
 }
