@@ -52,6 +52,13 @@ MonoBehaviour:
     - JetData
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 8d139df5b966a064fb9f097d3f20f453
+    m_Address: JetData 2 Rocket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JetData
+    m_MainAsset: {fileID: 11400000, guid: 8d139df5b966a064fb9f097d3f20f453, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 8d139df5b966a064fb9f097d3f20f453, type: 2}
   - m_GUID: 9c288ca71d903494eb39bba912d9b9e5
     m_Address: JetData 8 Batwing
     m_ReadOnly: 0
