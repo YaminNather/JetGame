@@ -32,7 +32,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 04d8b9b27eaacbe4bb16874a557579df, type: 3}
-    totalSpriteSurfaceArea: 301810
+    totalSpriteSurfaceArea: 302122
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -40,21 +40,21 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: a3d45041878d95f4ca6d30a0b8a5ffb6, type: 3}
   - {fileID: 21300000, guid: eb9a7391598530947acbe929ae8b1f6a, type: 3}
-  - {fileID: 21300000, guid: 96ca395757c6d624d9a5b9e90545e923, type: 3}
   - {fileID: 21300000, guid: a144d7d71fcdc5644ae985b116ecf880, type: 3}
   - {fileID: 21300000, guid: 291d7b38a53e8914c9d803a065491fea, type: 3}
   - {fileID: 21300000, guid: 9132c2daa7f19b047864a90debef666e, type: 3}
   - {fileID: 21300000, guid: e68fd44cfe5d0414494ecd7249cc5a0c, type: 3}
+  - {fileID: 21300000, guid: 0d3e917c5a3270c4197c4d827822c38e, type: 3}
   - {fileID: 21300000, guid: 900a431df6966684a8aa3beed9bd5543, type: 3}
   - {fileID: 21300000, guid: c66a241d6d04fd948a80e8ca19994d86, type: 3}
   m_PackedSpriteNamesToIndex:
   - Page Header_Texture
   - Slider Value_Texture
-  - Quality Value_Texture
   - SFX Label_Texture
   - Music Label_Texture
   - Slider Range_Texture
   - About Us Button_Texture
+  - Quality Level_Texture
   - Quality Label_Texture
   - Quality Bar_Texture
   m_RenderDataMap: {}

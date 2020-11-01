@@ -39,20 +39,26 @@ public class GlobalData : MonoBehaviour
 
     public int LoopCur { get => m_SaveInfo.LoopCur; set => m_SaveInfo.LoopCur = value; }
 
-    public readonly int m_BackgroundMusicCount = 2;
+    public readonly int BACKGROUNDMUSICCOUNT = 2;
     public int BackgroundMusicCur 
     {
         get => m_SaveInfo.BackgroundMusicCur; 
-        set => m_SaveInfo.BackgroundMusicCur = (value < m_BackgroundMusicCount) ? value : 0;
+        set => m_SaveInfo.BackgroundMusicCur = (value < BACKGROUNDMUSICCOUNT) ? value : 0;
     }
+
+    public readonly int QUALITYLEVELSCOUNT = 3;
+    public int QualityLevel { get => m_SaveInfo.QualityLevel; private set => m_SaveInfo.QualityLevel = value; }
+    private Vector2 m_ActualScreenResolution;
+    public Vector2 ActualScreenResolution => m_ActualScreenResolution;
 
     private int m_GamesPlayedSinceLastInterstitialAd;
     public int GamesPlayedSinceLastInterstitialAd { get => m_GamesPlayedSinceLastInterstitialAd; set => m_GamesPlayedSinceLastInterstitialAd = value; }
-
     #endregion
 
     private void Awake()
     {
+        m_ActualScreenResolution = new Vector2(Screen.width, Screen.height);
+
         //Storing a save path.        
         m_SaveDir = Application.persistentDataPath + "/Saves";
         m_SaveFileName = "TestSaveFile_0";
@@ -80,6 +86,7 @@ public class GlobalData : MonoBehaviour
         JetCur = 3;
         LoopCur = -1;
         BackgroundMusicCur = 0;
+        QualityLevel = 2;
 
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
@@ -139,6 +146,37 @@ public class GlobalData : MonoBehaviour
         Currency += amount;
         if (Currency < 0) Currency = 0;
     }
+
+    public void SetQualityLevel_F(int qualityLevel)
+    {
+        Debug.Log($"Setting Quality Level to {qualityLevel}");
+        QualityLevel = qualityLevel;
+        if (QualityLevel >= QUALITYLEVELSCOUNT) QualityLevel = 0;
+        Save_F();
+
+        CurrentQualityLevelApply_F();
+    }
+
+    public void CurrentQualityLevelApply_F()
+    {
+        switch (QualityLevel)
+        {
+            case 0:
+                Screen.SetResolution((int) (m_ActualScreenResolution.x / 2.0f), (int) (m_ActualScreenResolution.y / 2.0f),
+                    true);
+                break;
+
+            case 1:
+                Screen.SetResolution((int) (m_ActualScreenResolution.x / 2.0), (int) (m_ActualScreenResolution.y / 2.0f),
+                    true);
+                break;
+
+            case 2:
+                Screen.SetResolution((int) (m_ActualScreenResolution.x / 1.5f), (int) (m_ActualScreenResolution.y / 1.5f),
+                    true);
+                break;
+        }
+    }
 }
 
 [Serializable]
@@ -153,6 +191,7 @@ public class SaveInfo
     public int JetCur;
     public int LoopCur;
     public int BackgroundMusicCur;
+    public int QualityLevel;
     #endregion
 
     public SaveInfo()
@@ -164,5 +203,6 @@ public class SaveInfo
         JetCur = 0;
         LoopCur = -1;
         BackgroundMusicCur = 0;
+        QualityLevel = 2;
     }
 }

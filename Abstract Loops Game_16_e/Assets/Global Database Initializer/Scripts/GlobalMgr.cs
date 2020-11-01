@@ -39,11 +39,7 @@ public class GlobalMgr : MonoBehaviour
 
     private void Start()
     {
-        if (s_DidResolutionScale == false)
-        {
-            Screen.SetResolution((int)(Screen.currentResolution.width / 1.5f), (int)(Screen.currentResolution.height / 1.5f), true);
-            s_DidResolutionScale = true;
-        }
+        m_GlobalData.CurrentQualityLevelApply_F();
     }
 
     /// <summary>
