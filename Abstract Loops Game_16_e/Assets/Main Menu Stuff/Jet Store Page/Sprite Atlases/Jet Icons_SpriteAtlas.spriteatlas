@@ -30,38 +30,14 @@ SpriteAtlas:
       enableTightPacking: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: 2800000, guid: 9247ab94d38908e4aa20b640611b6774, type: 3}
-    - {fileID: 2800000, guid: 72732c1ee54389c4fa1608b6a5eb8f7b, type: 3}
-    - {fileID: 2800000, guid: 8b48d12627750da4eaf00eb9eeb0033b, type: 3}
-    - {fileID: 2800000, guid: ff1687f41e5da0f449123253016c6daf, type: 3}
-    - {fileID: 2800000, guid: 09d68be52a4050d48bef6d4ac52278c8, type: 3}
-    - {fileID: 2800000, guid: 4987cf400e8d9484bb52a82d551c95ab, type: 3}
-    - {fileID: 2800000, guid: 9a52fc9cc2871a543ae211d1ee00ebaa, type: 3}
-    - {fileID: 2800000, guid: 663fe0af7b9be8e4882806b2a46df8d5, type: 3}
-    totalSpriteSurfaceArea: 2097152
+    packables: []
+    totalSpriteSurfaceArea: 0
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 4987cf400e8d9484bb52a82d551c95ab, type: 3}
-  - {fileID: 21300000, guid: 9247ab94d38908e4aa20b640611b6774, type: 3}
-  - {fileID: 21300000, guid: ff1687f41e5da0f449123253016c6daf, type: 3}
-  - {fileID: 21300000, guid: 09d68be52a4050d48bef6d4ac52278c8, type: 3}
-  - {fileID: 21300000, guid: 8b48d12627750da4eaf00eb9eeb0033b, type: 3}
-  - {fileID: 21300000, guid: 9a52fc9cc2871a543ae211d1ee00ebaa, type: 3}
-  - {fileID: 21300000, guid: 72732c1ee54389c4fa1608b6a5eb8f7b, type: 3}
-  - {fileID: 21300000, guid: 663fe0af7b9be8e4882806b2a46df8d5, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - Jet_Icon
-  - Player_Icon
-  - Player_Icon
-  - Jet_Icon
-  - Jet Icon_Texture
-  - Jet_Icon
-  - Jet Icon_Texture
-  - Jet_Icon
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: Jet Icons_SpriteAtlas
   m_IsVariant: 0
