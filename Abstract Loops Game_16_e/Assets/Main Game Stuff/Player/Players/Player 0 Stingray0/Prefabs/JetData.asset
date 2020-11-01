@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: JetData
   m_EditorClassIdentifier: 
   m_ID: 0
-  m_JetPawnPrefab: {fileID: 4966858947396921869, guid: ac9e2b4e58fbd52479c1b661c0867f97, type: 3}
+  m_JetPawnPrefab: {fileID: 8489452532804691367, guid: 4a41a82855bb9bc4995e657fc98d86f3, type: 3}
   m_Cost: 300
-  m_Icon: {fileID: 21300000, guid: 578c838fa6404b34a82fc1364b6e37d5, type: 3}
+  m_Icon: {fileID: 21300000, guid: 9148e2e38538465459db0b0de8baf984, type: 3}
