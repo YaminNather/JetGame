@@ -9,6 +9,7 @@ using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Rendering;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.UI;
@@ -35,6 +36,7 @@ public class MainGameMgr : MonoBehaviour
     [SerializeField] private AudioClip[] m_BackgroundMusicACs;
 
     private AsyncOperationHandle<SceneInstance> mainMenuSceneLoadingAsyncOp;
+
     #endregion
 
     private void Awake()
@@ -50,6 +52,7 @@ public class MainGameMgr : MonoBehaviour
 
     private IEnumerator Start_IEF()
     {
+
         //Setting Screen to Black, so that we can fade in once everything is loaded.
         mgr.transitionMgr.ColorSet_F(Color.black);
 
@@ -59,6 +62,9 @@ public class MainGameMgr : MonoBehaviour
         //Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_globalMgr.AllLoaded == false) yield return null;
 
+        //Apply Current Quality Settings.
+        m_globalMgr.m_GlobalData.CurrentQualityLevelApply_F();
+        
         //Start Loading MainMenu Scene in advance.
         mainMenuSceneLoadingAsyncOp = GlobalMgr.s_Instance.m_SceneLoader.LoadScene_F(ScenesLoader.ScenesEN.MainMenu, activateOnLoad: false);
         

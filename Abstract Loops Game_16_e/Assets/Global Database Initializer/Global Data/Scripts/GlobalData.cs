@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [Serializable]
 public class GlobalData : MonoBehaviour
@@ -162,16 +163,19 @@ public class GlobalData : MonoBehaviour
         switch (QualityLevel)
         {
             case 0:
+                FindObjectOfType<Volume>().gameObject.SetActive(false);
                 Screen.SetResolution((int) (m_ActualScreenResolution.x / 2.0f), (int) (m_ActualScreenResolution.y / 2.0f),
                     true);
                 break;
 
             case 1:
+                FindObjectOfType<Volume>().gameObject.SetActive(true);
                 Screen.SetResolution((int) (m_ActualScreenResolution.x / 2.0), (int) (m_ActualScreenResolution.y / 2.0f),
                     true);
                 break;
 
             case 2:
+                FindObjectOfType<Volume>().gameObject.SetActive(true);
                 Screen.SetResolution((int) (m_ActualScreenResolution.x / 1.5f), (int) (m_ActualScreenResolution.y / 1.5f),
                     true);
                 break;

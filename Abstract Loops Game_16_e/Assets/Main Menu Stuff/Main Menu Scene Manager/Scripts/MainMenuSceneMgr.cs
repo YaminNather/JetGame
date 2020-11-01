@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,7 @@ public class MainMenuSceneMgr : MonoBehaviour
 
     private AsyncOperationHandle<SceneInstance> m_MainGameSceneLoadingAsyncOp;
     public AsyncOperationHandle<SceneInstance> MainGameSceneLoadingAsyncOp => m_MainGameSceneLoadingAsyncOp;
+
     #endregion
 
     private void Awake()
@@ -47,7 +49,10 @@ public class MainMenuSceneMgr : MonoBehaviour
     {
 
         while (gdi.AllLoaded == false) yield return null;
-        
+
+        //Apply Current Quality Settings.
+        GlobalMgr.s_Instance.m_GlobalData.CurrentQualityLevelApply_F();
+
         //Set a random Global Color in the Menu.
         GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
 
