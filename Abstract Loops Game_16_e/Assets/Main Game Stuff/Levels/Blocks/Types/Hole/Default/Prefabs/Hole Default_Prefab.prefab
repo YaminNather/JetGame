@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4312569442795293660}
   - component: {fileID: 7190281808174799147}
   - component: {fileID: 181900358515367054}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Score Adder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,6 +211,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c45a7e8fe8f7e8741a25e5683472af5a, type: 3}
       propertyPath: m_Name
       value: Hole_Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c45a7e8fe8f7e8741a25e5683472af5a, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45a7e8fe8f7e8741a25e5683472af5a, type: 3}
