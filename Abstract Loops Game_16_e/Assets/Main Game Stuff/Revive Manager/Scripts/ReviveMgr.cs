@@ -12,14 +12,15 @@ public class ReviveMgr : MonoBehaviour
     [SerializeField] private Image m_FullPulse_Image;
     [SerializeField] private Image m_NoPulse_Image;
     [SerializeField] private GameObject m_ReviveBtnGObj;
+    [SerializeField] private Transform m_ReviveLblImageTrans;
+    [SerializeField] private Transform m_PulseHolderTrans;
 
     [Header("Audio Stuff")]
     private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_HeartbeatingAC;
     [SerializeField] private AudioClip m_HeartFlatlineAC;
 
-    [Space(20)]
-
+    [Space(20)] [SerializeField] private AnimationCurve m_ReviveLblImageAnimationAC;
     [SerializeField] private int m_ReviveTime = 3;
 
     private Sequence m_Pulse_Seq;
@@ -55,18 +56,22 @@ public class ReviveMgr : MonoBehaviour
             m_Pulse_Seq.AppendCallback(() => m_AudioSource.PlayOneShot(m_HeartbeatingAC));
             m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
             m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_FullPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
+            m_Pulse_Seq.Insert(i, m_PulseHolderTrans.DOScale(1.2f, 1.0f).SetEase(m_ReviveLblImageAnimationAC));
+            m_Pulse_Seq.Insert(i, m_ReviveLblImageTrans.DOScale(1.2f, 0.9f).SetEase(m_ReviveLblImageAnimationAC));
         }
-        
-        //Heartbeat Flatline.
         m_Pulse_Seq.AppendCallback(() =>
         {
             m_ReviveBtnGObj.SetActive(false);
             m_FullPulse_Image.gameObject.SetActive(false);
             m_NoPulse_Image.gameObject.SetActive(true);            
         });
+        
+        //Heartbeat Flatline.
         m_Pulse_Seq.AppendCallback(() => m_AudioSource.PlayOneShot(m_HeartFlatlineAC));
         m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(0f, val, 0f), 1f, 0.9f));
         m_Pulse_Seq.Append(DOTween.To(() => 0f, val => m_NoPulse_Image.color = new Color(val, 1f, 0f), 1f, 0.1f));
+        m_Pulse_Seq.Insert(m_ReviveTime + 0.8f, m_PulseHolderTrans.DOScale(0.0f, 0.2f).SetEase(Ease.InBack));
+        m_Pulse_Seq.Insert(m_ReviveTime, m_ReviveLblImageTrans.DOScale(0.0f,1f).SetEase(Ease.InBack));
         m_Pulse_Seq.AppendCallback(() =>
         {
             m_OnReviveEndE?.Invoke(false);
