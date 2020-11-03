@@ -23714,6 +23714,15 @@ MonoBehaviour:
   m_BackgroundMusicACs:
   - {fileID: 8300000, guid: 82224a2b7bdf20b4d9b140411e3ba444, type: 3}
   - {fileID: 8300000, guid: 6be878c572e4eeb42a37fc5ea2c92be6, type: 3}
+  - {fileID: 8300000, guid: 1bfd01eb097b3d749a2b0ec3acf6a403, type: 3}
+  - {fileID: 8300000, guid: 64f08e2f6d989074f93b8ea79184d402, type: 3}
+  - {fileID: 8300000, guid: 4a3b4152ef906274a89b30df22ddf628, type: 3}
+  - {fileID: 8300000, guid: 49a2184c92dfea34eb15166f64527060, type: 3}
+  - {fileID: 8300000, guid: 034eca972badf264aa68d15a12ca6962, type: 3}
+  - {fileID: 8300000, guid: 56ef033edd80dda4dbc73e75a29950bd, type: 3}
+  - {fileID: 8300000, guid: b4cd028e7bda6a24382f07194a811fbe, type: 3}
+  - {fileID: 8300000, guid: 43390a14d534b464a8f41c22f1fca22d, type: 3}
+  - {fileID: 8300000, guid: ed86eb3d1d7b0dc438e633cbf50343e3, type: 3}
   m_Tutorial: {fileID: 418397166}
 --- !u!114 &1800934720
 MonoBehaviour:

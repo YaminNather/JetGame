@@ -47,7 +47,7 @@ public partial class GlobalData : MonoBehaviour
 
     public int LoopCur { get => m_SaveInfo.LoopCur; set => m_SaveInfo.LoopCur = value; }
 
-    public readonly int BACKGROUNDMUSICCOUNT = 2;
+    public readonly int BACKGROUNDMUSICCOUNT = 11;
     public int BackgroundMusicCur 
     {
         get => m_SaveInfo.BackgroundMusicCur; 
