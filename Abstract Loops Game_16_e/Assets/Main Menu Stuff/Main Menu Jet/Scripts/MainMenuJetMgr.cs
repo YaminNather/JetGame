@@ -21,6 +21,8 @@ public class MainMenuJetMgr : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera m_VCamera;
 
+    [SerializeField] private AudioClip m_TakeOffAudioClip;
+
     private Tweener JetChangeT;
     #endregion
 
@@ -144,5 +146,9 @@ public class MainMenuJetMgr : MonoBehaviour
     {
         m_VCamera.Follow = null;
         transform.DOLocalMoveZ(50.0f, 1.0f);
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = m_TakeOffAudioClip;
+        audioSource.Play();
     }
 }
