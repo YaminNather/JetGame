@@ -7,8 +7,10 @@ using UnityEditor;
 
 public partial class TutorialMgr : MonoBehaviour
 {
+    #region Variables
     [SerializeField] private GameObject[] m_SlideGObjs;
     private int m_Index;
+    #endregion
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public partial class TutorialMgr : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 0.0f;
         m_Index = 0;
         m_SlideGObjs[0].SetActive(true);
         for(int i = 1; i < m_SlideGObjs.Length; i++) m_SlideGObjs[i].SetActive(false);
@@ -40,6 +43,7 @@ public partial class TutorialMgr : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            Time.timeScale = 1.0f;
         }
     }
 }

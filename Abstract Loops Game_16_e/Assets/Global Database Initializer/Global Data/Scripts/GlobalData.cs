@@ -62,7 +62,8 @@ public partial class GlobalData : MonoBehaviour
     private int m_GamesPlayedSinceLastInterstitialAd;
     public int GamesPlayedSinceLastInterstitialAd { get => m_GamesPlayedSinceLastInterstitialAd; set => m_GamesPlayedSinceLastInterstitialAd = value; }
 
-    public bool StoreTutorialDisplayed { get => m_SaveInfo.StoreTutorialDisplayed; set => m_SaveInfo.StoreTutorialDisplayed = value;}
+    public bool HomePageTutorialDisplayed { get => m_SaveInfo.HomePageTutorialDisplayed; set => m_SaveInfo.HomePageTutorialDisplayed = value; }
+    public bool StoreTutorialDisplayed { get => m_SaveInfo.StoreTutorialDisplayed; set => m_SaveInfo.StoreTutorialDisplayed = value; }
 
     #endregion
 
@@ -98,6 +99,7 @@ public partial class GlobalData : MonoBehaviour
         LoopCur = -1;
         BackgroundMusicCur = 0;
         QualityLevel = 2;
+        HomePageTutorialDisplayed = false;
         StoreTutorialDisplayed = false;
 
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
@@ -226,6 +228,7 @@ public class SaveInfo
     public int QualityLevel;
 
     public bool StoreTutorialDisplayed;
+    public bool HomePageTutorialDisplayed;
     #endregion
 
     public SaveInfo()
@@ -239,5 +242,6 @@ public class SaveInfo
         BackgroundMusicCur = 0;
         QualityLevel = 2;
         StoreTutorialDisplayed = false;
+        HomePageTutorialDisplayed = false;
     }
 }
