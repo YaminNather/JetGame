@@ -22,7 +22,7 @@ public class CurrencyMgr : LevelComponent
             if (MainGameReferences.INSTANCE != null)
             {
                 MainGameReferences.INSTANCE.scoreMgr.CurrencyAdd_F(1);
-                MainGameReferences.INSTANCE.currencyPSMgr.DoBurst_F(transform.position);
+                MainGameReferences.INSTANCE.currencyPSMgr.OnCollect_F(transform.position);
             }
             gameObject.SetActive(false);
         }

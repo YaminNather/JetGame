@@ -6459,7 +6459,7 @@ GameObject:
   - component: {fileID: 589706225}
   - component: {fileID: 589706228}
   m_Layer: 0
-  m_Name: Currency PS
+  m_Name: Currencies Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11349,9 +11349,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e13ba04ecc18f9243a3f5f1b450366f1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8eeb84c414a65a845874999a465a18cd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.852
   m_Pitch: 1
   Loop: 0
   Mute: 0

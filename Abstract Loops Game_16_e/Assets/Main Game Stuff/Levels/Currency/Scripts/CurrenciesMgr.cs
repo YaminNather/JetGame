@@ -15,9 +15,10 @@ public class CurrenciesMgr : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    public void DoBurst_F(Vector3 pos)
+    public void OnCollect_F(Vector3 pos)
     {
-        m_AudioSource.Play();
+        if (!m_AudioSource.isPlaying)
+            m_AudioSource.Play();
         transform.position = pos;
         m_ParticleSystem.Play();
     }
