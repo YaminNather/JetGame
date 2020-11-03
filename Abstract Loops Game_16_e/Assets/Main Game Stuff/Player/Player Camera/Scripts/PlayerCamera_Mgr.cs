@@ -36,7 +36,7 @@ public class PlayerCamera_Mgr : MonoBehaviour
     {
         //Debug.Log("Camera OnUnPossess happened");
         m_Player = null;
-        m_SpectatorCVC.transform.position = new Vector3(0.0f, 0.0f, MainGameReferences.INSTANCE.player.transform.position.z - 20f);
+        m_SpectatorCVC.transform.position = m_PlayerCVC.transform.position + new Vector3(0.0f, 0.0f, 10.0f);
         m_CinemachineBrainMgr.TransitionTo_F(m_SpectatorCVC);
         m_SpectatorCVC.m_Follow = m_SpectatorCVC.m_LookAt = m_PlayerCVC.m_Follow = m_PlayerCVC.m_LookAt = null;
     }
