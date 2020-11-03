@@ -54,6 +54,9 @@ public class GlobalData : MonoBehaviour
 
     private int m_GamesPlayedSinceLastInterstitialAd;
     public int GamesPlayedSinceLastInterstitialAd { get => m_GamesPlayedSinceLastInterstitialAd; set => m_GamesPlayedSinceLastInterstitialAd = value; }
+
+    public bool StoreTutorialDisplayed { get => m_SaveInfo.StoreTutorialDisplayed; set => m_SaveInfo.StoreTutorialDisplayed = value;}
+
     #endregion
 
     private void Awake()
@@ -88,6 +91,7 @@ public class GlobalData : MonoBehaviour
         LoopCur = -1;
         BackgroundMusicCur = 0;
         QualityLevel = 2;
+        StoreTutorialDisplayed = false;
 
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
@@ -196,6 +200,8 @@ public class SaveInfo
     public int LoopCur;
     public int BackgroundMusicCur;
     public int QualityLevel;
+
+    public bool StoreTutorialDisplayed;
     #endregion
 
     public SaveInfo()
@@ -208,5 +214,6 @@ public class SaveInfo
         LoopCur = -1;
         BackgroundMusicCur = 0;
         QualityLevel = 2;
+        StoreTutorialDisplayed = false;
     }
 }
