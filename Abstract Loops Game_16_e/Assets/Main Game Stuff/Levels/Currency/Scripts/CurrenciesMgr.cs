@@ -7,6 +7,8 @@ public class CurrenciesMgr : MonoBehaviour
     #region Variables
     private ParticleSystem m_ParticleSystem;
     private AudioSource m_AudioSource;
+    private float m_AudioLastPlayed;
+    private const float m_AudioSpacing = 0.5f;
     #endregion
 
     private void Awake()
@@ -17,8 +19,11 @@ public class CurrenciesMgr : MonoBehaviour
 
     public void OnCollect_F(Vector3 pos)
     {
-        if (!m_AudioSource.isPlaying)
+        if (Time.realtimeSinceStartup - m_AudioLastPlayed > m_AudioSpacing)
+        {
             m_AudioSource.Play();
+            m_AudioLastPlayed = Time.realtimeSinceStartup;
+        }
         transform.position = pos;
         m_ParticleSystem.Play();
     }
