@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Debug = UnityEngine.Debug;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using System.ComponentModel;
+using System.Diagnostics;
+#endif
 
 [Serializable]
-public class GlobalData : MonoBehaviour
+public partial class GlobalData : MonoBehaviour
 {
     #region Variables
     private string m_SaveDir;
@@ -183,6 +190,23 @@ public class GlobalData : MonoBehaviour
                 Screen.SetResolution((int) (m_ActualScreenResolution.x / 1.5f), (int) (m_ActualScreenResolution.y / 1.5f),
                     true);
                 break;
+        }
+    }
+}
+
+public partial class GlobalData
+{
+    [MenuItem("Custom/Open Save Folder")]
+    private static void OpenSaveDataFolder_F()
+    {
+        try
+        {
+            Process.Start(@"C:\Users\2001s\AppData\LocalLow\DefaultCompany\Abstract Loops Game0\Saves\");
+        }
+        catch (Win32Exception win32Exception)
+        {
+            //The system cannot find the file specified...
+            Console.WriteLine(win32Exception.Message);
         }
     }
 }

@@ -11,10 +11,16 @@ public class SettingsPageMgr : Page
     [SerializeField] private Slider m_MusicSlider;
     [SerializeField] private Slider m_SFXSlider;
     [SerializeField] private Button m_QualityLevelBtn;
+    [SerializeField] private TutorialMgr m_Tutorial;
 
     [Header("AudioMixer")]
     [SerializeField] private AudioMixer m_0AudioMixer;
     #endregion
+
+    private void Awake()
+    {
+        OnOpen_E += TutorialCheckAndDisplay_F;
+    }
 
     private void OnEnable()
     {
@@ -32,6 +38,18 @@ public class SettingsPageMgr : Page
     {
         m_MusicSlider.onValueChanged.AddListener(Music_SEF);
         m_SFXSlider.onValueChanged.AddListener(SFX_SEF);
+    }
+
+    public void TutorialCheckAndDisplay_F()
+    {
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+
+        if (!globalData.StoreTutorialDisplayed)
+        {
+            m_Tutorial.gameObject.SetActive(true);
+            globalData.StoreTutorialDisplayed = true;
+            globalData.Save_F();
+        }
     }
 
     private void QualityBarRefresh_F()

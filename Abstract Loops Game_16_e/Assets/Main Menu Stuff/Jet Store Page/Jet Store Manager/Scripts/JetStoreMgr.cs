@@ -17,7 +17,6 @@ public class JetStoreMgr : Page
     public Sprite JetNotOwnedSprite => m_JetNotOwnedSprite;
 
     [SerializeField] private TutorialMgr m_Tutorial;
-
     #endregion
 
     private void Awake()
@@ -36,6 +35,18 @@ public class JetStoreMgr : Page
         m_CurrencyValueLbl.text = "" + globalData.Currency;
     }
 
+    public void TutorialCheckAndDisplay_F()
+    {
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+
+        if (!globalData.StoreTutorialDisplayed)
+        {
+            m_Tutorial.gameObject.SetActive(true);
+            globalData.StoreTutorialDisplayed = true;
+            globalData.Save_F();
+        }
+    }
+    
     private void BuyBtnsSetup_F()
     {
         GameObject firstBtn = m_BuyBtnsHolderTrans.transform.GetChild(0).gameObject;
@@ -58,18 +69,6 @@ public class JetStoreMgr : Page
         foreach (JetBuyBtn btn in GetComponentsInChildren<JetBuyBtn>())
         {
             btn.Refresh_F();
-        }
-    }
-
-    public void TutorialCheckAndDisplay_F()
-    {
-        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
-
-        if (!globalData.StoreTutorialDisplayed)
-        {
-            m_Tutorial.gameObject.SetActive(true);
-            globalData.StoreTutorialDisplayed = true;
-            globalData.Save_F();
         }
     }
 
