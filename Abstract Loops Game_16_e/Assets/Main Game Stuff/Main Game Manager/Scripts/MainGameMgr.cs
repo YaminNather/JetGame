@@ -37,6 +37,7 @@ public class MainGameMgr : MonoBehaviour
 
     private AsyncOperationHandle<SceneInstance> mainMenuSceneLoadingAsyncOp;
 
+    [SerializeField] private TutorialMgr m_Tutorial;
     #endregion
 
     private void Awake()
@@ -52,15 +53,17 @@ public class MainGameMgr : MonoBehaviour
 
     private IEnumerator Start_IEF()
     {
-
         //Setting Screen to Black, so that we can fade in once everything is loaded.
         mgr.transitionMgr.ColorSet_F(Color.black);
 
-        //Set random Global Color.
-        GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
-
         //Waiting for all assets to load into their database. This part will be moved somewhere else later.
         while (m_globalMgr.AllLoaded == false) yield return null;
+
+        //Set random Global Color.
+        GlobalMgr.s_Instance.m_ColorMgr.SetRandomColor_F();
+        
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+        
 
         //Apply Current Quality Settings.
         m_globalMgr.m_GlobalData.CurrentQualityLevelApply_F();
@@ -96,6 +99,14 @@ public class MainGameMgr : MonoBehaviour
 
         //Fading in the scene.
         mgr.transitionMgr.TransitionDo_F(0.0f, 0.5f);
+        
+        if (!globalData.MainGameTutorialDisplayed)
+        {
+            yield return new WaitForSeconds(1.0f);
+            m_Tutorial.gameObject.SetActive(true);
+            globalData.MainGameTutorialDisplayed = true;
+            globalData.Save_F();
+        }
     }    
 
     /// <summary>

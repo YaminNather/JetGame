@@ -65,6 +65,8 @@ public partial class GlobalData : MonoBehaviour
     public bool HomePageTutorialDisplayed { get => m_SaveInfo.HomePageTutorialDisplayed; set => m_SaveInfo.HomePageTutorialDisplayed = value; }
     public bool StoreTutorialDisplayed { get => m_SaveInfo.StoreTutorialDisplayed; set => m_SaveInfo.StoreTutorialDisplayed = value; }
 
+    public bool MainGameTutorialDisplayed { get => m_SaveInfo.MainGameTutorialDisplayed; set => m_SaveInfo.MainGameTutorialDisplayed = value; }
+
     #endregion
 
     private void Awake()
@@ -101,6 +103,7 @@ public partial class GlobalData : MonoBehaviour
         QualityLevel = 2;
         HomePageTutorialDisplayed = false;
         StoreTutorialDisplayed = false;
+        MainGameTutorialDisplayed = false;
 
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
@@ -196,6 +199,7 @@ public partial class GlobalData : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 public partial class GlobalData
 {
     [MenuItem("Custom/Open Save Folder")]
@@ -212,6 +216,7 @@ public partial class GlobalData
         }
     }
 }
+#endif
 
 [Serializable]
 public class SaveInfo
@@ -229,6 +234,8 @@ public class SaveInfo
 
     public bool StoreTutorialDisplayed;
     public bool HomePageTutorialDisplayed;
+
+    public bool MainGameTutorialDisplayed;
     #endregion
 
     public SaveInfo()
@@ -243,5 +250,6 @@ public class SaveInfo
         QualityLevel = 2;
         StoreTutorialDisplayed = false;
         HomePageTutorialDisplayed = false;
+        MainGameTutorialDisplayed = false;
     }
 }
