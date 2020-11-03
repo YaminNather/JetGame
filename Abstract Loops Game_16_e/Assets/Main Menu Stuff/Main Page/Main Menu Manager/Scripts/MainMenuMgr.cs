@@ -36,6 +36,14 @@ public class MainMenuMgr : Page
     private void OnOpen_EF()
     {
         GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+
+        if (!globalData.HomePageTutorialDisplayed)
+        {
+            GetComponentInChildren<TutorialMgr>(true).gameObject.SetActive(true);
+            globalData.HomePageTutorialDisplayed = true;
+            globalData.Save_F();
+        }
+
         Debug.Log($"<color=#66FF00>Games Played since last interstitial Ad = {globalData.GamesPlayedSinceLastInterstitialAd}</color>");
         if (globalData.GamesPlayedSinceLastInterstitialAd > 3)
         {
@@ -54,6 +62,7 @@ public class MainMenuMgr : Page
             m_NewBestScoreLblGObj.gameObject.SetActive(true);
             m_NewBestScoreLblAnimT = m_NewBestScoreLblGObj.transform.DOScale(1.2f, 1f).SetEase(Ease.Flash, 2).SetLoops(-1);
         }
+
     }
 
     private void OnEnable()

@@ -16,12 +16,15 @@ public class JetStoreMgr : Page
     private Sprite m_JetNotOwnedSprite;
     public Sprite JetNotOwnedSprite => m_JetNotOwnedSprite;
 
+    [SerializeField] private TutorialMgr m_Tutorial;
     #endregion
 
     private void Awake()
     {
         m_MainMenuJetMgr = MainMenuSceneReferences.INSTANCE.mainMenuJetMgr;
         BuyBtnsSetup_F();
+
+        OnOpen_E += TutorialCheckAndDisplay_F;
     }
 
     private void OnEnable()
@@ -32,6 +35,18 @@ public class JetStoreMgr : Page
         m_CurrencyValueLbl.text = "" + globalData.Currency;
     }
 
+    public void TutorialCheckAndDisplay_F()
+    {
+        GlobalData globalData = GlobalMgr.s_Instance.m_GlobalData;
+
+        if (!globalData.StoreTutorialDisplayed)
+        {
+            m_Tutorial.gameObject.SetActive(true);
+            globalData.StoreTutorialDisplayed = true;
+            globalData.Save_F();
+        }
+    }
+    
     private void BuyBtnsSetup_F()
     {
         GameObject firstBtn = m_BuyBtnsHolderTrans.transform.GetChild(0).gameObject;

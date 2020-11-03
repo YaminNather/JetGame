@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Debug = UnityEngine.Debug;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using System.ComponentModel;
+using System.Diagnostics;
+#endif
 
 [Serializable]
-public class GlobalData : MonoBehaviour
+public partial class GlobalData : MonoBehaviour
 {
     #region Variables
     private string m_SaveDir;
@@ -54,6 +61,12 @@ public class GlobalData : MonoBehaviour
 
     private int m_GamesPlayedSinceLastInterstitialAd;
     public int GamesPlayedSinceLastInterstitialAd { get => m_GamesPlayedSinceLastInterstitialAd; set => m_GamesPlayedSinceLastInterstitialAd = value; }
+
+    public bool HomePageTutorialDisplayed { get => m_SaveInfo.HomePageTutorialDisplayed; set => m_SaveInfo.HomePageTutorialDisplayed = value; }
+    public bool StoreTutorialDisplayed { get => m_SaveInfo.StoreTutorialDisplayed; set => m_SaveInfo.StoreTutorialDisplayed = value; }
+
+    public bool MainGameTutorialDisplayed { get => m_SaveInfo.MainGameTutorialDisplayed; set => m_SaveInfo.MainGameTutorialDisplayed = value; }
+
     #endregion
 
     private void Awake()
@@ -88,6 +101,9 @@ public class GlobalData : MonoBehaviour
         LoopCur = -1;
         BackgroundMusicCur = 0;
         QualityLevel = 2;
+        HomePageTutorialDisplayed = false;
+        StoreTutorialDisplayed = false;
+        MainGameTutorialDisplayed = false;
 
         if (!Directory.Exists(m_SaveDir)) Directory.CreateDirectory(m_SaveDir);
         if (!File.Exists(SavePath))
@@ -183,6 +199,25 @@ public class GlobalData : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
+public partial class GlobalData
+{
+    [MenuItem("Custom/Open Save Folder")]
+    private static void OpenSaveDataFolder_F()
+    {
+        try
+        {
+            Process.Start(@"C:\Users\2001s\AppData\LocalLow\DefaultCompany\Abstract Loops Game0\Saves\");
+        }
+        catch (Win32Exception win32Exception)
+        {
+            //The system cannot find the file specified...
+            Console.WriteLine(win32Exception.Message);
+        }
+    }
+}
+#endif
+
 [Serializable]
 public class SaveInfo
 {
@@ -196,6 +231,11 @@ public class SaveInfo
     public int LoopCur;
     public int BackgroundMusicCur;
     public int QualityLevel;
+
+    public bool StoreTutorialDisplayed;
+    public bool HomePageTutorialDisplayed;
+
+    public bool MainGameTutorialDisplayed;
     #endregion
 
     public SaveInfo()
@@ -208,5 +248,8 @@ public class SaveInfo
         LoopCur = -1;
         BackgroundMusicCur = 0;
         QualityLevel = 2;
+        StoreTutorialDisplayed = false;
+        HomePageTutorialDisplayed = false;
+        MainGameTutorialDisplayed = false;
     }
 }
