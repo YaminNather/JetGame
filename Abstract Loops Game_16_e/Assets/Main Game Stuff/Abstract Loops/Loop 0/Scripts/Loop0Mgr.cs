@@ -10,13 +10,15 @@ public class Loop0Mgr : LoopMgrBase
 {
     #region Variables
     private Transform m_LoopPartsHolder;
-    private float m_Hue;    
+    private float m_Hue;
+    private int m_RotateDir;
     #endregion
 
     protected override void Awake()
     {
+        m_RotateDir = (Random.Range(0, 2) == 0) ? -1 : 1;
         base.Awake();
-        m_LoopPartsHolder = transform.GetChild(0);        
+        m_LoopPartsHolder = transform.GetChild(0);
     }
 
     public override void OnSpawn_F()
@@ -30,7 +32,7 @@ public class Loop0Mgr : LoopMgrBase
         //m_Hue += 0.1f * Time.deltaTime;
         //if (m_Hue >= 1f) m_Hue = 0f;
         //MainGameReferences.s_Instance.colorMgr.Hue0 = m_Hue;
-        m_LoopPartsHolder.Rotate(0f, 0f, 90f * Time.deltaTime);
+        m_LoopPartsHolder.Rotate(0f, 0f, 180f * m_RotateDir * Time.deltaTime);
     }
     
     protected override void Reset_F()
